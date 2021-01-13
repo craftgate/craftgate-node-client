@@ -5,7 +5,7 @@ import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequ
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
-import InitThreeDSPaymentRequest from '../request/InitThreeDsPaymentRequest';
+import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchPaymentTransactionRefundsRequest from '../request/SearchPaymentTransactionRefundsRequest';
