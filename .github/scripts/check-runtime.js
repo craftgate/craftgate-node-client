@@ -38,8 +38,8 @@ function isConstructor(fn) {
 }
 
 function testSearch(callback) {
-  craftgate.payment()
-    .searchPayments({minPrice: 100, maxPrice: 150})
+  craftgate.onboarding()
+    .searchMembers({isBuyer: false, isSubMerchant: true})
     .then(function (results) {
       callback(null, {success: true, totalSize: results.totalSize});
     })
@@ -52,16 +52,16 @@ function testSearch(callback) {
     });
 }
 
-assert(!!Craftgate, 'Craftgate must not be falsy');
+assert(!!Craftgate, 'Craftgate must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.Client must be a constructor');
 
-assert(!!Craftgate.Model, 'Craftgate.Model must not be falsy')
+assert(!!Craftgate.Model, 'Craftgate.Model must not be false')
 assert(Object.keys(Craftgate.Model).length > 0, 'Craftgate.Model must not be empty');
 
-assert(!!Craftgate.Adapter, 'Craftgate.Adapter must not be falsy')
+assert(!!Craftgate.Adapter, 'Craftgate.Adapter must not be false')
 assert(Object.keys(Craftgate.Adapter).length > 0, 'Craftgate.Adapter must not be empty');
 
-assert(!!Craftgate.CraftgateError, 'Craftgate.CraftgateError must not be falsy');
+assert(!!Craftgate.CraftgateError, 'Craftgate.CraftgateError must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.CraftgateError must be a constructor');
 
-assertAsync(testSearch, 'PaymentAdapter::searchPayments() should execute normally even if it cannot access the server');
+assertAsync(testSearch, 'OnboardingAdapter::searchMembers() should execute normally even if it cannot access the server');
