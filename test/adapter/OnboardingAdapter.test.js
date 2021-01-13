@@ -253,7 +253,7 @@ test('createBuyer() should create buyer member', async t => {
   t.is(result.settlementEarningsDestination, Craftgate.Model.SettlementEarningsDestination.Iban);
 });
 
-test('updateUpdate() should update buyer member', async t => {
+test('updateBuyer() should update buyer member', async t => {
   const request = {
     isBuyer: true,
     isSubMerchant: false,
@@ -294,7 +294,7 @@ test('updateUpdate() should update buyer member', async t => {
   };
 
   nock('http://localhost:8000')
-    .put('/onboarding/v1/members/42', request)
+    .put('/onboarding/v1/members/43', request)
     .reply(200, {data: response});
 
   const result = await onboardingAdapter.updateMember(response.id, request);

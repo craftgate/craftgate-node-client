@@ -171,7 +171,6 @@ For all adapters in the `CraftgateClient`, their purposes, accessors, as well as
 | `InstallmentAdapter` | Retrieving per-installment pricing information based on installment count or BIN number | `installment()` | `@craftgate/craftgate/adapters/InstallmentAdapter` |
 | `OnboardingAdapter` | Conducting CRUD operations on buyers and sub merchants | `onboarding()` | `@craftgate/craftgate/adapters/OnboardingAdapter` |
 | `PaymentAdapter` | Conducting payments, retrieving payment information, managing stored cards | `payment()` | `@craftgate/craftgate/adapters/PaymentAdapter` |
-| `SettlementReportingAdapter` | Retrieving information on settlements | `settlementReporting()` | `@craftgate/craftgate/adapters/SettlementReportingAdapter` |
 
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md)

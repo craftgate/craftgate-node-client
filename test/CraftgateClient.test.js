@@ -43,17 +43,3 @@ test('payment() should return the payment adapter', t => {
   t.truthy(paymentAdapter);
   t.true(paymentAdapter instanceof Craftgate.Adapter.PaymentAdapter);
 });
-
-test('settlementReporting() should return the settlement reporting adapter', t => {
-  const options = {
-    apiKey: 'api-key',
-    secretKey: 'secret-key',
-    baseUrl: 'http://localhost:8000'
-  };
-
-  const craftgate = new Craftgate.Client(options);
-  const settlementReportingAdapter = craftgate.settlementReporting();
-
-  t.truthy(settlementReportingAdapter);
-  t.true(settlementReportingAdapter instanceof Craftgate.Adapter.SettlementReportingAdapter);
-});
