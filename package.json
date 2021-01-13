@@ -1,0 +1,41 @@
+{
+  "name": "@craftgate/craftgate",
+  "version": "0.0.1",
+  "description": "Craftgate API JavaScript Client",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist/ coverage/ .nyc_output",
+    "coverage": "nyc --produce-source-map --eager --cache false --reporter=html --reporter=text npm test",
+    "coverage:ci": "nyc --eager --cache false --reporter=text-lcov npm test",
+    "test": "ava test/**/*.test.js test/*.test.js",
+    "test:full": "npm run build && npm run test",
+    "lint:check": "eslint src/",
+    "lint:fix": "eslint --fix src/",
+    "ts-node": "ts-node",
+    "build": "npm run clean && node node_modules/.bin/tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "14.14.6",
+    "@typescript-eslint/eslint-plugin": "4.8.0",
+    "@typescript-eslint/parser": "4.8.0",
+    "ava": "3.13.0",
+    "axios-mock-adapter": "1.19.0",
+    "eslint": "7.13.0",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-import-resolver-typescript": "2.3.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "nock": "13.0.4",
+    "nyc": "15.1.0",
+    "prettier": "2.1.2",
+    "rimraf": "3.0.2",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.5"
+  },
+  "dependencies": {
+    "axios": "0.21.0",
+    "crypto-js": "4.0.0"
+  }
+}
