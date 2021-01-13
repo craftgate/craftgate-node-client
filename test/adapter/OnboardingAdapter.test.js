@@ -300,8 +300,8 @@ test('updateBuyer() should update buyer member', async t => {
   const result = await onboardingAdapter.updateMember(response.id, request);
   t.is(result.id, 43);
   t.is(result.status, Craftgate.Model.Status.Active);
-  t.is(result.isBuyer, false);
-  t.is(result.isSubMerchant, true);
+  t.is(result.isBuyer, true);
+  t.is(result.isSubMerchant, false);
   t.is(result.memberType, Craftgate.Model.MemberType.Personal);
   t.is(result.memberExternalId, 'wormie');
   t.is(result.name, 'Luke Skywalker');

@@ -71,8 +71,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/refunds/${refundId}`);
   }
 
-  async storeCard(request: StoreCardRequest): Promise<void> {
-    await this._client.post('/payment/v1/cards', request);
+  async storeCard(request: StoreCardRequest): Promise<StoredCardResponse> {
+    return this._client.post('/payment/v1/cards', request);
   }
 
   async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
