@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:import/warnings",
+    "plugin:import/errors"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "ignorePatterns": [
+    "samples/**/*",
+    "test/**/*"
+  ],
+  "rules": {
+    "no-unused-vars": ["warn", {"args": "after-used", "varsIgnorePattern": "^_.*"}],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "import/named": "error",
+    "import/default": "error",
+    "import/no-absolute-path": "error",
+    "import/no-duplicates": "error",
+    "import/no-unused-modules": "error",
+    "import/no-useless-path-segments": "error",
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "object"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{./,../,../../,../../../,../../../../../,../../../../../,../../../../../../}request/**",
+            "group": "parent",
+            "position": "after",
+            "patternOptions": {"matchBase": true}
+          },
+          {
+            "pattern": "{./,../,../../,../../../,../../../../../,../../../../../,../../../../../../}response/**",
+            "group": "sibling",
+            "position": "before",
+            "patternOptions": {"matchBase": true}
+          }
+        ]
+      }
+    ]
+  }
+}
