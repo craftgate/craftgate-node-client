@@ -163,6 +163,45 @@ test('should pay', async t => {
 
 });
 
+test('should create deposit payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/deposits')
+    .reply(200, {
+      data: {
+        id: 1,
+        createdDate: '2020-09-11T10:00:00',
+        price: 100.0,
+        buyerMemberId: 1,
+        currency: 'TRY',
+        conversationId: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
+        paymentStatus: 'SUCCESS',
+        paymentType: 'DEPOSIT_PAYMENT'
+      },
+    })
+
+  const request = {
+    price: 100.0,
+    conversationId: 'foo-bar',
+    currency: 'TRY',
+    card: {
+      cardHolderName: 'Ahmet Mehmet',
+      cardNumber: '5406670000000009',
+      expireYear: '2044',
+      expireMonth: '11',
+      cvc: '123'
+    }
+  };
+
+  const result = await paymentAdapter.createDepositPayment(request)
+  t.is(result.id, 1)
+  t.is(result.price, 100)
+  t.is(result.buyerMemberId, 1)
+  t.is(result.currency, 'TRY')
+  t.is(result.conversationId, 'd1811bb0-25a2-40c7-ba71-c8b605259611')
+  t.is(result.paymentStatus, Craftgate.Model.PaymentStatus.Success)
+  t.is(result.paymentType, Craftgate.Model.PaymentType.DepositPayment)
+});
+
 test('should retrieve payment', async t => {
   const scope = nock('http://localhost:8000')
     .get('/payment/v1/card-payments/1')
@@ -399,7 +438,7 @@ test('should init 3ds payment', async t => {
   t.is(result.htmlContent, 'PGh0bWw+M2RzZWN1cmUgaHRtbDwvaHRtbD4=')
 });
 
-test('should complete three ds', async t => {
+test('should complete 3ds payment', async t => {
   const scope = nock('http://localhost:8000')
     .post('/payment/v1/card-payments/3ds-complete')
     .reply(200, {
@@ -523,6 +562,63 @@ test('should complete three ds', async t => {
   t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
   t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
   t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
+});
+
+test('should init 3ds deposit payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/deposits/3ds-init')
+    .reply(200, {
+      data: {
+        htmlContent: 'PGh0bWw+M2RzZWN1cmUgaHRtbDwvaHRtbD4='
+      }
+    });
+
+  const request = {
+    price: 100.0,
+    conversationId: 'foo-bar',
+    currency: 'TRY',
+    callbackUrl: 'https://callbackUrl',
+    card: {
+      cardHolderName: 'Ahmet Mehmet',
+      cardNumber: '5406670000000009',
+      expireYear: '2044',
+      expireMonth: '11',
+      cvc: '123'
+    }
+  };
+
+  const result = await paymentAdapter.init3DSDepositPayment(request)
+  t.is(result.htmlContent, 'PGh0bWw+M2RzZWN1cmUgaHRtbDwvaHRtbD4=')
+});
+
+test('should complete 3ds deposit payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/deposits/3ds-complete')
+    .reply(200, {
+      data: {
+        id: 1,
+        createdDate: '2020-09-11T10:00:00',
+        price: 100.0,
+        buyerMemberId: 1,
+        currency: 'TRY',
+        conversationId: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
+        paymentStatus: 'SUCCESS',
+        paymentType: 'DEPOSIT_PAYMENT'
+      },
+    })
+
+  const request = {
+    paymentId: 1
+  };
+
+  const result = await paymentAdapter.complete3DSDepositPayment(request)
+  t.is(result.id, 1)
+  t.is(result.price, 100)
+  t.is(result.buyerMemberId, 1)
+  t.is(result.currency, 'TRY')
+  t.is(result.conversationId, 'd1811bb0-25a2-40c7-ba71-c8b605259611')
+  t.is(result.paymentStatus, 'SUCCESS')
+  t.is(result.paymentType, 'DEPOSIT_PAYMENT')
 });
 
 test('should refund payment transaction', async t => {
@@ -679,6 +775,40 @@ test('should refund payment', async t => {
   t.is(result.items[0].refundBankPrice, 20)
   t.is(result.items[0].refundWalletPrice, 0)
   t.is(result.items[0].paymentTransactionId, 1)
+  t.is(result.items[0].paymentId, 1)
+  t.is(result.items[0].refundType, 'REFUND')
+});
+
+test('should refund deposit payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/deposits/1/refunds')
+    .reply(200, {
+      data: {
+        items: [
+          {
+            id: 1,
+            paymentId: 1,
+            currency: 'TRY',
+            status: 'SUCCESS',
+            conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
+            refundType: 'REFUND',
+            refundPrice: 20,
+            createdDate: '2044-07-07T00:00:00'
+          }
+        ]
+      }
+    })
+
+  const request = {
+    paymentId: 1
+  }
+
+  const result = await paymentAdapter.refundDepositPayment(request)
+  t.is(result.items[0].id, 1)
+  t.is(result.items[0].conversationId, '9d43edb0-f141-4f14-8e99-57126f941fde')
+  t.is(result.items[0].status, 'SUCCESS')
+  t.is(result.items[0].currency, 'TRY')
+  t.is(result.items[0].refundPrice, 20)
   t.is(result.items[0].paymentId, 1)
   t.is(result.items[0].refundType, 'REFUND')
 });
