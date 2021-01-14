@@ -32,7 +32,7 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async retrievePayment(id: number): Promise<PaymentResponse> {
-    return this._client.get(`/payment-reporting/v1/payments/${id}`);
+    return this._client.get(`/payment/v1/card-payments/${id}`);
   }
 
   async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {

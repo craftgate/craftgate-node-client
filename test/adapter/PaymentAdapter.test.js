@@ -165,7 +165,7 @@ test('should pay', async t => {
 
 test('should retrieve payment', async t => {
   const scope = nock('http://localhost:8000')
-    .get('/payment-reporting/v1/payments/1')
+    .get('/payment/v1/card-payments/1')
     .reply(200, {
       data: {
         id: 1,

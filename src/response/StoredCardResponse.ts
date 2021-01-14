@@ -4,8 +4,6 @@ import CardType from '../model/CardType';
 type StoredCardResponse = {
   binNumber: string;
   lastFourDigits: string;
-  expireYear: string;
-  expireMonth: string;
   cardHolderName: string;
   cardUserKey: string;
   cardToken: string;

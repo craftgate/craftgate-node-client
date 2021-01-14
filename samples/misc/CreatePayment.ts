@@ -28,21 +28,15 @@ const request: CreatePaymentRequest = {
   items: [
     {
       name: 'Item 1',
-      price: 30.0,
-      subMerchantMemberId: 1,
-      subMerchantMemberPrice: 27.0
+      price: 30.0
     },
     {
       name: 'Item 2',
-      price: 50.0,
-      subMerchantMemberId: 1,
-      subMerchantMemberPrice: 42.0
+      price: 50.0
     },
     {
       name: 'Item 3',
-      price: 20.0,
-      subMerchantMemberId: 1,
-      subMerchantMemberPrice: 18.0
+      price: 20.0
     }
   ]
 };
