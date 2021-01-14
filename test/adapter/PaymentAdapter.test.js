@@ -803,7 +803,7 @@ test('should refund deposit payment', async t => {
     paymentId: 1
   }
 
-  const result = await paymentAdapter.refundDepositPayment(request)
+  const result = await paymentAdapter.refundDepositPayment(1, request)
   t.is(result.items[0].id, 1)
   t.is(result.items[0].conversationId, '9d43edb0-f141-4f14-8e99-57126f941fde')
   t.is(result.items[0].status, 'SUCCESS')
