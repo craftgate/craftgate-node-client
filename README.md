@@ -11,7 +11,7 @@ $ npm install @craftgate/craftgate
 ```
 
 ## Usage
-To access the Craftgate API you'll first need to obtain API credentials (e.g. an API key and a secret key). If you don't already have a Craftgate account, you can signup at [https://craftgate.com.tr/](https://craftgate.com.tr)
+To access the Craftgate API you'll first need to obtain API credentials (e.g. an API key and a secret key). If you don't already have a Craftgate account, you can signup at [https://craftgate.io/](https://craftgate.io)
 
 Once you've obtained your API credentials, you can start using Craftgate by instantiating a `CraftgateClient` with your credentials.
 
@@ -26,7 +26,7 @@ const craftgate = new Craftgate.Client({
 ...
 ```
 
-By default the Craftgate client connects to the production API servers at `https://api-gateway.craftgate.com.tr`. For testing purposes, please use the sandbox URL `https://sandbox-api-gateway.craftgate.com.tr` using the .
+By default the Craftgate client connects to the production API servers at `https://api.craftgate.io`. For testing purposes, please use the sandbox URL `https://sandbox-api.craftgate.io` using the .
 
 ```js
 const Craftgate = require('@craftgate/craftgate');
@@ -34,7 +34,7 @@ const Craftgate = require('@craftgate/craftgate');
 const craftgate = new Craftgate.Client({
   apiKey: '<YOUR API KEY>',
   secretKey: '<YOUR SECRET KEY>',
-  baseUrl: 'https://sandbox-api-gateway.craftgate.com.tr'
+  baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
 ...
@@ -51,7 +51,7 @@ const Craftgate = require('@craftgate/craftgate');
 const craftgate = new Craftgate.Client({...});
 craftgate.payment().createPayment({
   ...,
-  currency: Craftgate.Model.Currency.EUR,
+  currency: Craftgate.Model.Currency.TRY,
   ...
 })
 ...
@@ -66,7 +66,7 @@ import Currency from '@craftgate/craftgate/model/Currency';
 const craftgate = new CraftgateClient({...});
 craftgate.payment().createPayment({
   ...,
-  currency: Currency.EUR,
+  currency: Currency.TRY,
   ...
 })
 ...

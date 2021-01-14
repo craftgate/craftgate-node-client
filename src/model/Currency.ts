@@ -1,7 +1,5 @@
 enum Currency {
-  TRY = 'TRY',
-  EUR = 'EUR',
-  USD = 'USD'
+  TRY = 'TRY'
 }
 
 export default Currency;
