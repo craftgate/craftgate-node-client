@@ -13,6 +13,9 @@ import Status from './Status';
 import MemberType from './MemberType';
 import TransactionStatus from './TransactionStatus';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
+import RemittanceReasonType from './RemittanceReasonType';
+import RemittanceType from './RemittanceType';
+import WalletTransactionType from './WalletTransactionType';
 
 export = {
   ApprovalStatus,
@@ -29,5 +32,8 @@ export = {
   Status,
   MemberType,
   TransactionStatus,
-  SettlementEarningsDestination
+  SettlementEarningsDestination,
+  RemittanceReasonType,
+  RemittanceType,
+  WalletTransactionType
 };

@@ -12,6 +12,8 @@ import SearchPaymentTransactionRefundsRequest from '../request/SearchPaymentTran
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from "../request/StoreCardRequest";
 import RefundDepositPaymentRequest from "../request/RefundDepositPaymentRequest";
+import CreateDepositPaymentRequest from "../request/CreateDepositPaymentRequest";
+
 import DataResponse from '../response/DataResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
@@ -24,7 +26,6 @@ import DepositPaymentResponse from "../response/DepositPaymentResponse";
 import DepositPaymentRefundResponse from "../response/DepositPaymentRefundResponse";
 
 import BaseAdapter from './BaseAdapter';
-import CreateDepositPaymentRequest from "../request/CreateDepositPaymentRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
