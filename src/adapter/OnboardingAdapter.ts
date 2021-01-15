@@ -1,7 +1,9 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
+
 import CreateMemberRequest from '../request/CreateMemberRequest';
 import SearchMembersRequest from '../request/SearchMembersRequest';
 import UpdateMemberRequest from '../request/UpdateMemberRequest';
+
 import DataResponse from '../response/DataResponse';
 import MemberResponse from '../response/MemberResponse';
 
