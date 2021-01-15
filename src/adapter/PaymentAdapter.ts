@@ -10,6 +10,8 @@ import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchPaymentTransactionRefundsRequest from '../request/SearchPaymentTransactionRefundsRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
+import StoreCardRequest from "../request/StoreCardRequest";
+import RefundDepositPaymentRequest from "../request/RefundDepositPaymentRequest";
 import DataResponse from '../response/DataResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
@@ -18,9 +20,11 @@ import PaymentTransactionApprovalListResponse from '../response/PaymentTransacti
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import DepositPaymentResponse from "../response/DepositPaymentResponse";
+import DepositPaymentRefundResponse from "../response/DepositPaymentRefundResponse";
 
 import BaseAdapter from './BaseAdapter';
-import StoreCardRequest from "../request/StoreCardRequest";
+import CreateDepositPaymentRequest from "../request/CreateDepositPaymentRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -35,20 +39,28 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/card-payments/${id}`);
   }
 
-  async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/approve', request);
-  }
-
-  async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/disapprove', request);
-  }
-
   async init3DSPayment(request: InitThreeDSPaymentRequest): Promise<InitThreeDSPaymentResponse> {
     return this._client.post('/payment/v1/card-payments/3ds-init', request);
   }
 
   async complete3DSPayment(request: CompleteThreeDSPaymentRequest): Promise<PaymentResponse> {
     return this._client.post('/payment/v1/card-payments/3ds-complete', request);
+  }
+
+  async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
+    return this._client.post('/payment/v1/deposits', request);
+  }
+
+  async refundDepositPayment(paymentId: number, request: RefundDepositPaymentRequest): Promise<DepositPaymentRefundResponse> {
+    return this._client.post(`/payment/v1/deposits/${paymentId}/refunds`, request);
+  }
+
+  async init3DSDepositPayment(request: CreateDepositPaymentRequest): Promise<InitThreeDSPaymentResponse> {
+    return this._client.post('/payment/v1/deposits/3ds-init', request);
+  }
+
+  async complete3DSDepositPayment(request: CompleteThreeDSPaymentRequest): Promise<DepositPaymentResponse> {
+    return this._client.post('/payment/v1/deposits/3ds-complete', request);
   }
 
   async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {
@@ -75,11 +87,19 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/cards', request);
   }
 
+  async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
+    return this._client.get('/payment/v1/cards', request);
+  }
+
   async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
     await this._client.delete('/payment/v1/cards', request);
   }
 
-  async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
-    return this._client.get('/payment/v1/cards', request);
+  async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
+    return this._client.post('/payment/v1/payment-transactions/approve', request);
+  }
+
+  async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
+    return this._client.post('/payment/v1/payment-transactions/disapprove', request);
   }
 }

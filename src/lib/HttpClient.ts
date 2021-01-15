@@ -2,7 +2,7 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {serializeParams, getAbsoluteUrl, generateRandomString, calculateSignature} from './utils';
+import {calculateSignature, generateRandomString, getAbsoluteUrl, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;

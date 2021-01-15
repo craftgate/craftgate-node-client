@@ -11,32 +11,32 @@ const installmentAdapter = new Craftgate.Adapter.InstallmentAdapter({
 
 test('should retrieve installments', async t => {
   const scope = nock('http://localhost:8000')
-  .get('/installment/v1/installments?binNumber=123456&price=40.808&currency=TRY')
-  .reply(200, {
-    data: {
-      binNumber: '123456',
-      price: 40.8080,
-      cardType: 'CREDIT_CARD',
-      cardAssociation: 'MASTER_CARD',
-      cardBrand: 'Axess',
-      bankName: 'Akbank',
-      bankCode: 46,
-      force3ds: true,
-      commercial: true,
-      installmentPrices: [
-        {
-          installmentPrice: 40.8080,
-          totalPrice: 40.8080,
-          installmentNumber: 1
-        },
-        {
-          installmentPrice: 22.20,
-          totalPrice: 44.40,
-          installmentNumber: 2
-        }
-      ]
-    }
-  });
+    .get('/installment/v1/installments?binNumber=123456&price=40.808&currency=TRY')
+    .reply(200, {
+      data: {
+        binNumber: '123456',
+        price: 40.8080,
+        cardType: 'CREDIT_CARD',
+        cardAssociation: 'MASTER_CARD',
+        cardBrand: 'Axess',
+        bankName: 'Akbank',
+        bankCode: 46,
+        force3ds: true,
+        commercial: true,
+        installmentPrices: [
+          {
+            installmentPrice: 40.8080,
+            totalPrice: 40.8080,
+            installmentNumber: 1
+          },
+          {
+            installmentPrice: 22.20,
+            totalPrice: 44.40,
+            installmentNumber: 2
+          }
+        ]
+      }
+    });
 
   const request = {
     binNumber: 123456,
@@ -60,18 +60,18 @@ test('should retrieve installments', async t => {
 
 test('should retrieve bin number', async t => {
   const scope = nock('http://localhost:8000')
-  .get('/installment/v1/bins/123456')
-  .reply(200, {
-    data: {
-      binNumber: '123456',
-      cardType: 'CREDIT_CARD',
-      cardAssociation: 'MASTER_CARD',
-      cardBrand: 'Axess',
-      bankName: 'Akbank',
-      bankCode: 46,
-      commercial: true
-    }
-  });
+    .get('/installment/v1/bins/123456')
+    .reply(200, {
+      data: {
+        binNumber: '123456',
+        cardType: 'CREDIT_CARD',
+        cardAssociation: 'MASTER_CARD',
+        cardBrand: 'Axess',
+        bankName: 'Akbank',
+        bankCode: 46,
+        commercial: true
+      }
+    });
 
   const result = await installmentAdapter.retrieveBinNumber('123456')
   t.is(result.binNumber, '123456')
