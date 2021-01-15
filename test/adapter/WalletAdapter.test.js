@@ -47,7 +47,7 @@ test('searchWallets() should search wallets', async t => {
   t.is(size, 25);
   t.is(totalSize, 1);
   t.is(items.length, 1);
-  t.is(items[0].id, 42);
+  t.is(items[0].id, 1);
   t.is(items[0].amount, 10);
   t.is(items[0].currency, Craftgate.Model.Currency.TRY);
   t.is(items[0].memberId, 1);
