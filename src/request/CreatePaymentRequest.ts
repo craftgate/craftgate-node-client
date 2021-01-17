@@ -13,11 +13,11 @@ type CreatePaymentRequest = {
   installment: Installment;
   buyerMemberId?: number;
   currency: Currency;
-  paymentGroup: PaymentGroup;
-  paymentPhase: PaymentPhase;
-  conversationId: string;
+  paymentGroup?: PaymentGroup;
+  paymentPhase?: PaymentPhase;
+  conversationId?: string;
   card?: Card;
-  posAlias: string;
+  posAlias?: string;
   items: PaymentItem[];
 };
 

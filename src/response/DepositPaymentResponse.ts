@@ -7,7 +7,7 @@ type DepositPaymentResponse = {
   createdDate: Date;
   price: number;
   currency: Currency;
-  buyerMemberId?: number;
+  buyerMemberId: number;
   conversationId: string;
   paymentType: PaymentType;
   paymentStatus: PaymentStatus;

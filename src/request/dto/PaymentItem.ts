@@ -1,5 +1,5 @@
 type PaymentItem = {
-  name: string;
+  name?: string;
   price: number;
   externalId?: string;
   subMerchantMemberId?: number;

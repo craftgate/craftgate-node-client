@@ -17,8 +17,8 @@ type PaymentResponse = {
   paidPrice: number;
   walletPrice: number;
   currency: Currency;
-  buyerMemberId?: number;
-  installment?: Installment;
+  buyerMemberId: number;
+  installment: Installment;
   conversationId: string;
   paymentType: PaymentType;
   paymentGroup: PaymentGroup;
@@ -30,8 +30,8 @@ type PaymentResponse = {
   cardUserKey: string;
   cardToken: string;
   paidWithStoredCard: boolean;
-  binNumber?: string;
-  lastFourDigits?: string;
+  binNumber: string;
+  lastFourDigits: string;
   cardType: CardType;
   cardAssociation: CardAssociation;
   cardBrand: string;

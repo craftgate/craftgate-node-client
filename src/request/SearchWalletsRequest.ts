@@ -1,5 +1,5 @@
 type SearchWalletsRequest = {
-  memberId?: number;
+  memberId: number;
   page?: number;
   size?: number;
 };

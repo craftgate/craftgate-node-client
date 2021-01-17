@@ -4,11 +4,11 @@ import {Card} from './dto/Card';
 
 type CreateDepositPaymentRequest = {
   price: number;
-  buyerMemberId?: number;
+  buyerMemberId: number;
   currency: Currency;
-  conversationId: string;
+  conversationId?: string;
   callbackUrl?: string;
-  posAlias: string;
+  posAlias?: string;
   card?: Card;
 };
 
