@@ -11,7 +11,7 @@ $ npm install @craftgate/craftgate
 ```
 
 ## Usage
-To access the Craftgate API you'll first need to obtain API credentials (e.g. an API key and a secret key). If you don't already have a Craftgate account, you can signup at [https://craftgate.io/](https://craftgate.io)
+To access the Craftgate API you'll first need to obtain API credentials (e.g. an API key and a secret key). If you don't already have a Craftgate account, you can signup at [https://craftgate.io](https://craftgate.io)
 
 Once you've obtained your API credentials, you can start using Craftgate by instantiating a `CraftgateClient` with your credentials.
 
@@ -110,7 +110,7 @@ var Craftgate = require('../dist');
 var craftgate = new Craftgate.Client({
   apiKey: 'api-key',
   secretKey: 'secret-key',
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
 var request = {
@@ -118,34 +118,28 @@ var request = {
   paidPrice: 100.0,
   walletPrice: 0.0,
   installment: 1,
-  conversationId: 'foo-bar',
+  conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   currency: Craftgate.Model.Currency.TRY,
-  paymentGroup: Craftgate.Model.PaymentGroup.Product,
+  paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
   card: {
-    cardHolderName: 'Ahmet Mehmet',
-    cardNumber: '5406670000000009',
+    cardHolderName: 'Haluk Demir',
+    cardNumber: '5258640000000001',
     expireYear: '2044',
-    expireMonth: '11',
-    cvc: '123'
+    expireMonth: '07',
+    cvc: '000'
   },
   items: [
     {
       name: 'Item 1',
-      price: 30.0,
-      subMerchantId: 1,
-      subMerchantPrice: 27.0
+      price: 30.0
     },
     {
       name: 'Item 2',
-      price: 50.0,
-      subMerchantId: 1,
-      subMerchantPrice: 42.0
+      price: 50.0
     },
     {
-      name: 'Sanitizer',
-      price: 20.0,
-      subMerchantId: 1,
-      subMerchantPrice: 18.0
+      name: 'Item 3',
+      price: 20.0
     }
   ]
 };
@@ -171,6 +165,7 @@ For all adapters in the `CraftgateClient`, their purposes, accessors, as well as
 | `InstallmentAdapter` | Retrieving per-installment pricing information based on installment count or BIN number | `installment()` | `@craftgate/craftgate/adapters/InstallmentAdapter` |
 | `OnboardingAdapter` | Conducting CRUD operations on buyers and sub merchants | `onboarding()` | `@craftgate/craftgate/adapters/OnboardingAdapter` |
 | `PaymentAdapter` | Conducting payments, retrieving payment information, managing stored cards | `payment()` | `@craftgate/craftgate/adapters/PaymentAdapter` |
+| `WalletAdapter` | Managing remittance, retrieving wallet transactions  | `wallet()` | `@craftgate/craftgate/adapters/WalletAdapter` |
 
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md)

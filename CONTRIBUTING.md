@@ -1,3 +1,4 @@
+
 # Contributing to Craftgate Node Client
 As an open-source project, anyone can contribute to the development of `@craftgate/craftgate`. If you decide to do so, please be aware of the guidelines outlined below.
 
