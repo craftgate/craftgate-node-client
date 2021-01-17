@@ -6,18 +6,18 @@ type CreateMemberRequest = {
   isSubMerchant: boolean;
   memberType: MemberType;
   memberExternalId: string;
-  name: string;
+  name?: string;
   address: string;
   email: string;
-  iban: string;
+  iban?: string;
   phoneNumber: string;
-  taxOffice: string;
-  taxNumber: string;
-  contactName: string;
-  contactSurname: string;
-  identityNumber: string;
-  legalCompanyTitle: string;
-  settlementEarningsDestination: SettlementEarningsDestination;
+  taxOffice?: string;
+  taxNumber?: string;
+  contactName?: string;
+  contactSurname?: string;
+  identityNumber?: string;
+  legalCompanyTitle?: string;
+  settlementEarningsDestination?: SettlementEarningsDestination;
 };
 
 export default CreateMemberRequest;

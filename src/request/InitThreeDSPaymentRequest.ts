@@ -13,12 +13,12 @@ type InitThreeDSPaymentRequest = {
   installment: Installment;
   buyerMemberId?: number;
   currency: Currency;
-  paymentGroup: PaymentGroup;
-  paymentPhase: PaymentPhase;
-  conversationId: string;
+  paymentGroup?: PaymentGroup;
+  paymentPhase?: PaymentPhase;
+  conversationId?: string;
   card?: Card;
-  posAlias: string;
-  callbackUrl?: string;
+  posAlias?: string;
+  callbackUrl: string;
   items: PaymentItem[];
 };
 

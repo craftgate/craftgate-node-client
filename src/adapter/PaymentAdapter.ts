@@ -68,8 +68,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/refund-transactions', request);
   }
 
-  async retrievePaymentTransactionRefund(refundTxId: number): Promise<PaymentTransactionRefundResponse> {
-    return this._client.get(`/payment/v1/refund-transactions/${refundTxId}`);
+  async retrievePaymentTransactionRefund(paymentTransactionRefundId: number): Promise<PaymentTransactionRefundResponse> {
+    return this._client.get(`/payment/v1/refund-transactions/${paymentTransactionRefundId}`);
   }
 
   async searchPaymentTransactionRefunds(request: SearchPaymentTransactionRefundsRequest): Promise<PaymentTransactionRefundListResponse> {

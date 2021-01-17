@@ -1,6 +1,6 @@
 type DeleteStoredCardRequest = {
-  cardUserKey: string;
-  cardToken: string;
+  cardUserKey?: string;
+  cardToken?: string;
 };
 
 export default DeleteStoredCardRequest;

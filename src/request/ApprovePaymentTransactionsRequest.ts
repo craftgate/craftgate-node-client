@@ -1,6 +1,6 @@
 type ApprovePaymentTransactionsRequest = {
   paymentTransactionIds: number[];
-  isTransactional: boolean;
+  isTransactional?: boolean;
 };
 
 export default ApprovePaymentTransactionsRequest;

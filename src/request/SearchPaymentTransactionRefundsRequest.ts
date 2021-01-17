@@ -1,7 +1,7 @@
 type SearchPaymentTransactionRefundsRequest = {
-  paymentId: number;
-  conversationId: string;
-  paymentTransactionId: number;
+  paymentId?: number;
+  conversationId?: string;
+  paymentTransactionId?: number;
 };
 
 export default SearchPaymentTransactionRefundsRequest;

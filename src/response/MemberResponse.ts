@@ -4,6 +4,8 @@ import SettlementEarningsDestination from "../model/SettlementEarningsDestinatio
 
 type MemberResponse = {
   id: number;
+  createdDate: Date;
+  updatedDate: Date;
   status: Status;
   isBuyer: boolean;
   isSubMerchant: boolean;
