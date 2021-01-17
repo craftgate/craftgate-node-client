@@ -24,15 +24,18 @@ const request = {
   items: [
     {
       name: 'Item 1',
-      price: 30.0
+      price: 30.0,
+      externalId: '123d1297-839e-4bd6-a13b-4be31a6e12a8'
     },
     {
       name: 'Item 2',
-      price: 50.0
+      price: 50.0,
+      externalId: '789d1297-839e-4bd6-a13b-4be31a6e13f7'
     },
     {
       name: 'Item 3',
-      price: 20.0
+      price: 20.0,
+      externalId: '3a1d1297-839e-4bd6-a13b-4be31a6e18e6'
     }
   ]
 };

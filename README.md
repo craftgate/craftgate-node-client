@@ -49,6 +49,7 @@ Keep in mind that when using direct imports, you'll have to import necessary mod
 const Craftgate = require('@craftgate/craftgate');
 
 const craftgate = new Craftgate.Client({...});
+
 craftgate.payment().createPayment({
   ...,
   currency: Craftgate.Model.Currency.TRY,
@@ -64,6 +65,7 @@ import CraftgateClient from '@craftgate/craftgate/CraftgateClient';
 import Currency from '@craftgate/craftgate/model/Currency';
 
 const craftgate = new CraftgateClient({...});
+
 craftgate.payment().createPayment({
   ...,
   currency: Currency.TRY,
@@ -131,7 +133,8 @@ var request = {
   items: [
     {
       name: 'Item 1',
-      price: 30.0
+      price: 30.0,
+      externalId: '123d1297-839e-4bd6-a13b-4be31a6e12a8'
     },
     {
       name: 'Item 2',
@@ -139,7 +142,8 @@ var request = {
     },
     {
       name: 'Item 3',
-      price: 20.0
+      price: 20.0,
+      externalId: '3a1d1297-839e-4bd6-a13b-4be31a6e18e6'
     }
   ]
 };
