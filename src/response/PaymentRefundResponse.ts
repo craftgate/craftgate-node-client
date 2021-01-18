@@ -17,7 +17,7 @@ type PaymentRefundResponse = {
   refundDestinationType: RefundDestinationType;
   currency: Currency;
   paymentId: number;
-  paymentTxRefunds: PaymentTransactionRefundResponse[];
+  paymentTransactionRefunds: PaymentTransactionRefundResponse[];
 };
 
 export default PaymentRefundResponse;

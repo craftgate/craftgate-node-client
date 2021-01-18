@@ -1,4 +1,4 @@
-name: Build Craftgate Node.js Client
+name: Craftgate Node.js CI
 
 on: [push]
 
