@@ -1,10 +1,10 @@
-name: Build Craftgate Node.js Client
+name: Craftgate Node.js CI
 
 on: [push]
 
 jobs:
   build:
-    name: Build the Library
+    name: Build the Librry
     runs-on: ubuntu-latest
 
     steps:

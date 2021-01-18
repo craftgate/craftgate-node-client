@@ -1,4 +1,6 @@
 # Craftgate Node.js Client
+[![Build Status](https://github.com/craftgate/craftgate-node-client/workflows/Craftgate%20Node.js%20CI/badge.svg?branch=master)](https://github.com/craftgate/craftgate-node-client/actions)
+
 This repo contains the Node.js client for Craftgate API.
 
 ## Requirements
