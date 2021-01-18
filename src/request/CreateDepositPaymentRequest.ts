@@ -9,7 +9,7 @@ type CreateDepositPaymentRequest = {
   conversationId?: string;
   callbackUrl?: string;
   posAlias?: string;
-  card?: Card;
+  card: Card;
 };
 
 export default CreateDepositPaymentRequest;

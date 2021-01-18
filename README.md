@@ -87,7 +87,7 @@ const CraftgateClient = require('@craftgate/craftgate/CraftgateClient').default;
 ## Examples
 Included in the project are a number of examples that cover almost all use-cases. Refer to [the `samples/` folder](./samples)] for more info.
 
-Aside from demonstrating different business use cases, we also added technically different variants of certain examples to reflect the diversity in technnical stacks. These examples are located under the [samples/misc](./samples/misc) folder, and what they represent are indicated by filename suffixes listed below:
+Aside from demonstrating different business use cases, we also added technically different variants of certain examples to reflect the diversity in technical stacks. These examples are located under the [samples/misc](./samples/misc) folder, and what they represent are indicated by filename suffixes listed below:
 
 | Filename Suffix | Description |
 |-----------------|-------------|

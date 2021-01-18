@@ -2,9 +2,9 @@ import MemberType from "../model/MemberType";
 import SettlementEarningsDestination from "../model/SettlementEarningsDestination";
 
 type UpdateMemberRequest = {
-  isBuyer: boolean,
-  isSubMerchant: boolean;
-  memberType: MemberType;
+  isBuyer?: boolean,
+  isSubMerchant?: boolean;
+  memberType?: MemberType;
   name?: string;
   address: string;
   email: string;
