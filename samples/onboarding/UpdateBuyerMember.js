@@ -16,7 +16,6 @@ const request = {
   identityNumber: '11111111110',
   name: 'Haluk Demir',
   memberType: Craftgate.Model.MemberType.Personal,
-  memberExternalId: '5fd3e767-b850-4d70-bcdf-d3c42aab8b09',
   address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
