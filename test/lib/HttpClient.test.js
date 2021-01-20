@@ -3,7 +3,6 @@ const MockAdapter = require('axios-mock-adapter');
 
 const {HttpClient} = require('../../dist/lib/HttpClient');
 const CraftgateError = require('../../dist').CraftgateError;
-const {calculateSignature} = require('../../dist/lib/utils');
 
 test('HttpClient should translate API errors to CraftgateError errors when status code is 200', async t => {
   const client = new HttpClient({
