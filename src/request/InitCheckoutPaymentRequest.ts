@@ -18,7 +18,6 @@ type InitCheckoutPaymentRequest = {
   conversationId?: string;
   cardUserKey?: string;
   callbackUrl: string;
-  posAlias?: string;
   items: PaymentItem[];
 };
 
