@@ -202,6 +202,45 @@ test('should create deposit payment', async t => {
   t.is(result.paymentType, Craftgate.Model.PaymentType.DepositPayment)
 });
 
+test('should init checkout payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/checkout-payment/init')
+    .reply(200, {
+      data: {
+        token: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
+        pageUrl: 'http://localhost:8070?token=d1811bb0-25a2-40c7-ba71-c8b605259611'
+      },
+    })
+
+  const request = {
+    price: 100.0,
+    paidPrice: 100.0,
+    walletPrice: 0.0,
+    conversationId: 'foo-bar',
+    currency: 'TRY',
+    paymentGroup: Craftgate.Model.PaymentGroup.Product,
+    items: [
+      {
+        name: 'Pharmaton',
+        price: 30.0,
+        subMerchantMemberId: 1,
+        subMerchantMemberPrice: 27.0
+      },
+      {
+        name: 'Supradyn',
+        price: 50.0,
+        subMerchantMemberId: 1,
+        subMerchantMemberPrice: 42.0
+      }
+    ]
+  };
+
+  const result = await paymentAdapter.initCheckoutPayment(request)
+  t.is(result.token, 'd1811bb0-25a2-40c7-ba71-c8b605259611')
+  t.is(result.pageUrl, 'http://localhost:8070?token=d1811bb0-25a2-40c7-ba71-c8b605259611')
+
+});
+
 test('should retrieve payment', async t => {
   const scope = nock('http://localhost:8000')
     .get('/payment/v1/card-payments/1')
@@ -285,6 +324,130 @@ test('should retrieve payment', async t => {
   t.is(result.currency, Craftgate.Model.Currency.TRY)
   t.is(result.installment, 1)
   t.is(result.conversationId, 'd1811bb0-25a2-40c7-ba71-c8b605259611')
+  t.is(result.paymentStatus, Craftgate.Model.PaymentStatus.Success)
+  t.is(result.merchantCommissionRate, 10)
+  t.is(result.merchantCommissionRateAmount, 0.1)
+  t.is(result.binNumber, 424242)
+  t.is(result.lastFourDigits, 4242)
+  t.is(result.cardType, Craftgate.Model.CardType.CreditCard)
+  t.is(result.cardAssociation, 'MASTER_CARD')
+  t.is(result.cardBrand, 'World')
+  t.is(result.paymentTransactions[0].id, 1)
+  t.is(result.paymentTransactions[0].externalId, 'fcf47134-12ee-4d37-bd2c-c46cd9297487')
+  t.is(result.paymentTransactions[0].name, 'Pharmaton')
+  t.is(result.paymentTransactions[0].transactionStatus, Craftgate.Model.TransactionStatus.Approved)
+  t.is(result.paymentTransactions[0].blockageResolvedDate, '2021-02-21T15:00:00')
+  t.is(result.paymentTransactions[0].price, 30)
+  t.is(result.paymentTransactions[0].paidPrice, 33)
+  t.is(result.paymentTransactions[0].walletPrice, 0)
+  t.is(result.paymentTransactions[0].merchantCommissionRate, 10)
+  t.is(result.paymentTransactions[0].merchantCommissionRateAmount, 3)
+  t.is(result.paymentTransactions[0].merchantPayoutAmount, 2.97)
+  t.is(result.paymentTransactions[0].subMerchantMemberId, 1)
+  t.is(result.paymentTransactions[0].subMerchantMemberPrice, 27)
+  t.is(result.paymentTransactions[0].subMerchantMemberPayoutRate, 90)
+  t.is(result.paymentTransactions[0].subMerchantMemberPayoutAmount, 29.7)
+
+  t.is(result.paymentTransactions[1].id, 2)
+  t.is(result.paymentTransactions[1].externalId, 'a5eb1ab1-2676-4c10-830d-cc204e0f2126')
+  t.is(result.paymentTransactions[1].name, 'Supradyn')
+  t.is(result.paymentTransactions[1].transactionStatus, Craftgate.Model.TransactionStatus.Approved)
+  t.is(result.paymentTransactions[1].blockageResolvedDate, '2021-02-21T15:00:00')
+  t.is(result.paymentTransactions[1].price, 50)
+  t.is(result.paymentTransactions[1].paidPrice, 55)
+  t.is(result.paymentTransactions[1].walletPrice, 0)
+  t.is(result.paymentTransactions[1].merchantCommissionRate, 10)
+  t.is(result.paymentTransactions[1].merchantCommissionRateAmount, 5)
+  t.is(result.paymentTransactions[1].merchantPayoutAmount, 8.25)
+  t.is(result.paymentTransactions[1].subMerchantMemberId, 2)
+  t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
+  t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
+  t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
+});
+
+test('should retrieve checkout payment', async t => {
+  const scope = nock('http://localhost:8000')
+    .get('/payment/v1/checkout-payment?token=d1811bb0-25a2-40c7-ba71-c8b605259611')
+    .reply(200, {
+      data: {
+        id: 1,
+        createdDate: '2020-09-11T10:00:00',
+        price: 100.0,
+        paidPrice: 100.0,
+        walletPrice: 0.0,
+        buyerMemberId: 1,
+        currency: 'TRY',
+        installment: 1,
+        conversationId: 'd1811bb0-25a2-40c7-ba71-c8b605259612',
+        paymentStatus: 'SUCCESS',
+        merchantCommissionRate: 10,
+        merchantCommissionRateAmount: 0.1,
+        binNumber: 424242,
+        lastFourDigits: 4242,
+        cardType: 'CREDIT_CARD',
+        cardAssociation: 'MASTER_CARD',
+        cardBrand: 'World',
+        paymentTransactions: [
+          {
+            id: 1,
+            externalId: 'fcf47134-12ee-4d37-bd2c-c46cd9297487',
+            name: 'Pharmaton',
+            transactionStatus: 'APPROVED',
+            blockageResolvedDate: '2021-02-21T15:00:00',
+            price: 30,
+            paidPrice: 33,
+            walletPrice: 0,
+            merchantCommissionRate: 10,
+            merchantCommissionRateAmount: 3,
+            merchantPayoutAmount: 2.97,
+            subMerchantMemberId: 1,
+            subMerchantMemberPrice: 27,
+            subMerchantMemberPayoutRate: 90,
+            subMerchantMemberPayoutAmount: 29.7,
+            payout: {
+              paidPrice: 33,
+              currency: 'TRY',
+              merchantPayoutAmount: 2.97,
+              subMerchantMemberPayoutAmount: 29.7
+            }
+          },
+          {
+            id: 2,
+            externalId: 'a5eb1ab1-2676-4c10-830d-cc204e0f2126',
+            name: 'Supradyn',
+            price: 50,
+            paidPrice: 55,
+            transactionStatus: 'APPROVED',
+            blockageResolvedDate: '2021-02-21T15:00:00',
+            walletPrice: 0,
+            merchantCommissionRate: 10,
+            merchantCommissionRateAmount: 5,
+            merchantPayoutAmount: 8.25,
+            subMerchantMemberId: 2,
+            subMerchantMemberPrice: 42,
+            subMerchantMemberPayoutRate: 84,
+            subMerchantMemberPayoutAmount: 29.7,
+            payout: {
+              paidPrice: 33,
+              currency: 'TRY',
+              merchantPayoutAmount: 2.97,
+              subMerchantMemberPayoutAmount: 29.7
+            }
+          }
+        ]
+      },
+    })
+
+
+  const result = await paymentAdapter.retrieveCheckoutPayment('d1811bb0-25a2-40c7-ba71-c8b605259611')
+
+  t.is(result.id, 1)
+  t.is(result.price, 100)
+  t.is(result.paidPrice, 100)
+  t.is(result.buyerMemberId, 1)
+  t.is(result.currency, Craftgate.Model.Currency.TRY)
+  t.is(result.installment, 1)
+  t.is(result.conversationId, 'd1811bb0-25a2-40c7-ba71-c8b605259612')
   t.is(result.paymentStatus, Craftgate.Model.PaymentStatus.Success)
   t.is(result.merchantCommissionRate, 10)
   t.is(result.merchantCommissionRateAmount, 0.1)
