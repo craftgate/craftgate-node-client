@@ -13,6 +13,7 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from "../request/StoreCardRequest";
 import RefundDepositPaymentRequest from "../request/RefundDepositPaymentRequest";
 import CreateDepositPaymentRequest from "../request/CreateDepositPaymentRequest";
+import InitCheckoutPaymentRequest from "../request/InitCheckoutPaymentRequest";
 
 import DataResponse from '../response/DataResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
@@ -24,6 +25,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import StoredCardResponse from '../response/StoredCardResponse';
 import DepositPaymentResponse from "../response/DepositPaymentResponse";
 import DepositPaymentRefundResponse from "../response/DepositPaymentRefundResponse";
+import InitCheckoutPaymentResponse from "../response/InitCheckoutPaymentResponse";
 
 import BaseAdapter from './BaseAdapter';
 
@@ -46,6 +48,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async complete3DSPayment(request: CompleteThreeDSPaymentRequest): Promise<PaymentResponse> {
     return this._client.post('/payment/v1/card-payments/3ds-complete', request);
+  }
+
+  async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
+    return this._client.post('/payment/v1/checkout-payment/init', request);
+  }
+
+  async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
+    return this._client.get(`/payment/v1/checkout-payment?token=${token}`);
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
