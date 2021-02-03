@@ -51,11 +51,11 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
-    return this._client.post('/payment/v1/checkout-payment/init', request);
+    return this._client.post('/payment/v1/checkout-payments/init', request);
   }
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
-    return this._client.get(`/payment/v1/checkout-payment?token=${token}`);
+    return this._client.get(`/payment/v1/checkout-payments?token=${token}`);
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
