@@ -204,7 +204,7 @@ test('should create deposit payment', async t => {
 
 test('should init checkout payment', async t => {
   const scope = nock('http://localhost:8000')
-    .post('/payment/v1/checkout-payment/init')
+    .post('/payment/v1/checkout-payments/init')
     .reply(200, {
       data: {
         token: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
@@ -367,7 +367,7 @@ test('should retrieve payment', async t => {
 
 test('should retrieve checkout payment', async t => {
   const scope = nock('http://localhost:8000')
-    .get('/payment/v1/checkout-payment?token=d1811bb0-25a2-40c7-ba71-c8b605259611')
+    .get('/payment/v1/checkout-payments/d1811bb0-25a2-40c7-ba71-c8b605259611')
     .reply(200, {
       data: {
         id: 1,
