@@ -1,4 +1,4 @@
-import PaymentTransactionRefundResponse from './PaymentTransactionRefundResponse'
+import PaymentTransactionRefundResponse from './PaymentTransactionRefundResponse';
 
 type PaymentTransactionRefundListResponse = {
   size: number;

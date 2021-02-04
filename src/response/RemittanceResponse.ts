@@ -1,6 +1,6 @@
+import RemittanceReasonType from '../model/RemittanceReasonType';
+import RemittanceType from '../model/RemittanceType';
 import Status from '../model/Status';
-import RemittanceReasonType from "../model/RemittanceReasonType";
-import RemittanceType from "../model/RemittanceType";
 
 type RemittanceResponse = {
   id: number;

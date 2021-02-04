@@ -8,7 +8,8 @@ import PaymentStatus from '../model/PaymentStatus';
 import PaymentType from '../model/PaymentType';
 
 import PaymentTransaction from './dto/PaymentTransaction';
-import MerchantPos from "./dto/MerchantPos";
+import MerchantPos from './dto/MerchantPos';
+import PaymentError from './dto/PaymentError';
 
 type PaymentResponse = {
   id: number;
@@ -36,6 +37,7 @@ type PaymentResponse = {
   cardAssociation: CardAssociation;
   cardBrand: string;
   pos: MerchantPos;
+  paymentError: PaymentError;
   paymentTransactions: PaymentTransaction[];
 };
 

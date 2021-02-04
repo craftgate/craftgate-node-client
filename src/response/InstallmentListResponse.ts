@@ -1,4 +1,4 @@
-import Installment from './dto/Installment'
+import Installment from './dto/Installment';
 
 type InstallmentListResponse = {
   items: Installment[];

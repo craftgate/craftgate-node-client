@@ -1,8 +1,8 @@
 import MemberType from '../model/MemberType';
-import SettlementEarningsDestination from "../model/SettlementEarningsDestination";
+import SettlementEarningsDestination from '../model/SettlementEarningsDestination';
 
 type CreateMemberRequest = {
-  isBuyer?: boolean,
+  isBuyer?: boolean;
   isSubMerchant?: boolean;
   memberType?: MemberType;
   memberExternalId: string;
