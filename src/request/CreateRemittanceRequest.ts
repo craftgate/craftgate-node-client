@@ -1,4 +1,4 @@
-import RemittanceReasonType from "../model/RemittanceReasonType";
+import RemittanceReasonType from '../model/RemittanceReasonType';
 
 type CreateRemittanceRequest = {
   memberId: string;

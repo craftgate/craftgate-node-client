@@ -2,8 +2,7 @@ import BaseAdapter from './adapter/BaseAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
-import WalletAdapter from "./adapter/WalletAdapter";
-
+import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
 
 export default class CraftgateAdapter extends BaseAdapter {

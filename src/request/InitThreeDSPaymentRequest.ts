@@ -1,10 +1,10 @@
 import Currency from '../model/Currency';
 import Installment from '../model/Installment';
 import PaymentGroup from '../model/PaymentGroup';
+import PaymentPhase from '../model/PaymentPhase';
 
 import {Card} from './dto/Card';
 import PaymentItem from './dto/PaymentItem';
-import PaymentPhase from "../model/PaymentPhase";
 
 type InitThreeDSPaymentRequest = {
   price: number;

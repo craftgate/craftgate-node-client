@@ -2,20 +2,23 @@ import {ClientCreationOptions} from '../lib/HttpClient';
 
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
+import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
+import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
+import RefundDepositPaymentRequest from '../request/RefundDepositPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchPaymentTransactionRefundsRequest from '../request/SearchPaymentTransactionRefundsRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
-import StoreCardRequest from "../request/StoreCardRequest";
-import RefundDepositPaymentRequest from "../request/RefundDepositPaymentRequest";
-import CreateDepositPaymentRequest from "../request/CreateDepositPaymentRequest";
-import InitCheckoutPaymentRequest from "../request/InitCheckoutPaymentRequest";
+import StoreCardRequest from '../request/StoreCardRequest';
 
 import DataResponse from '../response/DataResponse';
+import DepositPaymentRefundResponse from '../response/DepositPaymentRefundResponse';
+import DepositPaymentResponse from '../response/DepositPaymentResponse';
+import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -23,9 +26,6 @@ import PaymentTransactionApprovalListResponse from '../response/PaymentTransacti
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
-import DepositPaymentResponse from "../response/DepositPaymentResponse";
-import DepositPaymentRefundResponse from "../response/DepositPaymentRefundResponse";
-import InitCheckoutPaymentResponse from "../response/InitCheckoutPaymentResponse";
 
 import BaseAdapter from './BaseAdapter';
 

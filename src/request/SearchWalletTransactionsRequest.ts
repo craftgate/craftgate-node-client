@@ -1,4 +1,4 @@
-import WalletTransactionType from "../model/WalletTransactionType";
+import WalletTransactionType from '../model/WalletTransactionType';
 
 type SearchWalletTransactionsRequest = {
   walletTransactionType?: WalletTransactionType;

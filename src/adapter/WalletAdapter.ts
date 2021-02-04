@@ -1,13 +1,13 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
-import SearchWalletsRequest from "../request/SearchWalletsRequest";
-import SearchWalletTransactionsRequest from "../request/SearchWalletTransactionsRequest";
-import CreateRemittanceRequest from "../request/CreateRemittanceRequest";
+import CreateRemittanceRequest from '../request/CreateRemittanceRequest';
+import SearchWalletsRequest from '../request/SearchWalletsRequest';
+import SearchWalletTransactionsRequest from '../request/SearchWalletTransactionsRequest';
 
-import DataResponse from "../response/DataResponse";
-import WalletResponse from "../response/WalletResponse";
-import RemittanceResponse from "../response/RemittanceResponse";
-import WalletTransactionResponse from "../response/WalletTransactionResponse";
+import DataResponse from '../response/DataResponse';
+import RemittanceResponse from '../response/RemittanceResponse';
+import WalletResponse from '../response/WalletResponse';
+import WalletTransactionResponse from '../response/WalletTransactionResponse';
 
 import BaseAdapter from './BaseAdapter';
 
