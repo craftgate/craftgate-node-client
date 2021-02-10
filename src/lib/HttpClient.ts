@@ -1,3 +1,6 @@
+import http from 'http';
+import https from 'https';
+
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
@@ -23,7 +26,12 @@ export class HttpClient {
 
   constructor({apiKey, secretKey, baseUrl = 'https://sandbox-api.craftgate.io'}: ClientCreationOptions = {}) {
     this._options = {apiKey, secretKey, baseUrl};
-    this._client = axios.create({baseURL: baseUrl});
+    this._client = axios.create({
+      baseURL: baseUrl,
+      timeout: 150000,
+      httpAgent: new http.Agent({timeout: 10000}),
+      httpsAgent: new https.Agent({timeout: 10000})
+    });
 
     this._client.interceptors.request.use(this._injectHeaders.bind(this));
   }
