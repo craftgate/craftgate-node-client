@@ -10,6 +10,9 @@ type PaymentTransactionRefundResponse = {
   refundPrice: number;
   refundBankPrice: number;
   refundWalletPrice: number;
+  authCode: string;
+  hostReference: string;
+  transId: string;
   currency: string;
   paymentTransactionId: number;
   paymentId: number;

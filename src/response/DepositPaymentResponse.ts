@@ -9,6 +9,10 @@ type DepositPaymentResponse = {
   currency: Currency;
   buyerMemberId: number;
   conversationId: string;
+  authCode: string;
+  hostReference: string;
+  transId: string;
+  orderId: string;
   paymentType: PaymentType;
   paymentStatus: PaymentStatus;
   cardUserKey: string;
