@@ -13,6 +13,9 @@ type PaymentRefundResponse = {
   refundPrice: number;
   refundBankPrice: number;
   refundWalletPrice: number;
+  authCode: string;
+  hostReference: string;
+  transId: string;
   refundType: RefundType;
   refundDestinationType: RefundDestinationType;
   currency: Currency;

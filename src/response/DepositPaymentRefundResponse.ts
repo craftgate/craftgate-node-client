@@ -7,6 +7,9 @@ type DepositPaymentRefundResponse = {
   paymentId: number;
   currency: Currency;
   status: RefundStatus;
+  authCode: string;
+  hostReference: string;
+  transId: string;
   conversationId: string;
   refundType: RefundType;
   refundPrice: number;
