@@ -1,5 +1,6 @@
 # Craftgate Node.js Client
 [![Build Status](https://github.com/craftgate/craftgate-node-client/workflows/Craftgate%20Node.js%20CI/badge.svg?branch=master)](https://github.com/craftgate/craftgate-node-client/actions)
+[![CI Score](https://meercode.io/badge/craftgate/craftgate-node-client?type=ci-score&lastDay=14)](https://meercode.io/craftgate/craftgate-node-client)
 [![Version](https://img.shields.io/npm/v/@craftgate/craftgate.svg)](https://www.npmjs.com/package/@craftgate/craftgate)
 [![Try on RunKit](https://badge.runkitcdn.com/craftgate.svg)](https://runkit.com/npm/@craftgate/craftgate)
 
