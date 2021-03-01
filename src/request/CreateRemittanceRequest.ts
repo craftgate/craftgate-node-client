@@ -4,7 +4,7 @@ type CreateRemittanceRequest = {
   memberId: string;
   price: number;
   description: string;
-  remittanceReasonType: RemittanceReasonType;
+  remittanceReasonType?: RemittanceReasonType;
 };
 
 export default CreateRemittanceRequest;
