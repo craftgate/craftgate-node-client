@@ -7,7 +7,6 @@ import PaymentItem from './dto/PaymentItem';
 type InitCheckoutPaymentRequest = {
   price: number;
   paidPrice: number;
-  walletPrice: number;
   buyerMemberId?: number;
   currency: Currency;
   paymentGroup?: PaymentGroup;
