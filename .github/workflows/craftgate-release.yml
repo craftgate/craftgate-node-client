@@ -1,7 +1,9 @@
 name: Craftgate Node.js CI
+
 on:
   release:
-    types: [published]
+    types: [ published ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
