@@ -40,15 +40,6 @@ export function getAbsoluteUrl(baseUrl: string, relativeUrl?: string): string {
 }
 
 /**
- * Returns whether or not the provided value is an array
- *
- * @param value the value
- */
-export function isArray(value: any): boolean {
-  return Object.prototype.toString.call(value) === '[object Array]';
-}
-
-/**
  * Returns the URL-encoded string representation of a value. If the provided value is null or undefined, returns an empty string.
  *
  * @param value the value
@@ -76,7 +67,7 @@ export function serializeParams(params: any): string {
       const value: any = params[key];
       const encodedKey = encodeURIComponent(key);
 
-      if (isArray(value)) {
+      if (Array.isArray(value)) {
         const stringValue = value
           .map(getEncodedStringValue)
           .map((value: string) => `${encodedKey}=${value}`)
