@@ -9,12 +9,11 @@ const craftgate = new Craftgate.Client({
 const request = {
   price: 100.0,
   paidPrice: 100.0,
-  walletPrice: 0.0,
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   currency: Craftgate.Model.Currency.TRY,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
   buyerMemberId: 1,
-  callbackUrl: 'https://www.your-website.com/craftgate-3DSecure-callback',
+  callbackUrl: 'https://www.your-website.com/craftgate-checkout-callback',
   items: [
     {
       name: 'Item 1',
