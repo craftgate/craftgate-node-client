@@ -2,6 +2,7 @@ import BaseAdapter from './adapter/BaseAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
+import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
 
@@ -10,6 +11,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _onboardingAdapter: OnboardingAdapter;
   private _paymentAdapter: PaymentAdapter;
   private _walletAdapter: WalletAdapter;
+  private _settlementReporting: SettlementReportingAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -17,6 +19,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._onboardingAdapter = new OnboardingAdapter(options);
     this._paymentAdapter = new PaymentAdapter(options);
     this._walletAdapter = new WalletAdapter(options);
+    this._settlementReporting = new SettlementReportingAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -33,5 +36,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   wallet(): WalletAdapter {
     return this._walletAdapter;
+  }
+
+  settlementReporting(): SettlementReportingAdapter {
+    return this._settlementReporting;
   }
 }
