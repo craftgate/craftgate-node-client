@@ -14,6 +14,7 @@ type InitCheckoutPaymentRequest = {
   conversationId?: string;
   cardUserKey?: string;
   callbackUrl: string;
+  enabledInstallments: number[];
   items: PaymentItem[];
 };
 
