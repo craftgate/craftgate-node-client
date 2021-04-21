@@ -15,6 +15,7 @@ type InitCheckoutPaymentRequest = {
   cardUserKey?: string;
   callbackUrl: string;
   enabledInstallments: number[];
+  allowOnlyCreditCard?: boolean;
   items: PaymentItem[];
 };
 
