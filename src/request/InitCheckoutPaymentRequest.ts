@@ -15,7 +15,7 @@ type InitCheckoutPaymentRequest = {
   cardUserKey?: string;
   callbackUrl: string;
   enabledInstallments: number[];
-  allowOnlySavedCards: boolean;
+  allowOnlyStoredCards: boolean;
   items: PaymentItem[];
 };
 
