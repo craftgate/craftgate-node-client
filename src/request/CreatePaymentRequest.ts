@@ -16,9 +16,11 @@ type CreatePaymentRequest = {
   paymentGroup?: PaymentGroup;
   paymentPhase?: PaymentPhase;
   conversationId?: string;
+  externalId?: string;
   card?: Card;
   posAlias?: string;
   items: PaymentItem[];
+  additionalParams?: Map<string, Record<string, unknown>>;
 };
 
 export default CreatePaymentRequest;
