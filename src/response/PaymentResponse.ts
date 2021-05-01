@@ -21,6 +21,7 @@ type PaymentResponse = {
   buyerMemberId: number;
   installment: Installment;
   conversationId: string;
+  externalId: string;
   paymentType: PaymentType;
   paymentGroup: PaymentGroup;
   paymentStatus: PaymentStatus;
