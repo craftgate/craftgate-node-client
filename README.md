@@ -179,6 +179,8 @@ For all adapters in the `CraftgateClient`, their purposes, accessors, as well as
 | `OnboardingAdapter` | Conducting CRUD operations on buyers and sub merchants | `onboarding()` | `@craftgate/craftgate/adapters/OnboardingAdapter` |
 | `PaymentAdapter` | Conducting payments, retrieving payment information, managing stored cards | `payment()` | `@craftgate/craftgate/adapters/PaymentAdapter` |
 | `WalletAdapter` | Managing remittance, retrieving wallet transactions  | `wallet()` | `@craftgate/craftgate/adapters/WalletAdapter` |
+| `SettlementReportingAdapter` | Settlement operations like search payout completed transactions, search bounced payout transactions | `settlementReporting()` | `@craftgate/craftgate/adapters/SettlementReportingAdapter` |
+| `SettlementAdapter` | Settlement operations like create instant wallet settlement | `settlement()` | `@craftgate/craftgate/adapters/SettlementAdapter` |
 
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md)
