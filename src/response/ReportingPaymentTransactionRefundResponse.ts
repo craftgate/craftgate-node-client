@@ -1,6 +1,6 @@
 import PaymentType from '../model/PaymentType';
 
-import BasePaymentTransactionRefundResponse from './base/BasePaymentTransactionRefundResponse';
+import BasePaymentTransactionRefundResponse from './common/BasePaymentTransactionRefundResponse';
 import PaymentError from './dto/PaymentError';
 
 type ReportingPaymentTransactionRefundResponse = BasePaymentTransactionRefundResponse & {

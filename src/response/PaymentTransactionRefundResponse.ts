@@ -1,8 +1,6 @@
-import BasePaymentTransactionRefundResponse from './base/BasePaymentTransactionRefundResponse';
+import BasePaymentTransactionRefundResponse from './common/BasePaymentTransactionRefundResponse';
 
 type PaymentTransactionRefundResponse = BasePaymentTransactionRefundResponse & {
-  currency: string;
-  paymentTransactionId: number;
   paymentId: number;
 };
 

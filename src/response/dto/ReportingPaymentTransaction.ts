@@ -1,10 +1,10 @@
 import PaymentRefundStatus from '../../model/PaymentRefundStatus';
-import BasePaymentTransaction from '../base/BasePaymentTransaction';
 import MemberResponse from '../MemberResponse';
 
+import PaymentTransaction from './PaymentTransaction';
 import PayoutStatus from './PayoutStatus';
 
-type ReportingPaymentTransaction = BasePaymentTransaction & {
+type ReportingPaymentTransaction = PaymentTransaction & {
   createdDate: Date;
   transactionStatusDate: Date;
   refundablePrice: number;

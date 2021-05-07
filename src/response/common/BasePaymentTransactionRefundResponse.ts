@@ -1,11 +1,12 @@
 import RefundDestinationType from '../../model/RefundDestinationType';
 import RefundStatus from '../../model/RefundStatus';
 
-type BasePaymentRefundResponse = {
+type BasePaymentTransactionRefundResponse = {
   id: number;
   createdDate: Date;
   status: RefundStatus;
   refundDestinationType: RefundDestinationType;
+  currency: string;
   refundPrice: number;
   refundBankPrice: number;
   refundWalletPrice: number;
@@ -13,6 +14,8 @@ type BasePaymentRefundResponse = {
   authCode: string;
   hostReference: string;
   transId: string;
+  isAfterSettlement: boolean;
+  paymentTransactionId: number;
 };
 
-export default BasePaymentRefundResponse;
+export default BasePaymentTransactionRefundResponse;

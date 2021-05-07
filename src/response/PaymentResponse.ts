@@ -1,4 +1,4 @@
-import BasePaymentResponse from './base/BasePaymentResponse';
+import BasePaymentResponse from './common/BasePaymentResponse';
 import PaymentTransaction from './dto/PaymentTransaction';
 
 type PaymentResponse = BasePaymentResponse & {

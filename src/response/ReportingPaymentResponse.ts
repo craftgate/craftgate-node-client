@@ -1,6 +1,6 @@
 import PaymentRefundStatus from '../model/PaymentRefundStatus';
 
-import BasePaymentResponse from './base/BasePaymentResponse';
+import BasePaymentResponse from './common/BasePaymentResponse';
 import MemberResponse from './MemberResponse';
 import ReportingPaymentRefundResponse from './ReportingPaymentRefundResponse';
 
