@@ -3,6 +3,7 @@ import WalletTransactionRefundCardTransactionType from '../model/WalletTransacti
 
 import PaymentError from './dto/PaymentError';
 
+// java da items only?
 type RefundWalletTransactionToCardResponse = {
   id: number;
   createdDate: Date;

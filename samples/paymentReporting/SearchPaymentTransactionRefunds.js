@@ -10,6 +10,6 @@ const request = {
   paymentId: 1
 };
 
-craftgate.payment().searchPaymentTransactionRefunds(request)
-  .then(results => console.info('Search payment transaction refunds response', results))
+craftgate.paymentReporting().searchPaymentTransactionRefunds(request)
+  .then(result => console.info('Search payment transaction refunds', result))
   .catch(err => console.error('Failed to search payment transaction refunds', err));

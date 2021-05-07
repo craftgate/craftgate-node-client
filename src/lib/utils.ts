@@ -1,7 +1,7 @@
 import crypto from 'crypto-js';
 
 /**
- * Generates a random alphanumberic string of the given length.
+ * Generates a random alphanumeric string of the given length.
  *
  * @param length (default: 6) the length of the string to generate
  */

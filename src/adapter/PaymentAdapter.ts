@@ -11,7 +11,6 @@ import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import RefundDepositPaymentRequest from '../request/RefundDepositPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
-import SearchPaymentTransactionRefundsRequest from '../request/SearchPaymentTransactionRefundsRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 
@@ -23,7 +22,6 @@ import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
-import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
@@ -80,10 +78,6 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrievePaymentTransactionRefund(paymentTransactionRefundId: number): Promise<PaymentTransactionRefundResponse> {
     return this._client.get(`/payment/v1/refund-transactions/${paymentTransactionRefundId}`);
-  }
-
-  async searchPaymentTransactionRefunds(request: SearchPaymentTransactionRefundsRequest): Promise<PaymentTransactionRefundListResponse> {
-    return this._client.get('/payment/v1/refund-transactions', request);
   }
 
   async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {

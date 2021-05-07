@@ -8,7 +8,7 @@ import PaymentGroup from './PaymentGroup';
 import PaymentPhase from './PaymentPhase';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
-import PayoutStatus from './PayoutStatus';
+import TransactionPayoutStatus from './TransactionPayoutStatus';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -33,7 +33,7 @@ export = {
   PaymentPhase,
   PaymentStatus,
   PaymentType,
-  PayoutStatus,
+  PayoutStatus: TransactionPayoutStatus,
   RefundDestinationType,
   RefundStatus,
   RefundType,

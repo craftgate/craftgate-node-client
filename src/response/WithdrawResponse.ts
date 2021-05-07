@@ -1,6 +1,6 @@
 import Currency from '../model/Currency';
-import PayoutStatus from '../model/PayoutStatus';
 import Status from '../model/Status';
+import TransactionPayoutStatus from '../model/TransactionPayoutStatus';
 
 type WithdrawResponse = {
   id: number;
@@ -10,7 +10,7 @@ type WithdrawResponse = {
   createdDate: Date;
   description: string;
   currency: Currency;
-  payoutStatus: PayoutStatus;
+  payoutStatus: TransactionPayoutStatus;
 };
 
 export default WithdrawResponse;

@@ -1,10 +1,10 @@
 import Currency from '../model/Currency';
-import PayoutStatus from '../model/PayoutStatus';
+import TransactionPayoutStatus from '../model/TransactionPayoutStatus';
 
 type SearchWithdrawsRequest = {
   memberId?: number;
   currency?: Currency;
-  payoutStatus?: PayoutStatus;
+  payoutStatus?: TransactionPayoutStatus;
   minWithdrawPrice?: number;
   maxWithdrawPrice?: number;
   minCreatedDate?: Date;

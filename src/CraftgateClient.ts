@@ -2,10 +2,11 @@ import BaseAdapter from './adapter/BaseAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
+import PaymentReportingAdapter from './adapter/PaymentReportingAdapter';
+import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
-import SettlementAdapter from './adapter/SettlementAdapter';
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
@@ -14,6 +15,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _walletAdapter: WalletAdapter;
   private _settlement: SettlementAdapter;
   private _settlementReporting: SettlementReportingAdapter;
+  private _paymentReporting: PaymentReportingAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -23,6 +25,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._walletAdapter = new WalletAdapter(options);
     this._settlement = new SettlementAdapter(options);
     this._settlementReporting = new SettlementReportingAdapter(options);
+    this._paymentReporting = new PaymentReportingAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -47,5 +50,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   settlementReporting(): SettlementReportingAdapter {
     return this._settlementReporting;
+  }
+
+  paymentReporting(): PaymentReportingAdapter {
+    return this._paymentReporting;
   }
 }
