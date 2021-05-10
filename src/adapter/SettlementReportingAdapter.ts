@@ -5,6 +5,7 @@ import SearchPayoutCompletedTransactionsRequest from '../request/SearchPayoutCom
 
 import PayoutBouncedTransactionListResponse from '../response/PayoutBouncedTransactionListResponse';
 import PayoutCompletedTransactionListResponse from '../response/PayoutCompletedTransactionListResponse';
+import PayoutDetailResponse from '../response/PayoutDetailResponse';
 
 import BaseAdapter from './BaseAdapter';
 
@@ -19,5 +20,9 @@ export default class SettlementReportingAdapter extends BaseAdapter {
 
   async searchBouncedPayoutTransactions(request: SearchPayoutBouncedTransactionsRequest): Promise<PayoutBouncedTransactionListResponse> {
     return this._client.get('/settlement-reporting/v1/settlement-file/bounced-sub-merchant-rows', request);
+  }
+
+  async retrievePayoutDetails(id: number): Promise<PayoutDetailResponse> {
+    return this._client.get(`/settlement-reporting/v1/settlement-file/payout-details/${id}`);
   }
 }
