@@ -6,6 +6,7 @@ type WithdrawResponse = {
   id: number;
   status: Status;
   memberId: number;
+  payoutId: number;
   price: number;
   createdDate: Date;
   description: string;
