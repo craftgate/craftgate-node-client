@@ -1,22 +1,10 @@
-import RefundDestinationType from '../model/RefundDestinationType';
-import RefundStatus from '../model/RefundStatus';
+import Currency from '../model/Currency';
 
-type PaymentTransactionRefundResponse = {
-  id: number;
-  conversationId: string;
-  createdDate: Date;
-  status: RefundStatus;
-  isAfterSettlement: boolean;
-  refundPrice: number;
-  refundBankPrice: number;
-  refundWalletPrice: number;
-  authCode: string;
-  hostReference: string;
-  transId: string;
-  currency: string;
-  paymentTransactionId: number;
+import BasePaymentTransactionRefundResponse from './common/BasePaymentTransactionRefundResponse';
+
+type PaymentTransactionRefundResponse = BasePaymentTransactionRefundResponse & {
+  currency: Currency;
   paymentId: number;
-  refundDestinationType: RefundDestinationType;
 };
 
 export default PaymentTransactionRefundResponse;

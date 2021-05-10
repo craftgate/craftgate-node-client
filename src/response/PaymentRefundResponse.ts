@@ -1,25 +1,12 @@
 import Currency from '../model/Currency';
-import RefundDestinationType from '../model/RefundDestinationType';
-import RefundStatus from '../model/RefundStatus';
 import RefundType from '../model/RefundType';
 
+import BasePaymentRefundResponse from './common/BasePaymentRefundResponse';
 import PaymentTransactionRefundResponse from './PaymentTransactionRefundResponse';
 
-type PaymentRefundResponse = {
-  id: number;
-  conversationId: string;
-  createdDate: Date;
-  status: RefundStatus;
-  refundPrice: number;
-  refundBankPrice: number;
-  refundWalletPrice: number;
-  authCode: string;
-  hostReference: string;
-  transId: string;
+type PaymentRefundResponse = BasePaymentRefundResponse & {
   refundType: RefundType;
-  refundDestinationType: RefundDestinationType;
   currency: Currency;
-  paymentId: number;
   paymentTransactionRefunds: PaymentTransactionRefundResponse[];
 };
 

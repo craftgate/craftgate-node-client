@@ -1,7 +1,7 @@
 import Adapter from './adapter';
-import Model from './model';
 import CraftgateClient from './CraftgateClient';
 import CraftgateError from './CraftgateError';
+import Model from './model';
 
 const Craftgate = {
   Client: CraftgateClient,

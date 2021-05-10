@@ -4,8 +4,8 @@ import Payout from './Payout';
 
 type PaymentTransaction = {
   id: number;
-  externalId: string;
   name: string;
+  externalId: string;
   price: number;
   paidPrice: number;
   walletPrice: number;

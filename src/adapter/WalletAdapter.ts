@@ -9,6 +9,7 @@ import SearchWalletTransactionsRequest from '../request/SearchWalletTransactions
 import SearchWithdrawsRequest from '../request/SearchWithdrawsRequest';
 
 import DataResponse from '../response/DataResponse';
+import RefundWalletTransactionToCardListResponse from '../response/RefundWalletTransactionToCardListResponse';
 import RefundWalletTransactionToCardResponse from '../response/RefundWalletTransactionToCardResponse';
 import RemittanceResponse from '../response/RemittanceResponse';
 import WalletResponse from '../response/WalletResponse';
@@ -55,7 +56,7 @@ export default class WalletAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/wallet-transactions/${walletTransactionId}/refunds`, request);
   }
 
-  async retrieveRefundWalletTransactionsToCard(walletTransactionId: number): Promise<DataResponse<RefundWalletTransactionToCardResponse>> {
+  async retrieveRefundWalletTransactionsToCard(walletTransactionId: number): Promise<RefundWalletTransactionToCardListResponse> {
     return this._client.get(`/payment/v1/wallet-transactions/${walletTransactionId}/refunds`);
   }
 
