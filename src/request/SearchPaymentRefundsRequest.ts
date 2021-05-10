@@ -8,7 +8,7 @@ type SearchPaymentRefundsRequest = {
   paymentId?: number;
   buyerMemberId?: number;
   conversationId?: string;
-  refundStatus?: RefundStatus;
+  status?: RefundStatus;
   currency?: Currency;
   minRefundPrice?: number;
   maxRefundPrice?: number;

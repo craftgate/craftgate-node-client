@@ -6,7 +6,6 @@ type BasePaymentTransactionRefundResponse = {
   createdDate: Date;
   status: RefundStatus;
   refundDestinationType: RefundDestinationType;
-  currency: string;
   refundPrice: number;
   refundBankPrice: number;
   refundWalletPrice: number;

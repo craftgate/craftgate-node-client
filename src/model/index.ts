@@ -6,9 +6,9 @@ import MemberType from './MemberType';
 import MerchantType from './MerchantType';
 import PaymentGroup from './PaymentGroup';
 import PaymentPhase from './PaymentPhase';
+import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
-import TransactionPayoutStatus from './TransactionPayoutStatus';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -18,6 +18,7 @@ import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
 import Status from './Status';
+import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
@@ -31,9 +32,9 @@ export = {
   MerchantType,
   PaymentGroup,
   PaymentPhase,
+  PaymentRefundStatus,
   PaymentStatus,
   PaymentType,
-  PayoutStatus: TransactionPayoutStatus,
   RefundDestinationType,
   RefundStatus,
   RefundType,
@@ -43,6 +44,7 @@ export = {
   SettlementSource,
   SettlementType,
   Status,
+  TransactionPayoutStatus,
   TransactionStatus,
   WalletTransactionRefundCardTransactionType,
   WalletTransactionType

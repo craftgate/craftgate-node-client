@@ -9,7 +9,7 @@ type SearchPaymentTransactionRefundsRequest = {
   paymentTransactionId?: number;
   buyerMemberId?: number;
   conversationId?: number;
-  refundStatus?: RefundStatus;
+  status?: RefundStatus;
   currency?: Currency;
   minRefundPrice?: number;
   maxRefundPrice?: number;
