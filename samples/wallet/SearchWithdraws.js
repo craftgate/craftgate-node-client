@@ -9,7 +9,7 @@ const craftgate = new Craftgate.Client({
 const request = {
   memberId: 1,
   currency: Craftgate.Model.Currency.TRY,
-  payoutStatus: Craftgate.Model.PayoutStatus.WaitingForPayout
+  payoutStatus: Craftgate.Model.TransactionPayoutStatus.WaitingForPayout
 };
 
 craftgate.wallet().searchWithdraws(request)
