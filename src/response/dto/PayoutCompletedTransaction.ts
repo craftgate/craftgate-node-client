@@ -4,6 +4,7 @@ import SettlementEarningsDestination from '../../model/SettlementEarningsDestina
 import SettlementSource from '../../model/SettlementSource';
 
 type PayoutCompletedTransaction = {
+  payoutId: number;
   transactionId: number;
   transactionType: string;
   payoutAmount: number;
