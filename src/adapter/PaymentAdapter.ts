@@ -8,14 +8,12 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
-import RefundDepositPaymentRequest from '../request/RefundDepositPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 
 import DataResponse from '../response/DataResponse';
-import DepositPaymentRefundResponse from '../response/DepositPaymentRefundResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
@@ -58,10 +56,6 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
     return this._client.post('/payment/v1/deposits', request);
-  }
-
-  async refundDepositPayment(paymentId: number, request: RefundDepositPaymentRequest): Promise<DepositPaymentRefundResponse> {
-    return this._client.post(`/payment/v1/deposits/${paymentId}/refunds`, request);
   }
 
   async init3DSDepositPayment(request: CreateDepositPaymentRequest): Promise<InitThreeDSPaymentResponse> {
