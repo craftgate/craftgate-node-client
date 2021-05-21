@@ -900,40 +900,6 @@ test('should refund payment', async t => {
   t.is(result.items[0].refundType, 'REFUND')
 });
 
-test('should refund deposit payment', async t => {
-  const scope = nock('http://localhost:8000')
-    .post('/payment/v1/deposits/1/refunds')
-    .reply(200, {
-      data: {
-        items: [
-          {
-            id: 1,
-            paymentId: 1,
-            currency: 'TRY',
-            status: 'SUCCESS',
-            conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
-            refundType: 'REFUND',
-            refundPrice: 20,
-            createdDate: '2044-07-07T00:00:00'
-          }
-        ]
-      }
-    })
-
-  const request = {
-    paymentId: 1
-  }
-
-  const result = await paymentAdapter.refundDepositPayment(1, request)
-  t.is(result.items[0].id, 1)
-  t.is(result.items[0].conversationId, '9d43edb0-f141-4f14-8e99-57126f941fde')
-  t.is(result.items[0].status, 'SUCCESS')
-  t.is(result.items[0].currency, 'TRY')
-  t.is(result.items[0].refundPrice, 20)
-  t.is(result.items[0].paymentId, 1)
-  t.is(result.items[0].refundType, 'REFUND')
-});
-
 test('should retrieve payment refund', async t => {
   const scope = nock('http://localhost:8000')
     .get('/payment/v1/refunds/1')
