@@ -40,7 +40,7 @@ export default class WalletAdapter extends BaseAdapter {
   }
 
   async retrieveRemittance(remittanceId: number): Promise<RemittanceResponse> {
-    return this._client.post(`/wallet/v1/remittances/${remittanceId}`);
+    return this._client.get(`/wallet/v1/remittances/${remittanceId}`);
   }
 
   async retrieveMerchantMemberWallet(): Promise<WalletResponse> {
