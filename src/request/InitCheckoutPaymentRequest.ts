@@ -14,6 +14,7 @@ type InitCheckoutPaymentRequest = {
   conversationId?: string;
   cardUserKey?: string;
   callbackUrl: string;
+  clientIp?: string;
   enabledInstallments: number[];
   alwaysStoreCardAfterPayment: boolean;
   allowOnlyStoredCards: boolean;

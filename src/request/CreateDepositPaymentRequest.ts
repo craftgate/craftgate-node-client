@@ -9,6 +9,7 @@ type CreateDepositPaymentRequest = {
   conversationId?: string;
   callbackUrl?: string;
   posAlias?: string;
+  clientIp?: string;
   card: Card;
 };
 
