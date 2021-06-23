@@ -24,6 +24,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import PostAuthPaymentRequest from "../request/PostAuthPaymentRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -36,6 +37,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrievePayment(id: number): Promise<PaymentResponse> {
     return this._client.get(`/payment/v1/card-payments/${id}`);
+  }
+
+  async postAuthPayment(request: PostAuthPaymentRequest): Promise<PaymentResponse> {
+    return this._client.post(`/payment/v1/card-payments/${request.paymentId}/post-auth`, request);
   }
 
   async init3DSPayment(request: InitThreeDSPaymentRequest): Promise<InitThreeDSPaymentResponse> {
