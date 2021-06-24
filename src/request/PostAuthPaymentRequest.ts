@@ -1,5 +1,4 @@
 type PostAuthPaymentRequest = {
-  paymentId: number;
   paidPrice?: number;
 };
 
