@@ -8,6 +8,7 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
+import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
@@ -36,6 +37,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrievePayment(id: number): Promise<PaymentResponse> {
     return this._client.get(`/payment/v1/card-payments/${id}`);
+  }
+
+  async postAuthPayment(paymentId: number, request: PostAuthPaymentRequest): Promise<PaymentResponse> {
+    return this._client.post(`/payment/v1/card-payments/${paymentId}/post-auth`, request);
   }
 
   async init3DSPayment(request: InitThreeDSPaymentRequest): Promise<InitThreeDSPaymentResponse> {
