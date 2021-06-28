@@ -12,6 +12,7 @@ type Installment = {
   bankName: string;
   bankCode: number;
   force3ds: boolean;
+  cvcRequired: boolean;
   commercial: boolean;
   installmentPrices: InstallmentPrice[];
 };

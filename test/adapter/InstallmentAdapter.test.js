@@ -22,6 +22,7 @@ test('should retrieve installments', async t => {
         bankName: 'Akbank',
         bankCode: 46,
         force3ds: true,
+        cvcRequired: false,
         commercial: true,
         installmentPrices: [
           {
@@ -53,6 +54,7 @@ test('should retrieve installments', async t => {
   t.is(result.bankName, 'Akbank')
   t.is(result.bankCode, 46)
   t.is(result.force3ds, true)
+  t.is(result.cvcRequired, false)
   t.is(result.commercial, true)
   t.is(result.installmentPrices[0].installmentNumber, 1)
   t.is(result.installmentPrices[1].installmentNumber, 2)
