@@ -12,6 +12,7 @@ type InitCheckoutPaymentRequest = {
   paymentGroup?: PaymentGroup;
   paymentPhase?: PaymentPhase;
   conversationId?: string;
+  externalId?: string;
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;
