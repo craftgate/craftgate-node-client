@@ -8,6 +8,8 @@ type DepositPaymentResponse = {
   price: number;
   currency: Currency;
   buyerMemberId: number;
+  bankCommissionRate: number;
+  bankCommissionRateAmount: number;
   conversationId: string;
   authCode: string;
   hostReference: string;
