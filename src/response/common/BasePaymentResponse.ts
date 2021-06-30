@@ -27,6 +27,8 @@ type BasePaymentResponse = {
   isThreeDS: boolean;
   merchantCommissionRate: number;
   merchantCommissionRateAmount: number;
+  bankCommissionRate: number;
+  bankCommissionRateAmount: number;
   paidWithStoredCard: boolean;
   binNumber: string;
   lastFourDigits: string;
