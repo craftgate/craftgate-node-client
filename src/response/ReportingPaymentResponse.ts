@@ -11,8 +11,6 @@ type ReportingPaymentResponse = BasePaymentResponse & {
   cardHolderName: string;
   cardIssuerBankName: string;
   mdStatus: number;
-  bankCommissionRate: number;
-  bankCommissionRateAmount: number;
   buyerMember: MemberResponse;
   refunds: ReportingPaymentRefundResponse[];
 };
