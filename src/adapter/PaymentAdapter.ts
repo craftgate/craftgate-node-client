@@ -25,6 +25,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import UpdateCardRequest from '../request/UpdateCardRequest';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -89,6 +90,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async storeCard(request: StoreCardRequest): Promise<StoredCardResponse> {
     return this._client.post('/payment/v1/cards', request);
+  }
+
+  async updateCard(request: UpdateCardRequest): Promise<StoredCardResponse> {
+    return this._client.post('/payment/v1/cards/update', request);
   }
 
   async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
