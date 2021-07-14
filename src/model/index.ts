@@ -22,9 +22,11 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
+import BounceStatus from './BounceStatus';
 
 export = {
   ApprovalStatus,
+  BounceStatus,
   CardAssociation,
   CardType,
   Currency,
