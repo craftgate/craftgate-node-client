@@ -1,4 +1,5 @@
 import PayoutDetailTransaction from './dto/PayoutDetailTransaction';
+import BounceStatus from '../model/BounceStatus';
 
 type PaymentResponse = {
   rowDescription: string;
@@ -11,6 +12,7 @@ type PaymentResponse = {
   merchantType: string;
   settlementEarningsDestination: string;
   settlementSource: string;
+  bounceStatus: BounceStatus;
   payoutTransactions: PayoutDetailTransaction[];
 };
 
