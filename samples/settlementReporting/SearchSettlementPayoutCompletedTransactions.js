@@ -22,5 +22,5 @@ const request = {
 };
 
 craftgate.settlementReporting().searchPayoutCompletedTransactions(request)
-  .then(result => console.info('Search payout completed transactions', result))
-  .catch(err => console.error('Failed to search payout completed transactions', err));
+  .then(result => console.info('Search settlement payout completed transactions', result))
+  .catch(err => console.error('Failed to search settlement payout completed transactions', err));

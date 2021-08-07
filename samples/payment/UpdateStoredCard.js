@@ -14,5 +14,5 @@ const request = {
 };
 
 craftgate.payment().updateCard(request)
-  .then(results => console.info('Update card response', results))
-  .catch(err => console.error('Failed to update card', err));
+  .then(results => console.info('Update stored card response', results))
+  .catch(err => console.error('Failed to update stored card', err));
