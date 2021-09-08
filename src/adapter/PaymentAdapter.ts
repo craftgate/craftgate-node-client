@@ -13,6 +13,7 @@ import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
+import UpdateCardRequest from '../request/UpdateCardRequest';
 
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
@@ -25,7 +26,6 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import UpdateCardRequest from '../request/UpdateCardRequest';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

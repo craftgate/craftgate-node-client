@@ -6,5 +6,4 @@ enum BounceStatus {
   PayoutCompleted = 'PAYOUT_COMPLETED'
 }
 
-
 export default BounceStatus;

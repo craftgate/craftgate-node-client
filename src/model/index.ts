@@ -1,4 +1,5 @@
 import ApprovalStatus from './ApprovalStatus';
+import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardType from './CardType';
 import Currency from './Currency';
@@ -22,7 +23,6 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
-import BounceStatus from './BounceStatus';
 
 export = {
   ApprovalStatus,
