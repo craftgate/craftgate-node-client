@@ -6,6 +6,7 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
+// change payment transaction refund id below with a real one
 craftgate.payment().retrievePaymentTransactionRefund(1)
   .then(results => console.info('Retrieve payment transaction refund response', results))
   .catch(err => console.error('Failed to retrieve payment transaction refund', err));

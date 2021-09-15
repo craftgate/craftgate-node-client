@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  paymentTransactionId: 1,
+  paymentTransactionId: 1, // change it with a real paymentTransactionId
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   refundPrice: 20,
   refundDestinationType: Craftgate.Model.RefundDestinationType.Card
