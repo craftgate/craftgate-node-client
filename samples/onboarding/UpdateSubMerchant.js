@@ -24,7 +24,7 @@ const request = {
   settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
 };
 
-// 1 olarak belirtilmiş memberId bilgisini güncel bir değer ile değiştirerek çalıştırabilirsiniz.
+// change the memberId (displayed as 1 below) with a real id to run the sample
 craftgate.onboarding().updateMember(1, request)
   .then(result => console.info('Sub merchant member updated', result))
   .catch(err => console.error('Failed to update sub merchant member', err));
