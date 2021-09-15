@@ -19,6 +19,7 @@ const request = {
   address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
+// 1 olarak belirtilmiş memberId bilgisini güncel bir değer ile değiştirerek çalıştırabilirsiniz.
 craftgate.onboarding().updateMember(1, request)
   .then(result => console.info('Buyer member updated', result))
   .catch(err => console.error('Failed to update buyer member', err));
