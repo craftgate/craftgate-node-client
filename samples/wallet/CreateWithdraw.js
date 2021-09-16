@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  memberId: 1,
+  memberId: 1, // change it with a valid member id
   price: 100,
   description: "Hakediş Çekme Talebi",
   currency: Craftgate.Model.Currency.TRY

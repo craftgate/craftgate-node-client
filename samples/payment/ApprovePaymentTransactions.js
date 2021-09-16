@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  paymentTransactionIds: [1, 2],
+  paymentTransactionIds: [1, 2],  // change it with valid payment transaction ids
   isTransactional: true
 };
 

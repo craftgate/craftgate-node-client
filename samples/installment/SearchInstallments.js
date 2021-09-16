@@ -6,8 +6,9 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
+// play with the request
 const request = {
-  binNumber: '525864',
+  binNumber: '520922',
   price: 100,
   currency: Craftgate.Model.Currency.TRY
 };

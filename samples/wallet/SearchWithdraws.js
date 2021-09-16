@@ -6,6 +6,7 @@ const craftgate = new Craftgate.Client({
   baseUrl: "https://sandbox-api.craftgate.io"
 });
 
+// play with the request
 const request = {
   memberId: 1,
   currency: Craftgate.Model.Currency.TRY,

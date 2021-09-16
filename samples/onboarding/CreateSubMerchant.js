@@ -18,7 +18,7 @@ const request = {
   legalCompanyTitle: 'Dem Zeytinyağı Üretim Ltd. Şti.',
   name: 'Dem Zeytinyağı Üretim Ltd. Şti.',
   memberType: Craftgate.Model.MemberType.LimitedOrStockJointCompany,
-  memberExternalId: '5fd3e767-b850-4d70-bcdf-d3c42aab8b09',
+  memberExternalId: 'random-id',
   taxNumber: '1111111114',
   taxOffice: 'Erenköy',
   address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul',

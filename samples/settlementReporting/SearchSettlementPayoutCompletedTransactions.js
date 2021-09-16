@@ -15,6 +15,7 @@ function createDate(days, hours, minutes, seconds) {
   return date;
 }
 
+// play with the request
 const request = {
   settlementType: Craftgate.Model.SettlementType.SETTLEMENT,
   startDate: createDate(-1, 0, 0, 0),
