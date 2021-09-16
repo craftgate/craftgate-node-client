@@ -8,7 +8,7 @@ const craftgate = new Craftgate.Client({
 
 // play with the request
 const request = {
-  binNumber: '525864',
+  binNumber: '520922',
   price: 100,
   currency: Craftgate.Model.Currency.TRY
 };
