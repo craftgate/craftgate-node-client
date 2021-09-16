@@ -15,6 +15,7 @@ function createDate(days, hours, minutes, seconds) {
   return date;
 }
 
+// play with the request
 const request = {
   startDate: createDate(-1, 0, 0, 0),
   endDate: createDate(-1, 23, 59, 59)

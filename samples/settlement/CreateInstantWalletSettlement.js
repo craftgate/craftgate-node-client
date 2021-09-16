@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  excludedSubMerchantMemberIds: []
+  excludedSubMerchantMemberIds: [] // you can add member ids for excluding from settlement
 };
 
 craftgate
