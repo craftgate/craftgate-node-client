@@ -12,7 +12,7 @@ const request = {
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   currency: Craftgate.Model.Currency.TRY,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
-  buyerMemberId: 1, // update member id with a real member id
+  buyerMemberId: 1, // update member id with a valid member id
   callbackUrl: 'https://www.your-website.com/craftgate-checkout-callback',
   items: [
     {

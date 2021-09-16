@@ -6,7 +6,7 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-// change the memberId (displayed as 1 below) with a real id to run the sample
+// change the memberId (displayed as 1 below) with a valid id to run the sample
 craftgate.onboarding().retrieveMember(1)
   .then(result => console.info('Buyer member retrieved', result))
   .catch(err => console.error('Failed to retrieve buyer member', err));

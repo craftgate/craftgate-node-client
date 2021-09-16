@@ -10,8 +10,8 @@ const request = {
   price: 100.0,
   paidPrice: 100.0,
   walletPrice: 0.0,
-  posAlias: "6007-posAlias-1",
   installment: 1,
+  posAlias: '46-akbank-260', // use it if you need to create payment on a specific pos
   conversationId: "456d1297-908e-4bd6-a13b-4be31a6e47d5",
   externalId: "external_id-123456789",
   currency: Craftgate.Model.Currency.TRY,
