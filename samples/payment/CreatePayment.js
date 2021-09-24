@@ -9,14 +9,13 @@ const craftgate = new Craftgate.Client({
 const request = {
   price: 100.0,
   paidPrice: 100.0,
-  walletPrice: 0.0, // use it with a positive price if you need to pay with wallet
+  walletPrice: 0.0,
   installment: 1,
-  buyerMemberId: 1, // use it if you need to specify wallet member
-  posAlias: '46-akbank-260', // use it if you need to create payment on a specific pos
+  //buyerMemberId: 2110,
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   currency: Craftgate.Model.Currency.TRY,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
-  card: { // remove card info if you need to pay with wallet
+  card: {
     cardHolderName: 'Haluk Demir',
     cardNumber: '5258640000000001',
     expireYear: '2044',
