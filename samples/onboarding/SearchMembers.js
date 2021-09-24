@@ -11,7 +11,8 @@ const request = {
   name: 'Zeytinyağı Üretim',
   page: 0,
   size: 25,
-  memberIds: [2110]
+  memberIds: [2112],
+  memberType: Craftgate.Model.MemberType.LimitedOrStockJointCompany
 };
 
 craftgate.onboarding().searchMembers(request)
