@@ -26,21 +26,21 @@ const request = {
       name: 'Item 1',
       price: 30.0,
       externalId: '123d1297-839e-4bd6-a13b-4be31a6e12a8',
-      subMerchantMemberId: 2112,
+      subMerchantMemberId: 1,
       subMerchantMemberPrice: 27.0
     },
     {
       name: 'Item 2',
       price: 50.0,
       externalId: '789d1297-839e-4bd6-a13b-4be31a6e13f7',
-      subMerchantMemberId: 2112,
+      subMerchantMemberId: 1,
       subMerchantMemberPrice: 42.0
     },
     {
       name: 'Item 3',
       price: 20.0,
       externalId: '3a1d1297-839e-4bd6-a13b-4be31a6e18e6',
-      subMerchantMemberId: 2112,
+      subMerchantMemberId: 1,
       subMerchantMemberPrice: 18.0
     }
   ]

@@ -11,7 +11,7 @@ const request = {
   name: 'Zeytinyağı Üretim',
   page: 0,
   size: 25,
-  memberIds: [2112],
+  //memberIds: [1],
   memberType: Craftgate.Model.MemberType.LimitedOrStockJointCompany
 };
 

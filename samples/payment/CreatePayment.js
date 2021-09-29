@@ -11,7 +11,6 @@ const request = {
   paidPrice: 100.0,
   walletPrice: 0.0,
   installment: 1,
-  //buyerMemberId: 2110,
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   currency: Craftgate.Model.Currency.TRY,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,

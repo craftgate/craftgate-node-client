@@ -6,6 +6,6 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.onboarding().retrieveMember(2110)
+craftgate.onboarding().retrieveMember(1)
   .then(result => console.info('Buyer member retrieved', result))
   .catch(err => console.error('Failed to retrieve buyer member', err));
