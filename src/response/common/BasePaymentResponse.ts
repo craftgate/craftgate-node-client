@@ -8,6 +8,7 @@ import PaymentStatus from '../../model/PaymentStatus';
 import PaymentType from '../../model/PaymentType';
 import MerchantPos from '../dto/MerchantPos';
 import PaymentError from '../dto/PaymentError';
+import PaymentSource from '../../model/PaymentSource';
 
 type BasePaymentResponse = {
   id: number;
@@ -24,6 +25,7 @@ type BasePaymentResponse = {
   paymentGroup: PaymentGroup;
   paymentStatus: PaymentStatus;
   paymentPhase: PaymentPhase;
+  paymentSource: PaymentSource;
   isThreeDS: boolean;
   merchantCommissionRate: number;
   merchantCommissionRateAmount: number;

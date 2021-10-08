@@ -7,6 +7,8 @@ import MemberType from './MemberType';
 import MerchantType from './MerchantType';
 import PaymentGroup from './PaymentGroup';
 import PaymentPhase from './PaymentPhase';
+import PaymentMethod from './PaymentMethod';
+import PaymentSource from './PaymentSource';
 import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
@@ -34,6 +36,8 @@ export = {
   MerchantType,
   PaymentGroup,
   PaymentPhase,
+  PaymentMethod,
+  PaymentSource,
   PaymentRefundStatus,
   PaymentStatus,
   PaymentType,
