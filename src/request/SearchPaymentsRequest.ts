@@ -13,7 +13,6 @@ type SearchPaymentsRequest = {
   orderId?: string;
   paymentType?: string;
   paymentStatus?: string;
-  paymentSource?: string;
   binNumber?: string;
   lastFourDigits?: string;
   currency?: Currency;
