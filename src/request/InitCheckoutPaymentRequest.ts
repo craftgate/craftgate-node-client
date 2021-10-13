@@ -1,7 +1,7 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
-import PaymentPhase from '../model/PaymentPhase';
 import PaymentMethod from '../model/PaymentMethod';
+import PaymentPhase from '../model/PaymentPhase';
 
 import PaymentItem from './dto/PaymentItem';
 

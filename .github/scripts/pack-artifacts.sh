@@ -13,7 +13,7 @@ set -e
 # TODO remove once published
 SHOULD_PUBLISH="1"
 
-ARTIFACT_FILENAME=$(npm pack --quiet)
+ARTIFACT_FILENAME=$(npm pack --quiet --omit=dev --ignore-scripts)
 
 echo "Packed library written to $ARTIFACT_FILENAME"
 

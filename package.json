@@ -12,7 +12,8 @@
     "lint:check": "eslint src/",
     "lint:fix": "eslint --fix src/",
     "ts-node": "ts-node",
-    "build": "npm run clean && node node_modules/.bin/tsc"
+    "build": "npm run clean && node node_modules/.bin/tsc",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "MIT",
@@ -33,7 +34,8 @@
     "prettier": "2.3.2",
     "rimraf": "3.0.2",
     "ts-node": "10.2.1",
-    "typescript": "4.4.2"
+    "typescript": "4.4.2",
+    "husky": "7.0.0"
   },
   "dependencies": {
     "axios": "0.21.1",
