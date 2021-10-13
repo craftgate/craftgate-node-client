@@ -4,11 +4,11 @@ import Currency from '../../model/Currency';
 import Installment from '../../model/Installment';
 import PaymentGroup from '../../model/PaymentGroup';
 import PaymentPhase from '../../model/PaymentPhase';
+import PaymentSource from '../../model/PaymentSource';
 import PaymentStatus from '../../model/PaymentStatus';
 import PaymentType from '../../model/PaymentType';
 import MerchantPos from '../dto/MerchantPos';
 import PaymentError from '../dto/PaymentError';
-import PaymentSource from '../../model/PaymentSource';
 
 type BasePaymentResponse = {
   id: number;

@@ -27,17 +27,29 @@ As outlined in the [README](./README.md), the bulk of the project is split into 
 - Module Globals: Located under [src/](./src), these files define global classes for the project, as well as the export the root module for Common-JS compatibility
 
 ## Code Style
-This project contains an ESLint configuration that includes recommended settings for both JavaScript and TypeScript, arbitrary `prettier` settings that are built on JavaScript conventions, as well some import ordering rules. Before opening up a PR, please run the following command to check the code for errors:
+This project contains an ESLint configuration that includes recommended settings for both JavaScript and TypeScript, arbitrary `prettier` settings that are built on JavaScript conventions, as well some import ordering rules.
+
+We use [husky](https://github.com/typicode/husky) to automatically run the linter as a pre-push Git hook to ensure that the code style is maintained throughout the project.
+
+> Hint: Most IDEs have built-in or plugin support for automatically fixing the code style upon save as per the project's ESLint configuration
+
+You can manually run the linter using the following command:
 
 ```bash
 $ npm run lint:check
 ```
 
-While this command only lists any errors and warnings that are encountered, you can also try to fix them automatically, which will probably work most of the time:
+And if there are any issues you can also try to fix them automatically, which will probably work most of the time:
 
 ```bash
 $ npm run lint:fix
 ```
 
 ## Tests and Coverage
-As a payment systems client, it's important to have a high test coverage. In addition to tests that test crucial parts of the libraries and utilities, we also have tests with mock HTTP clients for request/response formats, which act as contact tests.
+As a payment systems client, it's important to have a high test coverage. In addition to tests that test crucial parts of the libraries and utilities, we also have tests with mock HTTP clients for request/response formats, which act as contract tests.
+
+## Runtime Checks
+We try to be as backwards-compatible as possible with older Node.js versions, and to ensure this we run a [runtime checker](.github/scripts/check-runtime.js) on the CI pipeline. We currently go as back as 4.x, so you might have to think twice when adding a new library or using certain Node.js APIs.
+
+## Dependency Versioning
+To avoid any unexpected issues that might be introduced by an automatically updated dependency version, we refrain from using caret versioning (e.g. `^1.0.14`) and instead use specific versions (e.g. `1.0.14`). When adding a dependency, aside from making sure it's compatible with Node 4.x, please make sure to use the specific version number.
