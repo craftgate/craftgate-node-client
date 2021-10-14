@@ -54,7 +54,10 @@ export class HttpClient {
     config.headers[SIGNATURE_HEADER_NAME] = signature;
     config.headers['Content-Type'] = 'application/json';
 
-    config.data = requestBody;
+    const method: string = (config.method || '').toLowerCase();
+    if (method === 'put' || method === 'post' || method === 'patch') {
+      config.data = requestBody;
+    }
 
     return config;
   }

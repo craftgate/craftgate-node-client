@@ -23,7 +23,8 @@
   },
   "ignorePatterns": [
     "samples/**/*",
-    "test/**/*"
+    "test/**/*",
+    "dist/**/*"
   ],
   "rules": {
     "no-unused-vars": 0,
