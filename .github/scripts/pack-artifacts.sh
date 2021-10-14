@@ -10,6 +10,12 @@ set -e
 #    SHOULD_PUBLISH="1"
 #fi
 
+cd dist/
+echo ".tgz" > .npmignore
+cp ../package.json .
+sed -i 's/dist\/index.js//g' package.json
+sed -i 's/husky install//g' package.json
+
 # TODO remove once published
 SHOULD_PUBLISH="1"
 
@@ -17,5 +23,5 @@ ARTIFACT_FILENAME=$(npm pack --quiet --omit=dev --ignore-scripts)
 
 echo "Packed library written to $ARTIFACT_FILENAME"
 
-echo "ARTIFACT_FILENAME=$ARTIFACT_FILENAME" >> $GITHUB_ENV
+echo "ARTIFACT_FILENAME=dist/$ARTIFACT_FILENAME" >> $GITHUB_ENV
 echo "SHOULD_PUBLISH=$SHOULD_PUBLISH" >> $GITHUB_ENV
