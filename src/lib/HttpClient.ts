@@ -12,6 +12,16 @@ export type ClientOptions = {
 
 export type ClientCreationOptions = Partial<ClientOptions>;
 
+type CraftgateApiResponse<T> = {
+  data?: T;
+  errors?: {
+    errorCode: string;
+    errorDescription: string;
+  };
+};
+
+type AxiosCraftgateApiResponse<T> = AxiosResponse<CraftgateApiResponse<T>>;
+
 const API_KEY_HEADER_NAME = 'x-api-key';
 const RANDOM_HEADER_NAME = 'x-rnd-key';
 const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
@@ -54,14 +64,17 @@ export class HttpClient {
     config.headers[SIGNATURE_HEADER_NAME] = signature;
     config.headers['Content-Type'] = 'application/json';
 
-    config.data = requestBody;
+    const method: string = (config.method || '').toLowerCase();
+    if (method === 'put' || method === 'post' || method === 'patch') {
+      config.data = requestBody;
+    }
 
     return config;
   }
 
   private async _executeRequest<T>(config: AxiosRequestConfig): Promise<T> {
     try {
-      const response: AxiosResponse = await this._client(config);
+      const response: AxiosResponse<CraftgateApiResponse<T>> = await this._client(config);
       this._handleBusinessErrors(response);
       return response.data.data;
     } catch (err) {
@@ -78,7 +91,7 @@ export class HttpClient {
    *
    * @param response the response
    */
-  private _handleBusinessErrors(response: AxiosResponse) {
+  private _handleBusinessErrors(response: AxiosCraftgateApiResponse<any>) {
     if (!response || !response.data || !response.data.errors) {
       return;
     }
