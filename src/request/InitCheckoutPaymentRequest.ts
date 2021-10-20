@@ -12,6 +12,7 @@ type InitCheckoutPaymentRequest = {
   currency: Currency;
   paymentGroup?: PaymentGroup;
   paymentPhase?: PaymentPhase;
+  paymentChannel?: string;
   enabledPaymentMethods?: PaymentMethod[];
   masterpassGsmNumber?: string;
   conversationId?: string;

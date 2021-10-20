@@ -15,6 +15,7 @@ type CreatePaymentRequest = {
   currency: Currency;
   paymentGroup?: PaymentGroup;
   paymentPhase?: PaymentPhase;
+  paymentChannel?: string;
   conversationId?: string;
   externalId?: string;
   clientIp?: string;
