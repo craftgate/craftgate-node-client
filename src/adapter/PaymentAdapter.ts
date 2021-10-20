@@ -26,6 +26,8 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
+import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -110,5 +112,9 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
     return this._client.post('/payment/v1/payment-transactions/disapprove', request);
+  }
+
+  async checkMasterpassUser(request: CheckMasterpassUserRequest): Promise<CheckMasterpassUserResponse> {
+    return this._client.post('/payment/v1/masterpass-payments/check-user', request);
   }
 }
