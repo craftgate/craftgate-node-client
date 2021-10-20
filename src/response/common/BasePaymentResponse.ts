@@ -26,6 +26,7 @@ type BasePaymentResponse = {
   paymentStatus: PaymentStatus;
   paymentPhase: PaymentPhase;
   paymentSource: PaymentSource;
+  paymentChannel: string;
   isThreeDS: boolean;
   merchantCommissionRate: number;
   merchantCommissionRateAmount: number;

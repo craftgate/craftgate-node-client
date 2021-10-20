@@ -14,6 +14,7 @@ type SearchPaymentsRequest = {
   paymentType?: string;
   paymentSource?: string;
   paymentStatus?: string;
+  paymentChannel?: string;
   binNumber?: string;
   lastFourDigits?: string;
   currency?: Currency;
