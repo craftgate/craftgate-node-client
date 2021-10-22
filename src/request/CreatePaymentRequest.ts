@@ -19,6 +19,7 @@ type CreatePaymentRequest = {
   conversationId?: string;
   externalId?: string;
   clientIp?: string;
+  bankOrderId?: string;
   card?: Card;
   posAlias?: string;
   items: PaymentItem[];
