@@ -32,6 +32,8 @@ type BasePaymentResponse = {
   paidWithStoredCard: boolean;
   binNumber: string;
   lastFourDigits: string;
+  cardHolderName: string;
+  bankCardHolderName: string;
   authCode: string;
   hostReference: string;
   transId: string;
