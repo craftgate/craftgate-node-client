@@ -3,9 +3,9 @@ var process = require('process');
 var Craftgate = require('@craftgate/craftgate');
 
 var craftgate = new Craftgate.Client({
-  apiKey: 'api-key',
-  secretKey: 'secret-key',
-  baseUrl: 'https://sandbox-api.craftgate.io/status'
+  apiKey: 'sandbox-YEhueLgomBjqsnvBlWVVuFsVhlvJlMHE',
+  secretKey: 'sandbox-tBdcdKVGmGupzfaWcULcwDLMoglZZvTz',
+  baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
 function assert(expr, message) {
@@ -44,10 +44,6 @@ function testSearch(callback) {
       callback(null, {success: true, totalSize: results.totalSize});
     })
     .catch(function (err) {
-      if (err.response || err instanceof Craftgate.CraftgateError) {
-        return callback(null, {success: false, error: {name: err.name, message: err.message}});
-      }
-
       callback(err);
     });
 }
@@ -64,4 +60,4 @@ assert(Object.keys(Craftgate.Adapter).length > 0, 'Craftgate.Adapter must not be
 assert(!!Craftgate.CraftgateError, 'Craftgate.CraftgateError must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.CraftgateError must be a constructor');
 
-assertAsync(testSearch, 'OnboardingAdapter::searchMembers() should execute normally even if it cannot access the server');
+assertAsync(testSearch, 'OnboardingAdapter::searchMembers() should access the Craftgate Sandbox API and execute normally');

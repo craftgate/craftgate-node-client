@@ -1,5 +1,6 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
+import PaymentMethod from '../model/PaymentMethod';
 import PaymentPhase from '../model/PaymentPhase';
 
 import PaymentItem from './dto/PaymentItem';
@@ -11,6 +12,9 @@ type InitCheckoutPaymentRequest = {
   currency: Currency;
   paymentGroup?: PaymentGroup;
   paymentPhase?: PaymentPhase;
+  paymentChannel?: string;
+  enabledPaymentMethods?: PaymentMethod[];
+  masterpassGsmNumber?: string;
   conversationId?: string;
   externalId?: string;
   cardUserKey?: string;

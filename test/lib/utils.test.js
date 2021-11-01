@@ -109,3 +109,28 @@ test('serializeParams() should convert Date instances to ISO date strings', t =>
   const actual = Utils.serializeParams(params);
   t.is(actual, expected);
 });
+
+test('calculateSignature() should calculate signature without the body', t => {
+  const input = {
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    url: 'https://sandbox-api.craftgate.io',
+    randomStr: '123'
+  };
+  const expected = 'sgmDw5GY819oFF8SC5OTORgqvKGL/4iTZxCeWTSJP5Y=';
+  const actual = Utils.calculateSignature(input);
+  t.is(actual, expected);
+});
+
+test('calculateSignature() should calculate signature with the body', t => {
+  const input = {
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    url: 'https://sandbox-api.craftgate.io',
+    randomStr: '123',
+    body: '{"foo": 42}'
+  };
+  const expected = 'tAse+e0kJf/+XC6yrM+laeTcszYTH8z7uNc5oZAIGPs=';
+  const actual = Utils.calculateSignature(input);
+  t.is(actual, expected);
+});

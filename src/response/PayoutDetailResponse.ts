@@ -1,5 +1,6 @@
-import PayoutDetailTransaction from './dto/PayoutDetailTransaction';
 import BounceStatus from '../model/BounceStatus';
+
+import PayoutDetailTransaction from './dto/PayoutDetailTransaction';
 
 type PaymentResponse = {
   rowDescription: string;

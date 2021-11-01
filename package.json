@@ -12,32 +12,32 @@
     "lint:check": "eslint src/",
     "lint:fix": "eslint --fix src/",
     "ts-node": "ts-node",
-    "build": "npm run clean && node node_modules/.bin/tsc"
+    "build": "npm run clean && node node_modules/.bin/tsc",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "15.0.2",
-    "@typescript-eslint/eslint-plugin": "4.22.1",
-    "@typescript-eslint/parser": "4.22.1",
+    "@types/node": "16.10.9",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
     "ava": "3.15.0",
-    "axios-mock-adapter": "1.19.0",
-    "eslint": "7.26.0",
-    "eslint-config-prettier": "6.15.0",
-    "eslint-import-resolver-typescript": "2.4.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-prettier": "3.4.0",
+    "axios-mock-adapter": "1.20.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-typescript": "2.5.0",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-prettier": "4.0.0",
     "hosted-git-info": "4.0.2",
-    "nock": "13.0.11",
+    "nock": "13.1.3",
     "nyc": "15.1.0",
-    "prettier": "2.3.0",
+    "prettier": "2.4.1",
     "rimraf": "3.0.2",
-    "ts-node": "9.1.1",
-    "typescript": "4.2.4"
+    "ts-node": "10.3.0",
+    "typescript": "4.4.4",
+    "husky": "7.0.2"
   },
   "dependencies": {
-    "axios": "0.21.1",
-    "crypto-js": "4.0.0",
-    "lodash": "4.17.21"
+    "axios": "0.23.0"
   }
 }

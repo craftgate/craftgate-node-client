@@ -6,6 +6,7 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
+// you can play with the search request below
 const request = {
   cardAlias: 'My YKB Card',
   cardBankName: 'YAPI VE KREDİ BANKASI A.Ş.',

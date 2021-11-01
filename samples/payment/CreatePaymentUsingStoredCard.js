@@ -15,8 +15,8 @@ const request = {
   currency: Craftgate.Model.Currency.TRY,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
   card: {
-    cardUserKey: 'fac377f2-ab15-4696-88d2-5e71b27ec378',
-    cardToken: '11a078c4-3c32-4796-90b1-51ee5517a212'
+    cardUserKey: 'fac377f2-ab15-4696-88d2-5e71b27ec378', // change it with a valid card user key
+    cardToken: '11a078c4-3c32-4796-90b1-51ee5517a212' // change it with a valid card token
   },
   items: [
     {

@@ -1,4 +1,4 @@
-import crypto from 'crypto-js';
+import crypto from 'crypto';
 
 /**
  * Generates a random alphanumeric string of the given length.
@@ -21,8 +21,7 @@ export function generateRandomString(length = 6): string {
  */
 export function calculateSignature({apiKey, secretKey, url, body, randomStr}: {apiKey: string; secretKey: string; url: string; randomStr: string; body?: string}): string {
   const hashStr: string = [url, apiKey, secretKey, randomStr, body].filter(s => !!s).join('');
-  const hash = crypto.SHA256(hashStr);
-  return crypto.enc.Base64.stringify(hash);
+  return crypto.createHash('sha256').update(hashStr).digest('base64');
 }
 
 /**

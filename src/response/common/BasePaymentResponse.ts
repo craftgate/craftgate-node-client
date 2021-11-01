@@ -4,6 +4,7 @@ import Currency from '../../model/Currency';
 import Installment from '../../model/Installment';
 import PaymentGroup from '../../model/PaymentGroup';
 import PaymentPhase from '../../model/PaymentPhase';
+import PaymentSource from '../../model/PaymentSource';
 import PaymentStatus from '../../model/PaymentStatus';
 import PaymentType from '../../model/PaymentType';
 import MerchantPos from '../dto/MerchantPos';
@@ -24,6 +25,8 @@ type BasePaymentResponse = {
   paymentGroup: PaymentGroup;
   paymentStatus: PaymentStatus;
   paymentPhase: PaymentPhase;
+  paymentSource: PaymentSource;
+  paymentChannel: string;
   isThreeDS: boolean;
   merchantCommissionRate: number;
   merchantCommissionRateAmount: number;

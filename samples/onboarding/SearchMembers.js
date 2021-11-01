@@ -6,11 +6,12 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
+// play with request parameters to search members
 const request = {
   name: 'Zeytinyağı Üretim',
   page: 0,
   size: 25,
-  memberIds: [1, 2],
+  //memberIds: [1],
   memberType: Craftgate.Model.MemberType.LimitedOrStockJointCompany
 };
 

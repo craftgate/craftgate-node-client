@@ -8,7 +8,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
     "plugin:import/warnings",
     "plugin:import/errors"
   ],
@@ -24,10 +23,11 @@
   },
   "ignorePatterns": [
     "samples/**/*",
-    "test/**/*"
+    "test/**/*",
+    "dist/**/*"
   ],
   "rules": {
-    "no-unused-vars": ["warn", {"args": "after-used", "varsIgnorePattern": "^_.*"}],
+    "no-unused-vars": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/named": "error",
