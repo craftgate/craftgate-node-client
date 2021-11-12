@@ -15,6 +15,7 @@ type InitCheckoutPaymentRequest = {
   paymentChannel?: string;
   enabledPaymentMethods?: PaymentMethod[];
   masterpassGsmNumber?: string;
+  masterpassUserId?: string;
   conversationId?: string;
   externalId?: string;
   cardUserKey?: string;
