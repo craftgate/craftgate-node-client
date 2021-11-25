@@ -2,6 +2,7 @@ import CardAssociation from '../../model/CardAssociation';
 import CardType from '../../model/CardType';
 import Currency from '../../model/Currency';
 import Installment from '../../model/Installment';
+import {Loyalty} from '../../model/Loyalty';
 import PaymentGroup from '../../model/PaymentGroup';
 import PaymentPhase from '../../model/PaymentPhase';
 import PaymentSource from '../../model/PaymentSource';
@@ -45,6 +46,7 @@ type BasePaymentResponse = {
   cardAssociation: CardAssociation;
   cardBrand: string;
   pos: MerchantPos;
+  loyalty?: Loyalty;
   paymentError: PaymentError;
 };
 
