@@ -1,5 +1,5 @@
 type CheckMasterpassUserRequest = {
-  masterpassGsmNumber: string
+  masterpassGsmNumber: string;
 };
 
 export default CheckMasterpassUserRequest;
