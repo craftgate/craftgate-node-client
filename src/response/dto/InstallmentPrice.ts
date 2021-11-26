@@ -4,6 +4,7 @@ type InstallmentPrice = {
   installmentPrice: number;
   totalPrice: number;
   installmentLabel: string;
+  loyaltySupported: boolean;
 };
 
 export default InstallmentPrice;
