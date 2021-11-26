@@ -1,6 +1,7 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
+import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
@@ -11,10 +12,12 @@ import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
+import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 
+import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
@@ -23,11 +26,10 @@ import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
+import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
-import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -116,5 +118,9 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async checkMasterpassUser(request: CheckMasterpassUserRequest): Promise<CheckMasterpassUserResponse> {
     return this._client.post('/payment/v1/masterpass-payments/check-user', request);
+  }
+
+  async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
+    return this._client.post('/payment/v1/card-loyalties/retrieve', request);
   }
 }
