@@ -1,9 +1,9 @@
-export type Reward = {
-  type: 'REWARD_MONEY';
-  reward: {
+import LoyaltyType from './LoyaltyType';
+
+export type Loyalty = {
+  type: LoyaltyType;
+  reward?: {
     cardRewardMoney?: number;
     firmRewardMoney?: number;
   };
 };
-
-export type Loyalty = Reward;
