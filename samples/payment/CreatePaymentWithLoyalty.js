@@ -1,3 +1,4 @@
+
 const Craftgate = require('../../dist');
 
 const craftgate = new Craftgate.Client({
@@ -21,7 +22,7 @@ const request = {
     expireMonth: '07',
     cvc: '000',
     loyalty: {
-      type: 'REWARD_MONEY',
+      type: Craftgate.Model.LoyaltyType.RewardMoney,
       reward: {
         cardRewardMoney: 1.36,
         firmRewardMoney: 3.88

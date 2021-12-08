@@ -25,6 +25,7 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
+import LoyaltyType from './LoyaltyType';
 
 export = {
   ApprovalStatus,
@@ -32,6 +33,7 @@ export = {
   CardAssociation,
   CardType,
   Currency,
+  LoyaltyType,
   MemberType,
   MerchantType,
   PaymentGroup,
