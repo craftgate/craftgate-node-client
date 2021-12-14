@@ -10,7 +10,7 @@ const request = {
   memberId: 1, // change it with a valid member id
   price: 50,
   description: 'Remittance received from memberId 1',
-  remittanceReasonType: Craftgate.Model.RemittanceReasonType.Remittance
+  remittanceReasonType: Craftgate.Model.RemittanceReasonType.RedeemOnlyLoyalty
 };
 
 craftgate.wallet().receiveRemittance(request)
