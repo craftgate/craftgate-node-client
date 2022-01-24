@@ -11,7 +11,7 @@ const request = {
   memberId: 1,
   price: 50,
   description: 'Remittance send to memberId 1',
-  remittanceReasonType: Craftgate.Model.RemittanceReasonType.Remittance
+  remittanceReasonType: Craftgate.Model.RemittanceReasonType.RedeemOnlyLoyalty
 };
 
 craftgate.wallet().sendRemittance(request)
