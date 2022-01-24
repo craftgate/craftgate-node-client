@@ -18,4 +18,10 @@ export type StoredCard = {
   loyalty?: Loyalty;
 };
 
-export type Card = PaymentCard | StoredCard;
+export type First6Last4CardWithIdentityNumber = {
+  cardHolderIdentityNumber: string;
+  binNumber: string;
+  lastFourDigits: string;
+};
+
+export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber;
