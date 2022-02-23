@@ -12,6 +12,7 @@ type SearchPaymentsRequest = {
   externalId?: string;
   orderId?: string;
   paymentType?: string;
+  paymentProvider?: string;
   paymentSource?: string;
   paymentStatus?: string;
   paymentChannel?: string;
