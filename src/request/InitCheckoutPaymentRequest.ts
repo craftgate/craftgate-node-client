@@ -20,7 +20,6 @@ type InitCheckoutPaymentRequest = {
   externalId?: string;
   cardUserKey?: string;
   callbackUrl: string;
-  merchantWebhookUrl?: string;
   clientIp?: string;
   enabledInstallments: number[];
   alwaysStoreCardAfterPayment: boolean;
