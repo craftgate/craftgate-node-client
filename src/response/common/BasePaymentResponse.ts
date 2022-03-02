@@ -47,6 +47,7 @@ type BasePaymentResponse = {
   cardType: CardType;
   cardAssociation: CardAssociation;
   cardBrand: string;
+  requestedPosAlias: string;
   pos: MerchantPos;
   loyalty?: Loyalty;
   paymentError: PaymentError;
