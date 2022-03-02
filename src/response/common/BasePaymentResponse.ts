@@ -10,6 +10,7 @@ import PaymentStatus from '../../model/PaymentStatus';
 import PaymentType from '../../model/PaymentType';
 import MerchantPos from '../dto/MerchantPos';
 import PaymentError from '../dto/PaymentError';
+import PaymentProvider from '../../model/PaymentProvider';
 
 type BasePaymentResponse = {
   id: number;
@@ -23,6 +24,7 @@ type BasePaymentResponse = {
   conversationId: string;
   externalId: string;
   paymentType: PaymentType;
+  paymentProvider: PaymentProvider;
   paymentGroup: PaymentGroup;
   paymentStatus: PaymentStatus;
   paymentPhase: PaymentPhase;

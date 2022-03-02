@@ -1,7 +1,7 @@
 enum PaymentSource {
   API = 'API',
-  Masterpass = 'MASTERPASS',
-  CheckoutForm = 'CHECKOUT_FROM'
+  CheckoutForm = 'CHECKOUT_FORM',
+  PayByLink = 'PAY_BY_LINK'
 }
 
 export default PaymentSource;
