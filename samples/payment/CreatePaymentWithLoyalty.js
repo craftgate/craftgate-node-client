@@ -1,4 +1,3 @@
-
 const Craftgate = require('../../dist');
 
 const craftgate = new Craftgate.Client({
