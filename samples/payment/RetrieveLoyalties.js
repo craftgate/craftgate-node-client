@@ -7,10 +7,10 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-    cardNumber: '4043080000000003',
-    expireYear: '2044',
-    expireMonth: '07',
-    cvc: '000'
+  cardNumber: '4043080000000003',
+  expireYear: '2044',
+  expireMonth: '07',
+  cvc: '000'
 };
 
 craftgate.payment().retrieveLoyalties(request)

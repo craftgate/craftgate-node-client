@@ -90,7 +90,7 @@ test('HttpClient::get() should not add an unnecessary body property to the reque
   mock.onGet('/foo')
     .reply(config => {
       if (!config.hasOwnProperty('data') || typeof config.data === 'undefined') {
-        return [200, 'ok'];        
+        return [200, 'ok'];
       }
 
       return [500, 'No data field should be present in the request config'];
@@ -111,7 +111,7 @@ test('HttpClient::delete() should not add an unnecessary body property to the re
   mock.onDelete('/foo')
     .reply(config => {
       if (!config.hasOwnProperty('data') || typeof config.data === 'undefined') {
-        return [200, 'ok'];        
+        return [200, 'ok'];
       }
 
       return [500, 'No data field should be present in the request config'];
