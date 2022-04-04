@@ -5,12 +5,12 @@ import Installment from '../../model/Installment';
 import {Loyalty} from '../../model/Loyalty';
 import PaymentGroup from '../../model/PaymentGroup';
 import PaymentPhase from '../../model/PaymentPhase';
+import PaymentProvider from '../../model/PaymentProvider';
 import PaymentSource from '../../model/PaymentSource';
 import PaymentStatus from '../../model/PaymentStatus';
 import PaymentType from '../../model/PaymentType';
 import MerchantPos from '../dto/MerchantPos';
 import PaymentError from '../dto/PaymentError';
-import PaymentProvider from '../../model/PaymentProvider';
 
 type BasePaymentResponse = {
   id: number;

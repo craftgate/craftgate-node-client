@@ -3,11 +3,13 @@ import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardType from './CardType';
 import Currency from './Currency';
+import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
 import PaymentGroup from './PaymentGroup';
 import PaymentMethod from './PaymentMethod';
 import PaymentPhase from './PaymentPhase';
+import PaymentProvider from './PaymentProvider';
 import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
@@ -25,8 +27,6 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
-import LoyaltyType from './LoyaltyType';
-import PaymentProvider from './PaymentProvider';
 
 export = {
   ApprovalStatus,

@@ -8,6 +8,7 @@ import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
+import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
@@ -21,6 +22,7 @@ import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
+import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -30,8 +32,6 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
-import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
