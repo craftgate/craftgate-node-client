@@ -17,6 +17,7 @@ type UpdateMemberRequest = {
   identityNumber?: string;
   legalCompanyTitle?: string;
   settlementEarningsDestination?: SettlementEarningsDestination;
+  walletLowerLimit?: number;
 };
 
 export default UpdateMemberRequest;
