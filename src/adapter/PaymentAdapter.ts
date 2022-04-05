@@ -4,6 +4,7 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
+import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
@@ -32,7 +33,6 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import CreateFundTransferDepositPaymentRequest from "../request/CreateFundTransferDepositPaymentRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
