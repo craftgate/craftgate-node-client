@@ -26,8 +26,7 @@ test('createSubMerchant() should create sub merchant member', async t => {
     contactSurname: 'Skywalker',
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
-    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
-    walletLowerLimit: -50
+    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
   const response = {
@@ -49,7 +48,6 @@ test('createSubMerchant() should create sub merchant member', async t => {
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
-    walletLowerLimit: -50
   };
 
   nock('http://localhost:8000')
@@ -75,7 +73,6 @@ test('createSubMerchant() should create sub merchant member', async t => {
   t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
   t.is(result.settlementEarningsDestination, Craftgate.Model.SettlementEarningsDestination.Iban);
-  t.is(result.walletLowerLimit, -50);
 });
 
 test('updateSubMerchant() should update sub merchant member', async t => {
@@ -94,8 +91,7 @@ test('updateSubMerchant() should update sub merchant member', async t => {
     contactSurname: 'Skywalker',
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
-    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
-    walletLowerLimit: -50
+    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
   const response = {
@@ -116,8 +112,7 @@ test('updateSubMerchant() should update sub merchant member', async t => {
     contactSurname: 'Skywalker',
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
-    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
-    walletLowerLimit: -50
+    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
   nock('http://localhost:8000')
@@ -143,7 +138,6 @@ test('updateSubMerchant() should update sub merchant member', async t => {
   t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
   t.is(result.settlementEarningsDestination, Craftgate.Model.SettlementEarningsDestination.Iban);
-  t.is(result.walletLowerLimit, -50);
 });
 
 test('retrieveSubMerchant() should retrieve sub merchant member', async t => {
@@ -165,8 +159,7 @@ test('retrieveSubMerchant() should retrieve sub merchant member', async t => {
     contactSurname: 'Skywalker',
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
-    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
-    walletLowerLimit: -50
+    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
   nock('http://localhost:8000')
@@ -192,7 +185,6 @@ test('retrieveSubMerchant() should retrieve sub merchant member', async t => {
   t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
   t.is(result.settlementEarningsDestination, Craftgate.Model.SettlementEarningsDestination.Iban);
-  t.is(result.walletLowerLimit, -50);
 });
 
 test('createBuyer() should create buyer member', async t => {
