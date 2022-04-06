@@ -13,7 +13,8 @@ enum WalletTransactionType {
   Remittance = 'REMITTANCE',
   Loyalty = 'LOYALTY',
   WithdrawCancel = 'WITHDRAW_CANCEL',
-  MerchantBalanceReset = 'MERCHANT_BALANCE_RESET'
+  MerchantBalanceReset = 'MERCHANT_BALANCE_RESET',
+  DepositFromFundTransfer = 'DEPOSIT_FROM_FUND_TRANSFER'
 }
 
 export default WalletTransactionType;
