@@ -18,7 +18,7 @@ type CreateMemberRequest = {
   identityNumber?: string;
   legalCompanyTitle?: string;
   settlementEarningsDestination?: SettlementEarningsDestination;
-  walletLowerLimit?: number;
+  negativeWalletAmountLimit?: number;
 };
 
 export default CreateMemberRequest;
