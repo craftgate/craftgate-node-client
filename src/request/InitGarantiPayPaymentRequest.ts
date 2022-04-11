@@ -1,7 +1,8 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
-import PaymentItem from './dto/PaymentItem';
+
 import GarantiPayInstallment from './dto/GarantiPayInstallment';
+import PaymentItem from './dto/PaymentItem';
 
 type InitGarantiPayPaymentRequest = {
   price: number;

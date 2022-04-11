@@ -4,10 +4,12 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
+import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
+import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
@@ -21,6 +23,7 @@ import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
+import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -30,8 +33,6 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
-import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -76,6 +77,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async complete3DSDepositPayment(request: CompleteThreeDSPaymentRequest): Promise<DepositPaymentResponse> {
     return this._client.post('/payment/v1/deposits/3ds-complete', request);
+  }
+
+  async createFundTransferDepositPayment(request: CreateFundTransferDepositPaymentRequest): Promise<void> {
+    await this._client.post('/payment/v1/deposits/fund-transfer', request);
   }
 
   async initGarantiPayPayment(request: InitGarantiPayPaymentRequest): Promise<InitGarantiPayPaymentResponse> {

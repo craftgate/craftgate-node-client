@@ -17,7 +17,8 @@ const request = {
   name: 'Haluk Demir',
   memberType: Craftgate.Model.MemberType.Personal,
   memberExternalId: 'random-id',
-  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
+  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul',
+  negativeWalletAmountLimit: -50
 };
 
 craftgate.onboarding().createMember(request)

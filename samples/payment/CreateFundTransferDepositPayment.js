@@ -10,15 +10,8 @@ const request = {
   price: 100.0,
   buyerMemberId: 1, // change it with a valid wallet owner, aka member id
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
-  card: {
-    cardHolderName: 'Haluk Demir',
-    cardNumber: '5258640000000001',
-    expireYear: '2044',
-    expireMonth: '07',
-    cvc: '000'
-  }
 };
 
-craftgate.payment().createDepositPayment(request)
-  .then(result => console.info('Deposit payment successful', result))
-  .catch(err => console.error('Deposit payment failed', err));
+craftgate.payment().createFundTransferDepositPayment(request)
+  .then(result => console.info('Fund transfer deposit payment successful', result))
+  .catch(err => console.error('Fund transfer deposit payment failed', err));
