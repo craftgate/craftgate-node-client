@@ -47,7 +47,7 @@ test('createSubMerchant() should create sub merchant member', async t => {
     contactSurname: 'Skywalker',
     identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
-    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban,
+    settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
   nock('http://localhost:8000')
