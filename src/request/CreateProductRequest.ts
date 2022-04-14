@@ -12,7 +12,7 @@ type CreateProductRequest = {
   price: number;
   currency: Currency;
   description: string;
-  enabledInstallments: string;
+  enabledInstallments: number[];
 };
 
 export default CreateProductRequest;

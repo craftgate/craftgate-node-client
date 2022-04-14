@@ -13,7 +13,7 @@ const request = {
   channel: "API",
   price: 10,
   currency: Currency.TRY,
-  enabledInstallments: "1,2,3,6"
+  enabledInstallments: [1,2,3]
 };
 
 craftgate.payByLink().updateProduct(1, request)

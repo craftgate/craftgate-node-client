@@ -8,7 +8,7 @@ type UpdateProductRequest = {
   price: number;
   currency: Currency;
   description: string;
-  enabledInstallments: string;
+  enabledInstallments: number[];
 };
 
 export default UpdateProductRequest;

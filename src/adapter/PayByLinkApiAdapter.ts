@@ -1,14 +1,13 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
 import CreateProductRequest from '../request/CreateProductRequest';
+import SearchProductsRequest from '../request/SearchProductsRequest';
 import UpdateProductRequest from '../request/UpdateProductRequest';
 
+import DataResponse from '../response/DataResponse';
 import ProductResponse from '../response/ProductResponse';
 
 import BaseAdapter from './BaseAdapter';
-import SearchProductsRequest from "../request/SearchProductsRequest";
-import DataResponse from "../response/DataResponse";
-import MemberResponse from "../response/MemberResponse";
 
 export default class PayByLinkApiAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
