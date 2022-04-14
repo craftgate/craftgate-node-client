@@ -6,6 +6,7 @@ type UpdateProductRequest = {
   name: string;
   channel: string;
   price: number;
+  stock: number;
   currency: Currency;
   description: string;
   enabledInstallments: number[];
