@@ -11,7 +11,7 @@ type ProductResponse = {
   stock: number;
   soldCount: number;
   token: string;
-  enabledInstallments: string;
+  enabledInstallments: number[];
   url: string;
   qrCodeUrl: string;
   channel: string;
