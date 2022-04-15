@@ -26,6 +26,7 @@ type InitCheckoutPaymentRequest = {
   alwaysStoreCardAfterPayment: boolean;
   allowOnlyStoredCards: boolean;
   allowOnlyCreditCard?: boolean;
+  allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   items: PaymentItem[];
 };
