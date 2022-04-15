@@ -1,5 +1,4 @@
 const Craftgate = require('../../dist');
-const { Currency, Status } = require("../../dist/model");
 
 const craftgate = new Craftgate.Client({
   apiKey: 'api-key',
@@ -10,7 +9,7 @@ const craftgate = new Craftgate.Client({
 const request = {
   name: "A new Product",
   channel: "API",
-  currency: Currency.TRY
+  currency: Craftgate.Model.Currency.TRY
 };
 
 craftgate.payByLink().searchProducts(request)
