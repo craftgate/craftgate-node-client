@@ -1,12 +1,11 @@
-const Craftgate = require('../../dist');
-const { Currency } = require("../../dist/model");
+const Craftgate = require("../../dist");
 
 const craftgate = new Craftgate.Client({
-  apiKey: 'api-key',
-  secretKey: 'secret-key',
-  baseUrl: 'https://sandbox-api.craftgate.io'
+  apiKey: "api-key",
+  secretKey: "secret-key",
+  baseUrl: "https://sandbox-api.craftgate.io"
 });
 
 craftgate.payByLink().retrieveProduct(1)
-  .then(result => console.info('Product successfully retrieved', result))
-  .catch(err => console.error('Retrieve product failed', err));
+  .then(result => console.info("Product successfully retrieved", result))
+  .catch(err => console.error("Retrieve product failed", err));

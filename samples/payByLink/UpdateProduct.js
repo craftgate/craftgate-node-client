@@ -1,5 +1,4 @@
 const Craftgate = require('../../dist');
-const { Currency, Status } = require("../../dist/model");
 
 const craftgate = new Craftgate.Client({
   apiKey: 'api-key',
@@ -8,11 +7,11 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  status: Status.Active,
+  status: Craftgate.Model.Status.Active,
   name: "A new Product - Version 2",
   channel: "API",
   price: 10,
-  currency: Currency.TRY,
+  currency: Craftgate.Model.Currency.TRY,
   enabledInstallments: [1,2,3]
 };
 
