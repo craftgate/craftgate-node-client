@@ -808,7 +808,7 @@ test('should refund payment transaction', async t => {
     paymentTransactionId: 1,
     conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
     refundPrice: 20,
-    refundDestinationType: Craftgate.Model.RefundDestinationType.Card,
+    refundDestinationType: Craftgate.Model.RefundDestinationType.Provider,
     chargeFromMe: false
   };
 

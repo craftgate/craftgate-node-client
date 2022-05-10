@@ -1,13 +1,13 @@
 import BaseAdapter from './adapter/BaseAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
+import PayByLinkApiAdapter from './adapter/PayByLinkApiAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
 import PaymentReportingAdapter from './adapter/PaymentReportingAdapter';
 import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
-import PayByLinkApiAdapter from "./adapter/PayByLinkApiAdapter";
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
