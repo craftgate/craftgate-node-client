@@ -1,3 +1,4 @@
+import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
 import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
@@ -29,6 +30,7 @@ import WalletTransactionRefundCardTransactionType from './WalletTransactionRefun
 import WalletTransactionType from './WalletTransactionType';
 
 export = {
+  ApmType,
   ApprovalStatus,
   BounceStatus,
   CardAssociation,

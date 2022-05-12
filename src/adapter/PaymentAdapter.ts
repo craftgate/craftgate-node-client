@@ -8,6 +8,7 @@ import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransf
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
+import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
@@ -22,6 +23,7 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
+import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
@@ -85,6 +87,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initGarantiPayPayment(request: InitGarantiPayPaymentRequest): Promise<InitGarantiPayPaymentResponse> {
     return this._client.post('/payment/v1/garanti-pay-payments', request);
+  }
+
+  async initApmPayment(request: InitApmPaymentRequest): Promise<InitApmPaymentResponse> {
+    return this._client.post('/payment/v1/apm-payments/init', request);
   }
 
   async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {

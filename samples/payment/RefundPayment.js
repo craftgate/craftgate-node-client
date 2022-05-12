@@ -8,7 +8,7 @@ const craftgate = new Craftgate.Client({
 
 const request = {
   paymentId: 1, // change it with a valid paymentId
-  refundDestinationType: Craftgate.Model.RefundDestinationType.Card,
+  refundDestinationType: Craftgate.Model.RefundDestinationType.Provider,
 };
 
 craftgate.payment().refundPayment(request)
