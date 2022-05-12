@@ -9,7 +9,7 @@ type InitApmPaymentRequest = {
   price: number;
   paidPrice: number;
   currency: Currency;
-  paymentGroup?: PaymentGroup;
+  paymentGroup: PaymentGroup;
   paymentChannel?: string;
   conversationId?: string;
   externalId?: string;
