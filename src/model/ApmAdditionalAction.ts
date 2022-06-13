@@ -1,9 +1,6 @@
-enum PaymentStatus {
-  Failure = 'FAILURE',
-  Success = 'SUCCESS',
-  Init3DSPayment = 'INIT_THREEDS',
-  Callback3DSecure = 'CALLBACK_THREEDS',
-  Waiting = 'WAITING'
+enum ApmAdditionalAction {
+  RedirectToUrl = 'REDIRECT_TO_URL',
+  None = 'NONE'
 }
 
-export default PaymentStatus;
+export default ApmAdditionalAction;
