@@ -1,5 +1,7 @@
 enum ApmType {
-  Papara = 'PAPARA'
+  Papara = 'PAPARA',
+  Payoneer = 'PAYONEER',
+  Sodexo = 'SODEXO'
 }
 
 export default ApmType;
