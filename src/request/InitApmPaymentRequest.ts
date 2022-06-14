@@ -15,6 +15,8 @@ type InitApmPaymentRequest = {
   externalId?: string;
   callbackUrl: string;
   apmOrderId?: string;
+  apmUserIdentity?: string;
+  additionalParams?: Map<string, Record<string, unknown>>;
   clientIp?: string;
   items: PaymentItem[];
 };
