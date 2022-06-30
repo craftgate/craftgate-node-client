@@ -35,6 +35,9 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import UpdateProductRequest from "../request/UpdateProductRequest";
+import UpdatePaymentTransactionRequest from "../request/UpdatePaymentTransactionRequest";
+import PaymentTransactionResponse from "../response/PaymentTransactionResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -139,5 +142,9 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
     return this._client.post('/payment/v1/card-loyalties/retrieve', request);
+  }
+
+  async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
+    return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
   }
 }
