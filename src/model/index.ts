@@ -28,6 +28,7 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
+import ReportFileType from './ReportFileType';
 
 export = {
   ApmType,
@@ -59,5 +60,6 @@ export = {
   TransactionPayoutStatus,
   TransactionStatus,
   WalletTransactionRefundCardTransactionType,
-  WalletTransactionType
+  WalletTransactionType,
+  ReportFileType
 };

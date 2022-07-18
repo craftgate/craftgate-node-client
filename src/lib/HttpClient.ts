@@ -40,6 +40,42 @@ export class HttpClient {
     this._client.interceptors.request.use(this._injectHeaders.bind(this));
   }
 
+  async get<T>(url: string, params?: any, config?: AxiosRequestConfig): Promise<T> {
+    return this._executeRequest({
+      url,
+      params,
+      method: 'GET',
+      ...config
+    });
+  }
+
+  async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+    return this._executeRequest({
+      url,
+      data,
+      method: 'PUT',
+      ...config
+    });
+  }
+
+  async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+    return this._executeRequest({
+      url,
+      data,
+      method: 'POST',
+      ...config
+    });
+  }
+
+  async delete<T>(url: string, params?: any, config?: AxiosRequestConfig): Promise<T> {
+    return this._executeRequest({
+      url,
+      params,
+      method: 'DELETE',
+      ...config
+    });
+  }
+
   private _injectHeaders(config: AxiosRequestConfig): AxiosRequestConfig {
     const randomStr: string = generateRandomString();
 
@@ -77,11 +113,10 @@ export class HttpClient {
   private async _executeRequest<T>(config: AxiosRequestConfig): Promise<T> {
     try {
       const response: AxiosResponse<CraftgateApiResponse<T>> = await this._client(config);
-      this._handleBusinessErrors(response);
-      return response.data.data;
+      return config.responseType === 'arraybuffer' ? response.data as T : response.data.data;
     } catch (err) {
       if (err && err.response) {
-        this._handleBusinessErrors(err.response);
+        this._handleBusinessErrors(err.response, config);
       }
 
       throw err;
@@ -92,48 +127,16 @@ export class HttpClient {
    * Attempts to handle any errors received from the API, throwing a {@link CraftgateError} if necessary
    *
    * @param response the response
+   * @param config axios request config
    */
-  private _handleBusinessErrors(response: AxiosCraftgateApiResponse<any>) {
-    if (!response || !response.data || !response.data.errors) {
-      return;
+  private _handleBusinessErrors(response: AxiosCraftgateApiResponse<any>, config: AxiosRequestConfig) {
+
+    if (config.responseType === 'arraybuffer') {
+      response.data = JSON.parse(response.data.toString());
     }
 
-    throw new CraftgateError(response.data.errors);
-  }
-
-  async get<T>(url: string, params?: any, config?: AxiosRequestConfig): Promise<T> {
-    return this._executeRequest({
-      url,
-      params,
-      method: 'GET',
-      ...config
-    });
-  }
-
-  async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-    return this._executeRequest({
-      url,
-      data,
-      method: 'PUT',
-      ...config
-    });
-  }
-
-  async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-    return this._executeRequest({
-      url,
-      data,
-      method: 'POST',
-      ...config
-    });
-  }
-
-  async delete<T>(url: string, params?: any, config?: AxiosRequestConfig): Promise<T> {
-    return this._executeRequest({
-      url,
-      params,
-      method: 'DELETE',
-      ...config
-    });
+    if (response?.data?.errors) {
+      throw new CraftgateError(response.data.errors);
+    }
   }
 }
