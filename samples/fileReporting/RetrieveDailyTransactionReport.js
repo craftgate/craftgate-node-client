@@ -3,7 +3,7 @@ const fs = require('fs');
 const craftgate = new Craftgate.Client({
   apiKey: 'api-key',
   secretKey: 'secret-key',
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
 // change the date/type according to your needs
