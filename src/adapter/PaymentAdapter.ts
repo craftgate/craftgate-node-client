@@ -19,6 +19,7 @@ import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
+import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import DataResponse from '../response/DataResponse';
@@ -31,13 +32,13 @@ import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
+import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import UpdateProductRequest from "../request/UpdateProductRequest";
-import UpdatePaymentTransactionRequest from "../request/UpdatePaymentTransactionRequest";
-import PaymentTransactionResponse from "../response/PaymentTransactionResponse";
+import CompleteApmPaymentRequest from "../request/CompleteApmPaymentRequest";
+import CompleteApmPaymentResponse from "../response/CompleteApmPaymentResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -94,6 +95,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initApmPayment(request: InitApmPaymentRequest): Promise<InitApmPaymentResponse> {
     return this._client.post('/payment/v1/apm-payments/init', request);
+  }
+
+  async completeApmPayment(request: CompleteApmPaymentRequest): Promise<CompleteApmPaymentResponse> {
+    return this._client.post('/payment/v1/apm-payments/complete', request);
   }
 
   async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {
