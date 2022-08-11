@@ -2,6 +2,7 @@ import {ClientCreationOptions} from '../lib/HttpClient';
 
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
+import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
 import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
@@ -22,6 +23,7 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
+import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
@@ -37,8 +39,6 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import CompleteApmPaymentRequest from "../request/CompleteApmPaymentRequest";
-import CompleteApmPaymentResponse from "../response/CompleteApmPaymentResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

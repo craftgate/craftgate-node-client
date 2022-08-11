@@ -113,7 +113,7 @@ export class HttpClient {
   private async _executeRequest<T>(config: AxiosRequestConfig): Promise<T> {
     try {
       const response: AxiosResponse<CraftgateApiResponse<T>> = await this._client(config);
-      return config.responseType === 'arraybuffer' ? response.data as T : response.data.data;
+      return config.responseType === 'arraybuffer' ? (response.data as T) : response.data.data;
     } catch (err) {
       if (err && err.response) {
         this._handleBusinessErrors(err.response, config);
@@ -130,7 +130,6 @@ export class HttpClient {
    * @param config axios request config
    */
   private _handleBusinessErrors(response: AxiosCraftgateApiResponse<any>, config: AxiosRequestConfig) {
-
     if (config.responseType === 'arraybuffer') {
       response.data = JSON.parse(response.data.toString());
     }
