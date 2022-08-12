@@ -1,4 +1,5 @@
 import TransactionStatus from '../model/TransactionStatus';
+
 import Payout from './dto/Payout';
 
 type PaymentTransactionResponse = {

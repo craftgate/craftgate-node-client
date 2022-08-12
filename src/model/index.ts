@@ -4,6 +4,8 @@ import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardType from './CardType';
 import Currency from './Currency';
+import FraudAction from './FraudAction';
+import FraudCheckStatus from './FraudCheckStatus';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
@@ -20,6 +22,7 @@ import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
 import RemittanceReasonType from './RemittanceReasonType';
 import RemittanceType from './RemittanceType';
+import ReportFileType from './ReportFileType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
@@ -28,7 +31,6 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
-import ReportFileType from './ReportFileType';
 
 export = {
   ApmType,
@@ -37,6 +39,8 @@ export = {
   CardAssociation,
   CardType,
   Currency,
+  FraudAction,
+  FraudCheckStatus,
   LoyaltyType,
   MemberType,
   MerchantType,
