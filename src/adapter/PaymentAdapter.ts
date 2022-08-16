@@ -19,6 +19,8 @@ import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
+import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import UpdateProductRequest from '../request/UpdateProductRequest';
 
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import DataResponse from '../response/DataResponse';
@@ -31,13 +33,11 @@ import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
+import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
-import UpdateProductRequest from "../request/UpdateProductRequest";
-import UpdatePaymentTransactionRequest from "../request/UpdatePaymentTransactionRequest";
-import PaymentTransactionResponse from "../response/PaymentTransactionResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

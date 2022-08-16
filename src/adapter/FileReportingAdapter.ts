@@ -1,7 +1,8 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
-import BaseAdapter from './BaseAdapter';
 import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
+
+import BaseAdapter from './BaseAdapter';
 
 export default class FileReportingAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

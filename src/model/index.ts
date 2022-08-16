@@ -20,6 +20,7 @@ import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
 import RemittanceReasonType from './RemittanceReasonType';
 import RemittanceType from './RemittanceType';
+import ReportFileType from './ReportFileType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
@@ -28,7 +29,6 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
-import ReportFileType from './ReportFileType';
 
 export = {
   ApmType,
