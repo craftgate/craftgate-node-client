@@ -1,6 +1,6 @@
 enum ReportFileType {
   CSV = 'CSV',
-  XLSX = 'XLSX',
+  XLSX = 'XLSX'
 }
 
 export default ReportFileType;
