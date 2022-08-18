@@ -20,6 +20,7 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import UpdateProductRequest from '../request/UpdateProductRequest';
 
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import DataResponse from '../response/DataResponse';
