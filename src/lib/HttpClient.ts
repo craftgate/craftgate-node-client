@@ -82,7 +82,7 @@ export class HttpClient {
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
-    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.26';
+    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.27';
     config.maxRedirects = 0;
 
     const requestBody: string | null = config.data ? JSON.stringify(config.data, null, 0) : null;
