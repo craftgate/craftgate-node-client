@@ -4,6 +4,8 @@ import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardType from './CardType';
 import Currency from './Currency';
+import FraudAction from './FraudAction';
+import FraudCheckStatus from './FraudCheckStatus';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
@@ -37,6 +39,8 @@ export = {
   CardAssociation,
   CardType,
   Currency,
+  FraudAction,
+  FraudCheckStatus,
   LoyaltyType,
   MemberType,
   MerchantType,
