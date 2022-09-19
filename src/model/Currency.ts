@@ -2,7 +2,9 @@ enum Currency {
   TRY = 'TRY',
   USD = 'USD',
   EUR = 'EUR',
-  GBP = 'GBP'
+  GBP = 'GBP',
+  ARS = 'ARS',
+  BRL = 'BRL'
 }
 
 export default Currency;
