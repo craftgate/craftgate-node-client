@@ -9,6 +9,7 @@ type PaymentResponse = BasePaymentResponse & {
   fraudId: number;
   fraudAction: FraudAction;
   paymentTransactions: PaymentTransaction[];
+  additionalData?: Map<string, any>;
 };
 
 export default PaymentResponse;
