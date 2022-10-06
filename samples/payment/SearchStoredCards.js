@@ -19,4 +19,4 @@ const request = {
 
 craftgate.payment().searchStoredCards(request)
   .then(results => console.info('Search stored card search results', results))
-  .catch(err => console.err('Failed to search stored card', err));
+  .catch(err => console.error('Failed to search stored card', err));

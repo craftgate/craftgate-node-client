@@ -2,6 +2,7 @@ import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
 import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
+import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
 import Currency from './Currency';
 import FraudAction from './FraudAction';
@@ -38,6 +39,7 @@ export = {
   BounceStatus,
   CardAssociation,
   CardType,
+  CardExpiryStatus,
   Currency,
   FraudAction,
   FraudCheckStatus,
