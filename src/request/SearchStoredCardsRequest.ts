@@ -1,4 +1,5 @@
 import CardAssociation from '../model/CardAssociation';
+import CardExpiryStatus from '../model/CardExpiryStatus';
 import CardType from '../model/CardType';
 
 type SearchStoredCardsRequest = {
@@ -9,6 +10,7 @@ type SearchStoredCardsRequest = {
   cardToken?: string;
   cardBankName?: string;
   cardAssociation?: CardAssociation;
+  cardExpiryStatus?: CardExpiryStatus;
   page?: number;
   size?: number;
 };
