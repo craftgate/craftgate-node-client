@@ -5,6 +5,7 @@ type UpdateProductRequest = {
   status: Status;
   name: string;
   channel: string;
+  orderId: string;
   price: number;
   stock: number;
   currency: Currency;
