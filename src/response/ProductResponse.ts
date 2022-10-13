@@ -5,6 +5,7 @@ type ProductResponse = {
   id: number;
   name: string;
   description: string;
+  orderId: string;
   status: Status;
   price: number;
   currency: Currency;
