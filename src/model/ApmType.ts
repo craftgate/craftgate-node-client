@@ -2,7 +2,8 @@ enum ApmType {
   Papara = 'PAPARA',
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
-  Edenred = 'EDENRED'
+  Edenred = 'EDENRED',
+  PayPal = 'PAYPAL'
 }
 
 export default ApmType;

@@ -7,14 +7,13 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  apmType: Craftgate.Model.ApmType.Edenred,
+  apmType: Craftgate.Model.ApmType.PayPal,
   price: 1.0,
   paidPrice: 1.0,
-  currency: Craftgate.Model.Currency.TRY,
+  currency: Craftgate.Model.Currency.USD,
   paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
   conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
   callbackUrl: 'https://www.your-website.com/craftgate-apm-callback',
-  apmUserIdentity: '6036819041742253',
   items: [
     {
       name: 'Item 1',
@@ -30,5 +29,5 @@ const request = {
 };
 
 craftgate.payment().initApmPayment(request)
-  .then(result => console.info('Edenred Apm init payment successful', result))
-  .catch(err => console.error('Failed to init Edenred Apm payment', err));
+  .then(result => console.info('PayPal Apm init payment successful', result))
+  .catch(err => console.error('Failed to init PayPal Apm payment', err));
