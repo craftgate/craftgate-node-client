@@ -3,7 +3,9 @@ enum ApmType {
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
-  PayPal = 'PAYPAL'
+  PayPal = 'PAYPAL',
+  FundTransfer = 'FUND_TRANSFER',
+  CashOnDelivery = 'CASH_ON_DELIVERY'
 }
 
 export default ApmType;

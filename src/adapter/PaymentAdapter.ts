@@ -4,6 +4,7 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
+import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
 import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
@@ -99,6 +100,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async completeApmPayment(request: CompleteApmPaymentRequest): Promise<CompleteApmPaymentResponse> {
     return this._client.post('/payment/v1/apm-payments/complete', request);
+  }
+
+  async createApmPayment(request: CreateApmPaymentRequest): Promise<PaymentResponse> {
+    return this._client.post('/payment/v1/apm-payments', request);
   }
 
   async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {
