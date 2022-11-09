@@ -8,6 +8,7 @@ type InitApmPaymentRequest = {
   apmType: ApmType;
   price: number;
   paidPrice: number;
+  buyerMemberId: number;
   currency: Currency;
   paymentGroup: PaymentGroup;
   paymentChannel?: string;
