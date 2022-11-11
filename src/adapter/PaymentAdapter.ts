@@ -135,7 +135,7 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
-    await this._client.delete('/payment/v1/cards', request);
+    await this._client.post('/payment/v1/cards/delete', request);
   }
 
   async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {

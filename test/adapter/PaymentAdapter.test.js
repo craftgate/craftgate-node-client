@@ -977,19 +977,12 @@ test('should store card', async t => {
 
 test('should delete stored card', async t => {
   const request = {
-    merchantId: 100,
     cardUserKey: 'de050909-39a9-473c-a81a-f186dd55cfef',
     cardToken: 'f13129c4-55b2-4055-8c94-60c0d8c51a3b'
   };
 
-  const queryString = [
-    `merchantId=${request.merchantId}`,
-    `cardUserKey=${request.cardUserKey}`,
-    `cardToken=${request.cardToken}`
-  ].join('&');
-
   const scope = nock('http://localhost:8000')
-    .delete(`/payment/v1/cards?${queryString}`)
+    .post(`/payment/v1/cards/delete`)
     .reply(204);
 
   await paymentAdapter.deleteStoredCard(request)
