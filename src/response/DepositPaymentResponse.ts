@@ -2,6 +2,8 @@ import Currency from '../model/Currency';
 import PaymentStatus from '../model/PaymentStatus';
 import PaymentType from '../model/PaymentType';
 
+import WalletTransaction from './dto/WalletTransaction';
+
 type DepositPaymentResponse = {
   id: number;
   createdDate: Date;
@@ -19,6 +21,7 @@ type DepositPaymentResponse = {
   paymentStatus: PaymentStatus;
   cardUserKey: string;
   cardToken: string;
+  walletTransaction: WalletTransaction;
 };
 
 export default DepositPaymentResponse;
