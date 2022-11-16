@@ -27,6 +27,7 @@ import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
+import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
@@ -86,8 +87,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/deposits/3ds-complete', request);
   }
 
-  async createFundTransferDepositPayment(request: CreateFundTransferDepositPaymentRequest): Promise<void> {
-    await this._client.post('/payment/v1/deposits/fund-transfer', request);
+  async createFundTransferDepositPayment(request: CreateFundTransferDepositPaymentRequest): Promise<FundTransferDepositPaymentResponse> {
+    return this._client.post('/payment/v1/deposits/fund-transfer', request);
   }
 
   async initGarantiPayPayment(request: InitGarantiPayPaymentRequest): Promise<InitGarantiPayPaymentResponse> {
