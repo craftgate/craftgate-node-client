@@ -10,6 +10,8 @@ const request = {
   name: "A new Product",
   channel: "API",
   price: 10,
+  conversationId: "my-conversationId",
+  externalId: "my-externalId",
   currency: Craftgate.Model.Currency.TRY,
   enabledInstallments: [1,2,3,6]
 };
