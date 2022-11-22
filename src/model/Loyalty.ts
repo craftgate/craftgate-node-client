@@ -6,4 +6,5 @@ export type Loyalty = {
     cardRewardMoney?: number;
     firmRewardMoney?: number;
   };
+  message?: string;
 };
