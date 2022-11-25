@@ -11,6 +11,8 @@ type SearchStoredCardsRequest = {
   cardBankName?: string;
   cardAssociation?: CardAssociation;
   cardExpiryStatus?: CardExpiryStatus;
+  minCreatedDate?: Date;
+  maxCreatedDate?: Date;
   page?: number;
   size?: number;
 };
