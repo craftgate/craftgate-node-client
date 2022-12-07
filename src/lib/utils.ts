@@ -25,6 +25,15 @@ export function calculateSignature({apiKey, secretKey, url, body, randomStr}: {a
 }
 
 /**
+ * Calculates the hash using the provided set of components.
+ *
+ * @param hashString
+ */
+export function calculateHash(hashString): string {
+  return crypto.createHash('sha256').update(hashString).digest('hex');
+}
+
+/**
  * Creates an absolute URL by combining a base URL with a relative part, preventing duplicate slashes from being produced.
  *
  * @param baseUrl the base URL
