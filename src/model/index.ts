@@ -32,6 +32,8 @@ import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
 import WalletTransactionType from './WalletTransactionType';
+import WebhookEventType from './WebhookEventType';
+import WebhookStatus from './WebhookStatus';
 
 export = {
   ApmType,
@@ -67,5 +69,7 @@ export = {
   TransactionStatus,
   WalletTransactionRefundCardTransactionType,
   WalletTransactionType,
-  ReportFileType
+  ReportFileType,
+  WebhookEventType,
+  WebhookStatus
 };

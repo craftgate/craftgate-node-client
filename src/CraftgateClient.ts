@@ -10,6 +10,7 @@ import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
+import HookAdapter from "./adapter/HookAdapter";
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
@@ -22,6 +23,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _payByLink: PayByLinkApiAdapter;
   private _fileReporting: FileReportingAdapter;
   private _fraudAdapter: FraudAdapter;
+  private _hookAdapter: HookAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -35,6 +37,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._payByLink = new PayByLinkApiAdapter(options);
     this._fileReporting = new FileReportingAdapter(options);
     this._fraudAdapter = new FraudAdapter(options);
+    this._hookAdapter = new HookAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -75,5 +78,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   fraud(): FraudAdapter {
     return this._fraudAdapter;
+  }
+
+  hook(): HookAdapter {
+    return this._hookAdapter;
   }
 }

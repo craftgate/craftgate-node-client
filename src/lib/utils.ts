@@ -34,6 +34,16 @@ export function calculateHash(hashString): string {
 }
 
 /**
+ * Calculates the webhook signature using the provided set of components.
+ *
+ * @param key
+ * @param hashString
+ */
+export function calculateWebhookSignature(key, hashString): string {
+  return crypto.createHmac('sha256', key).update(hashString).digest('base64');
+}
+
+/**
  * Creates an absolute URL by combining a base URL with a relative part, preventing duplicate slashes from being produced.
  *
  * @param baseUrl the base URL
