@@ -1,4 +1,5 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
+import {calculateHash} from '../lib/utils';
 
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
@@ -157,5 +158,24 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
     return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
+  }
+
+  async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
+    const hash = params['hash'];
+    let hashString: string = [
+      threeDSecureCallbackKey,
+      params['status'],
+      params['completeStatus'],
+      params['paymentId'],
+      params['conversationData'],
+      params['conversationId'],
+      params['callbackStatus']
+    ]
+      .filter(s => !!s)
+      .join('###');
+    hashString += '###';
+
+    const hashed = calculateHash(hashString);
+    return hash == hashed;
   }
 }
