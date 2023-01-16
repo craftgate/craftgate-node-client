@@ -1,4 +1,5 @@
 import Currency from '../model/Currency';
+import FraudAction from '../model/FraudAction';
 import PaymentStatus from '../model/PaymentStatus';
 import PaymentType from '../model/PaymentType';
 
@@ -22,6 +23,8 @@ type DepositPaymentResponse = {
   cardUserKey: string;
   cardToken: string;
   walletTransaction: WalletTransaction;
+  fraudId: number;
+  fraudAction: FraudAction;
 };
 
 export default DepositPaymentResponse;
