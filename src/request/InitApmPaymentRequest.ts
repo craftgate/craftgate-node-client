@@ -6,6 +6,7 @@ import PaymentItem from './dto/PaymentItem';
 
 type InitApmPaymentRequest = {
   apmType: ApmType;
+  merchantApmId: number;
   price: number;
   paidPrice: number;
   buyerMemberId: number;
