@@ -1,5 +1,6 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
+import CreateMemberWalletRequest from '../request/CreateMemberWalletRequest';
 import CreateRemittanceRequest from '../request/CreateRemittanceRequest';
 import CreateWithdrawRequest from '../request/CreateWithdrawRequest';
 import RefundWalletTransactionToCardRequest from '../request/RefundWalletTransactionToCardRequest';
@@ -21,6 +22,10 @@ import BaseAdapter from './BaseAdapter';
 export default class WalletAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
     super(options);
+  }
+
+  async createMemberWallet(memberId: number, request: CreateMemberWalletRequest): Promise<WalletResponse> {
+    return this._client.post(`/wallet/v1/members/${memberId}/wallets`, request);
   }
 
   async retrieveMemberWallet(memberId: number): Promise<WalletResponse> {
