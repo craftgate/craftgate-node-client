@@ -17,10 +17,15 @@ import WalletTransactionResponse from '../response/WalletTransactionResponse';
 import WithdrawResponse from '../response/WithdrawResponse';
 
 import BaseAdapter from './BaseAdapter';
+import CreateMemberWalletRequest from "../request/CreateMemberWalletRequest";
 
 export default class WalletAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
     super(options);
+  }
+
+  async createMemberWallet(memberId: number, request: CreateMemberWalletRequest): Promise<WalletResponse> {
+    return this._client.post(`/wallet/v1/members/${memberId}/wallets`, request);
   }
 
   async retrieveMemberWallet(memberId: number): Promise<WalletResponse> {
