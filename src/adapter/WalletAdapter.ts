@@ -1,5 +1,6 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
+import CreateMemberWalletRequest from '../request/CreateMemberWalletRequest';
 import CreateRemittanceRequest from '../request/CreateRemittanceRequest';
 import CreateWithdrawRequest from '../request/CreateWithdrawRequest';
 import RefundWalletTransactionToCardRequest from '../request/RefundWalletTransactionToCardRequest';
@@ -17,7 +18,6 @@ import WalletTransactionResponse from '../response/WalletTransactionResponse';
 import WithdrawResponse from '../response/WithdrawResponse';
 
 import BaseAdapter from './BaseAdapter';
-import CreateMemberWalletRequest from "../request/CreateMemberWalletRequest";
 
 export default class WalletAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
