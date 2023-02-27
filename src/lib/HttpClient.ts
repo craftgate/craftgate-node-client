@@ -1,3 +1,5 @@
+import * as console from 'console';
+
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
@@ -106,11 +108,6 @@ export class HttpClient {
     });
     config.headers[SIGNATURE_HEADER_NAME] = signature;
     config.headers['Content-Type'] = 'application/json';
-
-    const method: string = (config.method || '').toLowerCase();
-    if (method === 'put' || method === 'post' || method === 'patch') {
-      config.data = requestBody;
-    }
 
     return config;
   }

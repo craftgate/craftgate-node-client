@@ -34,6 +34,11 @@ import WalletTransactionRefundCardTransactionType from './WalletTransactionRefun
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
+import PosStatus from './PosStatus';
+import PosIntegrator from './PosIntegrator';
+import PosUserType from './PosUserType';
+import PosOperationType from './PosOperationType';
+import CardBrand from './CardBrand';
 
 export = {
   ApmType,
@@ -71,5 +76,10 @@ export = {
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
-  WebhookStatus
+  WebhookStatus,
+  PosStatus,
+  PosIntegrator,
+  PosUserType,
+  PosOperationType,
+  CardBrand
 };

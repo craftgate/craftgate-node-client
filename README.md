@@ -173,14 +173,21 @@ In reality, the `CraftgateClient` class serves as a collection of adapters that 
 
 For all adapters in the `CraftgateClient`, their purposes, accessors, as well as direct import paths, refer to the list below:
 
-| Adapter Name | Purpose | Accessor | Import Path |
-|--------------|---------|----------|-------------|
-| `InstallmentAdapter` | Retrieving per-installment pricing information based on installment count or BIN number | `installment()` | `@craftgate/craftgate/adapters/InstallmentAdapter` |
-| `OnboardingAdapter` | Conducting CRUD operations on buyers and sub merchants | `onboarding()` | `@craftgate/craftgate/adapters/OnboardingAdapter` |
-| `PaymentAdapter` | Conducting payments, retrieving payment information, managing stored cards | `payment()` | `@craftgate/craftgate/adapters/PaymentAdapter` |
-| `WalletAdapter` | Managing remittance, retrieving wallet transactions  | `wallet()` | `@craftgate/craftgate/adapters/WalletAdapter` |
-| `SettlementReportingAdapter` | Settlement operations like search payout completed transactions, search bounced payout transactions | `settlementReporting()` | `@craftgate/craftgate/adapters/SettlementReportingAdapter` |
-| `SettlementAdapter` | Settlement operations like create instant wallet settlement | `settlement()` | `@craftgate/craftgate/adapters/SettlementAdapter` |
+| Adapter Name                 | Purpose                                                                                               | Accessor                | Import Path                                                | 
+|------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------|------------------------------------------------------------|
+| `FileReportingAdapter`       | Reporting operations like retrieve report                                                             | `fileReporting()`       | `@craftgate/craftgate/adapters/FileReportingAdapter`       |       
+| `FraudAdapter`               | Fraud operations like search fraud checks, create values etc.                                         | `fraud()`               | `@craftgate/craftgate/adapters/FraudAdapter`               |               
+| `HookAdapter`                | Webhook operations like verify incoming hook                                                          | `hook()`                | `@craftgate/craftgate/adapters/HookAdapter`                |                
+| `InstallmentAdapter`         | Retrieving per-installment pricing information based on installment count or BIN number               | `installment()`         | `@craftgate/craftgate/adapters/InstallmentAdapter`         |         
+| `MerchantAdapter`            | Merchant creation, POS & POS Commission operations                                                    | `merchant()`            | `@craftgate/craftgate/adapters/MerchantAdapter`            |            
+| `OnboardingAdapter`          | Conducting CRUD operations on buyers and submerchants                                                 | `onboarding()`          | `@craftgate/craftgate/adapters/OnboardingAdapter`          |          
+| `PayByLinkAdapter`           | Product/Link operation like create a product, delete product                                          | `payByLink()`           | `@craftgate/craftgate/adapters/PayByLinkAdapter`           |           
+| `PaymentAdapter`             | Conducting payments, retrieving payment information, managing stored cards                            | `payment()`             | `@craftgate/craftgate/adapters/PaymentAdapter`             |             
+| `PaymentReportingAdapter`    | Payment operations like search payments, refunds                                                      | `paymentReporting()`    | `@craftgate/craftgate/adapters/PaymentReportingAdapter`    |    
+| `SettlementAdapter`          | Settlement operations like create instant wallet settlement                                           | `settlement()`          | `@craftgate/craftgate/adapters/SettlementAdapter`          |          
+| `SettlementReportingAdapter` | Settlement operations like search payout completed transactions, search bounced payout transactions   | `settlementReporting()` | `@craftgate/craftgate/adapters/SettlementReportingAdapter` | 
+| `WalletAdapter`              | Wallet operations like send, receive remittance and search wallets or wallet transactions of member's | `wallet()`              | `@craftgate/craftgate/adapters/WalletAdapter`              |              
+
 
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md)
