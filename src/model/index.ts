@@ -2,6 +2,7 @@ import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
 import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
+import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
 import Currency from './Currency';
@@ -18,6 +19,10 @@ import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
+import PosIntegrator from './PosIntegrator';
+import PosOperationType from './PosOperationType';
+import PosStatus from './PosStatus';
+import PosUserType from './PosUserType';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -34,11 +39,6 @@ import WalletTransactionRefundCardTransactionType from './WalletTransactionRefun
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
-import PosStatus from './PosStatus';
-import PosIntegrator from './PosIntegrator';
-import PosUserType from './PosUserType';
-import PosOperationType from './PosOperationType';
-import CardBrand from './CardBrand';
 
 export = {
   ApmType,

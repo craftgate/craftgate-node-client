@@ -1,8 +1,6 @@
 import Currency from '../model/Currency';
-import MemberType from '../model/MemberType';
 import PosIntegrator from '../model/PosIntegrator';
 import PosStatus from '../model/PosStatus';
-import SettlementEarningsDestination from '../model/SettlementEarningsDestination';
 
 import CreateMerchantPosUser from './dto/CreateMerchantPosUser';
 

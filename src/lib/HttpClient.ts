@@ -1,5 +1,3 @@
-import * as console from 'console';
-
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
