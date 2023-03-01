@@ -3,14 +3,14 @@ import {ClientCreationOptions} from '../lib/HttpClient';
 import CreateMemberWalletRequest from '../request/CreateMemberWalletRequest';
 import CreateRemittanceRequest from '../request/CreateRemittanceRequest';
 import CreateWithdrawRequest from '../request/CreateWithdrawRequest';
-import RefundWalletTransactionToCardRequest from '../request/RefundWalletTransactionToCardRequest';
+import RefundWalletTransactionRequest from '../request/RefundWalletTransactionRequest';
 import ResetMerchantMemberWalletBalanceRequest from '../request/ResetMerchantMemberWalletBalanceRequest';
 import SearchWalletTransactionsRequest from '../request/SearchWalletTransactionsRequest';
 import SearchWithdrawsRequest from '../request/SearchWithdrawsRequest';
 
 import DataResponse from '../response/DataResponse';
-import RefundWalletTransactionToCardListResponse from '../response/RefundWalletTransactionToCardListResponse';
-import RefundWalletTransactionToCardResponse from '../response/RefundWalletTransactionToCardResponse';
+import RefundWalletTransactionListResponse from '../response/RefundWalletTransactionListResponse';
+import RefundWalletTransactionResponse from '../response/RefundWalletTransactionResponse';
 import RemittanceResponse from '../response/RemittanceResponse';
 import WalletResponse from '../response/WalletResponse';
 import WalletTransactionRefundableAmountResponse from '../response/WalletTransactionRefundableAmountResponse';
@@ -60,11 +60,11 @@ export default class WalletAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/wallet-transactions/${walletTransactionId}/refundable-amount`);
   }
 
-  async refundWalletTransactionToCard(walletTransactionId: number, request: RefundWalletTransactionToCardRequest): Promise<RefundWalletTransactionToCardResponse> {
+  async refundWalletTransaction(walletTransactionId: number, request: RefundWalletTransactionRequest): Promise<RefundWalletTransactionResponse> {
     return this._client.post(`/payment/v1/wallet-transactions/${walletTransactionId}/refunds`, request);
   }
 
-  async retrieveRefundWalletTransactionsToCard(walletTransactionId: number): Promise<RefundWalletTransactionToCardListResponse> {
+  async retrieveRefundWalletTransactions(walletTransactionId: number): Promise<RefundWalletTransactionListResponse> {
     return this._client.get(`/payment/v1/wallet-transactions/${walletTransactionId}/refunds`);
   }
 

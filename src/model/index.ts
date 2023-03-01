@@ -30,7 +30,7 @@ import SettlementType from './SettlementType';
 import Status from './Status';
 import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
-import WalletTransactionRefundCardTransactionType from './WalletTransactionRefundCardTransactionType';
+import WalletTransactionRefundTransactionType from './WalletTransactionRefundTransactionType';
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
@@ -67,7 +67,7 @@ export = {
   Status,
   TransactionPayoutStatus,
   TransactionStatus,
-  WalletTransactionRefundCardTransactionType,
+  WalletTransactionRefundTransactionType,
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
