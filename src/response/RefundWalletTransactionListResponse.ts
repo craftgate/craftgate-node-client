@@ -1,7 +1,7 @@
 import PaymentTransactionRefundResponse from './PaymentTransactionRefundResponse';
 
-type RefundWalletTransactionToCardListResponse = {
+type RefundWalletTransactionListResponse = {
   items: PaymentTransactionRefundResponse[];
 };
 
-export default RefundWalletTransactionToCardListResponse;
+export default RefundWalletTransactionListResponse;

@@ -7,6 +7,6 @@ const craftgate = new Craftgate.Client({
 });
 
 // change wallet transaction id below with valid wallet transaction id
-craftgate.wallet().retrieveRefundWalletTransactionsToCard(72)
-  .then(result => console.info('Retrieved refund of wallet transactions to card', result))
-  .catch(err => console.error('Failed to retrieve refunds of wallet transaction to card', err));
+craftgate.wallet().retrieveRefundWalletTransactions(72)
+  .then(result => console.info('Retrieved refund of wallet transaction', result))
+  .catch(err => console.error('Failed to retrieve refunds of wallet transaction', err));

@@ -1,9 +1,9 @@
 import RefundStatus from '../model/RefundStatus';
-import WalletTransactionRefundCardTransactionType from '../model/WalletTransactionRefundCardTransactionType';
+import WalletTransactionRefundTransactionType from '../model/WalletTransactionRefundTransactionType';
 
 import PaymentError from './dto/PaymentError';
 
-type RefundWalletTransactionToCardResponse = {
+type RefundWalletTransactionResponse = {
   id: number;
   createdDate: Date;
   refundPrice: number;
@@ -14,7 +14,7 @@ type RefundWalletTransactionToCardResponse = {
   walletTransactionId: number;
   refundStatus: RefundStatus;
   paymentError: PaymentError;
-  transactionType: WalletTransactionRefundCardTransactionType;
+  transactionType: WalletTransactionRefundTransactionType;
 };
 
-export default RefundWalletTransactionToCardResponse;
+export default RefundWalletTransactionResponse;

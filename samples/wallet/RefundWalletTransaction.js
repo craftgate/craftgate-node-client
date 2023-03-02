@@ -11,6 +11,6 @@ const request = {
 }
 
 // change wallet transaction id below with valid wallet transaction id
-craftgate.wallet().refundWalletTransactionToCard(1, request)
-  .then(result => console.info('Wallet transaction refunded to card', result))
-  .catch(err => console.error('Failed to refund wallet transaction to card', err));
+craftgate.wallet().refundWalletTransaction(1, request)
+  .then(result => console.info('Wallet transaction refunded', result))
+  .catch(err => console.error('Failed to refund wallet transaction', err));
