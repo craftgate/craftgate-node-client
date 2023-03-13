@@ -1,6 +1,6 @@
 type FraudCheckParameters = {
   buyerExternalId?: string;
-  buyerGsmNumber?: string;
+  buyerPhoneNumber?: string;
   buyerEmail?: string;
 };
 
