@@ -84,7 +84,7 @@ export class HttpClient {
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
-    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.36';
+    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.37';
     if (this._options.language) {
       config.headers[LANGUAGE_HEADER_NAME] = this._options.language;
     }
