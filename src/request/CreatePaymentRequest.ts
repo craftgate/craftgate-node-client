@@ -4,6 +4,7 @@ import PaymentGroup from '../model/PaymentGroup';
 import PaymentPhase from '../model/PaymentPhase';
 
 import {Card} from './dto/Card';
+import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
 
 type CreatePaymentRequest = {
@@ -22,6 +23,7 @@ type CreatePaymentRequest = {
   bankOrderId?: string;
   card?: Card;
   posAlias?: string;
+  fraudParams?: FraudCheckParameters;
   items: PaymentItem[];
   additionalParams?: Map<string, Record<string, unknown>>;
 };
