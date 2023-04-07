@@ -23,7 +23,6 @@ type MemberResponse = {
   identityNumber: string;
   legalCompanyTitle: string;
   settlementEarningsDestination: SettlementEarningsDestination;
-  negativeWalletAmountLimit: number;
 };
 
 export default MemberResponse;

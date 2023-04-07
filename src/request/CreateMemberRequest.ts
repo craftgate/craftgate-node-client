@@ -18,6 +18,9 @@ type CreateMemberRequest = {
   identityNumber?: string;
   legalCompanyTitle?: string;
   settlementEarningsDestination?: SettlementEarningsDestination;
+  /**
+   * @deprecated use @{@link CreateMemberWalletRequest.negativeAmountLimit} instead.
+   */
   negativeWalletAmountLimit?: number;
 };
 
