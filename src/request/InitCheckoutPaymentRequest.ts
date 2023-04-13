@@ -10,7 +10,7 @@ type InitCheckoutPaymentRequest = {
   paidPrice: number;
   buyerMemberId?: number;
   currency: Currency;
-  paymentGroup?: PaymentGroup;
+  paymentGroup: PaymentGroup;
   paymentPhase?: PaymentPhase;
   paymentChannel?: string;
   enabledPaymentMethods?: PaymentMethod[];
@@ -22,9 +22,9 @@ type InitCheckoutPaymentRequest = {
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;
-  enabledInstallments: number[];
-  alwaysStoreCardAfterPayment: boolean;
-  allowOnlyStoredCards: boolean;
+  enabledInstallments?: number[];
+  alwaysStoreCardAfterPayment?: boolean;
+  allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
