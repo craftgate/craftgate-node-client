@@ -1,4 +1,4 @@
-type PayoutCompletedTransaction = {
+type PayoutRow = {
   name: string;
   iban: string;
   payoutId: number;
@@ -8,4 +8,4 @@ type PayoutCompletedTransaction = {
   payoutDate: Date;
 };
 
-export default PayoutCompletedTransaction;
+export default PayoutRow;
