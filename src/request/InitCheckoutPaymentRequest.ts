@@ -28,6 +28,7 @@ type InitCheckoutPaymentRequest = {
   allowOnlyCreditCard?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
+  forceAuthForNonCreditCards?: boolean;
   items: PaymentItem[];
 };
 
