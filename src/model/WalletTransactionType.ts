@@ -11,11 +11,12 @@ enum WalletTransactionType {
   ManualRefundTransactionToWallet = 'MANUAL_REFUND_TX_TO_WALLET',
   SettlementEarnings = 'SETTLEMENT_EARNINGS',
   DepositFromCard = 'DEPOSIT_FROM_CARD',
+  DepositFromApm = 'DEPOSIT_FROM_APM',
+  DepositFromFundTransfer = 'DEPOSIT_FROM_FUND_TRANSFER',
   Remittance = 'REMITTANCE',
   Loyalty = 'LOYALTY',
   WithdrawCancel = 'WITHDRAW_CANCEL',
-  MerchantBalanceReset = 'MERCHANT_BALANCE_RESET',
-  DepositFromFundTransfer = 'DEPOSIT_FROM_FUND_TRANSFER'
+  MerchantBalanceReset = 'MERCHANT_BALANCE_RESET'
 }
 
 export default WalletTransactionType;
