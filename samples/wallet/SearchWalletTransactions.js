@@ -7,10 +7,10 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  walletTransactionType: Craftgate.Model.WalletTransactionType.DepositFromCard
+  walletTransactionTypes: [Craftgate.Model.WalletTransactionType.DepositFromCard]
 };
 
-// change withdraw id below with valid withdraw id
+// change wallet id below with valid wallet id
 craftgate.wallet().searchWalletTransactions(1, request)
   .then(result => console.info('Search wallet transactions', result))
   .catch(err => console.error('Failed to search wallet transactions', err));
