@@ -5,6 +5,7 @@ import CardAssociation from './CardAssociation';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
 import Currency from './Currency';
+import FileStatus from './FileStatus';
 import FraudAction from './FraudAction';
 import FraudCheckStatus from './FraudCheckStatus';
 import LoyaltyType from './LoyaltyType';
@@ -71,5 +72,6 @@ export = {
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
-  WebhookStatus
+  WebhookStatus,
+  FileStatus
 };
