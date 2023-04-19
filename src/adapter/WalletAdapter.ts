@@ -7,6 +7,7 @@ import RefundWalletTransactionRequest from '../request/RefundWalletTransactionRe
 import ResetMerchantMemberWalletBalanceRequest from '../request/ResetMerchantMemberWalletBalanceRequest';
 import SearchWalletTransactionsRequest from '../request/SearchWalletTransactionsRequest';
 import SearchWithdrawsRequest from '../request/SearchWithdrawsRequest';
+import UpdateMemberWalletRequest from '../request/UpdateMemberWalletRequest';
 
 import DataResponse from '../response/DataResponse';
 import RefundWalletTransactionListResponse from '../response/RefundWalletTransactionListResponse';
@@ -34,6 +35,10 @@ export default class WalletAdapter extends BaseAdapter {
 
   async searchWalletTransactions(walletId: number, request: SearchWalletTransactionsRequest): Promise<DataResponse<WalletTransactionResponse>> {
     return this._client.get(`/wallet/v1/wallets/${walletId}/wallet-transactions`, request);
+  }
+
+  async updateMemberWallet(memberId: number, walletId: number, request: UpdateMemberWalletRequest): Promise<WalletResponse> {
+    return this._client.put(`/wallet/v1/members/${memberId}/wallets/${walletId}`, request);
   }
 
   async sendRemittance(request: CreateRemittanceRequest): Promise<RemittanceResponse> {

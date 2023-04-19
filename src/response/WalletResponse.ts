@@ -6,6 +6,7 @@ type WalletResponse = {
   updatedDate: Date;
   amount: number;
   withdrawalAmount: number;
+  negativeAmountLimit: number;
   currency: Currency;
   memberId: number;
 };

@@ -1,7 +1,7 @@
 import WalletTransactionType from '../model/WalletTransactionType';
 
 type SearchWalletTransactionsRequest = {
-  walletTransactionType?: WalletTransactionType;
+  walletTransactionTypes: WalletTransactionType[];
   minCreatedDate?: Date;
   maxCreatedDate?: Date;
   minAmount?: number;
