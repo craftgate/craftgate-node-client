@@ -21,8 +21,7 @@ const request = {
   memberExternalId: 'random-id',
   taxNumber: '1111111114',
   taxOffice: 'Erenköy',
-  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul',
-  settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
+  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
 craftgate.onboarding().createMember(request)
