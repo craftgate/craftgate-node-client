@@ -26,6 +26,7 @@ type CreatePaymentRequest = {
   fraudParams?: FraudCheckParameters;
   items: PaymentItem[];
   additionalParams?: Map<string, Record<string, unknown>>;
+  retry?: boolean;
 };
 
 export default CreatePaymentRequest;
