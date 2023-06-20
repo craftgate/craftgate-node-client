@@ -3,6 +3,7 @@ import PaymentGroup from '../model/PaymentGroup';
 import PaymentMethod from '../model/PaymentMethod';
 import PaymentPhase from '../model/PaymentPhase';
 
+import CustomInstallment from './dto/CustomInstallment';
 import PaymentItem from './dto/PaymentItem';
 
 type InitCheckoutPaymentRequest = {
@@ -29,6 +30,7 @@ type InitCheckoutPaymentRequest = {
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
+  customInstallments?: CustomInstallment[];
   items: PaymentItem[];
 };
 
