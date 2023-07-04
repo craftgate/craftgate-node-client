@@ -4,6 +4,7 @@ import {calculateHash} from '../lib/utils';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
+import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
@@ -15,6 +16,7 @@ import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentReques
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
+import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
@@ -28,12 +30,14 @@ import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransaction
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
+import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
+import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -112,6 +116,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async createApmPayment(request: CreateApmPaymentRequest): Promise<PaymentResponse> {
     return this._client.post('/payment/v1/apm-payments', request);
+  }
+
+  async initPosApmPayment(request: InitPosApmPaymentRequest): Promise<InitPosApmPaymentResponse> {
+    return this._client.post('/payment/v1/pos-apm-payments/init', request);
+  }
+
+  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<CompletePosApmPaymentResponse> {
+    return this._client.post('/payment/v1/pos-apm-payments/complete', request);
   }
 
   async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {

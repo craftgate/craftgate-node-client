@@ -19,6 +19,7 @@ import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
+import PosApmPaymentProvider from './PosApmPaymentProvider';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -57,6 +58,7 @@ export = {
   PaymentStatus,
   PaymentType,
   PaymentProvider,
+  PosApmPaymentProvider,
   RefundDestinationType,
   RefundStatus,
   RefundType,

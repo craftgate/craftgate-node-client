@@ -6,7 +6,10 @@ enum PaymentProvider {
   Papara = 'PAPARA',
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
-  Edenred = 'EDENRED'
+  Edenred = 'EDENRED',
+  YkbWorldPay = 'YKB_WORLD_PAY',
+  ApplePay = 'APPLEPAY',
+  GooglePay = 'GOOGLEPAY'
 }
 
 export default PaymentProvider;
