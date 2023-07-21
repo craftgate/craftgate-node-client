@@ -1,3 +1,4 @@
+import AccountOwner from './AccountOwner';
 import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
 import BounceStatus from './BounceStatus';
@@ -19,6 +20,7 @@ import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
+import PayoutAccountType from './PayoutAccountType';
 import PosApmPaymentProvider from './PosApmPaymentProvider';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
@@ -38,6 +40,7 @@ import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
 
 export = {
+  AccountOwner,
   ApmType,
   ApprovalStatus,
   BounceStatus,
@@ -45,6 +48,7 @@ export = {
   CardType,
   CardExpiryStatus,
   Currency,
+  FileStatus,
   FraudAction,
   FraudCheckStatus,
   LoyaltyType,
@@ -58,6 +62,7 @@ export = {
   PaymentStatus,
   PaymentType,
   PaymentProvider,
+  PayoutAccountType,
   PosApmPaymentProvider,
   RefundDestinationType,
   RefundStatus,
@@ -74,6 +79,5 @@ export = {
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
-  WebhookStatus,
-  FileStatus
+  WebhookStatus
 };

@@ -1,6 +1,7 @@
 enum SettlementEarningsDestination {
   Iban = 'IBAN',
-  Wallet = 'WALLET'
+  Wallet = 'WALLET',
+  CrossBorder = 'CROSS_BORDER'
 }
 
 export default SettlementEarningsDestination;
