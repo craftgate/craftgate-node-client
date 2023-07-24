@@ -38,6 +38,8 @@ import WalletTransactionRefundTransactionType from './WalletTransactionRefundTra
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
+import RecordType from './RecordType';
+import BankAccountTrackingSource from './BankAccountTrackingSource';
 
 export = {
   AccountOwner,
@@ -79,5 +81,7 @@ export = {
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
-  WebhookStatus
+  WebhookStatus,
+  RecordType,
+  BankAccountTrackingSource
 };
