@@ -1,5 +1,4 @@
 import MemberType from '../model/MemberType';
-import SettlementEarningsDestination from '../model/SettlementEarningsDestination';
 
 type CreateMemberRequest = {
   isBuyer?: boolean;

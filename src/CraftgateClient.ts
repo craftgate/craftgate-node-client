@@ -1,3 +1,4 @@
+import BankAccountTrackingAdapter from './adapter/BankAccountTrackingAdapter';
 import BaseAdapter from './adapter/BaseAdapter';
 import FileReportingAdapter from './adapter/FileReportingAdapter';
 import FraudAdapter from './adapter/FraudAdapter';
@@ -11,7 +12,6 @@ import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
-import BankAccountTrackingAdapter from "./adapter/BankAccountTrackingAdapter";
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
