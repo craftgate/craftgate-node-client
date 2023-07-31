@@ -7,7 +7,8 @@ enum Currency {
   BRL = 'BRL',
   CNY = 'CNY',
   AED = 'AED',
-  IQD = 'IQD'
+  IQD = 'IQD',
+  AZN = 'AZN'
 }
 
 export default Currency;
