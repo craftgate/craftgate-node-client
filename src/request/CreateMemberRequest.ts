@@ -10,6 +10,7 @@ type CreateMemberRequest = {
   address: string;
   email: string;
   iban?: string;
+  settlementEarningsDestination?: SettlementEarningsDestination;
   phoneNumber: string;
   taxOffice?: string;
   taxNumber?: string;
