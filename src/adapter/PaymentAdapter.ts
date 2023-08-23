@@ -82,6 +82,10 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/checkout-payments/${token}`);
   }
 
+  async expireCheckoutPayment(token: string): Promise<void> {
+    await this._client.delete(`/payment/v1/checkout-payments/${token}`);
+  }
+
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
     return this._client.post('/payment/v1/deposits', request);
   }
