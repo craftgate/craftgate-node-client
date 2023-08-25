@@ -9,7 +9,8 @@ enum PaymentProvider {
   Edenred = 'EDENRED',
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
-  GooglePay = 'GOOGLEPAY'
+  GooglePay = 'GOOGLEPAY',
+  Stripe = 'STRIPE'
 }
 
 export default PaymentProvider;
