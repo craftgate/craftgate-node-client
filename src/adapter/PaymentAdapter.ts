@@ -2,7 +2,6 @@ import {ClientCreationOptions} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
-import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -28,7 +27,6 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
-import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
@@ -168,10 +166,6 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
     return this._client.post('/payment/v1/payment-transactions/disapprove', request);
-  }
-
-  async checkMasterpassUser(request: CheckMasterpassUserRequest): Promise<CheckMasterpassUserResponse> {
-    return this._client.post('/payment/v1/masterpass-payments/check-user', request);
   }
 
   async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {

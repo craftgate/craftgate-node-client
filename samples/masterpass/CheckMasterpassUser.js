@@ -10,6 +10,6 @@ const request = {
   masterpassGsmNumber: '903000000000'
 };
 
-craftgate.payment().checkMasterpassUser(request)
+craftgate.masterpass().checkMasterpassUser(request)
   .then(results => console.info('Check masterpass user response', results))
   .catch(err => console.error('Failed to check masterpass user', err));
