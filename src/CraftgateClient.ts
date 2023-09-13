@@ -3,6 +3,7 @@ import FileReportingAdapter from './adapter/FileReportingAdapter';
 import FraudAdapter from './adapter/FraudAdapter';
 import HookAdapter from './adapter/HookAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
+import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PayByLinkApiAdapter from './adapter/PayByLinkApiAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
@@ -24,6 +25,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _fileReporting: FileReportingAdapter;
   private _fraudAdapter: FraudAdapter;
   private _hookAdapter: HookAdapter;
+  private _masterpassPaymentAdapter: MasterpassPaymentAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -38,6 +40,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._fileReporting = new FileReportingAdapter(options);
     this._fraudAdapter = new FraudAdapter(options);
     this._hookAdapter = new HookAdapter(options);
+    this._masterpassPaymentAdapter = new MasterpassPaymentAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -82,5 +85,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   hook(): HookAdapter {
     return this._hookAdapter;
+  }
+
+  masterpass(): MasterpassPaymentAdapter {
+    return this._masterpassPaymentAdapter;
   }
 }
