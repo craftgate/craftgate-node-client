@@ -10,6 +10,7 @@ enum PaymentMethod {
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
+  Kaspi = 'KASPI',
   Stripe = 'STRIPE'
 }
 
