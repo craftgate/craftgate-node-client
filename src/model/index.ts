@@ -32,6 +32,7 @@ import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
 import Status from './Status';
+import TokenizedCardType from './TokenizedCardType';
 import TransactionPayoutStatus from './TransactionPayoutStatus';
 import TransactionStatus from './TransactionStatus';
 import WalletTransactionRefundTransactionType from './WalletTransactionRefundTransactionType';
@@ -79,5 +80,6 @@ export = {
   WalletTransactionType,
   ReportFileType,
   WebhookEventType,
-  WebhookStatus
+  WebhookStatus,
+  TokenizedCardType
 };
