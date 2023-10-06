@@ -1,6 +1,7 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
+import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
@@ -174,6 +175,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
     return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
+  }
+
+  async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
+    return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
