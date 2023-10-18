@@ -125,7 +125,7 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/pos-apm-payments/init', request);
   }
 
-  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<CompletePosApmPaymentResponse> {
+  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<PaymentResponse> {
     return this._client.post('/payment/v1/pos-apm-payments/complete', request);
   }
 
