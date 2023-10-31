@@ -8,6 +8,7 @@ enum PaymentProvider {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   Kaspi = 'KASPI',
+  Tompay = 'TOMPAY',
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
   GooglePay = 'GOOGLEPAY',
