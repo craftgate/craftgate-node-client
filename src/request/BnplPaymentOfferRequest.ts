@@ -4,11 +4,7 @@ import BnplPaymentCartItem from "./dto/BnplPaymentCartItem";
 
 
 type BnplPaymentOfferRequest = {
-    apmType: ApmType;
-    merchantApmId: number;
-    price: number;
-    currency: Currency;
-    items: BnplPaymentCartItem[];
+    apmType: ApmType; merchantApmId: number; price: number; currency: Currency; items: BnplPaymentCartItem[];
 };
 
-export default  BnplPaymentOfferRequest;
+export default BnplPaymentOfferRequest;

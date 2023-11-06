@@ -52,170 +52,161 @@ import BnplPaymentOfferResponse from "../response/BnplPaymentOfferResponse";
 import BnplPaymentInitRequest from "../request/BnplPaymentInitRequest";
 import BnplPaymentInitResponse from "../response/BnplPaymentInitResponse";
 import ApmPaymentResponse from "../response/ApmPaymentResponse";
-import WithdrawResponse from "../response/WithdrawResponse";
 
 
 export default class PaymentAdapter extends BaseAdapter {
-  constructor(options: ClientCreationOptions) {
-    super(options);
-  }
+    constructor(options: ClientCreationOptions) {
+        super(options);
+    }
 
-  async createPayment(request: CreatePaymentRequest): Promise<PaymentResponse> {
-    return this._client.post('/payment/v1/card-payments', request);
-  }
+    async createPayment(request: CreatePaymentRequest): Promise<PaymentResponse> {
+        return this._client.post('/payment/v1/card-payments', request);
+    }
 
-  async retrievePayment(id: number): Promise<PaymentResponse> {
-    return this._client.get(`/payment/v1/card-payments/${id}`);
-  }
+    async retrievePayment(id: number): Promise<PaymentResponse> {
+        return this._client.get(`/payment/v1/card-payments/${id}`);
+    }
 
-  async postAuthPayment(paymentId: number, request: PostAuthPaymentRequest): Promise<PaymentResponse> {
-    return this._client.post(`/payment/v1/card-payments/${paymentId}/post-auth`, request);
-  }
+    async postAuthPayment(paymentId: number, request: PostAuthPaymentRequest): Promise<PaymentResponse> {
+        return this._client.post(`/payment/v1/card-payments/${paymentId}/post-auth`, request);
+    }
 
-  async init3DSPayment(request: InitThreeDSPaymentRequest): Promise<InitThreeDSPaymentResponse> {
-    return this._client.post('/payment/v1/card-payments/3ds-init', request);
-  }
+    async init3DSPayment(request: InitThreeDSPaymentRequest): Promise<InitThreeDSPaymentResponse> {
+        return this._client.post('/payment/v1/card-payments/3ds-init', request);
+    }
 
-  async complete3DSPayment(request: CompleteThreeDSPaymentRequest): Promise<PaymentResponse> {
-    return this._client.post('/payment/v1/card-payments/3ds-complete', request);
-  }
+    async complete3DSPayment(request: CompleteThreeDSPaymentRequest): Promise<PaymentResponse> {
+        return this._client.post('/payment/v1/card-payments/3ds-complete', request);
+    }
 
-  async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
-    return this._client.post('/payment/v1/checkout-payments/init', request);
-  }
+    async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
+        return this._client.post('/payment/v1/checkout-payments/init', request);
+    }
 
-  async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
-    return this._client.get(`/payment/v1/checkout-payments/${token}`);
-  }
+    async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
+        return this._client.get(`/payment/v1/checkout-payments/${token}`);
+    }
 
-  async expireCheckoutPayment(token: string): Promise<void> {
-    await this._client.delete(`/payment/v1/checkout-payments/${token}`);
-  }
+    async expireCheckoutPayment(token: string): Promise<void> {
+        await this._client.delete(`/payment/v1/checkout-payments/${token}`);
+    }
 
-  async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
-    return this._client.post('/payment/v1/deposits', request);
-  }
+    async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
+        return this._client.post('/payment/v1/deposits', request);
+    }
 
-  async init3DSDepositPayment(request: CreateDepositPaymentRequest): Promise<InitThreeDSPaymentResponse> {
-    return this._client.post('/payment/v1/deposits/3ds-init', request);
-  }
+    async init3DSDepositPayment(request: CreateDepositPaymentRequest): Promise<InitThreeDSPaymentResponse> {
+        return this._client.post('/payment/v1/deposits/3ds-init', request);
+    }
 
-  async complete3DSDepositPayment(request: CompleteThreeDSPaymentRequest): Promise<DepositPaymentResponse> {
-    return this._client.post('/payment/v1/deposits/3ds-complete', request);
-  }
+    async complete3DSDepositPayment(request: CompleteThreeDSPaymentRequest): Promise<DepositPaymentResponse> {
+        return this._client.post('/payment/v1/deposits/3ds-complete', request);
+    }
 
-  async createFundTransferDepositPayment(request: CreateFundTransferDepositPaymentRequest): Promise<FundTransferDepositPaymentResponse> {
-    return this._client.post('/payment/v1/deposits/fund-transfer', request);
-  }
+    async createFundTransferDepositPayment(request: CreateFundTransferDepositPaymentRequest): Promise<FundTransferDepositPaymentResponse> {
+        return this._client.post('/payment/v1/deposits/fund-transfer', request);
+    }
 
-  async initApmDepositPayment(request: InitApmDepositPaymentRequest): Promise<ApmDepositPaymentResponse> {
-    return this._client.post('/payment/v1/deposits/apm-init', request);
-  }
+    async initApmDepositPayment(request: InitApmDepositPaymentRequest): Promise<ApmDepositPaymentResponse> {
+        return this._client.post('/payment/v1/deposits/apm-init', request);
+    }
 
-  async initGarantiPayPayment(request: InitGarantiPayPaymentRequest): Promise<InitGarantiPayPaymentResponse> {
-    return this._client.post('/payment/v1/garanti-pay-payments', request);
-  }
+    async initGarantiPayPayment(request: InitGarantiPayPaymentRequest): Promise<InitGarantiPayPaymentResponse> {
+        return this._client.post('/payment/v1/garanti-pay-payments', request);
+    }
 
-  async initApmPayment(request: InitApmPaymentRequest): Promise<InitApmPaymentResponse> {
-    return this._client.post('/payment/v1/apm-payments/init', request);
-  }
+    async initApmPayment(request: InitApmPaymentRequest): Promise<InitApmPaymentResponse> {
+        return this._client.post('/payment/v1/apm-payments/init', request);
+    }
 
-  async completeApmPayment(request: CompleteApmPaymentRequest): Promise<CompleteApmPaymentResponse> {
-    return this._client.post('/payment/v1/apm-payments/complete', request);
-  }
+    async completeApmPayment(request: CompleteApmPaymentRequest): Promise<CompleteApmPaymentResponse> {
+        return this._client.post('/payment/v1/apm-payments/complete', request);
+    }
 
-  async createApmPayment(request: CreateApmPaymentRequest): Promise<PaymentResponse> {
-    return this._client.post('/payment/v1/apm-payments', request);
-  }
+    async createApmPayment(request: CreateApmPaymentRequest): Promise<PaymentResponse> {
+        return this._client.post('/payment/v1/apm-payments', request);
+    }
 
-  async initPosApmPayment(request: InitPosApmPaymentRequest): Promise<InitPosApmPaymentResponse> {
-    return this._client.post('/payment/v1/pos-apm-payments/init', request);
-  }
+    async initPosApmPayment(request: InitPosApmPaymentRequest): Promise<InitPosApmPaymentResponse> {
+        return this._client.post('/payment/v1/pos-apm-payments/init', request);
+    }
 
-  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<CompletePosApmPaymentResponse> {
-    return this._client.post('/payment/v1/pos-apm-payments/complete', request);
-  }
+    async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<CompletePosApmPaymentResponse> {
+        return this._client.post('/payment/v1/pos-apm-payments/complete', request);
+    }
 
-  async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {
-    return this._client.post('/payment/v1/refund-transactions', request);
-  }
+    async refundPaymentTransaction(request: RefundPaymentTransactionRequest): Promise<PaymentTransactionRefundResponse> {
+        return this._client.post('/payment/v1/refund-transactions', request);
+    }
 
-  async retrievePaymentTransactionRefund(paymentTransactionRefundId: number): Promise<PaymentTransactionRefundResponse> {
-    return this._client.get(`/payment/v1/refund-transactions/${paymentTransactionRefundId}`);
-  }
+    async retrievePaymentTransactionRefund(paymentTransactionRefundId: number): Promise<PaymentTransactionRefundResponse> {
+        return this._client.get(`/payment/v1/refund-transactions/${paymentTransactionRefundId}`);
+    }
 
-  async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {
-    return this._client.post('/payment/v1/refunds', request);
-  }
+    async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {
+        return this._client.post('/payment/v1/refunds', request);
+    }
 
-  async retrievePaymentRefund(refundId: number): Promise<PaymentRefundResponse> {
-    return this._client.get(`/payment/v1/refunds/${refundId}`);
-  }
+    async retrievePaymentRefund(refundId: number): Promise<PaymentRefundResponse> {
+        return this._client.get(`/payment/v1/refunds/${refundId}`);
+    }
 
-  async storeCard(request: StoreCardRequest): Promise<StoredCardResponse> {
-    return this._client.post('/payment/v1/cards', request);
-  }
+    async storeCard(request: StoreCardRequest): Promise<StoredCardResponse> {
+        return this._client.post('/payment/v1/cards', request);
+    }
 
-  async updateCard(request: UpdateCardRequest): Promise<StoredCardResponse> {
-    return this._client.post('/payment/v1/cards/update', request);
-  }
+    async updateCard(request: UpdateCardRequest): Promise<StoredCardResponse> {
+        return this._client.post('/payment/v1/cards/update', request);
+    }
 
-  async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
-    return this._client.get('/payment/v1/cards', request);
-  }
+    async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
+        return this._client.get('/payment/v1/cards', request);
+    }
 
-  async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
-    await this._client.post('/payment/v1/cards/delete', request);
-  }
+    async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
+        await this._client.post('/payment/v1/cards/delete', request);
+    }
 
-  async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/approve', request);
-  }
+    async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
+        return this._client.post('/payment/v1/payment-transactions/approve', request);
+    }
 
-  async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/disapprove', request);
-  }
+    async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
+        return this._client.post('/payment/v1/payment-transactions/disapprove', request);
+    }
 
-  async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
-    return this._client.post('/payment/v1/card-loyalties/retrieve', request);
-  }
+    async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
+        return this._client.post('/payment/v1/card-loyalties/retrieve', request);
+    }
 
-  async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
-    return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
-  }
+    async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
+        return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
+    }
 
-  async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
-    return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
-  }
+    async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
+        return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
+    }
 
-  async offers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
-  }
+    async offers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
+        return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
+    }
 
-  async init(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/init`, request);
-  }
+    async init(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
+        return this._client.post(`/payment/v1/bnpl-payments/init`, request);
+    }
 
-  async approve(paymentId: number): Promise<ApmPaymentResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
-  }
+    async approve(paymentId: number): Promise<ApmPaymentResponse> {
+        return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+    }
 
-  async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
-    const hash = params['hash'];
-    let hashString: string = [
-      threeDSecureCallbackKey,
-      params['status'],
-      params['completeStatus'],
-      params['paymentId'],
-      params['conversationData'],
-      params['conversationId'],
-      params['callbackStatus']
-    ]
-      .filter(s => !!s)
-      .join('###');
-    hashString += '###';
+    async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
+        const hash = params['hash'];
+        let hashString: string = [threeDSecureCallbackKey, params['status'], params['completeStatus'], params['paymentId'], params['conversationData'], params['conversationId'], params['callbackStatus']]
+            .filter(s => !!s)
+            .join('###');
+        hashString += '###';
 
-    const hashed = calculateHash(hashString);
-    return hash == hashed;
-  }
+        const hashed = calculateHash(hashString);
+        return hash == hashed;
+    }
 }

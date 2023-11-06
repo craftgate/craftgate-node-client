@@ -10,7 +10,7 @@ enum CardItemType {
     WhiteGoods = 'WHITE_GOODS',
     WearableTechnology = 'WEARABLE_TECHNOLOGY',
     SmallHomeAppliance = 'SMALL_HOME_APPLIANCES',
-    Tv  = 'TV',
+    Tv = 'TV',
     GameConsoles = 'GAMES_CONSOLES',
     AirConditionerAndHeater = 'AIR_CONDITIONER_AND_HEATER',
     Electronics = 'ELECTRONICS',
@@ -22,7 +22,7 @@ enum CardItemType {
     Furniture = 'FURNITURE',
     HomeLiving = 'HOME_LIVING',
     AutomobileMotorcycle = 'AUTOMOBILE_MOTORCYCLE',
-    Other  = 'OTHER'
+    Other = 'OTHER'
 }
 
 export default CardItemType;
