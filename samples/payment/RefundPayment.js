@@ -1,8 +1,8 @@
 const Craftgate = require('../../dist');
 
 const craftgate = new Craftgate.Client({
-  apiKey: 'sandbox-BMSPbGKBaMOcmOiVpyjDZOIfSzLAuXsb',
-  secretKey: 'sandbox-LpvzxnyrFkOCRRiUpQHUUZUpeQuXNntd',
+  apiKey: 'api-key',
+  secretKey: 'secret-key',
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
