@@ -108,7 +108,7 @@ export class HttpClient {
     config.headers['Content-Type'] = 'application/json';
 
     const method: string = (config.method || '').toLowerCase();
-    if (method === 'put' || method === 'post' || method === 'patch') {
+    if ((method === 'put' || method === 'post' || method === 'patch') && requestBody !== null) {
       config.data = requestBody;
     }
 

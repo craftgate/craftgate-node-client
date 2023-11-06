@@ -39,6 +39,7 @@ import WalletTransactionRefundTransactionType from './WalletTransactionRefundTra
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
+import CardItemType from "./CartItemType";
 
 export = {
   AccountOwner,
@@ -47,6 +48,7 @@ export = {
   BounceStatus,
   CardAssociation,
   CardType,
+  CardItemType,
   CardExpiryStatus,
   Currency,
   FileStatus,

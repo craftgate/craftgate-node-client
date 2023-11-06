@@ -47,6 +47,13 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import BnplPaymentOfferRequest from "../request/BnplPaymentOfferRequest";
+import BnplPaymentOfferResponse from "../response/BnplPaymentOfferResponse";
+import BnplPaymentInitRequest from "../request/BnplPaymentInitRequest";
+import BnplPaymentInitResponse from "../response/BnplPaymentInitResponse";
+import ApmPaymentResponse from "../response/ApmPaymentResponse";
+import WithdrawResponse from "../response/WithdrawResponse";
+
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -179,6 +186,18 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
     return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
+  }
+
+  async offers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
+  }
+
+  async init(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/init`, request);
+  }
+
+  async approve(paymentId: number): Promise<ApmPaymentResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {

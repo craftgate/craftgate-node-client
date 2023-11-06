@@ -11,7 +11,9 @@ enum ApmType {
   Stripe = 'STRIPE',
   Tompay = 'TOMPAY',
   FundTransfer = 'FUND_TRANSFER',
-  CashOnDelivery = 'CASH_ON_DELIVERY'
+  CashOnDelivery = 'CASH_ON_DELIVERY',
+  Maslak = 'MASLAK',
+  ALFABANK = 'ALFABANK'
 }
 
 export default ApmType;
