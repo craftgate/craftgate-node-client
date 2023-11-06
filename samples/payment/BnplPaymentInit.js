@@ -51,5 +51,5 @@ const request = {
 };
 
 craftgate.payment().init(request)
-    .then(results => console.info('Approve payment transactions response', results))
-    .catch(err => console.error('Failed to approve payment transactions', err));
+    .then(results => console.info('Init bnpl payment  response', results))
+    .catch(err => console.error('Failed to Init bnpl payment', err));
