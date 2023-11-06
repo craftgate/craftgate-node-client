@@ -30,7 +30,6 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
-import ApmPaymentResponse from '../response/ApmPaymentResponse';
 import BnplPaymentInitResponse from '../response/BnplPaymentInitResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
