@@ -12,23 +12,23 @@ import PayoutRowListResponse from '../response/PayoutRowListResponse';
 import BaseAdapter from './BaseAdapter';
 
 export default class SettlementReportingAdapter extends BaseAdapter {
-    constructor(options: ClientCreationOptions) {
-        super(options);
-    }
+  constructor(options: ClientCreationOptions) {
+    super(options);
+  }
 
-    async searchPayoutCompletedTransactions(request: SearchPayoutCompletedTransactionsRequest): Promise<PayoutCompletedTransactionListResponse> {
-        return this._client.get('/settlement-reporting/v1/settlement-file/payout-completed-transactions', request);
-    }
+  async searchPayoutCompletedTransactions(request: SearchPayoutCompletedTransactionsRequest): Promise<PayoutCompletedTransactionListResponse> {
+    return this._client.get('/settlement-reporting/v1/settlement-file/payout-completed-transactions', request);
+  }
 
-    async searchBouncedPayoutTransactions(request: SearchPayoutBouncedTransactionsRequest): Promise<PayoutBouncedTransactionListResponse> {
-        return this._client.get('/settlement-reporting/v1/settlement-file/bounced-sub-merchant-rows', request);
-    }
+  async searchBouncedPayoutTransactions(request: SearchPayoutBouncedTransactionsRequest): Promise<PayoutBouncedTransactionListResponse> {
+    return this._client.get('/settlement-reporting/v1/settlement-file/bounced-sub-merchant-rows', request);
+  }
 
-    async retrievePayoutDetails(id: number): Promise<PayoutDetailResponse> {
-        return this._client.get(`/settlement-reporting/v1/settlement-file/payout-details/${id}`);
-    }
+  async retrievePayoutDetails(id: number): Promise<PayoutDetailResponse> {
+    return this._client.get(`/settlement-reporting/v1/settlement-file/payout-details/${id}`);
+  }
 
-    async searchPayoutRow(request: SearchPayoutRowsRequest): Promise<PayoutRowListResponse> {
-        return this._client.get('/settlement-reporting/v1/settlement-file-rows', request);
-    }
+  async searchPayoutRow(request: SearchPayoutRowsRequest): Promise<PayoutRowListResponse> {
+    return this._client.get('/settlement-reporting/v1/settlement-file-rows', request);
+  }
 }

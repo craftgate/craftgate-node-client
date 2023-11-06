@@ -1,7 +1,12 @@
-import CartItemType from "../../model/CartItemType";
+import CartItemType from '../../model/CartItemType';
 
 type BnplPaymentCartItem = {
-    id: string; name: string; brandName: string; type: CartItemType; unitPrice: number; quantity: number;
+  id: string;
+  name: string;
+  brandName: string;
+  type: CartItemType;
+  unitPrice: number;
+  quantity: number;
 };
 
 export default BnplPaymentCartItem;

@@ -1,8 +1,9 @@
-import BnplBankOffer from "./dto/BnplBankOffer";
+import BnplBankOffer from './dto/BnplBankOffer';
 
 type BnplPaymentOfferResponse = {
-    offerId: string; price: number; bankOffers: BnplBankOffer[];
-
+  offerId: string;
+  price: number;
+  bankOffers: BnplBankOffer[];
 };
 
 export default BnplPaymentOfferResponse;
