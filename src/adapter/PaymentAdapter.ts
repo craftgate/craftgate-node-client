@@ -1,8 +1,8 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
+import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
-import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -28,7 +28,6 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
-import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
@@ -80,6 +79,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
     return this._client.get(`/payment/v1/checkout-payments/${token}`);
+  }
+
+  async expireCheckoutPayment(token: string): Promise<void> {
+    await this._client.delete(`/payment/v1/checkout-payments/${token}`);
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
@@ -166,16 +169,16 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/payment-transactions/disapprove', request);
   }
 
-  async checkMasterpassUser(request: CheckMasterpassUserRequest): Promise<CheckMasterpassUserResponse> {
-    return this._client.post('/payment/v1/masterpass-payments/check-user', request);
-  }
-
   async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
     return this._client.post('/payment/v1/card-loyalties/retrieve', request);
   }
 
   async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
     return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
+  }
+
+  async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
+    return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {

@@ -8,6 +8,7 @@ type PayoutCompletedTransaction = {
   transactionId: number;
   transactionType: string;
   payoutAmount: number;
+  payoutDate?: Date;
   currency: Currency;
   merchantId: number;
   merchantType: MerchantType;

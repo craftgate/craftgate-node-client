@@ -9,7 +9,10 @@ enum PaymentMethod {
   Alipay = 'ALIPAY',
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',
-  Afterpay = 'AFTERPAY'
+  Afterpay = 'AFTERPAY',
+  Kaspi = 'KASPI',
+  Tompay = 'TOMPAY',
+  Stripe = 'STRIPE'
 }
 
 export default PaymentMethod;

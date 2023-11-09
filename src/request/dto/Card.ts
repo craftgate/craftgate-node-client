@@ -1,4 +1,5 @@
 import {Loyalty} from '../../model/Loyalty';
+import TokenizedCardType from '../../model/TokenizedCardType';
 
 export type PaymentCard = {
   cardAlias?: string;
@@ -24,4 +25,11 @@ export type First6Last4CardWithIdentityNumber = {
   lastFourDigits: string;
 };
 
-export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber;
+export type TokenizedCard = {
+  tokenizedCard: {
+    type: TokenizedCardType;
+    data: any;
+  };
+};
+
+export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber | TokenizedCard;

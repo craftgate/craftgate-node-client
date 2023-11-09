@@ -9,6 +9,7 @@ type CreateMemberRequest = {
   address: string;
   email: string;
   iban?: string;
+  settlementEarningsDestination?: SettlementEarningsDestination;
   phoneNumber: string;
   taxOffice?: string;
   taxNumber?: string;
@@ -20,6 +21,7 @@ type CreateMemberRequest = {
    * @deprecated use @{@link CreateMemberWalletRequest.negativeAmountLimit} instead.
    */
   negativeWalletAmountLimit?: number;
+  subMerchantMaximumAllowedNegativeBalance?: number;
 };
 
 export default CreateMemberRequest;

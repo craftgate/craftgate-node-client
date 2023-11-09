@@ -21,6 +21,7 @@ type UpdateMemberRequest = {
    * @deprecated use @{@link CreateMemberWalletRequest.negativeAmountLimit} instead.
    */
   negativeWalletAmountLimit?: number;
+  subMerchantMaximumAllowedNegativeBalance?: number;
 };
 
 export default UpdateMemberRequest;
