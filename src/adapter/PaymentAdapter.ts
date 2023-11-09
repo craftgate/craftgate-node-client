@@ -3,8 +3,8 @@ import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
-import BnplPaymentInitRequest from '../request/BnplPaymentInitRequest';
-import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
+import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
+import OfferBnplPaymentRequest from '../request/OfferBnplPaymentRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -30,7 +30,7 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
-import BnplPaymentInitResponse from '../response/BnplPaymentInitResponse';
+import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
@@ -185,11 +185,11 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
   }
 
-  async retrieveBnplOffers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
+  async retrieveBnplOffers(request: OfferBnplPaymentRequest): Promise<BnplPaymentOfferResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
   }
 
-  async initBnplPayment(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
+  async initBnplPayment(request: InitBnplPaymentRequest): Promise<InitBnplPaymentResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/init`, request);
   }
 

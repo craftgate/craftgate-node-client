@@ -3,7 +3,7 @@ import PaymentStatus from '../model/PaymentStatus';
 
 import PaymentError from './dto/PaymentError';
 
-type BnplPaymentInitResponse = {
+type InitBnplPaymentResponse = {
   paymentId: number;
   redirectUrl: string;
   paymentStatus: PaymentStatus;
@@ -11,4 +11,4 @@ type BnplPaymentInitResponse = {
   paymentError: PaymentError;
 };
 
-export default BnplPaymentInitResponse;
+export default InitBnplPaymentResponse;

@@ -3,7 +3,7 @@ import Currency from '../model/Currency';
 
 import BnplPaymentCartItem from './dto/BnplPaymentCartItem';
 
-type BnplPaymentOfferRequest = {
+type OfferBnplPaymentRequest = {
   apmType: ApmType;
   merchantApmId: number;
   price: number;
@@ -11,4 +11,4 @@ type BnplPaymentOfferRequest = {
   items: BnplPaymentCartItem[];
 };
 
-export default BnplPaymentOfferRequest;
+export default OfferBnplPaymentRequest;
