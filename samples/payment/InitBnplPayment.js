@@ -21,12 +21,12 @@ const request = {
         {
             externalId: "38983903",
             name: "item-1",
-            price: 3000,
+            price: 6000,
         },
         {
             externalId: "92983294",
             name: "item-2",
-            price: 7000,
+            price: 4000,
         }
     ],
     cartItems: [
@@ -43,7 +43,7 @@ const request = {
             name: "Test Elektronik 1",
             brandName:"Samsung",
             type: Craftgate.Model.BnplCardItemType.MobilePhoneOver5000Try,
-            unitPrice: 7000,
+            unitPrice: 4000,
             quantity: 1,
         }
     ]
