@@ -15,4 +15,8 @@ export default class BankAccountTrackingAdapter extends BaseAdapter {
   async searchRecords(request: SearchBankAccountTrackingRecordsRequest): Promise<DataResponse<BankAccountTrackingRecordResponse>> {
     return this._client.get('/bank-account-tracking/v1/merchant-bank-account-trackings/records', request);
   }
+
+  async retrieveRecord(id: number): Promise<BankAccountTrackingRecordResponse> {
+    return this._client.get(`/bank-account-tracking/v1/merchant-bank-account-trackings/records/${id}`);
+  }
 }
