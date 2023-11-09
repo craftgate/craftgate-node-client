@@ -6,6 +6,6 @@ const craftgate = new Craftgate.Client({
     baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.payment().approve(410501)
+craftgate.payment().approveBnplPayment(1)
     .then(results => console.info('Approve bnpl payment response ', results))
     .catch(err => console.error('Failed to approve bnpl payment', err));

@@ -7,6 +7,16 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
+    price: 10000,
+    paidPrice : 10000,
+    currency: Craftgate.Model.Currency.TRY,
+    apmType : Craftgate.Model.ApmType.Maslak,
+    apmOrderId: "",
+    paymentGroup : Craftgate.Model.PaymentGroup.Product,
+    conversationId : "29393-mXld92ko3",
+    externalId : "external_id-345",
+    callbackUrl : "callback",
+    bankCode: "103",
     items: [
         {
             externalId: "38983903",
@@ -19,7 +29,6 @@ const request = {
             price: 7000,
         }
     ],
-
     cartItems: [
         {
             id: "200",
@@ -38,18 +47,8 @@ const request = {
             quantity: 1,
         }
     ],
-    price: 10000,
-    paidPrice : 10000,
-    currency: Craftgate.Model.Currency.TRY,
-    apmType : Craftgate.Model.ApmType.Maslak,
-    apmOrderId: "",
-    paymentGroup : Craftgate.Model.PaymentGroup.Product,
-    conversationId : "29393-mXld92ko3",
-    externalId : "external_id-345",
-    callbackUrl : "callback",
-    bankCode: "103"
 };
 
-craftgate.payment().init(request)
+craftgate.payment().initBnplPayment(request)
     .then(results => console.info('Init bnpl payment  response', results))
     .catch(err => console.error('Failed to Init bnpl payment', err));

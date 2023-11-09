@@ -185,15 +185,15 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
   }
 
-  async offers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
+  async retrieveBnplOffers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
   }
 
-  async init(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
+  async initBnplPayment(request: BnplPaymentInitRequest): Promise<BnplPaymentInitResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/init`, request);
   }
 
-  async approve(paymentId: number): Promise<void> {
+  async approveBnplPayment(paymentId: number): Promise<void> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
   }
 

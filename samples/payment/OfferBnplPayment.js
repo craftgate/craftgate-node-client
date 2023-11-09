@@ -7,6 +7,9 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
+    price: 10000,
+    currency: Craftgate.Model.Currency.TRY,
+    apmType : Craftgate.Model.ApmType.Maslak,
     items: [
         {
             id: "200",
@@ -24,12 +27,9 @@ const request = {
             unitPrice: 7000,
             quantity: 1,
         }
-    ],
-    price: 10000,
-    currency: Craftgate.Model.Currency.TRY,
-    apmType : Craftgate.Model.ApmType.Maslak,
+    ]
 };
 
-craftgate.payment().offers(request)
+craftgate.payment().retrieveBnplOffers(request)
     .then(results => console.info('Approve  bnpl payment  response', results))
     .catch(err => console.error('Failed to approve bnpl payment', err));
