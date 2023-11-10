@@ -1,6 +1,5 @@
 import AccountOwner from '../model/AccountOwner';
 import Currency from '../model/Currency';
-import PayoutAccountType from '../model/PayoutAccountType';
 
 type SearchPayoutAccountRequest = {
   page?: number;

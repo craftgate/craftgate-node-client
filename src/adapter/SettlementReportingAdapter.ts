@@ -8,7 +8,6 @@ import PayoutBouncedTransactionListResponse from '../response/PayoutBouncedTrans
 import PayoutCompletedTransactionListResponse from '../response/PayoutCompletedTransactionListResponse';
 import PayoutDetailResponse from '../response/PayoutDetailResponse';
 import PayoutRowListResponse from '../response/PayoutRowListResponse';
-import SettlementResponse from '../response/SettlementResponse';
 
 import BaseAdapter from './BaseAdapter';
 
