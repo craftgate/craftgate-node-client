@@ -1,3 +1,4 @@
+import BankAccountTrackingAdapter from './adapter/BankAccountTrackingAdapter';
 import BaseAdapter from './adapter/BaseAdapter';
 import FileReportingAdapter from './adapter/FileReportingAdapter';
 import FraudAdapter from './adapter/FraudAdapter';
@@ -26,6 +27,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _fraudAdapter: FraudAdapter;
   private _hookAdapter: HookAdapter;
   private _masterpassPaymentAdapter: MasterpassPaymentAdapter;
+  private _bankAccountTrackingAdapter: BankAccountTrackingAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -41,6 +43,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._fraudAdapter = new FraudAdapter(options);
     this._hookAdapter = new HookAdapter(options);
     this._masterpassPaymentAdapter = new MasterpassPaymentAdapter(options);
+    this._bankAccountTrackingAdapter = new BankAccountTrackingAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -89,5 +92,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   masterpass(): MasterpassPaymentAdapter {
     return this._masterpassPaymentAdapter;
+  }
+
+  bankAccountTracking(): BankAccountTrackingAdapter {
+    return this._bankAccountTrackingAdapter;
   }
 }

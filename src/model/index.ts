@@ -1,6 +1,7 @@
 import AccountOwner from './AccountOwner';
 import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
+import BankAccountTrackingSource from './BankAccountTrackingSource';
 import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardExpiryStatus from './CardExpiryStatus';
@@ -23,6 +24,7 @@ import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
 import PayoutAccountType from './PayoutAccountType';
 import PosApmPaymentProvider from './PosApmPaymentProvider';
+import RecordType from './RecordType';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -83,5 +85,7 @@ export = {
   ReportFileType,
   WebhookEventType,
   WebhookStatus,
-  TokenizedCardType
+  TokenizedCardType,
+  RecordType,
+  BankAccountTrackingSource
 };
