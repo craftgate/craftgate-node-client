@@ -4,7 +4,7 @@ import {calculateHash} from '../lib/utils';
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
-import OfferBnplPaymentRequest from '../request/OfferBnplPaymentRequest';
+import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -185,7 +185,7 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
   }
 
-  async retrieveBnplOffers(request: OfferBnplPaymentRequest): Promise<BnplPaymentOfferResponse> {
+  async retrieveBnplOffers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
   }
 
