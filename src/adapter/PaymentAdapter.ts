@@ -3,6 +3,8 @@ import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
+import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
+import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -28,6 +30,8 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
+import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
+import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
@@ -179,6 +183,18 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
     return this._client.post(`/payment/v1/apple-pay/merchant-sessions`, request);
+  }
+
+  async retrieveBnplOffers(request: BnplPaymentOfferRequest): Promise<BnplPaymentOfferResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/offers`, request);
+  }
+
+  async initBnplPayment(request: InitBnplPaymentRequest): Promise<InitBnplPaymentResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/init`, request);
+  }
+
+  async approveBnplPayment(paymentId: number): Promise<void> {
+    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
