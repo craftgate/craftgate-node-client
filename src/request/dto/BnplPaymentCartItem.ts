@@ -1,4 +1,4 @@
-import CartItemType from '../../model/BnplCardItemType';
+import CartItemType from '../../model/BnplCartItemType';
 
 type BnplPaymentCartItem = {
   id: string;

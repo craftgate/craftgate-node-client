@@ -1,4 +1,4 @@
-enum BnplCardItemType {
+enum BnplCartItemType {
   MobilePhoneOver5000Try = 'MOBILE_PHONE_OVER_5000_TRY',
   MobilePhoneBelow5000Try = 'MOBILE_PHONE_BELOW_5000_TRY',
   Tablet = 'TABLET',
@@ -25,4 +25,4 @@ enum BnplCardItemType {
   Other = 'OTHER'
 }
 
-export default BnplCardItemType;
+export default BnplCartItemType;

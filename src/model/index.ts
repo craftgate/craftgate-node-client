@@ -6,7 +6,7 @@ import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
-import BnplCardItemType from './BnplCardItemType';
+import BnplCartItemType from './BnplCartItemType';
 import Currency from './Currency';
 import FileStatus from './FileStatus';
 import FraudAction from './FraudAction';
@@ -50,7 +50,7 @@ export = {
   BounceStatus,
   CardAssociation,
   CardType,
-  BnplCardItemType: BnplCardItemType,
+  BnplCartItemType,
   CardExpiryStatus,
   Currency,
   FileStatus,
