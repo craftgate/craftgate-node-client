@@ -1060,3 +1060,33 @@ test('should search stored cards', async t => {
   t.is(result.items[1].cardBrand, 'İşbank Maximum Card')
   t.is(result.items[1].cardBankName, 'İşbank')
 });
+
+test('should verify 3ds callback hash', async t => {
+  const threeDSecureCallbackKey = "6UkASNuafM2TdannfMacixxjMaN5ycTJ";
+
+  const params = new Map();
+  params["hash"] = "768d4e056a9720e7355294b359fe597929dbb363315b543325f1c52612d55edc";
+  params["paymentId"] = "415449";
+  params["conversationId"] = "d1811bb0-25a2-40c7-ba71-c8b605259611";
+  params["status"] = "SUCCESS";
+  params["completeStatus"] = "WAITING";
+
+  const isVerified = await paymentAdapter.is3DSecureCallbackVerified(threeDSecureCallbackKey, params);
+  t.is(isVerified, true)
+});
+
+test('should verify 3ds callback hash with all information', async t => {
+  const threeDSecureCallbackKey = "6UkASNuafM2TdannfMacixxjMaN5ycTJ";
+
+  const params = new Map();
+  params["hash"] = "8f97746284f91a4295f99ae1e50dd70ccd3c932fd58437855e91a3a2fe86b293";
+  params["status"] = "FAILURE";
+  params["completeStatus"] = "";
+  params["paymentId"] = "417145";
+  params["conversationData"] = "";
+  params["conversationId"] = "d1811bb0-25a2-40c7-ba71-c8b605259611";
+  params["callbackStatus"] = "ALREADY_RETURNED";
+
+  const isVerified = await paymentAdapter.is3DSecureCallbackVerified(threeDSecureCallbackKey, params);
+  t.is(isVerified, true)
+});

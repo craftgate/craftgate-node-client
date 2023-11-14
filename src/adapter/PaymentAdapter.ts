@@ -199,7 +199,7 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
     const hash = params['hash'];
-    let hashString: string = [
+    const hashString: string = [
       threeDSecureCallbackKey,
       params['status'],
       params['completeStatus'],
@@ -207,10 +207,7 @@ export default class PaymentAdapter extends BaseAdapter {
       params['conversationData'],
       params['conversationId'],
       params['callbackStatus']
-    ]
-      .filter(s => !!s)
-      .join('###');
-    hashString += '###';
+    ].join('###');
 
     const hashed = calculateHash(hashString);
     return hash == hashed;

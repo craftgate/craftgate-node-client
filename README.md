@@ -166,22 +166,6 @@ craftgate.payment().createPayment(request)
   });
 ```
 
-### Advanced Usage: Adapters
-In reality, the `CraftgateClient` class serves as a collection of adapters that integrates with different parts of the API. While the intended usage for most use-cases is to instantiate a `CraftgateClient` instance (as illustrated in the examples above) and use its adapter accessors (e.g. `payment()`), you can also manually import a certain adapter class and instantiate it.
-
-**Note:** When instantiating an adapter, you can use the same options as you would when instantiating a `CraftgateClient`
-
-For all adapters in the `CraftgateClient`, their purposes, accessors, as well as direct import paths, refer to the list below:
-
-| Adapter Name | Purpose | Accessor | Import Path |
-|--------------|---------|----------|-------------|
-| `InstallmentAdapter` | Retrieving per-installment pricing information based on installment count or BIN number | `installment()` | `@craftgate/craftgate/adapters/InstallmentAdapter` |
-| `OnboardingAdapter` | Conducting CRUD operations on buyers and sub merchants | `onboarding()` | `@craftgate/craftgate/adapters/OnboardingAdapter` |
-| `PaymentAdapter` | Conducting payments, retrieving payment information, managing stored cards | `payment()` | `@craftgate/craftgate/adapters/PaymentAdapter` |
-| `WalletAdapter` | Managing remittance, retrieving wallet transactions  | `wallet()` | `@craftgate/craftgate/adapters/WalletAdapter` |
-| `SettlementReportingAdapter` | Settlement operations like search payout completed transactions, search bounced payout transactions | `settlementReporting()` | `@craftgate/craftgate/adapters/SettlementReportingAdapter` |
-| `SettlementAdapter` | Settlement operations like create instant wallet settlement | `settlement()` | `@craftgate/craftgate/adapters/SettlementAdapter` |
-
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md)
 
