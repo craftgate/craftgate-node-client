@@ -5,3 +5,5 @@ type BnplBankOfferTerm = {
   interestRate: number;
   annualInterestRate: number;
 };
+
+export default BnplBankOfferTerm;
