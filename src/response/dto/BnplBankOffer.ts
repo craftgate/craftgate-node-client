@@ -1,3 +1,5 @@
+import BnplBankOfferTerm from './BnplBankOfferTerm';
+
 type BnplBankOffer = {
   bankCode: string;
   bankName: string;
