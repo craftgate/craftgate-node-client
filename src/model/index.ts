@@ -49,7 +49,6 @@ import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
 
-
 export = {
   AccountOwner,
   ApmType,

@@ -1,6 +1,8 @@
+// eslint-disable-next-line import/no-named-as-default
 import AutopilotState from '../model/AutopilotState';
 import CardAssociation from '../model/CardAssociation';
 import Currency from '../model/Currency';
+// eslint-disable-next-line import/no-named-as-default
 import MerchantPosUser from '../model/MerchantPosUser';
 import PaymentAuthenticationType from '../model/PaymentAuthenticationType';
 import PosIntegrator from '../model/PosIntegrator';
