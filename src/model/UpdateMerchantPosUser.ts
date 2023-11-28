@@ -1,7 +1,7 @@
 import PosOperationType from './PosOperationType';
 import PosUserType from './PosUserType';
 
-export type UpdateMerchantPosUser = {
+type UpdateMerchantPosUser = {
   id: number;
   posUsername: string;
   posPassword: string;
