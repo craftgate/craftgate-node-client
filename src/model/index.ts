@@ -5,6 +5,7 @@ import BankAccountTrackingSource from './BankAccountTrackingSource';
 import BnplCartItemType from './BnplCartItemType';
 import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
+import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
 import Currency from './Currency';
@@ -14,6 +15,7 @@ import FraudCheckStatus from './FraudCheckStatus';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
+import PaymentAuthenticationType from './PaymentAuthenticationType';
 import PaymentGroup from './PaymentGroup';
 import PaymentMethod from './PaymentMethod';
 import PaymentPhase from './PaymentPhase';
@@ -24,6 +26,10 @@ import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
 import PayoutAccountType from './PayoutAccountType';
 import PosApmPaymentProvider from './PosApmPaymentProvider';
+import PosIntegrator from './PosIntegrator';
+import PosOperationType from './PosOperationType';
+import PosStatus from './PosStatus';
+import PosUserType from './PosUserType';
 import RecordType from './RecordType';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
@@ -42,6 +48,7 @@ import WalletTransactionRefundTransactionType from './WalletTransactionRefundTra
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
+
 
 export = {
   AccountOwner,
@@ -87,5 +94,11 @@ export = {
   WebhookStatus,
   TokenizedCardType,
   RecordType,
-  BankAccountTrackingSource
+  BankAccountTrackingSource,
+  PosStatus,
+  PosIntegrator,
+  PaymentAuthenticationType,
+  PosUserType,
+  PosOperationType,
+  CardBrand
 };

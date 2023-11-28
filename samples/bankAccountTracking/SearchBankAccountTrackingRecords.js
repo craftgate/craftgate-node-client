@@ -1,5 +1,4 @@
 const Craftgate = require('../../dist');
-const Currency = require("../../dist/model/Currency");
 
 const craftgate = new Craftgate.Client({
   apiKey: 'api-key',
@@ -11,7 +10,7 @@ const craftgate = new Craftgate.Client({
 const request = {
   page: 0,
   size: 10,
-  currency: Currency.TRY
+  currency: Craftgate.Model.Currency.TRY
 };
 
 craftgate.bankAccountTracking().searchRecords(request)

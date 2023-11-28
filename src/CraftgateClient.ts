@@ -13,6 +13,7 @@ import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
+import MerchantAdapter from "./adapter/MerchantAdapter";
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
@@ -28,6 +29,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _hookAdapter: HookAdapter;
   private _masterpassPaymentAdapter: MasterpassPaymentAdapter;
   private _bankAccountTrackingAdapter: BankAccountTrackingAdapter;
+  private _merchantAdapter: MerchantAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -44,6 +46,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._hookAdapter = new HookAdapter(options);
     this._masterpassPaymentAdapter = new MasterpassPaymentAdapter(options);
     this._bankAccountTrackingAdapter = new BankAccountTrackingAdapter(options);
+    this._merchantAdapter = new MerchantAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -96,5 +99,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   bankAccountTracking(): BankAccountTrackingAdapter {
     return this._bankAccountTrackingAdapter;
+  }
+
+  merchant(): MerchantAdapter {
+    return this._merchantAdapter;
   }
 }
