@@ -1,21 +1,16 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
+import PosStatus from '../model/PosStatus';
 
 import CreateMerchantPosRequest from '../request/CreateMerchantPosRequest';
-import CreateMerchantRequest from '../request/CreateMerchantRequest';
-import SearchMembersRequest from '../request/SearchMembersRequest';
-import UpdateMemberRequest from '../request/UpdateMemberRequest';
+import SearchMerchantPosRequest from '../request/SearchMerchantPosRequest';
+import UpdateMerchantPosCommissionRequest from '../request/UpdateMerchantPosCommissionRequest';
+import UpdateMerchantPosRequest from '../request/UpdateMerchantPosRequest';
 
-import CreateMerchantResponse from '../response/CreateMerchantResponse';
 import DataResponse from '../response/DataResponse';
-import MemberResponse from '../response/MemberResponse';
+import MerchantPosCommissionResponse from '../response/MerchantPosCommissionResponse';
 import MerchantPosResponse from '../response/MerchantPosResponse';
 
 import BaseAdapter from './BaseAdapter';
-import PosStatus from "../model/PosStatus";
-import UpdateMerchantPosRequest from "../request/UpdateMerchantPosRequest";
-import SearchMerchantPosRequest from "../request/SearchMerchantPosRequest";
-import MerchantPosCommissionResponse from "../response/MerchantPosCommissionResponse";
-import UpdateMerchantPosCommissionRequest from "../request/UpdateMerchantPosCommissionRequest";
 
 export default class MerchantAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
