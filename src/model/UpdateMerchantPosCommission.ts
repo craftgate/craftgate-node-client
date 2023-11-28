@@ -1,6 +1,6 @@
 import Status from './Status';
 
-export type UpdateMerchantPosCommission = {
+type UpdateMerchantPosCommission = {
   cardBrandName?: string;
   installment: number;
   status: Status;
