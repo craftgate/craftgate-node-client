@@ -31,5 +31,5 @@ const request = {
 };
 
 craftgate.payment().retrieveBnplOffers(request)
-    .then(results => console.info('Approve  bnpl payment  response', results))
-    .catch(err => console.error('Failed to approve bnpl payment', err));
+    .then(results => console.info('Retrieve bnpl offers response', results))
+    .catch(err => console.error('Failed to retrieve bnpl offers', err));
