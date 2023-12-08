@@ -12,7 +12,17 @@ enum PaymentProvider {
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
   GooglePay = 'GOOGLEPAY',
-  Stripe = 'STRIPE'
+  Stripe = 'STRIPE',
+  Alipay = 'ALIPAY',
+  Paypal = 'PAYPAL',
+  Klarna = 'KLARNA',
+  Afterpay = 'AFTERPAY',
+  Hepsipay = 'HEPSIPAY',
+  Maslak = 'MASLAK',
+  TomFinance = 'TOM_FINANCE',
+  Alfabank = 'ALFABANK',
+  Paycell = 'PAYCELL',
+  Offline = 'OFFLINE'
 }
 
 export default PaymentProvider;

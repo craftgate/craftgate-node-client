@@ -14,7 +14,8 @@ enum ApmType {
   CashOnDelivery = 'CASH_ON_DELIVERY',
   Maslak = 'MASLAK',
   ALFABANK = 'ALFABANK',
-  TomFinance = 'TOM_FINANCE'
+  TomFinance = 'TOM_FINANCE',
+  Paycell = 'PAYCELL'
 }
 
 export default ApmType;
