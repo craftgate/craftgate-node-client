@@ -32,7 +32,9 @@ enum PosIntegrator {
   PAYBULL = 'PAYBULL',
   ELEKSE = 'ELEKSE',
   ALGORITMA = 'ALGORITMA',
-  PAYCELL = 'PAYCELL'
+  PAYCELL = 'PAYCELL',
+  TAMI = 'TAMI',
+  QNB_PAY = 'QNB_PAY'
 }
 
 export default PosIntegrator;
