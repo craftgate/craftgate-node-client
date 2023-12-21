@@ -1,3 +1,5 @@
+import {Loyalty} from '../model/Loyalty';
+
 import MasterpassCreatePayment from './dto/MasterpassCreatePayment';
 
 type MasterpassPaymentTokenGenerateRequest = {
@@ -6,6 +8,7 @@ type MasterpassPaymentTokenGenerateRequest = {
   binNumber: string;
   forceThreeDS: boolean;
   createPayment: MasterpassCreatePayment;
+  loyalty: Loyalty;
 };
 
 export default MasterpassPaymentTokenGenerateRequest;
