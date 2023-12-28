@@ -1,9 +1,9 @@
 const Craftgate = require('../../dist');
 
 const craftgate = new Craftgate.Client({
-  apiKey: 'api-key',
+  apiKey: 'api-key-2',
   secretKey: 'secret-key',
-  baseUrl: 'https://sandbox-api.craftgate.io'
+  baseUrl: 'http://localhost:8000'
 });
 
 craftgate.fraud().retrieveValueList("ipList")
