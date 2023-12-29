@@ -35,7 +35,8 @@ enum PosIntegrator {
   PAYCELL = 'PAYCELL',
   TAMI = 'TAMI',
   QNB_PAY = 'QNB_PAY',
-  AKBANK_VPOS = 'AKBANK_VPOS'
+  AKBANK_VPOS = 'AKBANK_VPOS',
+  TAP = 'TAP'
 }
 
 export default PosIntegrator;
