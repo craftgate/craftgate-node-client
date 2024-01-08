@@ -1,6 +1,8 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 import FraudCheckStatus from '../model/FraudCheckStatus';
+import FraudValueType from '../model/FraudValueType';
 
+import FraudValueListRequest from '../request/FraudValueListRequest';
 import SearchFraudChecksRequest from '../request/SearchFraudChecksRequest';
 
 import FraudAllValueListsResponse from '../response/FraudAllValueListsResponse';
@@ -30,23 +32,22 @@ export default class FraudAdapter extends BaseAdapter {
     return this._client.get(`/fraud/v1/value-lists/${listName}`);
   }
 
-  async createValueList(listName: string): Promise<void> {
-    await this.addValueToValueList(listName, null, null);
+  async createValueList(listName: string, type: FraudValueType): Promise<void> {
+    await this.addValueToValueList({
+      listName: listName,
+      type: type
+    });
   }
 
   async deleteValueList(listName: string): Promise<void> {
     await this._client.delete(`/fraud/v1/value-lists/${listName}`);
   }
 
-  async addValueToValueList(listName: string, value: string, expireInSeconds: number): Promise<void> {
-    await this._client.post(`/fraud/v1/value-lists`, {
-      listName: listName,
-      value: value,
-      durationInSeconds: expireInSeconds
-    });
+  async addValueToValueList(request: FraudValueListRequest): Promise<void> {
+    await this._client.post(`/fraud/v1/value-lists`, request);
   }
 
-  async removeValueFromValueList(listName: string, value: string): Promise<void> {
-    await this._client.delete(`/fraud/v1/value-lists/${listName}/values/${value}`);
+  async removeValueFromValueList(listName: string, valueId: string): Promise<void> {
+    await this._client.delete(`/fraud/v1/value-lists/${listName}/values/${valueId}`);
   }
 }
