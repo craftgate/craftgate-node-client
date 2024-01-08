@@ -9,7 +9,12 @@ enum Currency {
   AED = 'AED',
   IQD = 'IQD',
   AZN = 'AZN',
-  KZT = 'KZT'
+  KZT = 'KZT',
+  KWD = 'KWD',
+  SAR = 'SAR',
+  BHD = 'BHD',
+  RUB = 'RUB',
+  JPY = 'JPY'
 }
 
 export default Currency;
