@@ -12,6 +12,7 @@ import Currency from './Currency';
 import FileStatus from './FileStatus';
 import FraudAction from './FraudAction';
 import FraudCheckStatus from './FraudCheckStatus';
+import FraudValueType from './FraudValueType';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
@@ -62,6 +63,7 @@ export = {
   FileStatus,
   FraudAction,
   FraudCheckStatus,
+  FraudValueType,
   LoyaltyType,
   MemberType,
   MerchantType,

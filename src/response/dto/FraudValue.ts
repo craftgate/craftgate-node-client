@@ -1,4 +1,6 @@
 type FraudValue = {
+  id: string;
+  label: string;
   value: string;
   expireInSeconds: number;
 };
