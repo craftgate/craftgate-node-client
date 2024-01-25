@@ -36,7 +36,8 @@ enum PosIntegrator {
   TAMI = 'TAMI',
   QNB_PAY = 'QNB_PAY',
   AKBANK_VPOS = 'AKBANK_VPOS',
-  TAP = 'TAP'
+  TAP = 'TAP',
+  RUBIK = 'RUBIK'
 }
 
 export default PosIntegrator;
