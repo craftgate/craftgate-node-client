@@ -1,6 +1,6 @@
 enum BnplCartItemType {
-  MobilePhoneOver5000Try = 'MOBILE_PHONE_OVER_5000_TRY',
-  MobilePhoneBelow5000Try = 'MOBILE_PHONE_BELOW_5000_TRY',
+  MobilePhonePriceAboveRegulationLimit = 'MOBILE_PHONE_PRICE_ABOVE_REGULATION_LIMIT',
+  MobilePhonePriceBelowRegulationLimit = 'MOBILE_PHONE_PRICE_BELOW_REGULATION_LIMIT',
   Tablet = 'TABLET',
   Computer = 'COMPUTER',
   ConstructionMarket = 'CONSTRUCTION_MARKET',
