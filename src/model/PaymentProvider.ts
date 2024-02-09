@@ -12,7 +12,8 @@ enum PaymentProvider {
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
   GooglePay = 'GOOGLEPAY',
-  Stripe = 'STRIPE'
+  Stripe = 'STRIPE',
+  Haso = 'HASO'
 }
 
 export default PaymentProvider;

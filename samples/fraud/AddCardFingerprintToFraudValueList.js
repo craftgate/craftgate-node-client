@@ -1,3 +1,4 @@
+
 const Craftgate = require('../../dist');
 
 const craftgate = new Craftgate.Client({
@@ -8,11 +9,10 @@ const craftgate = new Craftgate.Client({
 
 //request
 const request = {
-  listName: 'ipList',
-  type: Craftgate.Model.FraudValueType.Ip,
-  label: "local ip 2",
-  value: "127.0.0.2",
-  durationInSeconds: 60
+  listName: 'cardList',
+  type: Craftgate.Model.FraudValueType.Card,
+  label: "John Doe's Card",
+  paymentId: 11675
 };
 
 craftgate.fraud().addValueToValueList(request)
