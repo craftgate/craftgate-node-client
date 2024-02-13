@@ -49,6 +49,7 @@ import WalletTransactionRefundTransactionType from './WalletTransactionRefundTra
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
+import ClientType from './ClientType';
 
 export = {
   AccountOwner,
@@ -101,5 +102,6 @@ export = {
   PaymentAuthenticationType,
   PosUserType,
   PosOperationType,
-  CardBrand
+  CardBrand,
+  ClientType
 };
