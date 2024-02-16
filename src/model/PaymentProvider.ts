@@ -22,6 +22,7 @@ enum PaymentProvider {
   TomFinance = 'TOM_FINANCE',
   Alfabank = 'ALFABANK',
   Paycell = 'PAYCELL',
+  Haso = 'HASO',
   Offline = 'OFFLINE'
 }
 

@@ -15,7 +15,8 @@ enum ApmType {
   Maslak = 'MASLAK',
   ALFABANK = 'ALFABANK',
   TomFinance = 'TOM_FINANCE',
-  Paycell = 'PAYCELL'
+  Paycell = 'PAYCELL',
+  Haso = 'HASO'
 }
 
 export default ApmType;
