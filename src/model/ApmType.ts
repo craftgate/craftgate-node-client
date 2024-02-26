@@ -13,7 +13,7 @@ enum ApmType {
   FundTransfer = 'FUND_TRANSFER',
   CashOnDelivery = 'CASH_ON_DELIVERY',
   Maslak = 'MASLAK',
-  ALFABANK = 'ALFABANK',
+  Alfabank = 'Alfabank',
   TomFinance = 'TOM_FINANCE',
   Haso = 'HASO'
 }
