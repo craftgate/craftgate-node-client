@@ -4,6 +4,7 @@ import FileReportingAdapter from './adapter/FileReportingAdapter';
 import FraudAdapter from './adapter/FraudAdapter';
 import HookAdapter from './adapter/HookAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
+import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
 import MerchantAdapter from './adapter/MerchantAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
@@ -14,7 +15,6 @@ import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
-import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
