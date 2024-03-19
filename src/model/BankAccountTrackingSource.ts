@@ -1,5 +1,6 @@
 enum BankAccountTrackingSource {
-  YKB = 'YKB'
+  YKB = 'YKB',
+  GARANTI = 'GARANTI'
 }
 
 export default BankAccountTrackingSource;
