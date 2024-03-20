@@ -1,8 +1,9 @@
+import ClientType from '../model/ClientType';
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 import PaymentPhase from '../model/PaymentPhase';
+
 import PaymentItem from './dto/PaymentItem';
-import ClientType from '../model/ClientType';
 
 type InitJuzdanPaymentRequest = {
   price: number;
