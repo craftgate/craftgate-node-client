@@ -11,6 +11,7 @@ enum PaymentMethod {
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
   Kaspi = 'KASPI',
+  Compay = 'COMPAY',
   Tompay = 'TOMPAY',
   Stripe = 'STRIPE'
 }
