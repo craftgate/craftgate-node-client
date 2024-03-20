@@ -17,7 +17,7 @@ export default class SettlementReportingAdapter extends BaseAdapter {
   }
 
   async searchPayoutCompletedTransactions(request: SearchPayoutCompletedTransactionsRequest): Promise<PayoutCompletedTransactionListResponse> {
-    return this._client.get('/settlement-reporting/v1/settlement-file/payout-completed-transactions', request);
+    return this._client.get('/settlement-reporting/v2/settlement-file/payout-completed-transactions', request);
   }
 
   async searchBouncedPayoutTransactions(request: SearchPayoutBouncedTransactionsRequest): Promise<PayoutBouncedTransactionListResponse> {
