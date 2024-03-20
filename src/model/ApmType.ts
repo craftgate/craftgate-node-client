@@ -16,7 +16,6 @@ enum ApmType {
   TomFinance = 'TOM_FINANCE',
   Paycell = 'PAYCELL',
   Alfabank = 'ALFABANK',
-  TomFinance = 'TOM_FINANCE',
   Haso = 'HASO'
 }
 
