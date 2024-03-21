@@ -14,7 +14,17 @@ enum PaymentProvider {
   ApplePay = 'APPLEPAY',
   GooglePay = 'GOOGLEPAY',
   Stripe = 'STRIPE',
-  Haso = 'HASO'
+  Alipay = 'ALIPAY',
+  Paypal = 'PAYPAL',
+  Klarna = 'KLARNA',
+  Afterpay = 'AFTERPAY',
+  Hepsipay = 'HEPSIPAY',
+  Maslak = 'MASLAK',
+  TomFinance = 'TOM_FINANCE',
+  Alfabank = 'ALFABANK',
+  Paycell = 'PAYCELL',
+  Haso = 'HASO',
+  Offline = 'OFFLINE'
 }
 
 export default PaymentProvider;
