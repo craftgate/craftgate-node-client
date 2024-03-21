@@ -8,7 +8,7 @@ enum ApmType {
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
   Kaspi = 'KASPI',
-  Compay = 'COMPAY',
+  InstantTransfer = 'INSTANT_TRANSFER',
   Stripe = 'STRIPE',
   Tompay = 'TOMPAY',
   FundTransfer = 'FUND_TRANSFER',

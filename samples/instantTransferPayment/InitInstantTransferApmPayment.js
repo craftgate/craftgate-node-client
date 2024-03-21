@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  apmType: Craftgate.Model.ApmType.Compay,
+  apmType: Craftgate.Model.ApmType.InstantTransfer,
   price: 1.0,
   paidPrice: 1.0,
   currency: Craftgate.Model.Currency.TRY,
@@ -34,5 +34,5 @@ const request = {
 craftgate
   .payment()
   .initApmPayment(request)
-  .then(result => console.info('Compay Apm payment successful', result))
-  .catch(err => console.error('Failed to create Compay Apm payment', err));
+  .then(result => console.info('Instant Transfer Apm payment successful', result))
+  .catch(err => console.error('Failed to create Instant Transfer Apm payment', err));
