@@ -19,7 +19,9 @@ function createDate(days, hours, minutes, seconds) {
 const request = {
   settlementType: Craftgate.Model.SettlementType.SETTLEMENT,
   startDate: createDate(-1, 0, 0, 0),
-  endDate: createDate(-1, 23, 59, 59)
+  endDate: createDate(-1, 23, 59, 59),
+  page: 0,
+  size: 10
 };
 
 craftgate.settlementReporting().searchPayoutCompletedTransactions(request)
