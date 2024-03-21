@@ -8,6 +8,7 @@ import CardAssociation from './CardAssociation';
 import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
+import ClientType from './ClientType';
 import Currency from './Currency';
 import FileStatus from './FileStatus';
 import FraudAction from './FraudAction';
@@ -49,7 +50,6 @@ import WalletTransactionRefundTransactionType from './WalletTransactionRefundTra
 import WalletTransactionType from './WalletTransactionType';
 import WebhookEventType from './WebhookEventType';
 import WebhookStatus from './WebhookStatus';
-import ClientType from './ClientType';
 
 export = {
   AccountOwner,

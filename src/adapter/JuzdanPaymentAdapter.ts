@@ -1,9 +1,11 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
-import PaymentResponse from '../response/PaymentResponse';
-import BaseAdapter from './BaseAdapter';
 import InitJuzdanPaymentRequest from '../request/InitJuzdanPaymentRequest';
+
 import InitJuzdanPaymentResponse from '../response/InitJuzdanPaymentResponse';
+import PaymentResponse from '../response/PaymentResponse';
+
+import BaseAdapter from './BaseAdapter';
 
 export default class JuzdanPaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
