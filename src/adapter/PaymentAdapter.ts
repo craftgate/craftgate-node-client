@@ -49,6 +49,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 
 import BaseAdapter from './BaseAdapter';
 
@@ -195,6 +196,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async approveBnplPayment(paymentId: number): Promise<void> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+  }
+
+  async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
+    return this._client.get(`/payment/v1/instant-transfer-banks`);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
