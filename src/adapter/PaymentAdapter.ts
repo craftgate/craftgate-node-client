@@ -7,6 +7,7 @@ import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
+import CloneCardRequest from "../request/CloneCardRequest";
 import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
 import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest';
 import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
@@ -52,7 +53,6 @@ import StoredCardResponse from '../response/StoredCardResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 
 import BaseAdapter from './BaseAdapter';
-import CloneCardRequest from "../request/CloneCardRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
