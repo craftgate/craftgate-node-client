@@ -52,6 +52,7 @@ import StoredCardResponse from '../response/StoredCardResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 
 import BaseAdapter from './BaseAdapter';
+import CloneCardRequest from "../request/CloneCardRequest";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -156,6 +157,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async updateCard(request: UpdateCardRequest): Promise<StoredCardResponse> {
     return this._client.post('/payment/v1/cards/update', request);
+  }
+
+  async cloneCard(request: CloneCardRequest): Promise<StoredCardResponse> {
+      return this._client.post('/payment/v1/cards/clone', request);
   }
 
   async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
