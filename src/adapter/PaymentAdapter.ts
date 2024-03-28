@@ -4,7 +4,7 @@ import {calculateHash} from '../lib/utils';
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
-import CloneCardRequest from "../request/CloneCardRequest";
+import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
