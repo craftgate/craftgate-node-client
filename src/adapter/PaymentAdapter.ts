@@ -43,6 +43,7 @@ import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
+import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
@@ -50,7 +51,6 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
-import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 
 import BaseAdapter from './BaseAdapter';
 
