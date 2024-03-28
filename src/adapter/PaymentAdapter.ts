@@ -160,7 +160,7 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async cloneCard(request: CloneCardRequest): Promise<StoredCardResponse> {
-      return this._client.post('/payment/v1/cards/clone', request);
+    return this._client.post('/payment/v1/cards/clone', request);
   }
 
   async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
