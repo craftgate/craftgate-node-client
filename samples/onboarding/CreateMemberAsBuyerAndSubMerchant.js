@@ -14,7 +14,6 @@ const request = {
   email: 'haluk.demir@example.com',
   phoneNumber: '905551111111',
   iban: 'TR930006701000000001111111',
-  identityNumber: '11111111110',
   legalCompanyTitle: 'Dem Zeytinyağı Üretim Ltd. Şti.',
   name: 'Dem Zeytinyağı Üretim Ltd. Şti.',
   memberType: Craftgate.Model.MemberType.LimitedOrStockJointCompany,
@@ -24,6 +23,8 @@ const request = {
   address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
-craftgate.onboarding().createMember(request)
+craftgate
+  .onboarding()
+  .createMember(request)
   .then(result => console.info('Member created', result))
   .catch(err => console.error('Failed to create member', err));
