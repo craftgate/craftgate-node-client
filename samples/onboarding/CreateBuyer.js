@@ -13,13 +13,14 @@ const request = {
   contactSurname: 'Demir',
   email: 'haluk.demir@example.com',
   phoneNumber: '905551111111',
-  identityNumber: '11111111110',
   name: 'Haluk Demir',
   memberType: Craftgate.Model.MemberType.Personal,
   memberExternalId: 'random-id',
-  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul',
+  address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
-craftgate.onboarding().createMember(request)
+craftgate
+  .onboarding()
+  .createMember(request)
   .then(result => console.info('Buyer member created', result))
   .catch(err => console.error('Failed to create buyer member', err));
