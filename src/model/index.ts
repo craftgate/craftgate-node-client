@@ -17,6 +17,7 @@ import FraudValueType from './FraudValueType';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
 import MerchantType from './MerchantType';
+import MultiPaymentStatus from './MultiPaymentStatus';
 import PaymentAuthenticationType from './PaymentAuthenticationType';
 import PaymentGroup from './PaymentGroup';
 import PaymentMethod from './PaymentMethod';
@@ -68,6 +69,7 @@ export = {
   LoyaltyType,
   MemberType,
   MerchantType,
+  MultiPaymentStatus,
   PaymentGroup,
   PaymentPhase,
   PaymentMethod,
