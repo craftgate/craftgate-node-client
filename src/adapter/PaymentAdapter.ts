@@ -44,6 +44,7 @@ import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResp
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
+import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
@@ -205,6 +206,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
+    return this._client.get(`/payment/v1/multi-payments/${token}`);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
