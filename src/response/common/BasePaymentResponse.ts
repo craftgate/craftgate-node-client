@@ -43,6 +43,7 @@ type BasePaymentResponse = {
   authCode: string;
   hostReference: string;
   transId: string;
+  mdStatus: number;
   orderId: string;
   cardType: CardType;
   cardAssociation: CardAssociation;
