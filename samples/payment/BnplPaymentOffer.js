@@ -9,12 +9,12 @@ const craftgate = new Craftgate.Client({
 const request = {
     price: 10000,
     currency: Craftgate.Model.Currency.TRY,
-    apmType : Craftgate.Model.ApmType.Maslak,
+    apmType: Craftgate.Model.ApmType.Maslak,
     items: [
         {
             id: "200",
             name: "Test Elektronik 2",
-            brandName:"iphone",
+            brandName: "iphone",
             type: Craftgate.Model.BnplCartItemType.Other,
             unitPrice: 3000,
             quantity: 2,
@@ -22,8 +22,8 @@ const request = {
         {
             id: "100",
             name: "Test Elektronik 1",
-            brandName:"Samsung",
-            type: Craftgate.Model.BnplCartItemType.MobilePhoneOver5000Try,
+            brandName: "Samsung",
+            type: Craftgate.Model.BnplCartItemType.Tv,
             unitPrice: 4000,
             quantity: 1,
         }
@@ -31,5 +31,5 @@ const request = {
 };
 
 craftgate.payment().retrieveBnplOffers(request)
-    .then(results => console.info('Approve  bnpl payment  response', results))
-    .catch(err => console.error('Failed to approve bnpl payment', err));
+    .then(results => console.info('Retrieve bnpl offers response', results))
+    .catch(err => console.error('Failed to retrieve bnpl offers', err));

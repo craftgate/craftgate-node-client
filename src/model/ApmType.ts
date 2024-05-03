@@ -8,12 +8,16 @@ enum ApmType {
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
   Kaspi = 'KASPI',
+  InstantTransfer = 'INSTANT_TRANSFER',
   Stripe = 'STRIPE',
   Tompay = 'TOMPAY',
   FundTransfer = 'FUND_TRANSFER',
   CashOnDelivery = 'CASH_ON_DELIVERY',
   Maslak = 'MASLAK',
-  ALFABANK = 'ALFABANK'
+  TomFinance = 'TOM_FINANCE',
+  Paycell = 'PAYCELL',
+  Alfabank = 'ALFABANK',
+  Haso = 'HASO'
 }
 
 export default ApmType;

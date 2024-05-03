@@ -3,8 +3,8 @@ import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
-import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
+import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
@@ -16,6 +16,7 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
+import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
 import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
@@ -30,7 +31,6 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
-import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
@@ -38,10 +38,13 @@ import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
+import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
+import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
+import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
@@ -157,6 +160,10 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/cards/update', request);
   }
 
+  async cloneCard(request: CloneCardRequest): Promise<StoredCardResponse> {
+    return this._client.post('/payment/v1/cards/clone', request);
+  }
+
   async searchStoredCards(request: SearchStoredCardsRequest): Promise<DataResponse<StoredCardResponse>> {
     return this._client.get('/payment/v1/cards', request);
   }
@@ -195,6 +202,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async approveBnplPayment(paymentId: number): Promise<void> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+  }
+
+  async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
+    return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
+    return this._client.get(`/payment/v1/multi-payments/${token}`);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {

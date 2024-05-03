@@ -5,6 +5,7 @@ type SearchInstallmentsRequest = {
   price: number;
   currency?: Currency;
   distinctCardBrandsWithLowestCommissions?: boolean;
+  loyaltyExists?: boolean;
 };
 
 export default SearchInstallmentsRequest;

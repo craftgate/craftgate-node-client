@@ -14,7 +14,6 @@ type UpdateMemberRequest = {
   taxNumber?: string;
   contactName?: string;
   contactSurname?: string;
-  identityNumber?: string;
   legalCompanyTitle?: string;
   settlementEarningsDestination?: SettlementEarningsDestination;
   /**

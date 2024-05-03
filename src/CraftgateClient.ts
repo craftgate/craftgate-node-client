@@ -4,7 +4,9 @@ import FileReportingAdapter from './adapter/FileReportingAdapter';
 import FraudAdapter from './adapter/FraudAdapter';
 import HookAdapter from './adapter/HookAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
+import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
+import MerchantAdapter from './adapter/MerchantAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PayByLinkApiAdapter from './adapter/PayByLinkApiAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
@@ -28,6 +30,8 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _hookAdapter: HookAdapter;
   private _masterpassPaymentAdapter: MasterpassPaymentAdapter;
   private _bankAccountTrackingAdapter: BankAccountTrackingAdapter;
+  private _merchantAdapter: MerchantAdapter;
+  private _juzdanPaymentAdapter: JuzdanPaymentAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -44,6 +48,8 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._hookAdapter = new HookAdapter(options);
     this._masterpassPaymentAdapter = new MasterpassPaymentAdapter(options);
     this._bankAccountTrackingAdapter = new BankAccountTrackingAdapter(options);
+    this._merchantAdapter = new MerchantAdapter(options);
+    this._juzdanPaymentAdapter = new JuzdanPaymentAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -96,5 +102,13 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   bankAccountTracking(): BankAccountTrackingAdapter {
     return this._bankAccountTrackingAdapter;
+  }
+
+  merchant(): MerchantAdapter {
+    return this._merchantAdapter;
+  }
+
+  juzdan(): JuzdanPaymentAdapter {
+    return this._juzdanPaymentAdapter;
   }
 }

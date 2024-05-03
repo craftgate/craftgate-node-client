@@ -11,12 +11,12 @@ const request = {
     paidPrice : 10000,
     currency: Craftgate.Model.Currency.TRY,
     apmType : Craftgate.Model.ApmType.Maslak,
-    apmOrderId: "",
+    apmOrderId: "456d1297-908e-4bd6-a13b-4be31a6e47d5",
     paymentGroup : Craftgate.Model.PaymentGroup.Product,
     conversationId : "29393-mXld92ko3",
     externalId : "external_id-345",
     callbackUrl : "callback",
-    bankCode: "103",
+    bankCode: "034",
     items: [
         {
             externalId: "38983903",
@@ -42,7 +42,7 @@ const request = {
             id: "100",
             name: "Test Elektronik 1",
             brandName:"Samsung",
-            type: Craftgate.Model.BnplCartItemType.MobilePhoneOver5000Try,
+            type: Craftgate.Model.BnplCartItemType.Tv,
             unitPrice: 4000,
             quantity: 1,
         }
@@ -50,5 +50,5 @@ const request = {
 };
 
 craftgate.payment().initBnplPayment(request)
-    .then(results => console.info('Init bnpl payment  response', results))
+    .then(results => console.info('Init bnpl payment response', results))
     .catch(err => console.error('Failed to Init bnpl payment', err));

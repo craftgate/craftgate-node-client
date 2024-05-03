@@ -1,3 +1,5 @@
+import BnplBankOfferTerm from './BnplBankOfferTerm';
+
 type BnplBankOffer = {
   bankCode: string;
   bankName: string;
@@ -5,6 +7,7 @@ type BnplBankOffer = {
   bankTableBannerMessage: string;
   bankSmallBannerMessage: string;
   isSupportNonCustomer: boolean;
+  isPaymentPlanCalculatedByBank: boolean;
   bankOfferTerms: BnplBankOfferTerm[];
 };
 
