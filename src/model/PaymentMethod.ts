@@ -6,6 +6,7 @@ enum PaymentMethod {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   EdenredGift = 'EDENRED_GIFT',
+  Metropol = 'METROPOL',
   Alipay = 'ALIPAY',
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',

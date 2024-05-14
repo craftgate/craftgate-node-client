@@ -4,6 +4,7 @@ enum ApmType {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   EdenredGift = 'EDENRED_GIFT',
+  Metropol = 'METROPOL',
   PayPal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
