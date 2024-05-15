@@ -10,6 +10,7 @@ type InitApmPaymentResponse = {
   paymentStatus: PaymentStatus;
   additionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
+  additionalData?: Map<string, any>;
 };
 
 export default InitApmPaymentResponse;

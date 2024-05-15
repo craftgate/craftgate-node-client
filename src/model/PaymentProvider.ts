@@ -7,6 +7,7 @@ enum PaymentProvider {
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
+  Metropol = 'METROPOL',
   Kaspi = 'KASPI',
   InstantTransfer = 'INSTANTA_TRANSFER',
   Tompay = 'TOMPAY',
