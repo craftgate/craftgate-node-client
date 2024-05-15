@@ -6,14 +6,11 @@ enum PaymentMethod {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   EdenredGift = 'EDENRED_GIFT',
-  Metropol = 'METROPOL',
   Alipay = 'ALIPAY',
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
-  Kaspi = 'KASPI',
   InstantTransfer = 'INSTANT_TRANSFER',
-  Tompay = 'TOMPAY',
   Stripe = 'STRIPE'
 }
 
