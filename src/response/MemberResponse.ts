@@ -1,6 +1,6 @@
-import MemberType from '../model/MemberType';
-import SettlementEarningsDestination from '../model/SettlementEarningsDestination';
-import Status from '../model/Status';
+import MemberType from "../model/MemberType";
+import SettlementEarningsDestination from "../model/SettlementEarningsDestination";
+import Status from "../model/Status";
 
 type MemberResponse = {
   id: number;
@@ -22,6 +22,7 @@ type MemberResponse = {
   contactSurname: string;
   legalCompanyTitle: string;
   settlementEarningsDestination: SettlementEarningsDestination;
+  settlementDelayCount: number;
 };
 
 export default MemberResponse;

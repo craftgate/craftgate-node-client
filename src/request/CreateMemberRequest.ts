@@ -22,6 +22,7 @@ type CreateMemberRequest = {
    */
   negativeWalletAmountLimit?: number;
   subMerchantMaximumAllowedNegativeBalance?: number;
+  settlementDelayCount?: number;
 };
 
 export default CreateMemberRequest;
