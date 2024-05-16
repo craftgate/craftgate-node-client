@@ -26,7 +26,7 @@ const request = {
         }
     ],
     additionalParams: {
-        "apmUserIdentity": "6375780115068760"
+        "cardNumber": "6375780115068760"
     }
 };
 
