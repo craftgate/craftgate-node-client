@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-    price : 100,
+    price : 100.0,
     buyerMemberId : 1, // change it with a valid wallet owner, aka member id
     conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
 
