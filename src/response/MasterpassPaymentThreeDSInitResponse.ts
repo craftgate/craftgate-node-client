@@ -1,4 +1,5 @@
 type MasterpassPaymentThreeDSInitResponse = {
+  paymentId: number;
   returnUrl: string;
 };
 
