@@ -8,7 +8,8 @@ type MasterpassPaymentTokenGenerateRequest = {
   binNumber: string;
   forceThreeDS: boolean;
   createPayment: MasterpassCreatePayment;
-  loyalty: Loyalty;
+  loyalty?: Loyalty;
+  masterpassIntegrationVersion?: number;
 };
 
 export default MasterpassPaymentTokenGenerateRequest;
