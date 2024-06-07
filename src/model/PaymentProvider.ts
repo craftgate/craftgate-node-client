@@ -25,6 +25,7 @@ enum PaymentProvider {
   Alfabank = 'ALFABANK',
   Paycell = 'PAYCELL',
   Haso = 'HASO',
+  Multinet = 'MULTINET',
   Offline = 'OFFLINE'
 }
 
