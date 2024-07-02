@@ -15,6 +15,7 @@ import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
 import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
+import BkmExpressPaymentAdapter from "./adapter/BkmExpressPaymentAdapter";
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
@@ -32,6 +33,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _bankAccountTrackingAdapter: BankAccountTrackingAdapter;
   private _merchantAdapter: MerchantAdapter;
   private _juzdanPaymentAdapter: JuzdanPaymentAdapter;
+  private _bkmExpressPaymentAdapter: BkmExpressPaymentAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -50,6 +52,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._bankAccountTrackingAdapter = new BankAccountTrackingAdapter(options);
     this._merchantAdapter = new MerchantAdapter(options);
     this._juzdanPaymentAdapter = new JuzdanPaymentAdapter(options);
+    this._bkmExpressPaymentAdapter = new BkmExpressPaymentAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -110,5 +113,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   juzdan(): JuzdanPaymentAdapter {
     return this._juzdanPaymentAdapter;
+  }
+
+  bkmExpress(): BkmExpressPaymentAdapter {
+    return this._bkmExpressPaymentAdapter;
   }
 }
