@@ -16,13 +16,13 @@ type CreateMemberRequest = {
   taxNumber?: string;
   contactName?: string;
   contactSurname?: string;
-  identityNumber?: string;
   legalCompanyTitle?: string;
   /**
    * @deprecated use @{@link CreateMemberWalletRequest.negativeAmountLimit} instead.
    */
   negativeWalletAmountLimit?: number;
   subMerchantMaximumAllowedNegativeBalance?: number;
+  settlementDelayCount?: number;
 };
 
 export default CreateMemberRequest;

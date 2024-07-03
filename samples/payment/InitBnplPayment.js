@@ -16,7 +16,7 @@ const request = {
     conversationId : "29393-mXld92ko3",
     externalId : "external_id-345",
     callbackUrl : "callback",
-    bankCode: "103",
+    bankCode: "034",
     items: [
         {
             externalId: "38983903",
@@ -42,7 +42,7 @@ const request = {
             id: "100",
             name: "Test Elektronik 1",
             brandName:"Samsung",
-            type: Craftgate.Model.BnplCartItemType.MobilePhonePriceAboveRegulationLimit,
+            type: Craftgate.Model.BnplCartItemType.Tv,
             unitPrice: 4000,
             quantity: 1,
         }

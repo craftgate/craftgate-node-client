@@ -23,7 +23,7 @@ const request = {
             id: "100",
             name: "Test Elektronik 1",
             brandName: "Samsung",
-            type: Craftgate.Model.BnplCartItemType.MobilePhonePriceAboveRegulationLimit,
+            type: Craftgate.Model.BnplCartItemType.Tv,
             unitPrice: 4000,
             quantity: 1,
         }

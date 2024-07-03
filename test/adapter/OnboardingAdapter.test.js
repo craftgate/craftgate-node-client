@@ -24,7 +24,6 @@ test('createSubMerchant() should create sub merchant member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation'
   };
 
@@ -44,14 +43,11 @@ test('createSubMerchant() should create sub merchant member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Wallet
   };
 
-  nock('http://localhost:8000')
-    .post('/onboarding/v1/members', request)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').post('/onboarding/v1/members', request).reply(200, {data: response});
 
   const result = await onboardingAdapter.createMember(request);
   t.is(result.id, 42);
@@ -69,7 +65,6 @@ test('createSubMerchant() should create sub merchant member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -87,7 +82,6 @@ test('updateSubMerchant() should update sub merchant member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
@@ -108,14 +102,11 @@ test('updateSubMerchant() should update sub merchant member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
-  nock('http://localhost:8000')
-    .put('/onboarding/v1/members/42', request)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').put('/onboarding/v1/members/42', request).reply(200, {data: response});
 
   const result = await onboardingAdapter.updateMember(response.id, request);
   t.is(result.id, 42);
@@ -133,7 +124,6 @@ test('updateSubMerchant() should update sub merchant member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -154,14 +144,11 @@ test('retrieveSubMerchant() should retrieve sub merchant member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
-  nock('http://localhost:8000')
-    .get(`/onboarding/v1/members/${response.id}`)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').get(`/onboarding/v1/members/${response.id}`).reply(200, {data: response});
 
   const result = await onboardingAdapter.retrieveMember(response.id);
   t.is(result.id, 42);
@@ -179,7 +166,6 @@ test('retrieveSubMerchant() should retrieve sub merchant member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -198,7 +184,6 @@ test('createBuyer() should create buyer member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
@@ -219,14 +204,11 @@ test('createBuyer() should create buyer member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
-  nock('http://localhost:8000')
-    .post('/onboarding/v1/members', request)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').post('/onboarding/v1/members', request).reply(200, {data: response});
 
   const result = await onboardingAdapter.createMember(request);
   t.is(result.id, 43);
@@ -244,7 +226,6 @@ test('createBuyer() should create buyer member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -262,7 +243,6 @@ test('updateBuyer() should update buyer member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
@@ -283,14 +263,11 @@ test('updateBuyer() should update buyer member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
-  nock('http://localhost:8000')
-    .put('/onboarding/v1/members/43', request)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').put('/onboarding/v1/members/43', request).reply(200, {data: response});
 
   const result = await onboardingAdapter.updateMember(response.id, request);
   t.is(result.id, 43);
@@ -308,7 +285,6 @@ test('updateBuyer() should update buyer member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -329,14 +305,11 @@ test('retrieveBuyer() should retrieve buyer member', async t => {
     taxNumber: '1234123456',
     contactName: 'Luke',
     contactSurname: 'Skywalker',
-    identityNumber: '12341234912',
     legalCompanyTitle: 'Skywalker Aviation',
     settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
   };
 
-  nock('http://localhost:8000')
-    .get(`/onboarding/v1/members/${response.id}`)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').get(`/onboarding/v1/members/${response.id}`).reply(200, {data: response});
 
   const result = await onboardingAdapter.retrieveMember(response.id);
   t.is(result.id, 43);
@@ -354,7 +327,6 @@ test('retrieveBuyer() should retrieve buyer member', async t => {
   t.is(result.taxNumber, '1234123456');
   t.is(result.contactName, 'Luke');
   t.is(result.contactSurname, 'Skywalker');
-  t.is(result.identityNumber, '12341234912');
   t.is(result.legalCompanyTitle, 'Skywalker Aviation');
 });
 
@@ -368,16 +340,7 @@ test('searchMembers() should search for members', async t => {
     size: 25
   };
 
-  const queryString = [
-    'name=luke',
-    'memberIds=1',
-    'memberIds=2',
-    'memberIds=42',
-    'memberExternalId=wormie',
-    'memberType=PERSONAL',
-    'page=0',
-    'size=25'
-  ].join('&');
+  const queryString = ['name=luke', 'memberIds=1', 'memberIds=2', 'memberIds=42', 'memberExternalId=wormie', 'memberType=PERSONAL', 'page=0', 'size=25'].join('&');
 
   const response = {
     page: 0,
@@ -400,16 +363,13 @@ test('searchMembers() should search for members', async t => {
         taxNumber: '1234123456',
         contactName: 'Luke',
         contactSurname: 'Skywalker',
-        identityNumber: '12341234912',
         legalCompanyTitle: 'Skywalker Aviation',
         settlementEarningsDestination: Craftgate.Model.SettlementEarningsDestination.Iban
       }
     ]
   };
 
-  nock('http://localhost:8000')
-    .get(`/onboarding/v1/members?${queryString}`)
-    .reply(200, {data: response});
+  nock('http://localhost:8000').get(`/onboarding/v1/members?${queryString}`).reply(200, {data: response});
 
   const {page, size, totalSize, items} = await onboardingAdapter.searchMembers(request);
   t.is(page, 0);
@@ -431,6 +391,5 @@ test('searchMembers() should search for members', async t => {
   t.is(items[0].taxNumber, '1234123456');
   t.is(items[0].contactName, 'Luke');
   t.is(items[0].contactSurname, 'Skywalker');
-  t.is(items[0].identityNumber, '12341234912');
   t.is(items[0].legalCompanyTitle, 'Skywalker Aviation');
 });

@@ -59,5 +59,3 @@ assert(Object.keys(Craftgate.Adapter).length > 0, 'Craftgate.Adapter must not be
 
 assert(!!Craftgate.CraftgateError, 'Craftgate.CraftgateError must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.CraftgateError must be a constructor');
-
-assertAsync(testSearch, 'OnboardingAdapter::searchMembers() should access the Craftgate Sandbox API and execute normally');

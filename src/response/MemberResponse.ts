@@ -20,9 +20,9 @@ type MemberResponse = {
   taxNumber: string;
   contactName: string;
   contactSurname: string;
-  identityNumber: string;
   legalCompanyTitle: string;
   settlementEarningsDestination: SettlementEarningsDestination;
+  settlementDelayCount: number;
 };
 
 export default MemberResponse;

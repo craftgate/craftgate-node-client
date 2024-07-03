@@ -10,6 +10,7 @@ type CreateProductRequest = {
   stock: number;
   currency: Currency;
   description: string;
+  multiPayment: boolean;
   enabledInstallments: number[];
 };
 

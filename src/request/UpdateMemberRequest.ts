@@ -14,7 +14,6 @@ type UpdateMemberRequest = {
   taxNumber?: string;
   contactName?: string;
   contactSurname?: string;
-  identityNumber?: string;
   legalCompanyTitle?: string;
   settlementEarningsDestination?: SettlementEarningsDestination;
   /**
@@ -22,6 +21,7 @@ type UpdateMemberRequest = {
    */
   negativeWalletAmountLimit?: number;
   subMerchantMaximumAllowedNegativeBalance?: number;
+  settlementDelayCount?: number;
 };
 
 export default UpdateMemberRequest;
