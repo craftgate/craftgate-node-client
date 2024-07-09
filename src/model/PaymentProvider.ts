@@ -26,6 +26,7 @@ enum PaymentProvider {
   Paycell = 'PAYCELL',
   Haso = 'HASO',
   Multinet = 'MULTINET',
+  IsPay = 'ISPAY',
   Offline = 'OFFLINE'
 }
 

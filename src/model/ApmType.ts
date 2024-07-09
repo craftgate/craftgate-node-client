@@ -20,7 +20,8 @@ enum ApmType {
   Alfabank = 'ALFABANK',
   Haso = 'HASO',
   Multinet = 'MULTINET',
-  MultinetGift = 'MULTINET_GIFT'
+  MultinetGift = 'MULTINET_GIFT',
+  IsPay = 'ISPAY'
 }
 
 export default ApmType;

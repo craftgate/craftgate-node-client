@@ -27,12 +27,13 @@ type InitCheckoutPaymentRequest = {
   alwaysStoreCardAfterPayment?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
+  depositPayments?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
   ttl?: number;
   customInstallments?: CustomInstallment[];
-  items: PaymentItem[];
+  items?: PaymentItem[];
 };
 
 export default InitCheckoutPaymentRequest;
