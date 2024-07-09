@@ -1,3 +1,4 @@
+import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import {ClientCreationOptions} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
@@ -210,6 +211,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
     return this._client.get(`/payment/v1/multi-payments/${token}`);
+  }
+
+  async retrieveProviderCard(request: RetrieveProviderCardRequest): Promise<StoredCardResponse> {
+    return this._client.get('/payment/v1/cards/provider-card-mappings', request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
