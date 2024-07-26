@@ -15,7 +15,7 @@ type StoredCardResponse = {
   cardBankName: string;
   cardBankId: number;
   cardExpiryStatus: CardExpiryStatus;
-  createdAt: string;
+  createdAt: Date;
 };
 
 export default StoredCardResponse;
