@@ -340,7 +340,7 @@ test('searchMembers() should search for members', async t => {
     size: 25
   };
 
-  const queryString = ['name=luke', 'memberIds=1', 'memberIds=2', 'memberIds=42', 'memberExternalId=wormie', 'memberType=PERSONAL', 'page=0', 'size=25'].join('&');
+  const queryString = ['name=luke', 'memberIds[]=1', 'memberIds[]=2', 'memberIds[]=42', 'memberExternalId=wormie', 'memberType=PERSONAL', 'page=0', 'size=25'].join('&');
 
   const response = {
     page: 0,
