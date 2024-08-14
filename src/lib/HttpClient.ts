@@ -1,8 +1,9 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios from 'axios';
+import type {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {calculateSignature, generateRandomString, getAbsoluteUrl, serializeParams} from './utils';
+import {calculateSignature, generateRandomString, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;
@@ -96,7 +97,7 @@ export class HttpClient {
       config.paramsSerializer = serializeParams;
     }
 
-    const fullUrl = getAbsoluteUrl(this._options.baseUrl, decodeURIComponent(this._client.getUri(config)));
+    const fullUrl = decodeURIComponent(this._client.getUri(config));
     const signature: string = calculateSignature({
       apiKey: this._options.apiKey,
       secretKey: this._options.secretKey,
