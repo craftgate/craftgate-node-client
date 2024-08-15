@@ -39,6 +39,10 @@ export class HttpClient {
     this._client = axios.create({baseURL: baseUrl});
     this._client.defaults.timeout = 150000;
 
+    this._client.defaults.paramsSerializer = {
+      indexes: null
+    };
+
     this._client.interceptors.request.use(this._injectHeaders.bind(this));
   }
 
