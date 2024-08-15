@@ -39,10 +39,6 @@ export class HttpClient {
     this._client = axios.create({baseURL: baseUrl});
     this._client.defaults.timeout = 150000;
 
-    this._client.defaults.paramsSerializer = {
-      indexes: null
-    };
-
     this._client.interceptors.request.use(this._injectHeaders.bind(this));
   }
 
@@ -97,7 +93,9 @@ export class HttpClient {
     const requestBody: string | null = config.data ? JSON.stringify(config.data, null, 0) : null;
 
     if (!config.paramsSerializer) {
-      config.paramsSerializer = serializeParams;
+      config.paramsSerializer = {
+        serialize: serializeParams
+      };
     }
 
     const fullUrl = decodeURIComponent(this._client.getUri(config));
