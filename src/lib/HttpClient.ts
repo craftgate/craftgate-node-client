@@ -1,5 +1,4 @@
-import axios from 'axios';
-import type {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
