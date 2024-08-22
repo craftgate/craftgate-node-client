@@ -5,6 +5,7 @@ import PaymentPhase from '../model/PaymentPhase';
 
 import CustomInstallment from './dto/CustomInstallment';
 import PaymentItem from './dto/PaymentItem';
+import FraudCheckParameters from './dto/FraudCheckParameters';
 
 type InitCheckoutPaymentRequest = {
   price: number;
@@ -34,6 +35,7 @@ type InitCheckoutPaymentRequest = {
   ttl?: number;
   customInstallments?: CustomInstallment[];
   items?: PaymentItem[];
+  fraudParams?: FraudCheckParameters;
 };
 
 export default InitCheckoutPaymentRequest;
