@@ -27,6 +27,7 @@ enum PaymentProvider {
   Haso = 'HASO',
   Multinet = 'MULTINET',
   IsPay = 'ISPAY',
+  Vodafone = 'VODAFONE',
   Offline = 'OFFLINE'
 }
 

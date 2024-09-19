@@ -21,7 +21,8 @@ enum ApmType {
   Haso = 'HASO',
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
-  IsPay = 'ISPAY'
+  IsPay = 'ISPAY',
+  VodafoneDcb = 'VODAFONE_DCB'
 }
 
 export default ApmType;
