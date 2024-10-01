@@ -8,7 +8,7 @@ const craftgate = new Craftgate.Client({
 
 const request = {
     apmType: Craftgate.Model.ApmType.Chippin,
-    apmUserIdentity: 1000000, // Chippin kullanıcı No
+    apmUserIdentity: "1000000", // Chippin kullanıcı No
     price: 1.0,
     paidPrice: 1.0,
     currency: Craftgate.Model.Currency.TRY,
