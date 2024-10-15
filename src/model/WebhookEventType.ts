@@ -9,7 +9,9 @@ enum WebhookEventType {
   Autopilot = 'AUTOPILOT',
   WalletCreated = 'WALLET_CREATED',
   WalletTxCreated = 'WALLET_TX_CREATED',
-  BnplNotification = 'BNPL_NOTIFICATION'
+  BnplNotification = 'BNPL_NOTIFICATION',
+  MultiPaymentCompleted = 'MULTI_PAYMENT_COMPLETED',
+  BkmExpressPaymentNotification = 'BKM_EXPRESS_PAYMENT_NOTIFICATION'
 }
 
 export default WebhookEventType;
