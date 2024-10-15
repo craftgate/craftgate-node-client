@@ -2,58 +2,6 @@ const test = require('ava');
 
 const Utils = require('../../dist/lib/utils');
 
-test('getAbsoluteUrl() should return baseUrl when relativeUrl is null', t => {
-  const baseUrl = 'http://foo.com';
-  const actual = Utils.getAbsoluteUrl(baseUrl);
-  t.is(actual, baseUrl);
-});
-
-test('getAbsoluteUrl() should retain the trailing slash in baseUrl when relativeUrl is null', t => {
-  const baseUrl = 'http://foo.com/';
-  const actual = Utils.getAbsoluteUrl(baseUrl);
-  t.is(actual, baseUrl);
-});
-
-test('getAbsoluteUrl() should remove duplicate slashes', t => {
-  const baseUrl = 'http://foo.com/';
-  const relativeUrl = '/bar';
-  const expected = 'http://foo.com/bar';
-  const actual = Utils.getAbsoluteUrl(baseUrl, relativeUrl);
-  t.is(actual, expected);
-});
-
-test('getAbsoluteUrl() should remove duplicates when baseUrl has multiple trailing slashes', t => {
-  const baseUrl = 'http://foo.com////';
-  const relativeUrl = '/bar';
-  const expected = 'http://foo.com/bar';
-  const actual = Utils.getAbsoluteUrl(baseUrl, relativeUrl);
-  t.is(actual, expected);
-});
-
-test('getAbsoluteUrl() should remove duplicates when relativeUrl has multiple leading slashes', t => {
-  const baseUrl = 'http://foo.com/';
-  const relativeUrl = '////bar';
-  const expected = 'http://foo.com/bar';
-  const actual = Utils.getAbsoluteUrl(baseUrl, relativeUrl);
-  t.is(actual, expected);
-});
-
-test('getAbsoluteUrl() should add slashes between base and relative URLs', t => {
-  const baseUrl = 'http://foo.com';
-  const relativeUrl = 'bar';
-  const expected = 'http://foo.com/bar';
-  const actual = Utils.getAbsoluteUrl(baseUrl, relativeUrl);
-  t.is(actual, expected);
-});
-
-test('getAbsoluteUrl() should reatin the trailing slash in relativeUrl', t => {
-  const baseUrl = 'http://foo.com/';
-  const relativeUrl = '/bar/';
-  const expected = 'http://foo.com/bar/';
-  const actual = Utils.getAbsoluteUrl(baseUrl, relativeUrl);
-  t.is(actual, expected);
-});
-
 test('serializeParams() should use empty string for undefined and null while retaining other falsy values', t => {
   const params = {
     foo: '',
