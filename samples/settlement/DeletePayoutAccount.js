@@ -6,7 +6,5 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate
-  .settlement()
-  .deletePayoutAccount(11)
+craftgate.settlement().deletePayoutAccount(11)
   .catch(err => console.error('Failed to delete payout account', err));

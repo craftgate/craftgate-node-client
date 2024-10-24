@@ -31,8 +31,6 @@ const request = {
   ]
 };
 
-craftgate
-  .payment()
-  .initApmPayment(request)
+craftgate.payment().initApmPayment(request)
   .then(result => console.info('Instant Transfer Apm payment successful', result))
   .catch(err => console.error('Failed to create Instant Transfer Apm payment', err));

@@ -23,8 +23,6 @@ const request = {
   address: 'Suadiye Mah. Örnek Cd. No:23, 34740 Kadıköy/İstanbul'
 };
 
-craftgate
-  .onboarding()
-  .createMember(request)
+craftgate.onboarding().createMember(request)
   .then(result => console.info('Sub merchant member created', result))
   .catch(err => console.error('Failed to create sub merchant member', err));
