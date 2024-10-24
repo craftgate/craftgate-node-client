@@ -10,8 +10,6 @@ const request = {
   excludedSubMerchantMemberIds: [] // you can add member ids for excluding from settlement
 };
 
-craftgate
-  .settlement()
-  .createInstantWalletSettlement(request)
+craftgate.settlement().createInstantWalletSettlement(request)
   .then(result => console.info('Instant wallet settlement create response', result))
   .catch(err => console.error('Failed to create instant wallet settlement', err));
