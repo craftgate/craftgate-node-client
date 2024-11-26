@@ -29,6 +29,7 @@ enum PaymentProvider {
   IsPay = 'ISPAY',
   Chippin = 'CHIPPIN',
   Paymob = 'PAYMOB',
+  Bizum = 'BIZUM',
   Offline = 'OFFLINE'
 }
 
