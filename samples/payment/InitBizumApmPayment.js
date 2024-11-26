@@ -13,7 +13,6 @@ const request = {
     currency: Craftgate.Model.Currency.EUR,
     paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
     conversationId: 'conversationId',
-    callbackUrl: 'https://www.your-website.com/craftgate-apm-callback',
     items: [
         {
             name: 'Item 1',
