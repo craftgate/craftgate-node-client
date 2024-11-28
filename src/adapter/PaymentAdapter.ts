@@ -1,4 +1,3 @@
-import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import {ClientCreationOptions} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
@@ -26,6 +25,7 @@ import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
+import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
