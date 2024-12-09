@@ -7,6 +7,8 @@ type InstallmentPrice = {
   totalPrice: number;
   installmentLabel: string;
   loyaltySupported: boolean;
+  force3ds: boolean;
+  cvcRequired: boolean;
 };
 
 export default InstallmentPrice;
