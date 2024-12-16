@@ -17,7 +17,7 @@ export default class SettlementAdapter extends BaseAdapter {
   }
 
   async createInstantWalletSettlement(request: CreateInstantWalletSettlementRequest): Promise<SettlementResponse> {
-    return this._client.get('/settlement/v1/instant-wallet-settlements', request);
+    return this._client.post('/settlement/v1/instant-wallet-settlements', request);
   }
 
   async createPayoutAccount(request: CreatePayoutAccountRequest): Promise<PayoutAccountResponse> {
