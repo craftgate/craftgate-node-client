@@ -19,6 +19,7 @@ type InitGarantiPayPaymentRequest = {
   bankOrderId?: string;
   posAlias?: string;
   items: PaymentItem[];
+  enabledInstallments: number[];
 };
 
 export default InitGarantiPayPaymentRequest;

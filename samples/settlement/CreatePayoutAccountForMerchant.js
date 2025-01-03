@@ -13,8 +13,6 @@ const request = {
   accountOwner: Craftgate.Model.AccountOwner.MERCHANT
 };
 
-craftgate
-  .settlement()
-  .createPayoutAccount(request)
+craftgate.settlement().createPayoutAccount(request)
   .then(result => console.info('Payout Account create response', result))
   .catch(err => console.error('Failed to create payout account', err));

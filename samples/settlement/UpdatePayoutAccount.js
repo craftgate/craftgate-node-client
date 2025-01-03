@@ -11,7 +11,5 @@ const request = {
   externalAccountId: 'wiseRecipientId2'
 };
 
-craftgate
-  .settlement()
-  .updatePayoutAccount(11, request)
+craftgate.settlement().updatePayoutAccount(11, request)
   .catch(err => console.error('Failed to update payout account', err));

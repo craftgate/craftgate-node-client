@@ -22,7 +22,9 @@ enum ApmType {
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
   IsPay = 'ISPAY',
-  Chippin = 'CHIPPIN'
+  Chippin = 'CHIPPIN',
+  Bizum = 'BIZUM',
+  Paymob = 'PAYMOB'
 }
 
 export default ApmType;

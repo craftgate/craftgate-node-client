@@ -27,6 +27,9 @@ enum PaymentProvider {
   Haso = 'HASO',
   Multinet = 'MULTINET',
   IsPay = 'ISPAY',
+  Chippin = 'CHIPPIN',
+  Paymob = 'PAYMOB',
+  Bizum = 'BIZUM',
   Offline = 'OFFLINE'
 }
 
