@@ -30,6 +30,7 @@ enum PaymentProvider {
   Chippin = 'CHIPPIN',
   Paymob = 'PAYMOB',
   Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELLDCB',
   Offline = 'OFFLINE'
 }
 
