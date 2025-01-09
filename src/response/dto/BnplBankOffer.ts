@@ -6,6 +6,7 @@ type BnplBankOffer = {
   bankIconUrl: string;
   bankTableBannerMessage: string;
   bankSmallBannerMessage: string;
+  preApprovedApplicationId: string;
   isSupportNonCustomer: boolean;
   isPaymentPlanCalculatedByBank: boolean;
   bankOfferTerms: BnplBankOfferTerm[];
