@@ -15,7 +15,7 @@ enum PaymentMethod {
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
   Bizum = 'BIZUM',
-  PaycellDCB = 'PAYCELLDCB'
+  PaycellDCB = 'PAYCELL_DCB'
 }
 
 export default PaymentMethod;
