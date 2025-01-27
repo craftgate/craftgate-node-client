@@ -13,7 +13,9 @@ enum PaymentMethod {
   InstantTransfer = 'INSTANT_TRANSFER',
   Stripe = 'STRIPE',
   Multinet = 'MULTINET',
-  MultinetGift = 'MULTINET_GIFT'
+  MultinetGift = 'MULTINET_GIFT',
+  Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB'
 }
 
 export default PaymentMethod;
