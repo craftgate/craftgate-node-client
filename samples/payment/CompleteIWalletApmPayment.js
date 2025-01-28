@@ -8,9 +8,9 @@ const craftgate = new Craftgate.Client({
 
 const request = {
   paymentId: 1,
-  additionalParams: {"otpCode": "1234"}
+  additionalParams: {"passCode": "1234"}
 };
 
 craftgate.payment().completeApmPayment(request)
-    .then(result => console.info('Edenred Apm complete payment successful', result))
-    .catch(err => console.error('Failed to complete Edenred Apm payment', err));
+    .then(result => console.info('iWallet Apm complete payment successful', result))
+    .catch(err => console.error('Failed to complete iWallet Apm payment', err));
