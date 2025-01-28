@@ -24,6 +24,7 @@ enum ApmType {
   IsPay = 'ISPAY',
   Chippin = 'CHIPPIN',
   Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB',
   Paymob = 'PAYMOB'
 }
 
