@@ -22,7 +22,11 @@ enum ApmType {
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
   IsPay = 'ISPAY',
-  VodafoneDcb = 'VODAFONE_DCB'
+  VodafoneDcb = 'VODAFONE_DCB',
+  Chippin = 'CHIPPIN',
+  Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB',
+  Paymob = 'PAYMOB'
 }
 
 export default ApmType;
