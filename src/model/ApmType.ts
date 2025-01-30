@@ -26,6 +26,7 @@ enum ApmType {
   Chippin = 'CHIPPIN',
   Bizum = 'BIZUM',
   PaycellDCB = 'PAYCELL_DCB',
+  IWallet = 'IWALLET',
   Paymob = 'PAYMOB'
 }
 

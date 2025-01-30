@@ -32,6 +32,7 @@ enum PaymentProvider {
   Paymob = 'PAYMOB',
   Bizum = 'BIZUM',
   PaycellDCB = 'PAYCELL_DCB',
+  IWallet = 'IWALLET',
   Offline = 'OFFLINE'
 }
 
