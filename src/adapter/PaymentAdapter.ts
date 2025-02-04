@@ -213,7 +213,7 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/multi-payments/${token}`);
   }
 
-  async retrieveProviderCard(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
+  async retrieveProviderCards(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
     return this._client.get('/payment/v1/cards/provider-card-mappings', request);
   }
 
