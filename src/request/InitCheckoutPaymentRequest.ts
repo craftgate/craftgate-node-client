@@ -20,7 +20,7 @@ type InitCheckoutPaymentRequest = {
   masterpassUserId?: string;
   conversationId?: string;
   externalId?: string;
-  bankOrderId?: string;
+  orderId?: string;
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;

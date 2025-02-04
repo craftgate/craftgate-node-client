@@ -22,8 +22,11 @@ enum ApmType {
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
   IsPay = 'ISPAY',
+  VodafoneDcb = 'VODAFONE_DCB',
   Chippin = 'CHIPPIN',
   Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB',
+  IWallet = 'IWALLET',
   Paymob = 'PAYMOB'
 }
 
