@@ -1,10 +1,10 @@
-import CardMigrationProvider from '../model/CardMigrationProvider';
+import CardProvider from '../model/CardProvider';
 
 type RetrieveProviderCardRequest = {
   providerCardToken: string;
   externalId: string;
   providerCardUserId: string;
-  cardMigrationProvider: CardMigrationProvider;
+  cardProvider: CardProvider;
 };
 
 export default RetrieveProviderCardRequest;
