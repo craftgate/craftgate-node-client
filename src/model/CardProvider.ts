@@ -1,8 +1,8 @@
-enum CardMigrationProvider {
+enum CardProvider {
   Iyzico = 'IYZICO',
   Ipara = 'IPARA',
   BirlesikOdeme = 'BIRLESIK_ODEME',
   Mex = 'MEX'
 }
 
-export default CardMigrationProvider;
+export default CardProvider;
