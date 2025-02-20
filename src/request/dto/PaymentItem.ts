@@ -4,6 +4,7 @@ type PaymentItem = {
   externalId?: string;
   subMerchantMemberId?: number;
   subMerchantMemberPrice?: number;
+  subMerchantMemberTaxPrice?: number;
 };
 
 export default PaymentItem;
