@@ -4,6 +4,7 @@ import PaymentMethod from '../model/PaymentMethod';
 import PaymentPhase from '../model/PaymentPhase';
 
 import CustomInstallment from './dto/CustomInstallment';
+import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
 
 type InitCheckoutPaymentRequest = {
@@ -19,7 +20,7 @@ type InitCheckoutPaymentRequest = {
   masterpassUserId?: string;
   conversationId?: string;
   externalId?: string;
-  bankOrderId?: string;
+  orderId?: string;
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;
@@ -27,12 +28,15 @@ type InitCheckoutPaymentRequest = {
   alwaysStoreCardAfterPayment?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
+  depositPayments?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
   ttl?: number;
   customInstallments?: CustomInstallment[];
-  items: PaymentItem[];
+  items?: PaymentItem[];
+  fraudParams?: FraudCheckParameters;
+  additionalParams?: Map<string, Record<string, unknown>>;
 };
 
 export default InitCheckoutPaymentRequest;

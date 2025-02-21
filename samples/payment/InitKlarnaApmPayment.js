@@ -32,8 +32,6 @@ const request = {
   }
 };
 
-craftgate
-  .payment()
-  .initApmPayment(request)
+craftgate.payment().initApmPayment(request)
   .then(result => console.info('Klarna Apm init payment successful', result))
   .catch(err => console.error('Failed to init Klarna Apm payment', err));

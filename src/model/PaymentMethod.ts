@@ -10,10 +10,12 @@ enum PaymentMethod {
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
-  Kaspi = 'KASPI',
   InstantTransfer = 'INSTANT_TRANSFER',
-  Tompay = 'TOMPAY',
-  Stripe = 'STRIPE'
+  Stripe = 'STRIPE',
+  Multinet = 'MULTINET',
+  MultinetGift = 'MULTINET_GIFT',
+  Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB'
 }
 
 export default PaymentMethod;

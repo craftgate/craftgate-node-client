@@ -4,6 +4,7 @@ enum ApmType {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   EdenredGift = 'EDENRED_GIFT',
+  Metropol = 'METROPOL',
   PayPal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
@@ -17,7 +18,16 @@ enum ApmType {
   TomFinance = 'TOM_FINANCE',
   Paycell = 'PAYCELL',
   Alfabank = 'ALFABANK',
-  Haso = 'HASO'
+  Haso = 'HASO',
+  Multinet = 'MULTINET',
+  MultinetGift = 'MULTINET_GIFT',
+  IsPay = 'ISPAY',
+  VodafoneDcb = 'VODAFONE_DCB',
+  Chippin = 'CHIPPIN',
+  Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB',
+  IWallet = 'IWALLET',
+  Paymob = 'PAYMOB'
 }
 
 export default ApmType;

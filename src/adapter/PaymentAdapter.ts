@@ -25,6 +25,7 @@ import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
+import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
@@ -210,6 +211,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
     return this._client.get(`/payment/v1/multi-payments/${token}`);
+  }
+
+  async retrieveProviderCards(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
+    return this._client.get('/payment/v1/cards/provider-card-mappings', request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {

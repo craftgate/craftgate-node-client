@@ -6,8 +6,6 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate
-  .payment()
-  .retrieveActiveBanks()
+craftgate.payment().retrieveActiveBanks()
   .then(results => console.info('Retrieve instant transfer active banks response ', results))
   .catch(err => console.error('Failed to retrieve instant transfer active banks', err));

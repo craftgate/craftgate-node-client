@@ -22,6 +22,7 @@ type MemberResponse = {
   contactSurname: string;
   legalCompanyTitle: string;
   settlementEarningsDestination: SettlementEarningsDestination;
+  settlementDelayCount: number;
 };
 
 export default MemberResponse;

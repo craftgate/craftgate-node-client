@@ -21,6 +21,7 @@ type UpdateMemberRequest = {
    */
   negativeWalletAmountLimit?: number;
   subMerchantMaximumAllowedNegativeBalance?: number;
+  settlementDelayCount?: number;
 };
 
 export default UpdateMemberRequest;

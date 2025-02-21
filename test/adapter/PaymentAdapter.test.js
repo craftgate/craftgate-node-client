@@ -973,6 +973,7 @@ test('should store card', async t => {
   t.is(result.cardAssociation, 'MASTER_CARD')
   t.is(result.cardBrand, 'İşbank Maximum Card')
   t.is(result.cardBankName, 'İşbank')
+  t.is(result.cardHolderName, 'John Doe')
 });
 
 test('should delete stored card', async t => {

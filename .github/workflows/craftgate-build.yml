@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js version 12.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: "12.x"
 
@@ -29,14 +29,14 @@ jobs:
           .github/scripts/pack-artifacts.sh
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: packed-library
           path: ${{ env.ARTIFACT_FILENAME }}
           if-no-files-found: error
 
       - name: Upload Runtime Check Script
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: runtime-check-script
           path: .github/scripts/check-runtime.js
@@ -48,11 +48,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 4.x, 6.x, 8.x, 10.x, 12.x, 14.x ]
+        node-version: [ 4.x, 6.x, 8.x, 10.x, 12.x, 14.x, 16.x, 18.x, 20.x ]
 
     steps:
       - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -64,13 +64,13 @@ jobs:
           npm init -y
 
       - name: Download Packed Library
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: packed-library
           path: /home/runner/work/craftgate-node-client/check-runtime/
 
       - name: Download Runtime Check Script
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: runtime-check-script
           path: /home/runner/work/craftgate-node-client/check-runtime/

@@ -7,6 +7,7 @@ enum PaymentProvider {
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
+  Metropol = 'METROPOL',
   Kaspi = 'KASPI',
   InstantTransfer = 'INSTANTA_TRANSFER',
   Tompay = 'TOMPAY',
@@ -24,6 +25,14 @@ enum PaymentProvider {
   Alfabank = 'ALFABANK',
   Paycell = 'PAYCELL',
   Haso = 'HASO',
+  Multinet = 'MULTINET',
+  IsPay = 'ISPAY',
+  Vodafone = 'VODAFONE',
+  Chippin = 'CHIPPIN',
+  Paymob = 'PAYMOB',
+  Bizum = 'BIZUM',
+  PaycellDCB = 'PAYCELL_DCB',
+  IWallet = 'IWALLET',
   Offline = 'OFFLINE'
 }
 

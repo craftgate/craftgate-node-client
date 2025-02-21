@@ -7,6 +7,7 @@ type StoredCardResponse = {
   lastFourDigits: string;
   cardUserKey: string;
   cardToken: string;
+  cardHolderName: string;
   cardAlias: string;
   cardType: CardType;
   cardAssociation: CardAssociation;
@@ -14,6 +15,7 @@ type StoredCardResponse = {
   cardBankName: string;
   cardBankId: number;
   cardExpiryStatus: CardExpiryStatus;
+  createdAt: Date;
 };
 
 export default StoredCardResponse;
