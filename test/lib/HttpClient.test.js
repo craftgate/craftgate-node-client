@@ -5,7 +5,7 @@ const utils = require('../../dist/lib/utils');
 
 const originalGenerateRandomString = utils.generateRandomString;
 
-const {HttpClient} = require('../../dist/lib/HttpClient');
+const { HttpClient } = require('../../dist/lib/HttpClient');
 const CraftgateError = require('../../dist').CraftgateError;
 
 
@@ -97,7 +97,7 @@ test('HttpClient::get() should set the correct PKI headers for given params', as
 
   const mock = new MockAdapter(client._client);
 
-  mock.onGet('/foo', {params: {foo: 42}})
+  mock.onGet('/foo', { params: { foo: 42 } })
     .reply(config => {
       const allHeadersOk = [
         config.headers['x-api-key'] === 'dummy',
@@ -114,7 +114,7 @@ test('HttpClient::get() should set the correct PKI headers for given params', as
     });
 
   try {
-    await t.notThrowsAsync(client.get('/foo', {foo: 42}));
+    await t.notThrowsAsync(client.get('/foo', { foo: 42 }));
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
   }
@@ -131,7 +131,7 @@ test('HttpClient::delete() should set the correct PKI headers for given params',
 
   const mock = new MockAdapter(client._client);
 
-  mock.onDelete('/foo', {params: {foo: 42}})
+  mock.onDelete('/foo', { params: { foo: 42 } })
     .reply(config => {
       const allHeadersOk = [
         config.headers['x-api-key'] === 'dummy',
@@ -148,7 +148,7 @@ test('HttpClient::delete() should set the correct PKI headers for given params',
     });
 
   try {
-    await t.notThrowsAsync(client.delete('/foo', {foo: 42}));
+    await t.notThrowsAsync(client.delete('/foo', { foo: 42 }));
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
   }
@@ -165,7 +165,7 @@ test('HttpClient::post() should set the correct PKI headers for given body', asy
 
   const mock = new MockAdapter(client._client);
 
-  mock.onPost('/foo', {foo: 42})
+  mock.onPost('/foo', { foo: 42 })
     .reply(config => {
       const allHeadersOk = [
         config.headers['x-api-key'] === 'dummy',
@@ -182,7 +182,7 @@ test('HttpClient::post() should set the correct PKI headers for given body', asy
     });
 
   try {
-    await t.notThrowsAsync(client.post('/foo', {foo: 42}));
+    await t.notThrowsAsync(client.post('/foo', { foo: 42 }));
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
   }
@@ -199,7 +199,7 @@ test('HttpClient::put() should set the correct PKI headers for given body', asyn
 
   const mock = new MockAdapter(client._client);
 
-  mock.onPut('/foo', {foo: 42})
+  mock.onPut('/foo', { foo: 42 })
     .reply(config => {
       const allHeadersOk = [
         config.headers['x-api-key'] === 'dummy',
@@ -216,8 +216,88 @@ test('HttpClient::put() should set the correct PKI headers for given body', asyn
     });
 
   try {
-    await t.notThrowsAsync(client.put('/foo', {foo: 42}));
+    await t.notThrowsAsync(client.put('/foo', { foo: 42 }));
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
   }
+});
+
+test('HttpClient should get base url when relativeUrl is null', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000'
+  });
+
+  const uri = client._client.getUri({});
+
+  t.is(uri, 'http://localhost:8000');
+});
+
+test('HttpClient should retain the trailing slash in baseUrl when relativeUrl is null', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000/'
+  });
+
+  const uri = client._client.getUri({});
+
+  t.is(uri, 'http://localhost:8000/');
+});
+
+test('HttpClient should remove duplicate slashes', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000/'
+  });
+
+  const uri = client._client.getUri({
+    url: '/bar'
+  });
+
+  t.is(uri, 'http://localhost:8000/bar');
+});
+
+test('HttpClient should remove duplicates when baseUrl has multiple trailing slashes', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000////'
+  });
+
+  const uri = client._client.getUri({
+    url: '/bar'
+  });
+
+  t.is(uri, 'http://localhost:8000/bar');
+});
+
+test('HttpClient should add slash between base and relative URLs', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000'
+  });
+
+  const uri = client._client.getUri({
+    url: 'bar'
+  });
+
+  t.is(uri, 'http://localhost:8000/bar');
+});
+
+test('HttpClient should retain the trailing slash in relativeUrl\'', async t => {
+  const client = new HttpClient({
+    apiKey: 'dummy',
+    secretKey: 'dummy',
+    baseUrl: 'http://localhost:8000/'
+  });
+
+  const uri = client._client.getUri({
+    url: '/bar/'
+  });
+
+  t.is(uri, 'http://localhost:8000/bar/');
 });
