@@ -201,7 +201,7 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/init`, request);
   }
 
-  async approveBnplPayment(paymentId: number): Promise<void> {
+  async approveBnplPayment(paymentId: number): Promise<PaymentResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
   }
 
