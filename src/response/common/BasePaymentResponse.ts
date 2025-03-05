@@ -1,6 +1,7 @@
 import CardAssociation from '../../model/CardAssociation';
 import CardType from '../../model/CardType';
 import Currency from '../../model/Currency';
+import FraudAction from '../../model/FraudAction';
 import Installment from '../../model/Installment';
 import {Loyalty} from '../../model/Loyalty';
 import PaymentGroup from '../../model/PaymentGroup';
@@ -49,6 +50,8 @@ type BasePaymentResponse = {
   cardAssociation: CardAssociation;
   cardBrand: string;
   requestedPosAlias: string;
+  fraudId?: number;
+  fraudAction?: FraudAction;
   pos: MerchantPos;
   loyalty?: Loyalty;
   paymentError: PaymentError;
