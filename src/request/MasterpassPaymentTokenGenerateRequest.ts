@@ -1,4 +1,5 @@
 import {Loyalty} from '../model/Loyalty';
+import MasterpassValidationType from '../model/MasterpassValidationType';
 
 import MasterpassCreatePayment from './dto/MasterpassCreatePayment';
 
@@ -10,6 +11,7 @@ type MasterpassPaymentTokenGenerateRequest = {
   createPayment: MasterpassCreatePayment;
   loyalty?: Loyalty;
   masterpassIntegrationVersion?: number;
+  validationType?: MasterpassValidationType;
 };
 
 export default MasterpassPaymentTokenGenerateRequest;
