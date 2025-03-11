@@ -25,6 +25,7 @@ enum ApmType {
   VodafoneDcb = 'VODAFONE_DCB',
   Chippin = 'CHIPPIN',
   Bizum = 'BIZUM',
+  PaylandsMbWay = 'PAYLANDS_MB_WAY',
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
   Paymob = 'PAYMOB'
