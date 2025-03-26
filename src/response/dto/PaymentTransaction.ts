@@ -14,6 +14,7 @@ type PaymentTransaction = {
   merchantPayoutAmount: number;
   subMerchantMemberId: number;
   subMerchantMemberPrice: number;
+  subMerchantMemberTaxPrice: number;
   subMerchantMemberPayoutRate: number;
   subMerchantMemberPayoutAmount: number;
   transactionStatus: TransactionStatus;
