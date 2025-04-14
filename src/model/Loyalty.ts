@@ -5,6 +5,7 @@ export type Loyalty = {
   reward?: {
     cardRewardMoney?: number;
     firmRewardMoney?: number;
+    milRewardMoney?: number;
     totalRewardMoney?: number;
   };
   message?: string;
