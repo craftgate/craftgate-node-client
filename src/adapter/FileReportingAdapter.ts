@@ -1,7 +1,7 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
-import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
 import RetrieveDailyPaymentReportRequest from '../request/RetrieveDailyPaymentReportRequest';
+import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
 
 import BaseAdapter from './BaseAdapter';
 
