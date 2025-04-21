@@ -14,6 +14,7 @@ enum PaymentMethod {
   Stripe = 'STRIPE',
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
+  MultinetNeoGift = 'MULTINET_NEO_GIFT',
   Bizum = 'BIZUM',
   PaycellDCB = 'PAYCELL_DCB'
 }
