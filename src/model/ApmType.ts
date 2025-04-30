@@ -3,6 +3,7 @@ enum ApmType {
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
+  Setcard = 'SETCARD',
   EdenredGift = 'EDENRED_GIFT',
   Metropol = 'METROPOL',
   PayPal = 'PAYPAL',
