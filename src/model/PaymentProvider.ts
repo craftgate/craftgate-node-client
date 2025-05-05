@@ -34,7 +34,8 @@ enum PaymentProvider {
   PaylandsMbWay = 'PAYLANDS_MB_WAY',
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
-  Offline = 'OFFLINE'
+  Offline = 'OFFLINE',
+  Setcard = 'SETCARD'
 }
 
 export default PaymentProvider;
