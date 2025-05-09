@@ -22,6 +22,7 @@ enum ApmType {
   Haso = 'HASO',
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
+  MultinetNeoGift = 'MULTINET_NEO_GIFT',
   IsPay = 'ISPAY',
   VodafoneDcb = 'VODAFONE_DCB',
   Chippin = 'CHIPPIN',
