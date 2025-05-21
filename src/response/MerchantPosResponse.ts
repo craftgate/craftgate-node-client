@@ -29,6 +29,7 @@ type MerchantPosResponse = {
   enableForeignCard: boolean;
   enableInstallment: boolean;
   enablePaymentWithoutCvc: boolean;
+  enableLoyalty: boolean;
   newIntegration: boolean;
   orderNumber: number;
   autopilotState: AutopilotState;
