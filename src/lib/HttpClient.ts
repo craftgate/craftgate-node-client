@@ -35,6 +35,7 @@ export class HttpClient {
   private readonly _options: ClientOptions;
 
   constructor({apiKey, secretKey, baseUrl = 'https://sandbox-api.craftgate.io', language = null}: ClientCreationOptions = {}) {
+    baseUrl = baseUrl.replace(/\/+$/, '/');
     this._options = {apiKey, secretKey, baseUrl, language};
     this._client = axios.create({baseURL: baseUrl});
     this._client.defaults.timeout = 150000;
