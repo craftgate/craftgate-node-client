@@ -35,6 +35,7 @@ export class HttpClient {
   private readonly _options: ClientOptions;
 
   constructor({apiKey, secretKey, baseUrl = 'https://sandbox-api.craftgate.io', language = null}: ClientCreationOptions = {}) {
+    baseUrl = baseUrl.replace(/\/+$/, '/');
     this._options = {apiKey, secretKey, baseUrl, language};
     this._client = axios.create({baseURL: baseUrl});
     this._client.defaults.timeout = 150000;
@@ -84,7 +85,7 @@ export class HttpClient {
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
-    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.57';
+    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.58';
     if (this._options.language) {
       config.headers[LANGUAGE_HEADER_NAME] = this._options.language;
     }
