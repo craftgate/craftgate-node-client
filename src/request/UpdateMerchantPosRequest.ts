@@ -18,7 +18,6 @@ type UpdateMerchantPosRequest = {
   enableForeignCard: boolean;
   enableInstallment: boolean;
   enablePaymentWithoutCvc: boolean;
-  enableLoyalty?: boolean;
   newIntegration?: boolean;
   orderNumber: number;
   supportedCardAssociations: CardAssociation[];

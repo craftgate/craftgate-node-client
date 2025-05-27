@@ -17,7 +17,6 @@ type CreateMerchantPosRequest = {
   enableForeignCard: boolean;
   enableInstallment: boolean;
   enablePaymentWithoutCvc: boolean;
-  enableLoyalty?: boolean;
   newIntegration?: boolean;
   orderNumber: number;
   posIntegrator: PosIntegrator;
