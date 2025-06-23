@@ -1,5 +1,6 @@
 type UpdatePaymentTransactionRequest = {
   subMerchantMemberPrice: number;
+  subMerchantMemberTaxPrice: number;
   subMerchantMemberId: number;
 };
 
