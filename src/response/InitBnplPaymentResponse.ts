@@ -9,6 +9,7 @@ type InitBnplPaymentResponse = {
   paymentStatus: PaymentStatus;
   apmAdditionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
+  additionalData?: Map<string, any>;
 };
 
 export default InitBnplPaymentResponse;
