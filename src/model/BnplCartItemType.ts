@@ -22,6 +22,7 @@ enum BnplCartItemType {
   Furniture = 'FURNITURE',
   HomeLiving = 'HOME_LIVING',
   AutomobileMotorcycle = 'AUTOMOBILE_MOTORCYCLE',
+  MobilePhoneRefurbished = 'MOBILE_PHONE_REFURBISHED',
   Other = 'OTHER'
 }
 
