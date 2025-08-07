@@ -30,6 +30,7 @@ enum ApmType {
   PaylandsMbWay = 'PAYLANDS_MB_WAY',
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
+  Papel = 'PAPEL',
   Paymob = 'PAYMOB'
 }
 
