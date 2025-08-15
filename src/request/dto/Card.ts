@@ -32,4 +32,8 @@ export type TokenizedCard = {
   };
 };
 
-export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber | TokenizedCard;
+export type SecureFieldsCard = {
+  secureFieldsToken: string;
+};
+
+export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber | TokenizedCard | SecureFieldsCard;
