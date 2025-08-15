@@ -7,6 +7,7 @@ type InitApmPaymentResponse = {
   paymentId: number;
   redirectUrl: string;
   htmlContent: string;
+  qrCode: string;
   paymentStatus: PaymentStatus;
   additionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
