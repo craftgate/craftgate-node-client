@@ -4,6 +4,7 @@ enum PaymentMethod {
   Papara = 'PAPARA',
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
+  SodexoGift = 'SODEXO_GIFT',
   Edenred = 'EDENRED',
   EdenredGift = 'EDENRED_GIFT',
   Alipay = 'ALIPAY',
