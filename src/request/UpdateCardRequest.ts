@@ -3,6 +3,7 @@ type UpdateCardRequest = {
   cardToken: string;
   expireYear: string;
   expireMonth: string;
+  cardAlias?: string;
 };
 
 export default UpdateCardRequest;
