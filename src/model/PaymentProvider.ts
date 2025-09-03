@@ -35,7 +35,8 @@ enum PaymentProvider {
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
   Offline = 'OFFLINE',
-  Setcard = 'SETCARD'
+  Setcard = 'SETCARD',
+  Papel = 'PAPEL'
 }
 
 export default PaymentProvider;
