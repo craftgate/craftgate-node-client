@@ -8,6 +8,7 @@ import InstallmentAdapter from './adapter/InstallmentAdapter';
 import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
 import MerchantAdapter from './adapter/MerchantAdapter';
+import MerchantApmAdapter from './adapter/MerchantApmAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PayByLinkApiAdapter from './adapter/PayByLinkApiAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
@@ -16,7 +17,6 @@ import SettlementAdapter from './adapter/SettlementAdapter';
 import SettlementReportingAdapter from './adapter/SettlementReportingAdapter';
 import WalletAdapter from './adapter/WalletAdapter';
 import {ClientCreationOptions} from './lib/HttpClient';
-import MerchantApmAdapter from './adapter/MerchantApmAdapter';
 
 export default class CraftgateAdapter extends BaseAdapter {
   private _installmentAdapter: InstallmentAdapter;
