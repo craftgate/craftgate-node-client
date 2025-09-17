@@ -1,6 +1,7 @@
 enum RefundStatus {
   Success = 'SUCCESS',
-  Failure = 'FAILURE'
+  Failure = 'FAILURE',
+  Waiting = 'WAITING'
 }
 
 export default RefundStatus;
