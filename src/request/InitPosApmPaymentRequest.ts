@@ -22,7 +22,7 @@ type InitPosApmPaymentRequest = {
   bankOrderId?: string;
   clientIp?: string;
   items: PaymentItem[];
-  additionalParams?: Map<string, Record<string, unknown>>;
+  additionalParams?: Record<string, unknown>;
   installments: PosApmInstallment[];
   paymentProvider: PosApmPaymentProvider;
   fraudParams?: FraudCheckParameters;
