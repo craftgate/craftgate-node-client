@@ -6,6 +6,8 @@ type SearchProductsRequest = {
   maxPrice?: number;
   currency?: Currency;
   channel?: string;
+  minExpiresAt?: string;
+  maxExpiresAt?: string;
   page?: number;
   size?: number;
 };
