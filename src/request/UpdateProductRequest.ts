@@ -13,6 +13,7 @@ type UpdateProductRequest = {
   currency: Currency;
   description: string;
   enabledInstallments: number[];
+  expiresAt: string;
 };
 
 export default UpdateProductRequest;
