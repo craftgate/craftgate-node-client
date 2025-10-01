@@ -52,6 +52,7 @@ type BasePaymentResponse = {
   requestedPosAlias: string;
   fraudId?: number;
   fraudAction?: FraudAction;
+  fraudScore?: number;
   pos: MerchantPos;
   loyalty?: Loyalty;
   paymentError: PaymentError;
