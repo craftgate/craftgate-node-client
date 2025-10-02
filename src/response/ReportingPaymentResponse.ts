@@ -8,7 +8,6 @@ type ReportingPaymentResponse = BasePaymentResponse & {
   retryCount: number;
   refundablePrice: number;
   refundStatus: PaymentRefundStatus;
-  cardIssuerBankName: string;
   buyerMember: MemberResponse;
   refunds: ReportingPaymentRefundResponse[];
 };

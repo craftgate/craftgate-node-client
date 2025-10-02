@@ -2,6 +2,7 @@ enum ApmType {
   Papara = 'PAPARA',
   Payoneer = 'PAYONEER',
   Sodexo = 'SODEXO',
+  SodexoGift = 'SODEXO_GIFT',
   Edenred = 'EDENRED',
   Setcard = 'SETCARD',
   EdenredGift = 'EDENRED_GIFT',
@@ -30,6 +31,7 @@ enum ApmType {
   PaylandsMbWay = 'PAYLANDS_MB_WAY',
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
+  Papel = 'PAPEL',
   Paymob = 'PAYMOB'
 }
 

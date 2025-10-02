@@ -40,6 +40,8 @@ type BasePaymentResponse = {
   binNumber: string;
   lastFourDigits: string;
   cardHolderName: string;
+  cardIssuerBankName: string;
+  cardIssuerBankId: number;
   bankCardHolderName: string;
   authCode: string;
   hostReference: string;

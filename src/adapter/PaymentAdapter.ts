@@ -33,8 +33,8 @@ import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransaction
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
+import BnplPaymentVerifyResponse from '../response/BnplPaymentVerifyResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
-import CompletePosApmPaymentResponse from '../response/CompletePosApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
@@ -133,7 +133,7 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/pos-apm-payments/init', request);
   }
 
-  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<CompletePosApmPaymentResponse> {
+  async completePosApmPayment(request: CompletePosApmPaymentRequest): Promise<PaymentResponse> {
     return this._client.post('/payment/v1/pos-apm-payments/complete', request);
   }
 
@@ -203,6 +203,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async approveBnplPayment(paymentId: number): Promise<PaymentResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+  }
+
+  async verifyBnplPayment(paymentId: number): Promise<BnplPaymentVerifyResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
   }
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {

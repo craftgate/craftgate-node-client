@@ -14,6 +14,7 @@ type StoredCardResponse = {
   cardBrand: string;
   cardBankName: string;
   cardBankId: number;
+  isCommercial: boolean;
   cardExpiryStatus: CardExpiryStatus;
   createdAt: Date;
 };

@@ -1,6 +1,6 @@
 type CompletePosApmPaymentRequest = {
   paymentId: number;
-  additionalParams?: Map<string, Record<string, unknown>>;
+  additionalParams?: Record<string, unknown>;
 };
 
 export default CompletePosApmPaymentRequest;

@@ -18,6 +18,7 @@ type ProductResponse = {
   url: string;
   qrCodeUrl: string;
   channel: string;
+  expiresAt: string;
 };
 
 export default ProductResponse;

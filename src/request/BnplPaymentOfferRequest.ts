@@ -8,7 +8,8 @@ type BnplPaymentOfferRequest = {
   merchantApmId: number;
   price: number;
   currency: Currency;
-  additionalParams?: Map<string, Record<string, unknown>>;
+  apmOrderId: string;
+  additionalParams?: Record<string, unknown>;
   items: BnplPaymentCartItem[];
 };
 

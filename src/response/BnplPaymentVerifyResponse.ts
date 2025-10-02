@@ -3,13 +3,10 @@ import PaymentStatus from '../model/PaymentStatus';
 
 import PaymentError from './dto/PaymentError';
 
-type InitBnplPaymentResponse = {
-  paymentId: number;
-  redirectUrl: string;
+type BnplPaymentVerifyResponse = {
   paymentStatus: PaymentStatus;
   apmAdditionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
-  additionalData?: Map<string, any>;
 };
 
-export default InitBnplPaymentResponse;
+export default BnplPaymentVerifyResponse;

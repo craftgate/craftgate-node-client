@@ -8,6 +8,7 @@ import InstallmentAdapter from './adapter/InstallmentAdapter';
 import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
 import MerchantAdapter from './adapter/MerchantAdapter';
+import MerchantApmAdapter from './adapter/MerchantApmAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
 import PayByLinkApiAdapter from './adapter/PayByLinkApiAdapter';
 import PaymentAdapter from './adapter/PaymentAdapter';
@@ -32,6 +33,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _masterpassPaymentAdapter: MasterpassPaymentAdapter;
   private _bankAccountTrackingAdapter: BankAccountTrackingAdapter;
   private _merchantAdapter: MerchantAdapter;
+  private _merchantApmAdapter: MerchantApmAdapter;
   private _juzdanPaymentAdapter: JuzdanPaymentAdapter;
   private _bkmExpressPaymentAdapter: BkmExpressPaymentAdapter;
 
@@ -51,6 +53,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._masterpassPaymentAdapter = new MasterpassPaymentAdapter(options);
     this._bankAccountTrackingAdapter = new BankAccountTrackingAdapter(options);
     this._merchantAdapter = new MerchantAdapter(options);
+    this._merchantApmAdapter = new MerchantApmAdapter(options);
     this._juzdanPaymentAdapter = new JuzdanPaymentAdapter(options);
     this._bkmExpressPaymentAdapter = new BkmExpressPaymentAdapter(options);
   }
@@ -109,6 +112,10 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   merchant(): MerchantAdapter {
     return this._merchantAdapter;
+  }
+
+  merchantApm(): MerchantApmAdapter {
+    return this._merchantApmAdapter;
   }
 
   juzdan(): JuzdanPaymentAdapter {
