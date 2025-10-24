@@ -34,6 +34,8 @@ import PosOperationType from './PosOperationType';
 import PosStatus from './PosStatus';
 import PosUserType from './PosUserType';
 import RecordType from './RecordType';
+import ReportType from './ReportType';
+import ReportPeriod from './ReportPeriod';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
@@ -98,6 +100,8 @@ export = {
   WebhookStatus,
   TokenizedCardType,
   RecordType,
+  ReportType,
+  ReportPeriod,
   BankAccountTrackingSource,
   PosStatus,
   PosIntegrator,
