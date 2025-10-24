@@ -25,7 +25,7 @@ export default class FileReportingAdapter extends BaseAdapter {
     return this._client.post('/file-reporting/v1/report-demands', request);
   }
 
-  async retrieveReport(request: RetrieveReportRequest, reportId: Number): Promise<ArrayBuffer> {
+  async retrieveReport(request: RetrieveReportRequest, reportId: number): Promise<ArrayBuffer> {
     return this._client.get<ArrayBuffer>('/file-reporting/v1/reports/' + reportId, request, {responseType: 'arraybuffer'});
   }
 }
