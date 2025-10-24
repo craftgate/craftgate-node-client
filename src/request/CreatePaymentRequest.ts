@@ -25,7 +25,7 @@ type CreatePaymentRequest = {
   posAlias?: string;
   fraudParams?: FraudCheckParameters;
   items: PaymentItem[];
-  additionalParams?: Map<string, Record<string, unknown>>;
+  additionalParams?: Record<string, unknown>;
   retry?: boolean;
 };
 

@@ -594,7 +594,10 @@ test('should init 3ds payment', async t => {
         subMerchantMemberId: 1,
         subMerchantMemberPrice: 42.0
       }
-    ]
+    ],
+    additionalParams: {
+      "threeDSCallbackVersion": 2
+    }
   };
 
   const result = await paymentAdapter.init3DSPayment(request)

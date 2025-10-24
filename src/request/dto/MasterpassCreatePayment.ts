@@ -20,7 +20,7 @@ type MasterpassCreatePayment = {
   bankOrderId?: string;
   posAlias?: string;
   items: PaymentItem[];
-  additionalParams?: Map<string, Record<string, unknown>>;
+  additionalParams?: Record<string, unknown>;
 };
 
 export default MasterpassCreatePayment;
