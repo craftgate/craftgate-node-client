@@ -6,7 +6,6 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-// change the date/type according to your needs
 craftgate
   .fileReporting()
   .retrieveReport(
