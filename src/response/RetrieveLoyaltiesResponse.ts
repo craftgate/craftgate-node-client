@@ -1,3 +1,4 @@
+import {FraudResult} from '../model/FraudResult';
 import {Loyalty} from '../model/Loyalty';
 
 import MerchantPos from './dto/MerchantPos';
@@ -8,6 +9,7 @@ type RetrieveLoyaltiesResponse = {
   cardIssuerBankId: number;
   force3ds: boolean;
   pos: MerchantPos;
+  fraudResult: FraudResult;
   loyalties: Loyalty[];
 };
 
