@@ -903,6 +903,27 @@ test('should refund payment', async t => {
   t.is(result.items[0].refundType, 'REFUND')
 });
 
+test('should refund waiting payment', async t => {
+    const scope = nock('http://localhost:8000')
+        .post('/payment/v1/refunds/refund-waiting-payment')
+        .reply(200, {
+            data: {
+                items: [
+                    {
+                        status: 'SUCCESS',
+                    }
+                ]
+            }
+        })
+
+    const request = {
+        paymentId: 1
+    }
+
+    const result = await paymentAdapter.refundWaitingPayment(request)
+    t.is(result.items[0].status, 'SUCCESS')
+});
+
 test('should retrieve payment refund', async t => {
   const scope = nock('http://localhost:8000')
     .get('/payment/v1/refunds/1')

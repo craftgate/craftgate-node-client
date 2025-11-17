@@ -1,5 +1,5 @@
-import ReportType from '../model/ReportType';
 import ReportPeriod from '../model/ReportPeriod';
+import ReportType from '../model/ReportType';
 declare type CreateReportRequest = {
   startDate: Date;
   endDate: Date;
