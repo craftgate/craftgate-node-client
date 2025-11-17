@@ -1,7 +1,7 @@
-import RefundStatus from "../model/RefundStatus";
+import RefundStatus from '../model/RefundStatus';
 
 type WaitingPaymentRefundResponse = {
-    status: RefundStatus;
+  status: RefundStatus;
 };
 
 export default WaitingPaymentRefundResponse;

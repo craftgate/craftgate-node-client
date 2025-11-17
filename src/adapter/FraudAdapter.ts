@@ -2,6 +2,7 @@ import {ClientCreationOptions} from '../lib/HttpClient';
 import FraudCheckStatus from '../model/FraudCheckStatus';
 import FraudValueType from '../model/FraudValueType';
 
+import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
 import FraudValueListRequest from '../request/FraudValueListRequest';
 import SearchFraudChecksRequest from '../request/SearchFraudChecksRequest';
 
@@ -10,7 +11,6 @@ import FraudCheckListResponse from '../response/FraudCheckListResponse';
 import FraudValueListResponse from '../response/FraudValueListResponse';
 
 import BaseAdapter from './BaseAdapter';
-import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
 
 export default class FraudAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

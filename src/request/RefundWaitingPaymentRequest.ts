@@ -1,5 +1,5 @@
 type RefundWaitingPaymentRequest = {
-    paymentId: number;
+  paymentId: number;
 };
 
 export default RefundWaitingPaymentRequest;
