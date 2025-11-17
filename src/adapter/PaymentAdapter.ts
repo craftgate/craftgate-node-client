@@ -24,6 +24,7 @@ import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
+import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
@@ -55,6 +56,7 @@ import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 
 import BaseAdapter from './BaseAdapter';
+import WaitingPaymentRefundResponse from "../response/WaitingPaymentRefundResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -148,6 +150,10 @@ export default class PaymentAdapter extends BaseAdapter {
   async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {
     return this._client.post('/payment/v1/refunds', request);
   }
+
+    async refundWaitingPayment(request: RefundWaitingPaymentRequest): Promise<WaitingPaymentRefundResponse> {
+        return this._client.post('/payment/v1/refunds/refund-waiting-payment', request);
+    }
 
   async retrievePaymentRefund(refundId: number): Promise<PaymentRefundResponse> {
     return this._client.get(`/payment/v1/refunds/${refundId}`);
