@@ -54,9 +54,9 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import WaitingPaymentRefundResponse from "../response/WaitingPaymentRefundResponse";
 
 import BaseAdapter from './BaseAdapter';
-import WaitingPaymentRefundResponse from "../response/WaitingPaymentRefundResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
