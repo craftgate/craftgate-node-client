@@ -36,6 +36,7 @@ type BasePaymentResponse = {
   merchantCommissionRateAmount: number;
   bankCommissionRate: number;
   bankCommissionRateAmount: number;
+  blockageResolvedDate: Date;
   paidWithStoredCard: boolean;
   binNumber: string;
   lastFourDigits: string;
