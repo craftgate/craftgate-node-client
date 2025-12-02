@@ -829,6 +829,46 @@ test('should refund payment transaction', async t => {
   t.is(result.refundDestinationType, 'CARD')
 });
 
+test('should refund payment transaction mark as refunded', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/refund-transactions/mark-as-refunded')
+    .reply(200, {
+      data: {
+        id: 1,
+        conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
+        createdDate: '2044-07-07T00:00:00',
+        status: 'SUCCESS',
+        isAfterSettlement: false,
+        refundPrice: 20,
+        refundBankPrice: 20,
+        refundWalletPrice: 0,
+        currency: 'TRY',
+        paymentTransactionId: 1,
+        paymentId: 1,
+        refundDestinationType: 'CARD'
+      }
+    })
+
+  const request = {
+    paymentTransactionId: 1,
+    conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
+    refundPrice: 20
+  };
+
+  const result = await paymentAdapter.refundPaymentTransactionMarkAsRefunded(request)
+  t.is(result.id, 1)
+  t.is(result.conversationId, '9d43edb0-f141-4f14-8e99-57126f941fde')
+  t.is(result.status, 'SUCCESS')
+  t.is(result.isAfterSettlement, false)
+  t.is(result.currency, 'TRY')
+  t.is(result.refundPrice, 20)
+  t.is(result.refundBankPrice, 20)
+  t.is(result.refundWalletPrice, 0)
+  t.is(result.paymentTransactionId, 1)
+  t.is(result.paymentId, 1)
+  t.is(result.refundDestinationType, 'CARD')
+});
+
 test('should retrieve payment refund transaction', async t => {
   const scope = nock('http://localhost:8000')
     .get('/payment/v1/refund-transactions/1')
@@ -933,6 +973,47 @@ test('should retrieve payment refund', async t => {
   t.is(result.paymentTransactionId, 1)
   t.is(result.paymentId, 1)
   t.is(result.refundType, 'REFUND')
+});
+
+test('should refund payment mark as refunded', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/refunds/mark-as-refunded')
+    .reply(200, {
+      data: {
+        items: [
+          {
+            id: 1,
+            conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde',
+            createdDate: '2044-07-07T00:00:00',
+            status: 'SUCCESS',
+            refundPrice: 20,
+            refundBankPrice: 20,
+            refundWalletPrice: 0,
+            currency: 'TRY',
+            paymentTransactionId: 1,
+            paymentId: 1,
+            refundType: 'REFUND'
+          }
+        ]
+      }
+    })
+
+  const request = {
+    paymentId: 1,
+    conversationId: '9d43edb0-f141-4f14-8e99-57126f941fde'
+  }
+
+  const result = await paymentAdapter.refundPaymentMarkAsRefunded(request)
+  t.is(result.items[0].id, 1)
+  t.is(result.items[0].conversationId, '9d43edb0-f141-4f14-8e99-57126f941fde')
+  t.is(result.items[0].status, 'SUCCESS')
+  t.is(result.items[0].currency, 'TRY')
+  t.is(result.items[0].refundPrice, 20)
+  t.is(result.items[0].refundBankPrice, 20)
+  t.is(result.items[0].refundWalletPrice, 0)
+  t.is(result.items[0].paymentTransactionId, 1)
+  t.is(result.items[0].paymentId, 1)
+  t.is(result.items[0].refundType, 'REFUND')
 });
 
 test('should store card', async t => {
