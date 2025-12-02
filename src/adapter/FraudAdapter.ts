@@ -10,6 +10,7 @@ import FraudCheckListResponse from '../response/FraudCheckListResponse';
 import FraudValueListResponse from '../response/FraudValueListResponse';
 
 import BaseAdapter from './BaseAdapter';
+import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
 
 export default class FraudAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -45,6 +46,10 @@ export default class FraudAdapter extends BaseAdapter {
 
   async addValueToValueList(request: FraudValueListRequest): Promise<void> {
     await this._client.post(`/fraud/v1/value-lists`, request);
+  }
+
+  async addCardFingerprint(request: AddCardFingerprintFraudValueListRequest, listName: string): Promise<void> {
+    await this._client.post(`/fraud/v1/value-lists/${listName}/card-fingerprints`, request);
   }
 
   async removeValueFromValueList(listName: string, valueId: string): Promise<void> {
