@@ -23,6 +23,7 @@ import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
+import RefundPaymentTransactionMarkAsRefundedRequest from '../request/RefundPaymentTransactionMarkAsRefundedRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
@@ -50,6 +51,7 @@ import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
 import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
+import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
@@ -147,6 +149,10 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/refund-transactions/${paymentTransactionRefundId}`);
   }
 
+  async refundPaymentTransactionMarkAsRefunded(request: RefundPaymentTransactionMarkAsRefundedRequest): Promise<PaymentTransactionRefundResponse> {
+    return this._client.post('/payment/v1/refund-transactions/mark-as-refunded', request);
+  }
+
   async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {
     return this._client.post('/payment/v1/refunds', request);
   }
@@ -157,6 +163,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrievePaymentRefund(refundId: number): Promise<PaymentRefundResponse> {
     return this._client.get(`/payment/v1/refunds/${refundId}`);
+  }
+
+  async refundPaymentMarkAsRefunded(request: RefundPaymentRequest): Promise<PaymentTransactionRefundListResponse> {
+    return this._client.post('/payment/v1/refunds/mark-as-refunded', request);
   }
 
   async storeCard(request: StoreCardRequest): Promise<StoredCardResponse> {
