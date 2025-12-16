@@ -36,6 +36,7 @@ enum PaymentProvider {
   IWallet = 'IWALLET',
   Offline = 'OFFLINE',
   Setcard = 'SETCARD',
+  BkmExpress = 'BKM_EXPRESS',
   Papel = 'PAPEL'
 }
 
