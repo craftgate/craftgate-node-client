@@ -41,13 +41,4 @@ export default class CraftgateError extends Error {
   getErrorData(): any {
     return this._errorData;
   }
-
-  toString(): string {
-    let message = `CraftgateError: ${this._errorCode} - ${this._errorDescription}`;
-    if (this._providerError) {
-      message += ` (Provider: ${this._providerError.errorCode} - ${this._providerError.errorMessage})`;
-    }
-    return message;
-  }
 }
-
