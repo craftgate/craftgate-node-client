@@ -15,7 +15,7 @@ export default class CraftgateError extends Error {
   private _providerError?: ProviderError;
   private _errorData: any;
 
-  constructor({ errorCode, errorDescription, providerError, ...rest }: ErrorResponse) {
+  constructor({errorCode, errorDescription, providerError, ...rest}: ErrorResponse) {
     super(errorDescription);
 
     this._errorCode = errorCode;
