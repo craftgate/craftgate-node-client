@@ -4,7 +4,8 @@ enum LoyaltyType {
   PostponingInstallment = 'POSTPONING_INSTALLMENT',
   ExtraPoints = 'EXTRA_POINTS',
   GainingMinutes = 'GAINING_MINUTES',
-  PostponingStatement = 'POSTPONING_STATEMENT'
+  PostponingStatement = 'POSTPONING_STATEMENT',
+  PostponingPayment = 'POSTPONING_PAYMENT'
 }
 
 export default LoyaltyType;

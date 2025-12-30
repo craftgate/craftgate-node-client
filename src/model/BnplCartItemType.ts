@@ -3,6 +3,7 @@ enum BnplCartItemType {
   MobilePhonePriceBelowRegulationLimit = 'MOBILE_PHONE_PRICE_BELOW_REGULATION_LIMIT',
   Tablet = 'TABLET',
   Computer = 'COMPUTER',
+  TabletWithCampaign = 'TABLET_WITH_CAMPAIGN',
   ConstructionMarket = 'CONSTRUCTION_MARKET',
   Gold = 'GOLD',
   DigitalProduct = 'DIGITAL_PRODUCTS',
