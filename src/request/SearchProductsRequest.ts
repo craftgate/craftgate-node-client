@@ -1,7 +1,11 @@
 import Currency from '../model/Currency';
 
 type SearchProductsRequest = {
+  id: number;
   name?: string;
+  orderId: string;
+  conversationId: string;
+  externalId: string;
   minPrice?: number;
   maxPrice?: number;
   currency?: Currency;
