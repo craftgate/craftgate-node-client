@@ -25,6 +25,7 @@ import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
 import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionMarkAsRefundedRequest from '../request/RefundPaymentTransactionMarkAsRefundedRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
+import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
@@ -55,6 +56,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
 
@@ -153,6 +155,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async refundPayment(request: RefundPaymentRequest): Promise<PaymentRefundResponse> {
     return this._client.post('/payment/v1/refunds', request);
+  }
+
+  async refundWaitingPayment(request: RefundWaitingPaymentRequest): Promise<WaitingPaymentRefundResponse> {
+    return this._client.post('/payment/v1/refunds/refund-waiting-payment', request);
   }
 
   async retrievePaymentRefund(refundId: number): Promise<PaymentRefundResponse> {
