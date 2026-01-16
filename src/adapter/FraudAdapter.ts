@@ -5,9 +5,11 @@ import FraudValueType from '../model/FraudValueType';
 import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
 import FraudValueListRequest from '../request/FraudValueListRequest';
 import SearchFraudChecksRequest from '../request/SearchFraudChecksRequest';
+import SearchFraudRuleRequest from '../request/SearchFraudRuleRequest';
 
 import FraudAllValueListsResponse from '../response/FraudAllValueListsResponse';
 import FraudCheckListResponse from '../response/FraudCheckListResponse';
+import FraudRuleResponse from '../response/FraudRuleResponse';
 import FraudValueListResponse from '../response/FraudValueListResponse';
 
 import BaseAdapter from './BaseAdapter';
@@ -19,6 +21,10 @@ export default class FraudAdapter extends BaseAdapter {
 
   async searchFraudChecks(request: SearchFraudChecksRequest): Promise<FraudCheckListResponse> {
     return this._client.get('/fraud/v1/fraud-checks', request);
+  }
+
+  async searchFraudRule(request: SearchFraudRuleRequest): Promise<FraudRuleResponse> {
+    return this._client.get('/fraud/v1/rules', request);
   }
 
   async updateFraudCheckStatus(id: number, fraudCheckStatus: FraudCheckStatus): Promise<void> {
