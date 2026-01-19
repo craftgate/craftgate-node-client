@@ -25,6 +25,7 @@ type DepositPaymentResponse = {
   walletTransaction: WalletTransaction;
   fraudId: number;
   fraudAction: FraudAction;
+  fraudRuleId: number;
 };
 
 export default DepositPaymentResponse;
