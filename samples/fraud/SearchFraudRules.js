@@ -11,6 +11,6 @@ const request = {
   size: 10,
 };
 
-craftgate.fraud().searchFraudRule(request)
+craftgate.fraud().searchFraudRules(request)
   .then(result => console.info('Retrieved fraud rule search results', result))
   .catch(err => console.error('Failed to search fraud rule', err));

@@ -23,7 +23,7 @@ export default class FraudAdapter extends BaseAdapter {
     return this._client.get('/fraud/v1/fraud-checks', request);
   }
 
-  async searchFraudRule(request: SearchFraudRuleRequest): Promise<FraudRuleResponse> {
+  async searchFraudRules(request: SearchFraudRuleRequest): Promise<FraudRuleResponse> {
     return this._client.get('/fraud/v1/rules', request);
   }
 
