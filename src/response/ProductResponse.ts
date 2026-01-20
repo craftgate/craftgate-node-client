@@ -16,8 +16,8 @@ type ProductResponse = {
   token: string;
   enabledInstallments: number[];
   url: string;
-  qrCodeUrl: string;
   channel: string;
+  multiPayment: boolean;
   expiresAt: string;
 };
 
