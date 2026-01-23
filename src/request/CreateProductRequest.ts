@@ -13,6 +13,7 @@ type CreateProductRequest = {
   multiPayment: boolean;
   enabledInstallments: number[];
   expiresAt: string;
+  basketIdentifier: string;
 };
 
 export default CreateProductRequest;
