@@ -1,5 +1,6 @@
 import {Loyalty} from '../../model/Loyalty';
 import TokenizedCardType from '../../model/TokenizedCardType';
+import {EncryptedCard} from './EncryptedCard';
 
 export type PaymentCard = {
   cardAlias?: string;
@@ -36,4 +37,8 @@ export type SecureFieldsCard = {
   secureFieldsToken: string;
 };
 
-export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber | TokenizedCard | SecureFieldsCard;
+export type EncryptedCardType = {
+  encryptedCard: EncryptedCard;
+};
+
+export type Card = PaymentCard | StoredCard | First6Last4CardWithIdentityNumber | TokenizedCard | SecureFieldsCard | EncryptedCardType;
