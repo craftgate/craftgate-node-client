@@ -1,5 +1,6 @@
 import {Loyalty} from '../../model/Loyalty';
 import TokenizedCardType from '../../model/TokenizedCardType';
+
 import {EncryptedCard} from './EncryptedCard';
 
 export type PaymentCard = {
