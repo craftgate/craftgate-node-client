@@ -1196,3 +1196,63 @@ test('should verify 3ds callback hash with all information', async t => {
   const isVerified = await paymentAdapter.is3DSecureCallbackVerified(threeDSecureCallbackKey, params);
   t.is(isVerified, true)
 });
+
+test('should init checkout card verify', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/checkout-card-verify/init')
+    .reply(200, {
+      data: {
+        token: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
+        pageUrl: 'http://localhost:8070?token=d1811bb0-25a2-40c7-ba71-c8b605259611',
+        tokenExpireDate: '2024-07-07T00:00:00'
+      }
+    });
+
+  const request = {
+    verificationPrice: 10,
+    currency: Craftgate.Model.Currency.TRY,
+    callbackUrl: 'https://www.your-website.com/craftgate-checkout-card-verify-callback',
+    conversationId: 'foo-bar',
+    paymentAuthenticationType: Craftgate.Model.CardVerificationAuthType.NonThreeDs
+  };
+
+  const result = await paymentAdapter.initCheckoutCardVerify(request);
+  t.is(result.token, 'd1811bb0-25a2-40c7-ba71-c8b605259611');
+  t.is(result.pageUrl, 'http://localhost:8070?token=d1811bb0-25a2-40c7-ba71-c8b605259611');
+  t.truthy(result.tokenExpireDate);
+});
+
+test('should verify card with 3ds', async t => {
+  const scope = nock('http://localhost:8000')
+    .post('/payment/v1/cards/verify')
+    .reply(200, {
+      data: {
+        cardVerifyStatus: 'THREE_DS_PENDING',
+        htmlContent: 'PGh0bWw+M2RzZWN1cmUgaHRtbDwvaHRtbD4=',
+        cardUserKey: 'de050909-39a9-473c-a81a-f186dd55cfef',
+        cardToken: 'f13129c4-55b2-4055-8c94-60c0d8c51a3b',
+        refundStatus: 'WAITING'
+      }
+    });
+
+  const request = {
+    card: {
+      cardHolderName: 'Haluk Demir',
+      cardNumber: '5258640000000001',
+      expireYear: '2044',
+      expireMonth: '07',
+      cvc: '000',
+      cardAlias: 'My YKB Card'
+    },
+    paymentAuthenticationType: Craftgate.Model.CardVerificationAuthType.ThreeDs,
+    callbackUrl: 'https://www.your-website.com/craftgate-3DSecure-card-verify-callback',
+    conversationId: 'foo-bar',
+    verificationPrice: 10,
+    currency: Craftgate.Model.Currency.TRY,
+    clientIp: '127.0.0.1'
+  };
+
+  const result = await paymentAdapter.verifyCard(request);
+  t.is(result.cardVerifyStatus, Craftgate.Model.CardVerifyStatus.ThreeDsPending);
+  t.truthy(result.htmlContent);
+});

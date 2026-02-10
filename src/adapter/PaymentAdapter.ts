@@ -17,6 +17,7 @@ import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTr
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
+import InitCheckoutCardVerifyRequest from '../request/InitCheckoutCardVerifyRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
 import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
@@ -32,6 +33,7 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
@@ -42,6 +44,7 @@ import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
+import InitCheckoutCardVerifyResponse from '../response/InitCheckoutCardVerifyResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
@@ -56,6 +59,7 @@ import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefu
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import VerifyCardResponse from '../response/VerifyCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
@@ -87,6 +91,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
     return this._client.post('/payment/v1/checkout-payments/init', request);
+  }
+
+  async initCheckoutCardVerify(request: InitCheckoutCardVerifyRequest): Promise<InitCheckoutCardVerifyResponse> {
+    return this._client.post('/payment/v1/checkout-card-verify/init', request);
   }
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
@@ -187,6 +195,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async deleteStoredCard(request: DeleteStoredCardRequest): Promise<void> {
     await this._client.post('/payment/v1/cards/delete', request);
+  }
+
+  async verifyCard(request: VerifyCardRequest): Promise<VerifyCardResponse> {
+    return this._client.post('/payment/v1/cards/verify', request);
   }
 
   async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
