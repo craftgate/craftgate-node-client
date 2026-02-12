@@ -57,6 +57,7 @@ import PaymentTransactionApprovalListResponse from '../response/PaymentTransacti
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
+import RetrieveCheckoutCardVerifyResponse from '../response/RetrieveCheckoutCardVerifyResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
 import VerifyCardResponse from '../response/VerifyCardResponse';
@@ -95,6 +96,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initCheckoutCardVerify(request: InitCheckoutCardVerifyRequest): Promise<InitCheckoutCardVerifyResponse> {
     return this._client.post('/payment/v1/checkout-card-verify/init', request);
+  }
+
+  async retrieveCheckoutCardVerify(token: string): Promise<RetrieveCheckoutCardVerifyResponse> {
+    return this._client.get(`/payment/v1/checkout-card-verify/${token}`);
   }
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {

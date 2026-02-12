@@ -1222,6 +1222,25 @@ test('should init checkout card verify', async t => {
   t.truthy(result.tokenExpireDate);
 });
 
+test('should retrieve checkout card verify', async t => {
+  const scope = nock('http://localhost:8000')
+    .get('/payment/v1/checkout-card-verify/d1811bb0-25a2-40c7-ba71-c8b605259611')
+    .reply(200, {
+      data: {
+        token: 'd1811bb0-25a2-40c7-ba71-c8b605259611',
+        card: {
+          cardUserKey: 'de050909-39a9-473c-a81a-f186dd55cfef',
+          cardToken: 'f13129c4-55b2-4055-8c94-60c0d8c51a3b'
+        }
+      }
+    });
+
+  const result = await paymentAdapter.retrieveCheckoutCardVerify('d1811bb0-25a2-40c7-ba71-c8b605259611');
+  t.is(result.token, 'd1811bb0-25a2-40c7-ba71-c8b605259611');
+  t.is(result.card.cardUserKey, 'de050909-39a9-473c-a81a-f186dd55cfef');
+  t.is(result.card.cardToken, 'f13129c4-55b2-4055-8c94-60c0d8c51a3b');
+});
+
 test('should verify card with 3ds', async t => {
   const scope = nock('http://localhost:8000')
     .post('/payment/v1/cards/verify')
