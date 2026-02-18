@@ -15,6 +15,7 @@ type UpdateProductRequest = {
   multiPayment: boolean;
   enabledInstallments: number[];
   expiresAt: string;
+  basketIdentifier: string;
 };
 
 export default UpdateProductRequest;
