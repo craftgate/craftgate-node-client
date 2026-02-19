@@ -67,7 +67,6 @@ import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundRespon
 
 import BaseAdapter from './BaseAdapter';
 
-
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
     super(options);
