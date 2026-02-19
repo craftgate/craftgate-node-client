@@ -11,6 +11,7 @@ enum WebhookEventType {
   WalletTxCreated = 'WALLET_TX_CREATED',
   BnplNotification = 'BNPL_NOTIFICATION',
   MultiPaymentCompleted = 'MULTI_PAYMENT_COMPLETED',
+  MultiPaymentExpired = 'MULTI_PAYMENT_EXPIRED',
   BkmExpressPaymentNotification = 'BKM_EXPRESS_PAYMENT_NOTIFICATION'
 }
 
