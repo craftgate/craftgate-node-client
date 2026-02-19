@@ -64,6 +64,8 @@ import VerifyCardResponse from '../response/VerifyCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
+import InitMultiPaymentRequest from "../request/InitMultiPaymentRequest";
+import InitMultiPaymentResponse from "../response/InitMultipaymentPaymentResponse";
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -244,6 +246,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
+    return this._client.post(`/payment/v1/multi-payments/init`, request);
   }
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
