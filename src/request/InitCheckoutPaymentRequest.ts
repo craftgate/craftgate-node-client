@@ -32,6 +32,7 @@ type InitCheckoutPaymentRequest = {
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
+  returnBackUrl?: string;
   ttl?: number;
   customInstallments?: CustomInstallment[];
   items?: PaymentItem[];

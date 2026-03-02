@@ -7,6 +7,8 @@ import BounceStatus from './BounceStatus';
 import CardAssociation from './CardAssociation';
 import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
+import CardVerificationAuthType from './CardVerificationAuthType';
+import CardVerifyStatus from './CardVerifyStatus';
 import CardType from './CardType';
 import ClientType from './ClientType';
 import Currency from './Currency';
@@ -111,5 +113,7 @@ export = {
   PosUserType,
   PosOperationType,
   CardBrand,
+  CardVerificationAuthType,
+  CardVerifyStatus,
   ClientType
 };
