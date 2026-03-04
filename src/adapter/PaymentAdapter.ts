@@ -20,6 +20,7 @@ import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
 import InitCheckoutCardVerifyRequest from '../request/InitCheckoutCardVerifyRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
+import InitMultiPaymentRequest from '../request/InitMultiPaymentRequest';
 import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
@@ -47,6 +48,7 @@ import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
 import InitCheckoutCardVerifyResponse from '../response/InitCheckoutCardVerifyResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
+import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
@@ -244,6 +246,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
+    return this._client.post(`/payment/v1/multi-payments/init`, request);
   }
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
