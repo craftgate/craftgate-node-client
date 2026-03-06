@@ -66,6 +66,9 @@ import VerifyCardResponse from '../response/VerifyCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
+import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
+import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
+import CompleteBnplLimitInquiryRequest from '../request/CompleteBnplLimitInquiryRequest';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -242,6 +245,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async verifyBnplPayment(paymentId: number): Promise<BnplPaymentVerifyResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
+  }
+
+  async initBnplLimitInquiry(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/init`, request);
+  }
+
+  async completeBnplLimitInquiry(request: CompleteBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/complete`, request);
   }
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
