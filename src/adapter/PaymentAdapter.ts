@@ -17,8 +17,10 @@ import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTr
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
+import InitCheckoutCardVerifyRequest from '../request/InitCheckoutCardVerifyRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
+import InitMultiPaymentRequest from '../request/InitMultiPaymentRequest';
 import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
@@ -32,6 +34,7 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
@@ -42,8 +45,10 @@ import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
+import InitCheckoutCardVerifyResponse from '../response/InitCheckoutCardVerifyResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
+import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
@@ -54,8 +59,10 @@ import PaymentTransactionApprovalListResponse from '../response/PaymentTransacti
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
+import RetrieveCheckoutCardVerifyResponse from '../response/RetrieveCheckoutCardVerifyResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import VerifyCardResponse from '../response/VerifyCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
@@ -87,6 +94,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
     return this._client.post('/payment/v1/checkout-payments/init', request);
+  }
+
+  async initCheckoutCardVerify(request: InitCheckoutCardVerifyRequest): Promise<InitCheckoutCardVerifyResponse> {
+    return this._client.post('/payment/v1/checkout-card-verify/init', request);
+  }
+
+  async retrieveCheckoutCardVerify(token: string): Promise<RetrieveCheckoutCardVerifyResponse> {
+    return this._client.get(`/payment/v1/checkout-card-verify/${token}`);
   }
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
@@ -189,6 +204,10 @@ export default class PaymentAdapter extends BaseAdapter {
     await this._client.post('/payment/v1/cards/delete', request);
   }
 
+  async verifyCard(request: VerifyCardRequest): Promise<VerifyCardResponse> {
+    return this._client.post('/payment/v1/cards/verify', request);
+  }
+
   async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
     return this._client.post('/payment/v1/payment-transactions/approve', request);
   }
@@ -227,6 +246,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
+    return this._client.post(`/payment/v1/multi-payments/init`, request);
   }
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {
