@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
     baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.payment().initBnplLimitInquiry({
+craftgate.payment().bnplLimitInquiryInit({
     apmType: ApmType.Zip,
     additionalParams: {
         buyerPhoneNumber: '5320000000',

@@ -6,6 +6,7 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
+import CompleteBnplLimitInquiryRequest from '../request/CompleteBnplLimitInquiryRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
@@ -16,6 +17,7 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
+import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
@@ -34,6 +36,7 @@ import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
+import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import BnplPaymentVerifyResponse from '../response/BnplPaymentVerifyResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
@@ -59,9 +62,6 @@ import StoredCardResponse from '../response/StoredCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
-import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
-import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
-import CompleteBnplLimitInquiryRequest from '../request/CompleteBnplLimitInquiryRequest';
 
 export default class PaymentAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {
@@ -228,12 +228,12 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
   }
 
-  async initBnplLimitInquiry(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+  async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
     return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/init`, request);
   }
 
-  async completeBnplLimitInquiry(request: CompleteBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/complete`, request);
+  async bnplLimitInquiry(request: CompleteBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry`, request);
   }
 
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
