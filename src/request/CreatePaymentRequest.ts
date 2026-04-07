@@ -6,6 +6,7 @@ import PaymentPhase from '../model/PaymentPhase';
 import {Card} from './dto/Card';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
+import RoutingOptions from './dto/RoutingOptions';
 
 type CreatePaymentRequest = {
   price: number;
@@ -23,6 +24,7 @@ type CreatePaymentRequest = {
   bankOrderId?: string;
   card?: Card;
   posAlias?: string;
+  routingOptions?: RoutingOptions;
   fraudParams?: FraudCheckParameters;
   items: PaymentItem[];
   additionalParams?: Record<string, unknown>;
