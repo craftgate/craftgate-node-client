@@ -7,6 +7,7 @@ export enum OrderingRule {
 type RoutingOptions = {
   orderingRule?: OrderingRule;
   posAliases?: string[];
+  ignoreAdvancedPosRoutingRules?: boolean;
 };
 
 export default RoutingOptions;
