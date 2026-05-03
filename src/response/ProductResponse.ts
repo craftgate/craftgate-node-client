@@ -19,6 +19,7 @@ type ProductResponse = {
   channel: string;
   multiPayment: boolean;
   expiresAt: string;
+  basketIdentifier: string;
 };
 
 export default ProductResponse;
