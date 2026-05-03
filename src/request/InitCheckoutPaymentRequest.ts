@@ -27,6 +27,7 @@ type InitCheckoutPaymentRequest = {
   clientIp?: string;
   enabledInstallments?: number[];
   alwaysStoreCardAfterPayment?: boolean;
+  allowDeleteStoredCard?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
   depositPayments?: boolean;
