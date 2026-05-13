@@ -1,11 +1,7 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
-import RetrieveDailyPaymentReportRequest from '../request/RetrieveDailyPaymentReportRequest';
-import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
-
 import DataResponse from '../response/DataResponse';
 import MerchantApmResponse from '../response/MerchantApmResponse';
-import WalletResponse from '../response/WalletResponse';
 
 import BaseAdapter from './BaseAdapter';
 

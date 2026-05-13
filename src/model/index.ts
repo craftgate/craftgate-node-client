@@ -8,11 +8,14 @@ import CardAssociation from './CardAssociation';
 import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
+import CardVerificationAuthType from './CardVerificationAuthType';
+import CardVerifyStatus from './CardVerifyStatus';
 import ClientType from './ClientType';
 import Currency from './Currency';
 import FileStatus from './FileStatus';
 import FraudAction from './FraudAction';
 import FraudCheckStatus from './FraudCheckStatus';
+import FraudOperation from './FraudOperation';
 import FraudValueType from './FraudValueType';
 import LoyaltyType from './LoyaltyType';
 import MemberType from './MemberType';
@@ -40,6 +43,8 @@ import RefundType from './RefundType';
 import RemittanceReasonType from './RemittanceReasonType';
 import RemittanceType from './RemittanceType';
 import ReportFileType from './ReportFileType';
+import ReportPeriod from './ReportPeriod';
+import ReportType from './ReportType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
@@ -64,6 +69,7 @@ export = {
   Currency,
   FileStatus,
   FraudAction,
+  FraudOperation,
   FraudCheckStatus,
   FraudValueType,
   LoyaltyType,
@@ -98,6 +104,8 @@ export = {
   WebhookStatus,
   TokenizedCardType,
   RecordType,
+  ReportType,
+  ReportPeriod,
   BankAccountTrackingSource,
   PosStatus,
   PosIntegrator,
@@ -105,5 +113,7 @@ export = {
   PosUserType,
   PosOperationType,
   CardBrand,
+  CardVerificationAuthType,
+  CardVerifyStatus,
   ClientType
 };

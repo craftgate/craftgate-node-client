@@ -12,6 +12,7 @@ type UpdateProductRequest = {
   stock: number;
   currency: Currency;
   description: string;
+  multiPayment: boolean;
   enabledInstallments: number[];
   expiresAt: string;
 };

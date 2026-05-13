@@ -1,3 +1,5 @@
+import FraudCheckParameters from './dto/FraudCheckParameters';
+
 type ExplicitCardInfo = {
   cardNumber: string;
   expireYear: string;
@@ -10,6 +12,12 @@ type StoredCardInfo = {
   cardToken: string;
 };
 
-type RetrieveLoyaltiesRequest = ExplicitCardInfo | StoredCardInfo;
+type FraudCheckInfo = {
+  clientIp?: string;
+  conversationId?: string;
+  fraudParams?: FraudCheckParameters;
+};
+
+type RetrieveLoyaltiesRequest = ExplicitCardInfo | StoredCardInfo | FraudCheckInfo;
 
 export default RetrieveLoyaltiesRequest;
