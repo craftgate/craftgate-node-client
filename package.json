@@ -1,6 +1,6 @@
 {
   "name": "@craftgate/craftgate",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "description": "Craftgate API JavaScript Client",
   "main": "dist/index.js",
   "scripts": {
@@ -38,6 +38,6 @@
     "typescript": "4.4.4"
   },
   "dependencies": {
-    "axios": "0.30.2"
+    "axios": "0.31.0"
   }
 }

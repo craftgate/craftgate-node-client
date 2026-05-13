@@ -6,6 +6,7 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
+import CompleteBnplLimitInquiryRequest from '../request/CompleteBnplLimitInquiryRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
@@ -16,9 +17,12 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
+import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
+import InitCheckoutCardVerifyRequest from '../request/InitCheckoutCardVerifyRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
 import InitGarantiPayPaymentRequest from '../request/InitGarantiPayPaymentRequest';
+import InitMultiPaymentRequest from '../request/InitMultiPaymentRequest';
 import InitPosApmPaymentRequest from '../request/InitPosApmPaymentRequest';
 import InitThreeDSPaymentRequest from '../request/InitThreeDSPaymentRequest';
 import PostAuthPaymentRequest from '../request/PostAuthPaymentRequest';
@@ -32,8 +36,10 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
+import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import BnplPaymentVerifyResponse from '../response/BnplPaymentVerifyResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
@@ -42,8 +48,10 @@ import DepositPaymentResponse from '../response/DepositPaymentResponse';
 import FundTransferDepositPaymentResponse from '../response/FundTransferDepositPaymentResponse';
 import InitApmPaymentResponse from '../response/InitApmPaymentResponse';
 import InitBnplPaymentResponse from '../response/InitBnplPaymentResponse';
+import InitCheckoutCardVerifyResponse from '../response/InitCheckoutCardVerifyResponse';
 import InitCheckoutPaymentResponse from '../response/InitCheckoutPaymentResponse';
 import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResponse';
+import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
@@ -54,8 +62,10 @@ import PaymentTransactionApprovalListResponse from '../response/PaymentTransacti
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
 import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
+import RetrieveCheckoutCardVerifyResponse from '../response/RetrieveCheckoutCardVerifyResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
+import VerifyCardResponse from '../response/VerifyCardResponse';
 import WaitingPaymentRefundResponse from '../response/WaitingPaymentRefundResponse';
 
 import BaseAdapter from './BaseAdapter';
@@ -87,6 +97,14 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async initCheckoutPayment(request: InitCheckoutPaymentRequest): Promise<InitCheckoutPaymentResponse> {
     return this._client.post('/payment/v1/checkout-payments/init', request);
+  }
+
+  async initCheckoutCardVerify(request: InitCheckoutCardVerifyRequest): Promise<InitCheckoutCardVerifyResponse> {
+    return this._client.post('/payment/v1/checkout-card-verify/init', request);
+  }
+
+  async retrieveCheckoutCardVerify(token: string): Promise<RetrieveCheckoutCardVerifyResponse> {
+    return this._client.get(`/payment/v1/checkout-card-verify/${token}`);
   }
 
   async retrieveCheckoutPayment(token: string): Promise<PaymentResponse> {
@@ -189,6 +207,10 @@ export default class PaymentAdapter extends BaseAdapter {
     await this._client.post('/payment/v1/cards/delete', request);
   }
 
+  async verifyCard(request: VerifyCardRequest): Promise<VerifyCardResponse> {
+    return this._client.post('/payment/v1/cards/verify', request);
+  }
+
   async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
     return this._client.post('/payment/v1/payment-transactions/approve', request);
   }
@@ -225,8 +247,20 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
   }
 
+  async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/init`, request);
+  }
+
+  async bnplLimitInquiry(request: CompleteBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry`, request);
+  }
+
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
+  }
+
+  async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
+    return this._client.post(`/payment/v1/multi-payments/init`, request);
   }
 
   async retrieveMultiPayment(token: string): Promise<MultiPaymentResponse> {

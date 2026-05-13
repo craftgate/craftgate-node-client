@@ -8,6 +8,8 @@ import CardAssociation from './CardAssociation';
 import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
+import CardVerificationAuthType from './CardVerificationAuthType';
+import CardVerifyStatus from './CardVerifyStatus';
 import ClientType from './ClientType';
 import Currency from './Currency';
 import FileStatus from './FileStatus';
@@ -111,5 +113,7 @@ export = {
   PosUserType,
   PosOperationType,
   CardBrand,
+  CardVerificationAuthType,
+  CardVerifyStatus,
   ClientType
 };
