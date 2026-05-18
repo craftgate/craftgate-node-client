@@ -8,6 +8,8 @@ import CardAssociation from './CardAssociation';
 import CardBrand from './CardBrand';
 import CardExpiryStatus from './CardExpiryStatus';
 import CardType from './CardType';
+import CardVerificationAuthType from './CardVerificationAuthType';
+import CardVerifyStatus from './CardVerifyStatus';
 import ClientType from './ClientType';
 import Currency from './Currency';
 import FileStatus from './FileStatus';
@@ -35,14 +37,14 @@ import PosOperationType from './PosOperationType';
 import PosStatus from './PosStatus';
 import PosUserType from './PosUserType';
 import RecordType from './RecordType';
-import ReportType from './ReportType';
-import ReportPeriod from './ReportPeriod';
 import RefundDestinationType from './RefundDestinationType';
 import RefundStatus from './RefundStatus';
 import RefundType from './RefundType';
 import RemittanceReasonType from './RemittanceReasonType';
 import RemittanceType from './RemittanceType';
 import ReportFileType from './ReportFileType';
+import ReportPeriod from './ReportPeriod';
+import ReportType from './ReportType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
@@ -111,5 +113,7 @@ export = {
   PosUserType,
   PosOperationType,
   CardBrand,
+  CardVerificationAuthType,
+  CardVerifyStatus,
   ClientType
 };

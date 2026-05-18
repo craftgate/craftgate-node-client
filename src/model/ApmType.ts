@@ -32,7 +32,8 @@ enum ApmType {
   PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
   Papel = 'PAPEL',
-  Paymob = 'PAYMOB'
+  Paymob = 'PAYMOB',
+  Zip = 'ZIP'
 }
 
 export default ApmType;

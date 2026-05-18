@@ -1,12 +1,13 @@
-import CreateReportRequest from '../request/CreateReportRequest';
 import {ClientCreationOptions} from '../lib/HttpClient';
 
+import CreateReportRequest from '../request/CreateReportRequest';
 import RetrieveDailyPaymentReportRequest from '../request/RetrieveDailyPaymentReportRequest';
 import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
+import RetrieveReportRequest from '../request/RetrieveReportRequest';
+
+import ReportDemandResponse from '../response/ReportDemandResponse';
 
 import BaseAdapter from './BaseAdapter';
-import ReportDemandResponse from '../response/ReportDemandResponse';
-import RetrieveReportRequest from '../request/RetrieveReportRequest';
 
 export default class FileReportingAdapter extends BaseAdapter {
   constructor(options: ClientCreationOptions) {

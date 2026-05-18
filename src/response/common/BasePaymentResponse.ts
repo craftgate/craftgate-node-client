@@ -56,6 +56,7 @@ type BasePaymentResponse = {
   fraudId?: number;
   fraudAction?: FraudAction;
   fraudScore?: number;
+  fraudRuleId?: number;
   pos: MerchantPos;
   loyalty?: Loyalty;
   paymentError: PaymentError;
