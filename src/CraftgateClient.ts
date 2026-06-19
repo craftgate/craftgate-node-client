@@ -7,6 +7,7 @@ import HookAdapter from './adapter/HookAdapter';
 import InstallmentAdapter from './adapter/InstallmentAdapter';
 import JuzdanPaymentAdapter from './adapter/JuzdanPaymentAdapter';
 import MasterpassPaymentAdapter from './adapter/MasterpassPaymentAdapter';
+import MealVoucherCardTokenizationAdapter from './adapter/MealVoucherCardTokenizationAdapter';
 import MerchantAdapter from './adapter/MerchantAdapter';
 import MerchantApmAdapter from './adapter/MerchantApmAdapter';
 import OnboardingAdapter from './adapter/OnboardingAdapter';
@@ -36,6 +37,7 @@ export default class CraftgateAdapter extends BaseAdapter {
   private _merchantApmAdapter: MerchantApmAdapter;
   private _juzdanPaymentAdapter: JuzdanPaymentAdapter;
   private _bkmExpressPaymentAdapter: BkmExpressPaymentAdapter;
+  private _mealVoucherCardTokenizationAdapter: MealVoucherCardTokenizationAdapter;
 
   constructor(options: ClientCreationOptions) {
     super(options);
@@ -56,6 +58,7 @@ export default class CraftgateAdapter extends BaseAdapter {
     this._merchantApmAdapter = new MerchantApmAdapter(options);
     this._juzdanPaymentAdapter = new JuzdanPaymentAdapter(options);
     this._bkmExpressPaymentAdapter = new BkmExpressPaymentAdapter(options);
+    this._mealVoucherCardTokenizationAdapter = new MealVoucherCardTokenizationAdapter(options);
   }
 
   installment(): InstallmentAdapter {
@@ -124,5 +127,9 @@ export default class CraftgateAdapter extends BaseAdapter {
 
   bkmExpress(): BkmExpressPaymentAdapter {
     return this._bkmExpressPaymentAdapter;
+  }
+
+  mealVoucherCardTokenization(): MealVoucherCardTokenizationAdapter {
+    return this._mealVoucherCardTokenizationAdapter;
   }
 }

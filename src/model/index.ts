@@ -1,4 +1,5 @@
 import AccountOwner from './AccountOwner';
+import ApmAdditionalAction from './ApmAdditionalAction';
 import ApmType from './ApmType';
 import ApprovalStatus from './ApprovalStatus';
 import BankAccountTrackingSource from './BankAccountTrackingSource';
@@ -59,6 +60,7 @@ import WebhookStatus from './WebhookStatus';
 
 export = {
   AccountOwner,
+  ApmAdditionalAction,
   ApmType,
   ApprovalStatus,
   BounceStatus,
