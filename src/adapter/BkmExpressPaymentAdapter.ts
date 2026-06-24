@@ -22,10 +22,6 @@ export default class BkmExpressPaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bkm-express/complete`, request);
   }
 
-  async retrievePayment(ticketId: string): Promise<ReportingPaymentResponse> {
-    return this._client.get(`/payment/v1/bkm-express/payments/${ticketId}`);
-  }
-
   async retrievePaymentByToken(token: string): Promise<ReportingPaymentResponse> {
     return this._client.get(`/payment/v1/bkm-express/${token}`);
   }
