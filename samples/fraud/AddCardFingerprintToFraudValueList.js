@@ -9,12 +9,12 @@ const craftgate = new Craftgate.Client({
 
 //request
 const request = {
-  listName: 'cardList',
-  type: Craftgate.Model.FraudValueType.Card,
-  label: "John Doe's Card",
-  paymentId: 11675
+  label: "label",
+  durationInSeconds: 60,
+  operationId: "operationId",
+  operation: Craftgate.Model.FraudOperation.Payment
 };
 
-craftgate.fraud().addValueToValueList(request)
+craftgate.fraud().addCardFingerprint(request, "listName")
   .then(() => console.info('Value added to fraud value list'))
   .catch(err => console.error('Failed to add value to fraud value list', err));
