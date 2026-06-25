@@ -6,6 +6,7 @@ import PaymentPhase from '../model/PaymentPhase';
 import CustomInstallment from './dto/CustomInstallment';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
+import RoutingOptions from './dto/RoutingOptions';
 
 type InitCheckoutPaymentRequest = {
   price: number;
@@ -26,16 +27,19 @@ type InitCheckoutPaymentRequest = {
   clientIp?: string;
   enabledInstallments?: number[];
   alwaysStoreCardAfterPayment?: boolean;
+  allowDeleteStoredCard?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
   depositPayments?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
+  useTopRedirection?: boolean;
   returnBackUrl?: string;
   ttl?: number;
   customInstallments?: CustomInstallment[];
   items?: PaymentItem[];
+  routingOptions?: RoutingOptions;
   fraudParams?: FraudCheckParameters;
   additionalParams?: Record<string, unknown>;
   cardBrandInstallments?: Map<string, CustomInstallment[]>;

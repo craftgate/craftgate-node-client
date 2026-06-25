@@ -33,7 +33,8 @@ enum ApmType {
   IWallet = 'IWALLET',
   Papel = 'PAPEL',
   Paymob = 'PAYMOB',
-  Albaraka = 'ALBARAKA'
+  Albaraka = 'ALBARAKA',
+  Zip = 'ZIP'
 }
 
 export default ApmType;
