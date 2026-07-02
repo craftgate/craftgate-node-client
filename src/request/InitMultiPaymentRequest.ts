@@ -1,7 +1,6 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 import PaymentMethod from '../model/PaymentMethod';
-import PaymentSource from '../model/PaymentSource';
 
 import PaymentItem from './dto/PaymentItem';
 
@@ -10,7 +9,6 @@ type InitMultiPaymentRequest = {
   paidPrice: number;
   currency: Currency;
   paymentGroup: PaymentGroup;
-  paymentSource?: PaymentSource;
   conversationId?: string;
   externalId?: string;
   callbackUrl: string;
