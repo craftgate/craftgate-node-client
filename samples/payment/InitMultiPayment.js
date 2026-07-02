@@ -14,7 +14,6 @@ const request = {
     conversationId: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
     externalId: '123d1297-839e-4bd6-a13b-4be31a6e12b8',
     paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
-    paymentPhase: Craftgate.Model.PaymentPhase.Auth,
     items: [
         {
             name: 'Item 1',
