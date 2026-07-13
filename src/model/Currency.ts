@@ -16,7 +16,8 @@ enum Currency {
   RUB = 'RUB',
   JPY = 'JPY',
   EGP = 'EGP',
-  MXN = 'MXN'
+  MXN = 'MXN',
+  RON = 'RON'
 }
 
 export default Currency;

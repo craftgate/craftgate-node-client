@@ -30,6 +30,7 @@ import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionMarkAsRefundedRequest from '../request/RefundPaymentTransactionMarkAsRefundedRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
+import RetrieveCardFromIvrRequest from '../request/RetrieveCardFromIvrRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
@@ -55,6 +56,7 @@ import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentRespons
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
+import IVRCardTokenizationResponse from '../response/IVRCardTokenizationResponse';
 import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -269,6 +271,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveProviderCards(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
     return this._client.get('/payment/v1/cards/provider-card-mappings', request);
+  }
+
+  async retrieveCardFromIvr(request: RetrieveCardFromIvrRequest): Promise<IVRCardTokenizationResponse> {
+    return this._client.get('/payment/v1/ivr-cards', request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
