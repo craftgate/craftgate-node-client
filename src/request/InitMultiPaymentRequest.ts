@@ -6,7 +6,6 @@ import PaymentItem from './dto/PaymentItem';
 
 type InitMultiPaymentRequest = {
   price: number;
-  paidPrice: number;
   currency: Currency;
   paymentGroup: PaymentGroup;
   conversationId?: string;
