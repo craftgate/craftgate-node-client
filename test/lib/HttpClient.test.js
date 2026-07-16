@@ -55,7 +55,7 @@ test('HttpClient::get() should not add an unnecessary body property to the reque
 
   mock.onGet('/foo')
     .reply(config => {
-      if (!config.hasOwnProperty('data') || typeof config.data === 'undefined') {
+      if (!Object.prototype.hasOwnProperty.call(config, 'data') || typeof config.data === 'undefined') {
         return [200, 'ok'];
       }
 
@@ -76,7 +76,7 @@ test('HttpClient::delete() should not add an unnecessary body property to the re
 
   mock.onDelete('/foo')
     .reply(config => {
-      if (!config.hasOwnProperty('data') || typeof config.data === 'undefined') {
+      if (!Object.prototype.hasOwnProperty.call(config, 'data') || typeof config.data === 'undefined') {
         return [200, 'ok'];
       }
 
@@ -97,9 +97,10 @@ test('HttpClient::get() should set the correct PKI headers for given params', as
 
   const mock = new MockAdapter(client._client);
 
-  mock.onGet('/foo', { params: { foo: 42 } })
+  mock.onGet('/foo')
     .reply(config => {
       const allHeadersOk = [
+        config.params && config.params.foo === 42,
         config.headers['x-api-key'] === 'dummy',
         config.headers['x-auth-version'] === '1',
         config.headers['x-rnd-key'] === 'foo',
@@ -131,9 +132,10 @@ test('HttpClient::delete() should set the correct PKI headers for given params',
 
   const mock = new MockAdapter(client._client);
 
-  mock.onDelete('/foo', { params: { foo: 42 } })
+  mock.onDelete('/foo')
     .reply(config => {
       const allHeadersOk = [
+        config.params && config.params.foo === 42,
         config.headers['x-api-key'] === 'dummy',
         config.headers['x-auth-version'] === '1',
         config.headers['x-rnd-key'] === 'foo',

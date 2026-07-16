@@ -38,7 +38,8 @@ enum PaymentProvider {
   Offline = 'OFFLINE',
   Setcard = 'SETCARD',
   BkmExpress = 'BKM_EXPRESS',
-  Papel = 'PAPEL'
+  Papel = 'PAPEL',
+  Albaraka = 'ALBARAKA'
 }
 
 export default PaymentProvider;

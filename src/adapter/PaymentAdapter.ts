@@ -6,6 +6,7 @@ import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransact
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
+import CompleteBnplLimitInquiryRequest from '../request/CompleteBnplLimitInquiryRequest';
 import CompletePosApmPaymentRequest from '../request/CompletePosApmPaymentRequest';
 import CompleteThreeDSPaymentRequest from '../request/CompleteThreeDSPaymentRequest';
 import CreateApmPaymentRequest from '../request/CreateApmPaymentRequest';
@@ -16,6 +17,7 @@ import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
+import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
 import InitBnplPaymentRequest from '../request/InitBnplPaymentRequest';
 import InitCheckoutCardVerifyRequest from '../request/InitCheckoutCardVerifyRequest';
 import InitCheckoutPaymentRequest from '../request/InitCheckoutPaymentRequest';
@@ -28,6 +30,7 @@ import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionMarkAsRefundedRequest from '../request/RefundPaymentTransactionMarkAsRefundedRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
+import RetrieveCardFromIvrRequest from '../request/RetrieveCardFromIvrRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
@@ -37,6 +40,7 @@ import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransaction
 import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
+import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import BnplPaymentVerifyResponse from '../response/BnplPaymentVerifyResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
@@ -52,6 +56,7 @@ import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentRespons
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
+import IVRCardTokenizationResponse from '../response/IVRCardTokenizationResponse';
 import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -244,6 +249,14 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
   }
 
+  async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry/init`, request);
+  }
+
+  async bnplLimitInquiry(request: CompleteBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry`, request);
+  }
+
   async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
     return this._client.get(`/payment/v1/instant-transfer-banks`);
   }
@@ -258,6 +271,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveProviderCards(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
     return this._client.get('/payment/v1/cards/provider-card-mappings', request);
+  }
+
+  async retrieveCardFromIvr(request: RetrieveCardFromIvrRequest): Promise<IVRCardTokenizationResponse> {
+    return this._client.get('/payment/v1/ivr-cards', request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {
