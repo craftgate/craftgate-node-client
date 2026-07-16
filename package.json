@@ -1,6 +1,6 @@
 {
   "name": "@craftgate/craftgate",
-  "version": "1.0.65",
+  "version": "1.0.68",
   "description": "Craftgate API JavaScript Client",
   "main": "dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "prepare": "husky install"
   },
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "16.10.9",
     "@typescript-eslint/eslint-plugin": "4.33.0",
@@ -38,6 +38,6 @@
     "typescript": "4.4.4"
   },
   "dependencies": {
-    "axios": "0.30.2"
+    "axios": "0.32.0"
   }
 }
