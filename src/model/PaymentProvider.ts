@@ -8,8 +8,9 @@ enum PaymentProvider {
   Sodexo = 'SODEXO',
   Edenred = 'EDENRED',
   Metropol = 'METROPOL',
+  Tokenflex = 'TOKENFLEX',
   Kaspi = 'KASPI',
-  InstantTransfer = 'INSTANTA_TRANSFER',
+  InstantTransfer = 'INSTANT_TRANSFER',
   Tompay = 'TOMPAY',
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
@@ -37,7 +38,8 @@ enum PaymentProvider {
   Offline = 'OFFLINE',
   Setcard = 'SETCARD',
   BkmExpress = 'BKM_EXPRESS',
-  Papel = 'PAPEL'
+  Papel = 'PAPEL',
+  Albaraka = 'ALBARAKA'
 }
 
 export default PaymentProvider;

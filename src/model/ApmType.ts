@@ -4,8 +4,10 @@ enum ApmType {
   Sodexo = 'SODEXO',
   SodexoGift = 'SODEXO_GIFT',
   Edenred = 'EDENRED',
-  Setcard = 'SETCARD',
   EdenredGift = 'EDENRED_GIFT',
+  Tokenflex = 'TOKENFLEX',
+  TokenflexGift = 'TOKENFLEX_GIFT',
+  Setcard = 'SETCARD',
   Metropol = 'METROPOL',
   PayPal = 'PAYPAL',
   Klarna = 'KLARNA',
@@ -33,6 +35,7 @@ enum ApmType {
   IWallet = 'IWALLET',
   Papel = 'PAPEL',
   Paymob = 'PAYMOB',
+  Albaraka = 'ALBARAKA',
   Zip = 'ZIP'
 }
 
