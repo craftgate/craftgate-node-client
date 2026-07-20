@@ -30,6 +30,7 @@ type InitMultiPaymentRequest = {
   ttl?: number;
   maximumSplitPaymentCount?: number;
   additionalParams?: Record<string, unknown>;
+  retry?: boolean;
 };
 
 export default InitMultiPaymentRequest;
