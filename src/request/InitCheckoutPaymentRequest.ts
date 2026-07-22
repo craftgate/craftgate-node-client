@@ -43,6 +43,7 @@ type InitCheckoutPaymentRequest = {
   fraudParams?: FraudCheckParameters;
   additionalParams?: Record<string, unknown>;
   cardBrandInstallments?: Map<string, CustomInstallment[]>;
+  retry?: boolean;
 };
 
 export default InitCheckoutPaymentRequest;
