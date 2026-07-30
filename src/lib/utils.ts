@@ -74,23 +74,29 @@ export function getEncodedStringValue(value: any): string {
   return encodeURIComponent(value);
 }
 
-/** Reserved request property, sent as a header rather than in the payload. */
-export const IDEMPOTENCY_KEY = 'idempotencyKey';
+/**
+ * Reserved request properties, sent as headers rather than in the payload.
+ *
+ * New request-scoped options are added here and nowhere else.
+ */
+export const REQUEST_SCOPED_HEADERS: Record<string, string> = {
+  idempotencyKey: 'x-idempotency-key'
+};
 
 /**
- * Returns a shallow copy of the payload without the reserved key, so it stays out of the
- * request body. Only the top-level key is removed — nested user-supplied values such as
+ * Returns a shallow copy of the payload without the reserved properties, so they stay out of the
+ * request body. Only top-level properties are removed — nested user-supplied values such as
  * `additionalParams` are forwarded untouched.
  *
  * @param data the request payload
  */
-export function omitIdempotencyKey(data: any): any {
+export function omitRequestScopedOptions(data: any): any {
   if (data === null || typeof data !== 'object' || Array.isArray(data)) {
     return data;
   }
 
   const rest = {...data};
-  delete rest[IDEMPOTENCY_KEY];
+  Object.keys(REQUEST_SCOPED_HEADERS).forEach((key: string) => delete rest[key]);
   return rest;
 }
 
@@ -101,7 +107,7 @@ export function omitIdempotencyKey(data: any): any {
  */
 export function serializeParams(params: any): string {
   return Object.keys(params)
-    .filter((key: string) => key !== IDEMPOTENCY_KEY)
+    .filter((key: string) => !(key in REQUEST_SCOPED_HEADERS))
     .reduce((acc: Array<string>, key: string) => {
       const value: any = params[key];
       const encodedKey = encodeURIComponent(key);

@@ -1,4 +1,4 @@
-import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
 import CreateMerchantPosRequest from '../request/CreateMerchantPosRequest';
 import DeleteMerchantPosRequest from '../request/DeleteMerchantPosRequest';
@@ -27,11 +27,11 @@ export default class MerchantAdapter extends BaseAdapter {
   }
 
   async deleteMerchantPos(request: DeleteMerchantPosRequest): Promise<void> {
-    return this._client.delete(`/merchant/v1/merchant-poses/${request.merchantPosId}`, undefined, idempotencyKeyConfig(request));
+    return this._client.delete(`/merchant/v1/merchant-poses/${request.merchantPosId}`, undefined, requestScopedConfig(request));
   }
 
   async updateMerchantPosStatus(request: UpdateMerchantPosStatusRequest): Promise<void> {
-    return this._client.put(`/merchant/v1/merchant-poses/${request.merchantPosId}/status/${request.posStatus}`, undefined, idempotencyKeyConfig(request));
+    return this._client.put(`/merchant/v1/merchant-poses/${request.merchantPosId}/status/${request.posStatus}`, undefined, requestScopedConfig(request));
   }
 
   async updateMerchantPos(id: number, request: UpdateMerchantPosRequest): Promise<MerchantPosResponse> {

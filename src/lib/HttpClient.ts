@@ -2,7 +2,7 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {calculateSignature, generateRandomString, IDEMPOTENCY_KEY, omitIdempotencyKey, serializeParams} from './utils';
+import {calculateSignature, generateRandomString, omitRequestScopedOptions, REQUEST_SCOPED_HEADERS, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;
@@ -29,14 +29,29 @@ const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
 const CLIENT_VERSION_HEADER_NAME = 'x-client-version';
 const SIGNATURE_HEADER_NAME = 'x-signature';
 const LANGUAGE_HEADER_NAME = 'lang';
-const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
+/** Maps a request's reserved properties to the headers they are sent as. */
+function requestScopedHeadersOf(source: any): Record<string, string> {
+  const headers: Record<string, string> = {};
+  if (!source || typeof source !== 'object') {
+    return headers;
+  }
+
+  Object.keys(REQUEST_SCOPED_HEADERS).forEach((key: string) => {
+    if (source[key]) {
+      headers[REQUEST_SCOPED_HEADERS[key]] = source[key];
+    }
+  });
+  return headers;
+}
 
 /**
- * Carries an idempotency key as a header, for mutating endpoints whose parameters live in the
- * URL path. Passing it as a body or query param instead would change the signature.
+ * Request config carrying a request's reserved options as headers, for mutating endpoints whose
+ * parameters live in the URL path. Passing the request as a body or query param instead would
+ * change the signature.
  */
-export function idempotencyKeyConfig(request?: {idempotencyKey?: string}): AxiosRequestConfig {
-  return request && request.idempotencyKey ? {headers: {[IDEMPOTENCY_KEY_HEADER_NAME]: request.idempotencyKey}} : {};
+export function requestScopedConfig(request?: any): AxiosRequestConfig {
+  const headers = requestScopedHeadersOf(request);
+  return Object.keys(headers).length > 0 ? {headers} : {};
 }
 
 export class HttpClient {
@@ -91,10 +106,13 @@ export class HttpClient {
   private _injectHeaders(config: AxiosRequestConfig): AxiosRequestConfig {
     const randomStr: string = generateRandomString();
 
-    const idempotencyKey: string | undefined = (config.data && config.data[IDEMPOTENCY_KEY]) || (config.params && config.params[IDEMPOTENCY_KEY]);
-    if (idempotencyKey) {
-      config.headers[IDEMPOTENCY_KEY_HEADER_NAME] = idempotencyKey;
-    }
+    const scopedHeaders: Record<string, string> = {
+      ...requestScopedHeadersOf(config.params),
+      ...requestScopedHeadersOf(config.data)
+    };
+    Object.keys(scopedHeaders).forEach((name: string) => {
+      config.headers[name] = scopedHeaders[name];
+    });
 
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
@@ -105,7 +123,7 @@ export class HttpClient {
     }
     config.maxRedirects = 0;
 
-    const requestBody: string | null = config.data ? JSON.stringify(omitIdempotencyKey(config.data), null, 0) : null;
+    const requestBody: string | null = config.data ? JSON.stringify(omitRequestScopedOptions(config.data), null, 0) : null;
 
     if (!config.paramsSerializer) {
       config.paramsSerializer = {

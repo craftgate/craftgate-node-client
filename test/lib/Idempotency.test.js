@@ -7,7 +7,7 @@ const { serializeParams } = require('../../dist/lib/utils');
 const originalGenerateRandomString = utils.generateRandomString;
 
 const { HttpClient } = require('../../dist/lib/HttpClient');
-const { idempotencyKeyConfig } = require('../../dist/lib/HttpClient');
+const { requestScopedConfig } = require('../../dist/lib/HttpClient');
 
 const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
 
@@ -130,11 +130,11 @@ test('get() signs the same URL with and without a key', async t => {
   }
 });
 
-test('delete() with idempotencyKeyConfig sends the header and no body', async t => {
+test('delete() with requestScopedConfig sends the header and no body', async t => {
   const client = newClient();
   const seen = capture(client, 'Delete', '/foo');
 
-  await client.delete('/foo', undefined, idempotencyKeyConfig({ idempotencyKey: 'idempotency-key-1' }));
+  await client.delete('/foo', undefined, requestScopedConfig({ idempotencyKey: 'idempotency-key-1' }));
 
   t.is(seen.headers[IDEMPOTENCY_KEY_HEADER_NAME], 'idempotency-key-1');
   t.is(typeof seen.data, 'undefined');
@@ -146,7 +146,7 @@ test('delete() signature is unchanged by the key', async t => {
   try {
     const withKey = newClient();
     const seenWithKey = capture(withKey, 'Delete', '/foo');
-    await withKey.delete('/foo', undefined, idempotencyKeyConfig({ idempotencyKey: 'idempotency-key-1' }));
+    await withKey.delete('/foo', undefined, requestScopedConfig({ idempotencyKey: 'idempotency-key-1' }));
 
     const withoutKey = newClient();
     const seenWithoutKey = capture(withoutKey, 'Delete', '/foo');
@@ -158,10 +158,10 @@ test('delete() signature is unchanged by the key', async t => {
   }
 });
 
-test('idempotencyKeyConfig returns an empty config when no key is set', t => {
-  t.deepEqual(idempotencyKeyConfig(undefined), {});
-  t.deepEqual(idempotencyKeyConfig({}), {});
-  t.deepEqual(idempotencyKeyConfig({ idempotencyKey: undefined }), {});
+test('requestScopedConfig returns an empty config when no option is set', t => {
+  t.deepEqual(requestScopedConfig(undefined), {});
+  t.deepEqual(requestScopedConfig({}), {});
+  t.deepEqual(requestScopedConfig({ idempotencyKey: undefined }), {});
 });
 
 test('the caller request object is not mutated, so it can be reused to retry', async t => {

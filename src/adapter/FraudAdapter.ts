@@ -1,4 +1,4 @@
-import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 import FraudValueType from '../model/FraudValueType';
 
 import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
@@ -31,7 +31,7 @@ export default class FraudAdapter extends BaseAdapter {
 
   async updateFraudCheckStatus(request: UpdateFraudCheckStatusRequest): Promise<void> {
     // The id belongs in the path, so only the status is sent as the body.
-    await this._client.put(`/fraud/v1/fraud-checks/${request.id}/check-status`, {checkStatus: request.checkStatus, idempotencyKey: request.idempotencyKey});
+    await this._client.put(`/fraud/v1/fraud-checks/${request.id}/check-status`, {checkStatus: request.checkStatus}, requestScopedConfig(request));
   }
 
   async retrieveAllValueLists(): Promise<FraudAllValueListsResponse> {
@@ -50,7 +50,7 @@ export default class FraudAdapter extends BaseAdapter {
   }
 
   async deleteValueList(request: DeleteValueListRequest): Promise<void> {
-    await this._client.delete(`/fraud/v1/value-lists/${request.listName}`, undefined, idempotencyKeyConfig(request));
+    await this._client.delete(`/fraud/v1/value-lists/${request.listName}`, undefined, requestScopedConfig(request));
   }
 
   async addValueToValueList(request: FraudValueListRequest): Promise<void> {
@@ -62,6 +62,6 @@ export default class FraudAdapter extends BaseAdapter {
   }
 
   async removeValueFromValueList(request: RemoveValueFromValueListRequest): Promise<void> {
-    await this._client.delete(`/fraud/v1/value-lists/${request.listName}/values/${request.valueId}`, undefined, idempotencyKeyConfig(request));
+    await this._client.delete(`/fraud/v1/value-lists/${request.listName}/values/${request.valueId}`, undefined, requestScopedConfig(request));
   }
 }

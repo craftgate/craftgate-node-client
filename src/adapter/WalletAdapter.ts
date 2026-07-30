@@ -1,4 +1,4 @@
-import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
 import CancelWithdrawRequest from '../request/CancelWithdrawRequest';
 import CreateMemberWalletRequest from '../request/CreateMemberWalletRequest';
@@ -79,7 +79,7 @@ export default class WalletAdapter extends BaseAdapter {
   }
 
   async cancelWithdraw(request: CancelWithdrawRequest): Promise<WithdrawResponse> {
-    return this._client.post(`/wallet/v1/withdraws/${request.withdrawId}/cancel`, undefined, idempotencyKeyConfig(request));
+    return this._client.post(`/wallet/v1/withdraws/${request.withdrawId}/cancel`, undefined, requestScopedConfig(request));
   }
 
   async retrieveWithdraw(withdrawId: number): Promise<WithdrawResponse> {

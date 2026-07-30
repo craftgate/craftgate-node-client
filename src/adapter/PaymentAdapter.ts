@@ -1,4 +1,4 @@
-import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
@@ -117,7 +117,7 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async expireCheckoutPayment(request: ExpireCheckoutPaymentRequest): Promise<void> {
-    await this._client.delete(`/payment/v1/checkout-payments/${request.token}`, undefined, idempotencyKeyConfig(request));
+    await this._client.delete(`/payment/v1/checkout-payments/${request.token}`, undefined, requestScopedConfig(request));
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
@@ -245,11 +245,11 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async approveBnplPayment(request: ApproveBnplPaymentRequest): Promise<PaymentResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/approve`, undefined, idempotencyKeyConfig(request));
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/approve`, undefined, requestScopedConfig(request));
   }
 
   async verifyBnplPayment(request: VerifyBnplPaymentRequest): Promise<BnplPaymentVerifyResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/verify`, undefined, idempotencyKeyConfig(request));
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/verify`, undefined, requestScopedConfig(request));
   }
 
   async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {

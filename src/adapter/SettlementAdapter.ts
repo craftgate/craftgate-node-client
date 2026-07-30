@@ -1,4 +1,4 @@
-import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
 import CreateInstantWalletSettlementRequest from '../request/CreateInstantWalletSettlementRequest';
 import CreatePayoutAccountRequest from '../request/CreatePayoutAccountRequest';
@@ -30,7 +30,7 @@ export default class SettlementAdapter extends BaseAdapter {
   }
 
   async deletePayoutAccount(request: DeletePayoutAccountRequest): Promise<void> {
-    await this._client.delete(`/settlement/v1/payout-accounts/${request.id}`, undefined, idempotencyKeyConfig(request));
+    await this._client.delete(`/settlement/v1/payout-accounts/${request.id}`, undefined, requestScopedConfig(request));
   }
 
   async searchPayoutAccount(request: SearchPayoutAccountRequest): Promise<DataResponse<PayoutAccountResponse>> {
