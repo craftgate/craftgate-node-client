@@ -77,9 +77,21 @@ export function getEncodedStringValue(value: any): string {
 /** Reserved request property, sent as a header rather than in the payload. */
 export const IDEMPOTENCY_KEY = 'idempotencyKey';
 
-/** `JSON.stringify` replacer that keeps the reserved key out of the request body. */
-export function omitIdempotencyKey(key: string, value: any): any {
-  return key === IDEMPOTENCY_KEY ? undefined : value;
+/**
+ * Returns a shallow copy of the payload without the reserved key, so it stays out of the
+ * request body. Only the top-level key is removed — nested user-supplied values such as
+ * `additionalParams` are forwarded untouched.
+ *
+ * @param data the request payload
+ */
+export function omitIdempotencyKey(data: any): any {
+  if (data === null || typeof data !== 'object' || Array.isArray(data)) {
+    return data;
+  }
+
+  const rest = {...data};
+  delete rest[IDEMPOTENCY_KEY];
+  return rest;
 }
 
 /**

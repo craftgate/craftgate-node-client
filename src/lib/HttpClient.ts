@@ -105,7 +105,7 @@ export class HttpClient {
     }
     config.maxRedirects = 0;
 
-    const requestBody: string | null = config.data ? JSON.stringify(config.data, omitIdempotencyKey, 0) : null;
+    const requestBody: string | null = config.data ? JSON.stringify(omitIdempotencyKey(config.data), null, 0) : null;
 
     if (!config.paramsSerializer) {
       config.paramsSerializer = {

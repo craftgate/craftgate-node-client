@@ -62,6 +62,21 @@ test('post() strips the key from the serialized body', async t => {
   t.false(seen.data.includes('idempotency-key-1'));
 });
 
+test('post() strips only the top-level key, leaving nested caller data untouched', async t => {
+  const client = newClient();
+  const seen = capture(client, 'Post', '/foo');
+
+  await client.post('/foo', {
+    foo: 42,
+    idempotencyKey: 'idempotency-key-1',
+    additionalParams: { idempotencyKey: 'provider-side-key' }
+  });
+
+  t.is(seen.headers[IDEMPOTENCY_KEY_HEADER_NAME], 'idempotency-key-1');
+  t.is(seen.data, JSON.stringify({ foo: 42, additionalParams: { idempotencyKey: 'provider-side-key' } }));
+  t.false(seen.data.includes('idempotency-key-1'));
+});
+
 test('post() signs the same body with and without a key', async t => {
   utils.generateRandomString = () => 'foo';
   try {
