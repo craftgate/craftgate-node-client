@@ -2,12 +2,10 @@ const test = require('ava');
 const MockAdapter = require('axios-mock-adapter');
 
 const utils = require('../../dist/lib/utils');
-const { serializeParams } = require('../../dist/lib/utils');
 
 const originalGenerateRandomString = utils.generateRandomString;
 
-const { HttpClient } = require('../../dist/lib/HttpClient');
-const { requestScopedConfig } = require('../../dist/lib/HttpClient');
+const { HttpClient, requestScopedConfig } = require('../../dist/lib/HttpClient');
 
 const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
 
@@ -103,12 +101,12 @@ test('get() sends the key as a header and keeps it out of the query string', asy
   await client.get('/foo', { foo: 42, idempotencyKey: 'idempotency-key-1' });
 
   t.is(seen.headers[IDEMPOTENCY_KEY_HEADER_NAME], 'idempotency-key-1');
-  t.is(serializeParams({ foo: 42, idempotencyKey: 'idempotency-key-1' }), 'foo=42');
+  t.is(utils.serializeParams({ foo: 42, idempotencyKey: 'idempotency-key-1' }), 'foo=42');
 });
 
 test('serializeParams omits the reserved key', t => {
-  t.is(serializeParams({ idempotencyKey: 'idempotency-key-1' }), '');
-  t.is(serializeParams({ a: 1, idempotencyKey: 'idempotency-key-1', b: 2 }), 'a=1&b=2');
+  t.is(utils.serializeParams({ idempotencyKey: 'idempotency-key-1' }), '');
+  t.is(utils.serializeParams({ a: 1, idempotencyKey: 'idempotency-key-1', b: 2 }), 'a=1&b=2');
 });
 
 test('get() signs the same URL with and without a key', async t => {
