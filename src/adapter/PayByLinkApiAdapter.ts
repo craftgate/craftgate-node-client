@@ -1,6 +1,7 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
+import {ClientCreationOptions, idempotencyKeyConfig} from '../lib/HttpClient';
 
 import CreateProductRequest from '../request/CreateProductRequest';
+import DeleteProductRequest from '../request/DeleteProductRequest';
 import SearchProductsRequest from '../request/SearchProductsRequest';
 import UpdateProductRequest from '../request/UpdateProductRequest';
 
@@ -26,8 +27,8 @@ export default class PayByLinkApiAdapter extends BaseAdapter {
     return this._client.get(`/craftlink/v1/products/${productId}`);
   }
 
-  async deleteProduct(productId: number): Promise<void> {
-    await this._client.delete(`/craftlink/v1/products/${productId}`);
+  async deleteProduct(request: DeleteProductRequest): Promise<void> {
+    await this._client.delete(`/craftlink/v1/products/${request.id}`, undefined, idempotencyKeyConfig(request));
   }
 
   async searchProducts(request: SearchProductsRequest): Promise<DataResponse<ProductResponse>> {

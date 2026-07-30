@@ -4,7 +4,9 @@ import PaymentAuthenticationType from '../model/PaymentAuthenticationType';
 import PosIntegrator from '../model/PosIntegrator';
 import PosStatus from '../model/PosStatus';
 
-type CreateMerchantPosRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateMerchantPosRequest = BaseRequest & {
   status: PosStatus;
   name: string;
   clientId?: string;

@@ -2,7 +2,7 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {calculateSignature, generateRandomString, serializeParams} from './utils';
+import {calculateSignature, generateRandomString, IDEMPOTENCY_KEY, omitIdempotencyKey, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;
@@ -29,6 +29,15 @@ const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
 const CLIENT_VERSION_HEADER_NAME = 'x-client-version';
 const SIGNATURE_HEADER_NAME = 'x-signature';
 const LANGUAGE_HEADER_NAME = 'lang';
+const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
+
+/**
+ * Carries an idempotency key as a header, for mutating endpoints whose parameters live in the
+ * URL path. Passing it as a body or query param instead would change the signature.
+ */
+export function idempotencyKeyConfig(request?: {idempotencyKey?: string}): AxiosRequestConfig {
+  return request && request.idempotencyKey ? {headers: {[IDEMPOTENCY_KEY_HEADER_NAME]: request.idempotencyKey}} : {};
+}
 
 export class HttpClient {
   private readonly _client: AxiosInstance;
@@ -82,6 +91,11 @@ export class HttpClient {
   private _injectHeaders(config: AxiosRequestConfig): AxiosRequestConfig {
     const randomStr: string = generateRandomString();
 
+    const idempotencyKey: string | undefined = (config.data && config.data[IDEMPOTENCY_KEY]) || (config.params && config.params[IDEMPOTENCY_KEY]);
+    if (idempotencyKey) {
+      config.headers[IDEMPOTENCY_KEY_HEADER_NAME] = idempotencyKey;
+    }
+
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
@@ -91,7 +105,7 @@ export class HttpClient {
     }
     config.maxRedirects = 0;
 
-    const requestBody: string | null = config.data ? JSON.stringify(config.data, null, 0) : null;
+    const requestBody: string | null = config.data ? JSON.stringify(config.data, omitIdempotencyKey, 0) : null;
 
     if (!config.paramsSerializer) {
       config.paramsSerializer = {

@@ -1,4 +1,6 @@
-type ApprovePaymentTransactionsRequest = {
+import BaseRequest from './BaseRequest';
+
+type ApprovePaymentTransactionsRequest = BaseRequest & {
   paymentTransactionIds: number[];
   isTransactional?: boolean;
 };

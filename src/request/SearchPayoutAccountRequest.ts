@@ -1,7 +1,9 @@
 import AccountOwner from '../model/AccountOwner';
 import Currency from '../model/Currency';
 
-type SearchPayoutAccountRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchPayoutAccountRequest = BaseRequest & {
   page?: number;
   size?: number;
   currency?: Currency;

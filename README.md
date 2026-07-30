@@ -164,6 +164,38 @@ craftgate.payment().createPayment(request)
   });
 ```
 
+## Idempotency
+
+Mutating operations (`POST`/`PUT`/`DELETE`) accept an optional idempotency key. Set it on the request object and the client sends it as the `x-idempotency-key` header, so a request can be safely retried (e.g. after a timeout) without the operation being performed twice — the server returns the result of the first request when it sees a repeated key.
+
+Every request type includes `BaseRequest`, so the key is available on any request:
+
+```javascript
+const { randomUUID } = require('crypto');
+
+craftgate.payment().createPayment({
+  price: 100.0,
+  paidPrice: 100.0,
+  currency: Craftgate.Model.Currency.Turkish_Lira,
+  paymentGroup: Craftgate.Model.PaymentGroup.ListingOrSubscription,
+  idempotencyKey: randomUUID(),
+  // ... other fields
+});
+```
+
+Operations whose parameters live in the URL path take a request object as well, so they can carry a key too:
+
+```javascript
+craftgate.payment().expireCheckoutPayment({
+  token: '456d1297-908e-4bd6-a13b-4be31a6e47d5',
+  idempotencyKey: randomUUID()
+});
+```
+
+> Use a fresh key per distinct operation, and reuse the same key when retrying that operation.
+
+The key is sent as a header only — it never appears in the request body, the query string, or the request signature. Your request object is not modified, so you can pass the very same object again to retry.
+
 ## Development
 To contribute to the project, please see our guidelines at [CONTRIBUTING](./CONTRIBUTING.md). By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 

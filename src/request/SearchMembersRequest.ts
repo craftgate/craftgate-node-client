@@ -1,6 +1,8 @@
 import MemberType from '../model/MemberType';
 
-type SearchMembersRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchMembersRequest = BaseRequest & {
   isBuyer?: boolean;
   isSubMerchant?: boolean;
   name?: string;

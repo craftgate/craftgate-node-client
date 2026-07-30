@@ -74,6 +74,14 @@ export function getEncodedStringValue(value: any): string {
   return encodeURIComponent(value);
 }
 
+/** Reserved request property, sent as a header rather than in the payload. */
+export const IDEMPOTENCY_KEY = 'idempotencyKey';
+
+/** `JSON.stringify` replacer that keeps the reserved key out of the request body. */
+export function omitIdempotencyKey(key: string, value: any): any {
+  return key === IDEMPOTENCY_KEY ? undefined : value;
+}
+
 /**
  * Serializes an object as a query string, using unbracketed keys for array values.
  *
@@ -81,6 +89,7 @@ export function getEncodedStringValue(value: any): string {
  */
 export function serializeParams(params: any): string {
   return Object.keys(params)
+    .filter((key: string) => key !== IDEMPOTENCY_KEY)
     .reduce((acc: Array<string>, key: string) => {
       const value: any = params[key];
       const encodedKey = encodeURIComponent(key);

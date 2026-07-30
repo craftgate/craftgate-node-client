@@ -1,6 +1,8 @@
 import CardProvider from '../model/CardProvider';
 
-type RetrieveProviderCardRequest = {
+import BaseRequest from './BaseRequest';
+
+type RetrieveProviderCardRequest = BaseRequest & {
   providerCardToken: string;
   externalId: string;
   providerCardUserId: string;

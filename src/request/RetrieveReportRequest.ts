@@ -1,6 +1,8 @@
 import ReportFileType from '../model/ReportFileType';
 
-type RetrieveReportRequest = {
+import BaseRequest from './BaseRequest';
+
+type RetrieveReportRequest = BaseRequest & {
   fileType: ReportFileType;
 };
 

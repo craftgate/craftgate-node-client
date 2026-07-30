@@ -1,4 +1,6 @@
-type MasterpassPaymentThreeDSInitRequest = {
+import BaseRequest from './BaseRequest';
+
+type MasterpassPaymentThreeDSInitRequest = BaseRequest & {
   referenceId: string;
   callbackUrl: string;
 };

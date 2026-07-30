@@ -1,3 +1,4 @@
+import BaseRequest from './BaseRequest';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 
 type ExplicitCardInfo = {
@@ -18,6 +19,6 @@ type FraudCheckInfo = {
   fraudParams?: FraudCheckParameters;
 };
 
-type RetrieveLoyaltiesRequest = ExplicitCardInfo | StoredCardInfo | FraudCheckInfo;
+type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | FraudCheckInfo);
 
 export default RetrieveLoyaltiesRequest;

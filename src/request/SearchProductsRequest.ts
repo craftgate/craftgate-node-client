@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type SearchProductsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchProductsRequest = BaseRequest & {
   id: number;
   name?: string;
   orderId: string;

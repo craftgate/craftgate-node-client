@@ -1,4 +1,6 @@
-type RetrieveCardFromIvrRequest = {
+import BaseRequest from './BaseRequest';
+
+type RetrieveCardFromIvrRequest = BaseRequest & {
   callToken: string;
   cardUserKey: string;
 };

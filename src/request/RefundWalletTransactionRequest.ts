@@ -1,4 +1,6 @@
-type RefundWalletTransactionRequest = {
+import BaseRequest from './BaseRequest';
+
+type RefundWalletTransactionRequest = BaseRequest & {
   refundPrice: number;
 };
 

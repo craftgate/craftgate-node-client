@@ -1,4 +1,6 @@
-type DisapprovePaymentTransactionsRequest = {
+import BaseRequest from './BaseRequest';
+
+type DisapprovePaymentTransactionsRequest = BaseRequest & {
   paymentTransactionIds: number[];
   isTransactional?: boolean;
 };

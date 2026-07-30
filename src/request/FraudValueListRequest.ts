@@ -1,6 +1,8 @@
 import FraudValueType from '../model/FraudValueType';
 
-type FraudValueListRequest = {
+import BaseRequest from './BaseRequest';
+
+type FraudValueListRequest = BaseRequest & {
   listName: string;
   type: FraudValueType;
   label?: string;

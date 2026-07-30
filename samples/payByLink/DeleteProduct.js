@@ -6,6 +6,6 @@ const craftgate = new Craftgate.Client({
   baseUrl: "https://sandbox-api.craftgate.io"
 });
 
-craftgate.payByLink().deleteProduct(1)
+craftgate.payByLink().deleteProduct({id: 1})
   .then(result => console.info("Product successfully deleted"))
   .catch(err => console.error("Delete product failed", err));

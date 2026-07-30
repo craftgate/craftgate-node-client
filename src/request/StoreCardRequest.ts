@@ -1,6 +1,7 @@
+import BaseRequest from './BaseRequest';
 import {EncryptedCard} from './dto/EncryptedCard';
 
-type StoreCardRequest = {
+type StoreCardRequest = BaseRequest & {
   cardHolderName: string;
   cardNumber: string;
   expireYear: string;

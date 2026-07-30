@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type CreateWithdrawRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateWithdrawRequest = BaseRequest & {
   price: number;
   memberId: number;
   description: string;

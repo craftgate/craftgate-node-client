@@ -1,7 +1,9 @@
 import Currency from '../model/Currency';
 import Status from '../model/Status';
 
-type UpdateProductRequest = {
+import BaseRequest from './BaseRequest';
+
+type UpdateProductRequest = BaseRequest & {
   status: Status;
   name: string;
   channel: string;

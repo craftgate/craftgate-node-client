@@ -1,9 +1,10 @@
 import {Loyalty} from '../model/Loyalty';
 import MasterpassValidationType from '../model/MasterpassValidationType';
 
+import BaseRequest from './BaseRequest';
 import MasterpassCreatePayment from './dto/MasterpassCreatePayment';
 
-type MasterpassPaymentTokenGenerateRequest = {
+type MasterpassPaymentTokenGenerateRequest = BaseRequest & {
   msisdn: string;
   userId: string;
   binNumber: string;
