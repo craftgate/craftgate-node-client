@@ -29,7 +29,7 @@ const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
 const CLIENT_VERSION_HEADER_NAME = 'x-client-version';
 const SIGNATURE_HEADER_NAME = 'x-signature';
 const LANGUAGE_HEADER_NAME = 'lang';
-/** Maps a request's reserved properties to the headers they are sent as. */
+
 function requestScopedHeadersOf(source: any): Record<string, string> {
   const headers: Record<string, string> = {};
   if (!source || typeof source !== 'object') {
@@ -44,11 +44,6 @@ function requestScopedHeadersOf(source: any): Record<string, string> {
   return headers;
 }
 
-/**
- * Request config carrying a request's reserved options as headers, for mutating endpoints whose
- * parameters live in the URL path. Passing the request as a body or query param instead would
- * change the signature.
- */
 export function requestScopedConfig(request?: any): AxiosRequestConfig {
   const headers = requestScopedHeadersOf(request);
   return Object.keys(headers).length > 0 ? {headers} : {};

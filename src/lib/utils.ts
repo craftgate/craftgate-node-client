@@ -74,22 +74,10 @@ export function getEncodedStringValue(value: any): string {
   return encodeURIComponent(value);
 }
 
-/**
- * Reserved request properties, sent as headers rather than in the payload.
- *
- * New request-scoped options are added here and nowhere else.
- */
 export const REQUEST_SCOPED_HEADERS: Record<string, string> = {
   idempotencyKey: 'x-idempotency-key'
 };
 
-/**
- * Returns a shallow copy of the payload without the reserved properties, so they stay out of the
- * request body. Only top-level properties are removed — nested user-supplied values such as
- * `additionalParams` are forwarded untouched.
- *
- * @param data the request payload
- */
 export function omitRequestScopedOptions(data: any): any {
   if (data === null || typeof data !== 'object' || Array.isArray(data)) {
     return data;

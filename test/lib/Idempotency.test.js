@@ -16,7 +16,6 @@ const newClient = () =>
     baseUrl: 'http://localhost:8000'
   });
 
-/** Captures the outgoing axios config so headers, body and query can be asserted. */
 const capture = (client, method, path) => {
   const mock = new MockAdapter(client._client);
   const seen = {};
@@ -87,7 +86,6 @@ test('post() signs the same body with and without a key', async t => {
     await withoutKey.post('/foo', { foo: 42 });
 
     t.is(seenWithKey.headers['x-signature'], seenWithoutKey.headers['x-signature']);
-    // Pinned in HttpClient.test.js for the same body.
     t.is(seenWithKey.headers['x-signature'], '5PmVYuEmz1ueo49ta5QraJUrtUcDr0RKGwT+ZlmJqmM=');
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
@@ -121,7 +119,6 @@ test('get() signs the same URL with and without a key', async t => {
     await withoutKey.get('/foo', { foo: 42 });
 
     t.is(seenWithKey.headers['x-signature'], seenWithoutKey.headers['x-signature']);
-    // Pinned in HttpClient.test.js for the same query.
     t.is(seenWithKey.headers['x-signature'], 'tf0w4o41UCEreJKeQZRHDmJlZr1K2IxG67dMZE5+0gc=');
   } finally {
     utils.generateRandomString = originalGenerateRandomString;
@@ -169,7 +166,6 @@ test('the caller request object is not mutated, so it can be reused to retry', a
   const request = { foo: 42, idempotencyKey: 'idempotency-key-1' };
   await client.post('/foo', request);
 
-  // Nothing writes to the request object, so a retry still carries the key.
   t.is(request.idempotencyKey, 'idempotency-key-1');
   t.deepEqual(request, { foo: 42, idempotencyKey: 'idempotency-key-1' });
 });

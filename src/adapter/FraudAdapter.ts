@@ -30,7 +30,6 @@ export default class FraudAdapter extends BaseAdapter {
   }
 
   async updateFraudCheckStatus(request: UpdateFraudCheckStatusRequest): Promise<void> {
-    // The id belongs in the path, so only the status is sent as the body.
     await this._client.put(`/fraud/v1/fraud-checks/${request.id}/check-status`, {checkStatus: request.checkStatus}, requestScopedConfig(request));
   }
 
