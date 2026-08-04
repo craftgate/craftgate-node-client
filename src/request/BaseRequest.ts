@@ -1,5 +1,7 @@
+import HeaderOptions from './HeaderOptions';
+
 type BaseRequest = {
-  idempotencyKey?: string;
+  headerOptions?: HeaderOptions;
 };
 
 export default BaseRequest;

@@ -74,9 +74,7 @@ export function getEncodedStringValue(value: any): string {
   return encodeURIComponent(value);
 }
 
-export const REQUEST_SCOPED_HEADERS: Record<string, string> = {
-  idempotencyKey: 'x-idempotency-key'
-};
+export const HEADER_OPTIONS_KEY = 'headerOptions';
 
 export function omitRequestScopedOptions(data: any): any {
   if (data === null || typeof data !== 'object' || Array.isArray(data)) {
@@ -84,7 +82,7 @@ export function omitRequestScopedOptions(data: any): any {
   }
 
   const rest = {...data};
-  Object.keys(REQUEST_SCOPED_HEADERS).forEach((key: string) => delete rest[key]);
+  delete rest[HEADER_OPTIONS_KEY];
   return rest;
 }
 
@@ -95,7 +93,7 @@ export function omitRequestScopedOptions(data: any): any {
  */
 export function serializeParams(params: any): string {
   return Object.keys(params)
-    .filter((key: string) => !(key in REQUEST_SCOPED_HEADERS))
+    .filter((key: string) => key !== HEADER_OPTIONS_KEY)
     .reduce((acc: Array<string>, key: string) => {
       const value: any = params[key];
       const encodedKey = encodeURIComponent(key);

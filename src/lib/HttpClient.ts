@@ -2,7 +2,10 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {calculateSignature, generateRandomString, omitRequestScopedOptions, REQUEST_SCOPED_HEADERS, serializeParams} from './utils';
+import BaseRequest from '../request/BaseRequest';
+import HeaderOptions from '../request/HeaderOptions';
+
+import {calculateSignature, generateRandomString, HEADER_OPTIONS_KEY, omitRequestScopedOptions, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;
@@ -29,23 +32,25 @@ const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
 const CLIENT_VERSION_HEADER_NAME = 'x-client-version';
 const SIGNATURE_HEADER_NAME = 'x-signature';
 const LANGUAGE_HEADER_NAME = 'lang';
+const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
 
-function requestScopedHeadersOf(source: any): Record<string, string> {
-  const headers: Record<string, string> = {};
-  if (!source || typeof source !== 'object') {
-    return headers;
-  }
-
-  Object.keys(REQUEST_SCOPED_HEADERS).forEach((key: string) => {
-    if (source[key]) {
-      headers[REQUEST_SCOPED_HEADERS[key]] = source[key];
-    }
-  });
-  return headers;
+function headerOptionsOf(source: any): HeaderOptions {
+  return source && typeof source === 'object' ? source[HEADER_OPTIONS_KEY] : null;
 }
 
-export function requestScopedConfig(request?: any): AxiosRequestConfig {
-  const headers = requestScopedHeadersOf(request);
+function applyRequestScopedHeaders(headers: any, headerOptions: HeaderOptions): void {
+  if (!headerOptions) {
+    return;
+  }
+
+  if (headerOptions.idempotencyKey) {
+    headers[IDEMPOTENCY_KEY_HEADER_NAME] = headerOptions.idempotencyKey;
+  }
+}
+
+export function requestScopedConfig(request?: BaseRequest): AxiosRequestConfig {
+  const headers: Record<string, string> = {};
+  applyRequestScopedHeaders(headers, headerOptionsOf(request));
   return Object.keys(headers).length > 0 ? {headers} : {};
 }
 
@@ -101,13 +106,8 @@ export class HttpClient {
   private _injectHeaders(config: AxiosRequestConfig): AxiosRequestConfig {
     const randomStr: string = generateRandomString();
 
-    const scopedHeaders: Record<string, string> = {
-      ...requestScopedHeadersOf(config.params),
-      ...requestScopedHeadersOf(config.data)
-    };
-    Object.keys(scopedHeaders).forEach((name: string) => {
-      config.headers[name] = scopedHeaders[name];
-    });
+    applyRequestScopedHeaders(config.headers, headerOptionsOf(config.params));
+    applyRequestScopedHeaders(config.headers, headerOptionsOf(config.data));
 
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
