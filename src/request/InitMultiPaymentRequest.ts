@@ -2,9 +2,10 @@ import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 import PaymentMethod from '../model/PaymentMethod';
 
+import BaseRequest from './BaseRequest';
 import PaymentItem from './dto/PaymentItem';
 
-type InitMultiPaymentRequest = {
+type InitMultiPaymentRequest = BaseRequest & {
   price: number;
   currency: Currency;
   paymentGroup: PaymentGroup;

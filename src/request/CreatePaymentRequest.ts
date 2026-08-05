@@ -3,12 +3,13 @@ import Installment from '../model/Installment';
 import PaymentGroup from '../model/PaymentGroup';
 import PaymentPhase from '../model/PaymentPhase';
 
+import BaseRequest from './BaseRequest';
 import {Card} from './dto/Card';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
 import RoutingOptions from './dto/RoutingOptions';
 
-type CreatePaymentRequest = {
+type CreatePaymentRequest = BaseRequest & {
   price: number;
   paidPrice: number;
   walletPrice: number;

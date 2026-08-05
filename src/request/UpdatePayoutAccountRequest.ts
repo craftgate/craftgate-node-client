@@ -1,6 +1,8 @@
 import PayoutAccountType from '../model/PayoutAccountType';
 
-type UpdatePayoutAccountRequest = {
+import BaseRequest from './BaseRequest';
+
+type UpdatePayoutAccountRequest = BaseRequest & {
   type: PayoutAccountType;
   externalAccountId: string;
 };

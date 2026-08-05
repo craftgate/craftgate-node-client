@@ -1,6 +1,8 @@
 import FileStatus from '../model/FileStatus';
 
-type SearchPayoutRowsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchPayoutRowsRequest = BaseRequest & {
   page: number;
   size: number;
   fileStatus: FileStatus;

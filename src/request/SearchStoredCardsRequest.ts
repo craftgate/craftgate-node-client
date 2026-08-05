@@ -2,7 +2,9 @@ import CardAssociation from '../model/CardAssociation';
 import CardExpiryStatus from '../model/CardExpiryStatus';
 import CardType from '../model/CardType';
 
-type SearchStoredCardsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchStoredCardsRequest = BaseRequest & {
   cardAlias?: string;
   cardBrand?: string;
   cardType?: CardType;

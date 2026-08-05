@@ -1,6 +1,7 @@
+import BaseRequest from './BaseRequest';
 import MealVoucherCardTokenizationData from './dto/MealVoucherCardTokenizationData';
 
-type MealVoucherCardTokenizationRegenerateRequest = {
+type MealVoucherCardTokenizationRegenerateRequest = BaseRequest & {
   mealVoucherCardTokenizationData: MealVoucherCardTokenizationData;
 };
 

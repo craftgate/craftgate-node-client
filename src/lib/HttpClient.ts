@@ -2,7 +2,10 @@ import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import CraftgateError from '../CraftgateError';
 
-import {calculateSignature, generateRandomString, serializeParams} from './utils';
+import BaseRequest from '../request/BaseRequest';
+import HeaderOptions from '../request/HeaderOptions';
+
+import {calculateSignature, generateRandomString, HEADER_OPTIONS_KEY, omitRequestScopedOptions, serializeParams} from './utils';
 
 export type ClientOptions = {
   apiKey: string;
@@ -29,6 +32,27 @@ const AUTH_VERSION_HEADER_NAME = 'x-auth-version';
 const CLIENT_VERSION_HEADER_NAME = 'x-client-version';
 const SIGNATURE_HEADER_NAME = 'x-signature';
 const LANGUAGE_HEADER_NAME = 'lang';
+const IDEMPOTENCY_KEY_HEADER_NAME = 'x-idempotency-key';
+
+function headerOptionsOf(source: any): HeaderOptions {
+  return source && typeof source === 'object' ? source[HEADER_OPTIONS_KEY] : null;
+}
+
+function applyRequestScopedHeaders(headers: any, headerOptions: HeaderOptions): void {
+  if (!headerOptions) {
+    return;
+  }
+
+  if (headerOptions.idempotencyKey) {
+    headers[IDEMPOTENCY_KEY_HEADER_NAME] = headerOptions.idempotencyKey;
+  }
+}
+
+export function requestScopedConfig(request?: BaseRequest): AxiosRequestConfig {
+  const headers: Record<string, string> = {};
+  applyRequestScopedHeaders(headers, headerOptionsOf(request));
+  return Object.keys(headers).length > 0 ? {headers} : {};
+}
 
 export class HttpClient {
   private readonly _client: AxiosInstance;
@@ -82,6 +106,9 @@ export class HttpClient {
   private _injectHeaders(config: AxiosRequestConfig): AxiosRequestConfig {
     const randomStr: string = generateRandomString();
 
+    applyRequestScopedHeaders(config.headers, headerOptionsOf(config.params));
+    applyRequestScopedHeaders(config.headers, headerOptionsOf(config.data));
+
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
@@ -91,7 +118,7 @@ export class HttpClient {
     }
     config.maxRedirects = 0;
 
-    const requestBody: string | null = config.data ? JSON.stringify(config.data, null, 0) : null;
+    const requestBody: string | null = config.data ? JSON.stringify(omitRequestScopedOptions(config.data), null, 0) : null;
 
     if (!config.paramsSerializer) {
       config.paramsSerializer = {

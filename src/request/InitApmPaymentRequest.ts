@@ -2,9 +2,10 @@ import ApmType from '../model/ApmType';
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 
+import BaseRequest from './BaseRequest';
 import PaymentItem from './dto/PaymentItem';
 
-type InitApmPaymentRequest = {
+type InitApmPaymentRequest = BaseRequest & {
   apmType: ApmType;
   merchantApmId: number;
   price: number;

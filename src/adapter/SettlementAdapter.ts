@@ -1,7 +1,8 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
 import CreateInstantWalletSettlementRequest from '../request/CreateInstantWalletSettlementRequest';
 import CreatePayoutAccountRequest from '../request/CreatePayoutAccountRequest';
+import DeletePayoutAccountRequest from '../request/DeletePayoutAccountRequest';
 import SearchPayoutAccountRequest from '../request/SearchPayoutAccountRequest';
 import UpdatePayoutAccountRequest from '../request/UpdatePayoutAccountRequest';
 
@@ -28,8 +29,8 @@ export default class SettlementAdapter extends BaseAdapter {
     await this._client.put(`/settlement/v1/payout-accounts/${id}`, request);
   }
 
-  async deletePayoutAccount(id: number): Promise<void> {
-    await this._client.delete(`/settlement/v1/payout-accounts/${id}`);
+  async deletePayoutAccount(request: DeletePayoutAccountRequest): Promise<void> {
+    await this._client.delete(`/settlement/v1/payout-accounts/${request.id}`, undefined, requestScopedConfig(request));
   }
 
   async searchPayoutAccount(request: SearchPayoutAccountRequest): Promise<DataResponse<PayoutAccountResponse>> {

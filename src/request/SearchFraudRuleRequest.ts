@@ -1,7 +1,9 @@
 import FraudAction from '../model/FraudAction';
 import FraudOperation from '../model/FraudOperation';
 
-type SearchFraudRuleRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchFraudRuleRequest = BaseRequest & {
   name?: string;
   minCreatedDate?: Date;
   maxCreatedDate?: Date;

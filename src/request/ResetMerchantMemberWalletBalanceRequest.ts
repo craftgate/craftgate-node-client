@@ -1,4 +1,6 @@
-type ResetMerchantMemberWalletBalanceRequest = {
+import BaseRequest from './BaseRequest';
+
+type ResetMerchantMemberWalletBalanceRequest = BaseRequest & {
   walletAmount: number;
 };
 

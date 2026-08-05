@@ -1,7 +1,8 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
+import ApproveBnplPaymentRequest from '../request/ApproveBnplPaymentRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
@@ -15,6 +16,7 @@ import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransf
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
+import ExpireCheckoutPaymentRequest from '../request/ExpireCheckoutPaymentRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
@@ -37,6 +39,7 @@ import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import VerifyBnplPaymentRequest from '../request/VerifyBnplPaymentRequest';
 import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
@@ -113,8 +116,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/checkout-payments/${token}`);
   }
 
-  async expireCheckoutPayment(token: string): Promise<void> {
-    await this._client.delete(`/payment/v1/checkout-payments/${token}`);
+  async expireCheckoutPayment(request: ExpireCheckoutPaymentRequest): Promise<void> {
+    await this._client.delete(`/payment/v1/checkout-payments/${request.token}`, undefined, requestScopedConfig(request));
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
@@ -241,12 +244,12 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/init`, request);
   }
 
-  async approveBnplPayment(paymentId: number): Promise<PaymentResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+  async approveBnplPayment(request: ApproveBnplPaymentRequest): Promise<PaymentResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/approve`, undefined, requestScopedConfig(request));
   }
 
-  async verifyBnplPayment(paymentId: number): Promise<BnplPaymentVerifyResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
+  async verifyBnplPayment(request: VerifyBnplPaymentRequest): Promise<BnplPaymentVerifyResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/verify`, undefined, requestScopedConfig(request));
   }
 
   async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {

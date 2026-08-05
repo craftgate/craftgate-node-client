@@ -1,10 +1,11 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 
+import BaseRequest from './BaseRequest';
 import GarantiPayInstallment from './dto/GarantiPayInstallment';
 import PaymentItem from './dto/PaymentItem';
 
-type InitGarantiPayPaymentRequest = {
+type InitGarantiPayPaymentRequest = BaseRequest & {
   price: number;
   paidPrice: number;
   installments: GarantiPayInstallment[];

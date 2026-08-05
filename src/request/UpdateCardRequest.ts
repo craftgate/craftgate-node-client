@@ -1,4 +1,6 @@
-type UpdateCardRequest = {
+import BaseRequest from './BaseRequest';
+
+type UpdateCardRequest = BaseRequest & {
   cardUserKey: string;
   cardToken: string;
   expireYear: string;

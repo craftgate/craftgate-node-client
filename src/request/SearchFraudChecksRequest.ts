@@ -2,7 +2,9 @@ import FraudAction from '../model/FraudAction';
 import FraudCheckStatus from '../model/FraudCheckStatus';
 import PaymentStatus from '../model/PaymentStatus';
 
-type SearchFraudChecksRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchFraudChecksRequest = BaseRequest & {
   page?: number;
   size?: number;
   action?: FraudAction;

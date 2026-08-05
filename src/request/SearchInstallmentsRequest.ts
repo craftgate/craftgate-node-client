@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type SearchInstallmentsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchInstallmentsRequest = BaseRequest & {
   binNumber?: string;
   price: number;
   currency?: Currency;

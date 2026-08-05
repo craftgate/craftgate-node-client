@@ -74,6 +74,18 @@ export function getEncodedStringValue(value: any): string {
   return encodeURIComponent(value);
 }
 
+export const HEADER_OPTIONS_KEY = 'headerOptions';
+
+export function omitRequestScopedOptions(data: any): any {
+  if (data === null || typeof data !== 'object' || Array.isArray(data)) {
+    return data;
+  }
+
+  const rest = {...data};
+  delete rest[HEADER_OPTIONS_KEY];
+  return rest;
+}
+
 /**
  * Serializes an object as a query string, using unbracketed keys for array values.
  *
@@ -81,6 +93,7 @@ export function getEncodedStringValue(value: any): string {
  */
 export function serializeParams(params: any): string {
   return Object.keys(params)
+    .filter((key: string) => key !== HEADER_OPTIONS_KEY)
     .reduce((acc: Array<string>, key: string) => {
       const value: any = params[key];
       const encodedKey = encodeURIComponent(key);

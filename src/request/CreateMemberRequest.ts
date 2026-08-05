@@ -1,7 +1,9 @@
 import MemberType from '../model/MemberType';
 import SettlementEarningsDestination from '../model/SettlementEarningsDestination';
 
-type CreateMemberRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateMemberRequest = BaseRequest & {
   isBuyer?: boolean;
   isSubMerchant?: boolean;
   memberType?: MemberType;

@@ -1,4 +1,6 @@
-type CompletePosApmPaymentRequest = {
+import BaseRequest from './BaseRequest';
+
+type CompletePosApmPaymentRequest = BaseRequest & {
   paymentId: number;
   additionalParams?: Record<string, unknown>;
 };

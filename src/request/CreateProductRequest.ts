@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type CreateProductRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateProductRequest = BaseRequest & {
   name: string;
   channel: string;
   orderId: string;

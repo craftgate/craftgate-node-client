@@ -3,11 +3,12 @@ import PaymentGroup from '../model/PaymentGroup';
 import PaymentPhase from '../model/PaymentPhase';
 import PosApmPaymentProvider from '../model/PosApmPaymentProvider';
 
+import BaseRequest from './BaseRequest';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
 import PosApmInstallment from './dto/PosApmInstallment';
 
-type InitPosApmPaymentRequest = {
+type InitPosApmPaymentRequest = BaseRequest & {
   price: number;
   paidPrice: number;
   posAlias: string;

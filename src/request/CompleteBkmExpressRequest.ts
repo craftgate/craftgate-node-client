@@ -1,4 +1,6 @@
-type CompleteBkmExpressRequest = {
+import BaseRequest from './BaseRequest';
+
+type CompleteBkmExpressRequest = BaseRequest & {
   status: boolean;
   message: string;
   ticketId?: string;
