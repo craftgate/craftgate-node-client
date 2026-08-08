@@ -20,6 +20,7 @@ type InitCheckoutPaymentRequest = BaseRequest & {
   enabledPaymentMethods?: PaymentMethod[];
   masterpassGsmNumber?: string;
   masterpassUserId?: string;
+  masterpassIntegrationVersion?: number;
   conversationId?: string;
   externalId?: string;
   orderId?: string;
