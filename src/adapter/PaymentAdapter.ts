@@ -261,7 +261,7 @@ export default class PaymentAdapter extends BaseAdapter {
   }
 
   async retrieveActiveBanks(): Promise<CompayBanksResponse> {
-    return this._client.get(`/payment/v1/compay-banks`);
+    return this._client.get(`/payment/v1/compay/banks`);
   }
 
   async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
