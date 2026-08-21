@@ -13,7 +13,7 @@ enum PaymentMethod {
   Paypal = 'PAYPAL',
   Klarna = 'KLARNA',
   Afterpay = 'AFTERPAY',
-  InstantTransfer = 'INSTANT_TRANSFER',
+  Compay = 'COMPAY',
   Stripe = 'STRIPE',
   Multinet = 'MULTINET',
   MultinetGift = 'MULTINET_GIFT',
