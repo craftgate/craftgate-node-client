@@ -13,12 +13,16 @@ type StoredCardInfo = {
   cardToken: string;
 };
 
+type SecureFieldsCardInfo = {
+  secureFieldsToken: string;
+};
+
 type FraudCheckInfo = {
   clientIp?: string;
   conversationId?: string;
   fraudParams?: FraudCheckParameters;
 };
 
-type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | FraudCheckInfo);
+type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | SecureFieldsCardInfo | FraudCheckInfo);
 
 export default RetrieveLoyaltiesRequest;
