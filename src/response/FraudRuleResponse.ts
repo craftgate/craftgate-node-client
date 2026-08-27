@@ -9,6 +9,7 @@ type FraudRuleResponse = {
   action: FraudAction;
   conditions: string;
   operations: FraudOperation[];
+  isGlobal?: boolean;
 };
 
 export default FraudRuleResponse;
