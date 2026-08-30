@@ -16,7 +16,7 @@ export default class InstallmentAdapter extends BaseAdapter {
     return this._client.get('/installment/v1/installments', request);
   }
 
-  async retrieveBinNumber(binNumber: string): Promise<BinNumberResponse> {
-    return this._client.get(`/installment/v1/bins/${binNumber}`);
+  async retrieveBinNumber(binNumber: string, includeGlobalBins?: boolean): Promise<BinNumberResponse> {
+    return this._client.get(`/installment/v1/bins/${binNumber}`, includeGlobalBins ? {includeGlobalBins} : undefined);
   }
 }
