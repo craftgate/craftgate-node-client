@@ -18,6 +18,7 @@ type ProductResponse = {
   url: string;
   channel: string;
   multiPayment: boolean;
+  forceThreeDS: boolean;
   expiresAt: string;
   basketIdentifier: string;
 };
