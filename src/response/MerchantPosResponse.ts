@@ -24,7 +24,7 @@ type MerchantPosResponse = {
   terminalId: string;
   threedsPosnetId: string;
   threedsTerminalId: string;
-  threedsKey: string;
+  threedsKeyExists: boolean;
   threedsPath: string;
   enableForeignCard: boolean;
   enableInstallment: boolean;
