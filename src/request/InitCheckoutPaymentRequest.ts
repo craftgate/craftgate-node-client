@@ -23,6 +23,7 @@ type InitCheckoutPaymentRequest = BaseRequest & {
   conversationId?: string;
   externalId?: string;
   orderId?: string;
+  basketIdentifier?: string;
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;
