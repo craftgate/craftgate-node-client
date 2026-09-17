@@ -10,6 +10,7 @@ type VerifyCardRequest = BaseRequest & {
   verificationPrice: number;
   currency: Currency;
   clientIp?: string;
+  clientPort?: number;
   conversationId?: string;
   callbackUrl?: string;
 };

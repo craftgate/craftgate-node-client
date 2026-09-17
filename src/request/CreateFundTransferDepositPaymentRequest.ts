@@ -5,6 +5,7 @@ type CreateFundTransferDepositPaymentRequest = BaseRequest & {
   buyerMemberId: number;
   conversationId?: string;
   clientIp?: string;
+  clientPort?: number;
 };
 
 export default CreateFundTransferDepositPaymentRequest;
