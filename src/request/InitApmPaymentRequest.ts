@@ -21,6 +21,7 @@ type InitApmPaymentRequest = BaseRequest & {
   apmUserIdentity?: string;
   additionalParams?: Record<string, unknown>;
   clientIp?: string;
+  clientPort?: number;
   items: PaymentItem[];
 };
 

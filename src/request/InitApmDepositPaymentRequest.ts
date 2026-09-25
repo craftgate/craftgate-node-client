@@ -17,6 +17,7 @@ type InitApmDepositPaymentRequest = BaseRequest & {
   apmUserIdentity?: string;
   additionalParams?: Record<string, unknown>;
   clientIp?: string;
+  clientPort?: number;
 };
 
 export default InitApmDepositPaymentRequest;
