@@ -22,6 +22,7 @@ type CreatePaymentRequest = BaseRequest & {
   conversationId?: string;
   externalId?: string;
   clientIp?: string;
+  clientPort?: number;
   bankOrderId?: string;
   card?: Card;
   posAlias?: string;

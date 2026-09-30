@@ -1,6 +1,6 @@
-enum FraudValueType {
+enum FraudOperation {
   Payment = 'PAYMENT',
   Loyalty = 'LOYALTY'
 }
 
-export default FraudValueType;
+export default FraudOperation;

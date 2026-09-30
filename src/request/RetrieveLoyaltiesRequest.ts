@@ -15,6 +15,7 @@ type StoredCardInfo = {
 
 type FraudCheckInfo = {
   clientIp?: string;
+  clientPort?: number;
   conversationId?: string;
   fraudParams?: FraudCheckParameters;
 };
