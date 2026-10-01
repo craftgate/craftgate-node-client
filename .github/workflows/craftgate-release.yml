@@ -1,4 +1,4 @@
-name: Release Craftgate Node Client
+name: Release Craftgate Node.js Client
 
 on:
   release:
