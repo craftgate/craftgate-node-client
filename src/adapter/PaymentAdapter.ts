@@ -46,6 +46,7 @@ import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
 import BnplLimitInquiryResponse from '../response/BnplLimitInquiryResponse';
 import BnplPaymentOfferResponse from '../response/BnplPaymentOfferResponse';
 import BnplPaymentVerifyResponse from '../response/BnplPaymentVerifyResponse';
+import CompayBanksResponse from '../response/CompayBanksResponse';
 import CompleteApmPaymentResponse from '../response/CompleteApmPaymentResponse';
 import DataResponse from '../response/DataResponse';
 import DepositPaymentResponse from '../response/DepositPaymentResponse';
@@ -58,7 +59,6 @@ import InitGarantiPayPaymentResponse from '../response/InitGarantiPayPaymentResp
 import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentResponse';
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
-import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
 import IVRCardTokenizationResponse from '../response/IVRCardTokenizationResponse';
 import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
@@ -260,8 +260,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/limit-inquiry`, request);
   }
 
-  async retrieveActiveBanks(): Promise<InstantTransferBanksResponse> {
-    return this._client.get(`/payment/v1/instant-transfer-banks`);
+  async retrieveActiveBanks(): Promise<CompayBanksResponse> {
+    return this._client.get(`/payment/v1/compay/banks`);
   }
 
   async initMultiPayment(request: InitMultiPaymentRequest): Promise<InitMultiPaymentResponse> {
