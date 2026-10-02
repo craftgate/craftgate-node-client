@@ -3,6 +3,10 @@
   "version": "1.0.70",
   "description": "Craftgate API JavaScript Client",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craftgate/craftgate-node-client.git"
+  },
   "scripts": {
     "clean": "rimraf dist/ coverage/ .nyc_output",
     "coverage": "nyc --produce-source-map --eager --cache false --reporter=html --reporter=text npm test",

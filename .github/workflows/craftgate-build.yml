@@ -1,6 +1,9 @@
-name: Craftgate Node.js CI
+name: Build Craftgate Node.js Client
 
 on: [ push, pull_request ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -8,15 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Use Node.js version 12.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "12.x"
 
       - name: Install Dependencies
-        run: npm i
+        run: npm ci --ignore-scripts
 
       - name: Build the Library
         run: npm run build
@@ -29,14 +34,14 @@ jobs:
           .github/scripts/pack-artifacts.sh
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: packed-library
           path: ${{ env.ARTIFACT_FILENAME }}
           if-no-files-found: error
 
       - name: Upload Runtime Check Script
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: runtime-check-script
           path: .github/scripts/check-runtime.js
@@ -52,7 +57,7 @@ jobs:
 
     steps:
       - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -64,13 +69,13 @@ jobs:
           npm init -y
 
       - name: Download Packed Library
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: packed-library
           path: /home/runner/work/craftgate-node-client/check-runtime/
 
       - name: Download Runtime Check Script
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: runtime-check-script
           path: /home/runner/work/craftgate-node-client/check-runtime/
@@ -80,5 +85,5 @@ jobs:
         run: |
           ls -R
           FILENAME=$(ls *.tgz | tail -n 1)
-          npm i $FILENAME
+          npm i --ignore-scripts $FILENAME
           node check-runtime.js
