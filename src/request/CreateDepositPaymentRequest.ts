@@ -12,6 +12,7 @@ type CreateDepositPaymentRequest = BaseRequest & {
   callbackUrl?: string;
   posAlias?: string;
   clientIp?: string;
+  clientPort?: number;
   card: Card;
   routingOptions?: RoutingOptions;
 };
