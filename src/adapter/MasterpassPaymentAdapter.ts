@@ -1,6 +1,7 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
 import CheckMasterpassUserRequest from '../request/CheckMasterpassUserRequest';
+import MasterpassAccountTokenGenerateRequest from '../request/MasterpassAccountTokenGenerateRequest';
 import MasterpassPaymentCompleteRequest from '../request/MasterpassPaymentCompleteRequest';
 import MasterpassPaymentThreeDSCompleteRequest from '../request/MasterpassPaymentThreeDSCompleteRequest';
 import MasterpassPaymentThreeDSInitRequest from '../request/MasterpassPaymentThreeDSInitRequest';
@@ -8,6 +9,7 @@ import MasterpassPaymentTokenGenerateRequest from '../request/MasterpassPaymentT
 import MasterpassRetrieveLoyaltiesRequest from '../request/MasterpassRetrieveLoyaltiesRequest';
 
 import CheckMasterpassUserResponse from '../response/CheckMasterpassUserResponse';
+import MasterpassAccountTokenGenerateResponse from '../response/MasterpassAccountTokenGenerateResponse';
 import MasterpassPaymentThreeDSInitResponse from '../response/MasterpassPaymentThreeDSInitResponse';
 import MasterpassPaymentTokenGenerateResponse from '../response/MasterpassPaymentTokenGenerateResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -26,6 +28,10 @@ export default class MasterpassPaymentAdapter extends BaseAdapter {
 
   async generateMasterpassPaymentToken(request: MasterpassPaymentTokenGenerateRequest): Promise<MasterpassPaymentTokenGenerateResponse> {
     return this._client.post(`/payment/v2/masterpass-payments/generate-token`, request);
+  }
+
+  async generateMasterpassAccountToken(request: MasterpassAccountTokenGenerateRequest): Promise<MasterpassAccountTokenGenerateResponse> {
+    return this._client.post(`/payment/v2/masterpass-accounts/generate-token`, request);
   }
 
   async completeMasterpassPayment(request: MasterpassPaymentCompleteRequest): Promise<PaymentResponse> {
