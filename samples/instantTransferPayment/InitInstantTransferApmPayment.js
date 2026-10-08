@@ -7,7 +7,7 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  apmType: Craftgate.Model.ApmType.InstantTransfer,
+  apmType: Craftgate.Model.ApmType.Compay,
   price: 1.0,
   paidPrice: 1.0,
   currency: Craftgate.Model.Currency.TRY,
@@ -16,7 +16,7 @@ const request = {
   externalId: 'optional-externalId',
   callbackUrl: 'https://www.your-website.com/craftgate-apm-callback',
   apmUserIdentity: '5555555555',
-  additionalParams: {bankCode: '0'},
+  additionalParams: {bankCode: '0', shopUrl: 'your-website.com', receiptDescription: 'your-receipt-description'},
   items: [
     {
       name: 'Item 1',
