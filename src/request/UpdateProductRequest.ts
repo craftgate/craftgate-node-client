@@ -15,6 +15,7 @@ type UpdateProductRequest = BaseRequest & {
   currency: Currency;
   description: string;
   multiPayment: boolean;
+  forceThreeDS: boolean;
   enabledInstallments: number[];
   expiresAt: string;
   basketIdentifier: string;
