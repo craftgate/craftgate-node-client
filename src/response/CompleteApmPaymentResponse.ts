@@ -4,7 +4,7 @@ import PaymentError from './dto/PaymentError';
 
 type CompleteApmPaymentResponse = {
   paymentId: number;
-  status: PaymentStatus;
+  paymentStatus: PaymentStatus;
   paymentError: PaymentError;
 };
 

@@ -3,7 +3,7 @@ import PaymentStatus from '../model/PaymentStatus';
 
 type BnplLimitInquiryResponse = {
   paymentStatus: PaymentStatus;
-  apmAdditionalAction: ApmAdditionalAction;
+  additionalAction: ApmAdditionalAction;
   additionalData?: Map<string, any>;
   errorCode: string;
   errorMessage: string;
