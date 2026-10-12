@@ -17,6 +17,7 @@ type MasterpassCreatePayment = {
   conversationId?: string;
   externalId?: string;
   clientIp?: string;
+  clientPort?: number;
   bankOrderId?: string;
   posAlias?: string;
   items: PaymentItem[];
