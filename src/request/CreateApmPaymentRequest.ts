@@ -17,6 +17,7 @@ type CreateApmPaymentRequest = BaseRequest & {
   buyerMemberId?: number;
   apmOrderId?: string;
   clientIp?: string;
+  clientPort?: number;
   items: PaymentItem[];
 };
 
