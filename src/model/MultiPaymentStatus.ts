@@ -1,6 +1,7 @@
 enum MultiPaymentStatus {
   Created = 'CREATED',
-  Completed = 'COMPLETED'
+  Completed = 'COMPLETED',
+  Expired = 'EXPIRED'
 }
 
 export default MultiPaymentStatus;

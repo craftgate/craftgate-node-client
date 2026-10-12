@@ -4,7 +4,8 @@ enum PaymentSource {
   PayByLink = 'PAY_BY_LINK',
   Hepsipay = 'HEPSIPAY',
   Juzdan = 'JUZDAN',
-  Mono = 'MONO'
+  Mono = 'MONO',
+  Masterpass = 'MASTERPASS'
 }
 
 export default PaymentSource;

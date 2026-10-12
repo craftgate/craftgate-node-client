@@ -5,7 +5,6 @@ enum CardAssociation {
   Troy = 'TROY',
   Jcb = 'JCB',
   UnionPay = 'UNION_PAY',
-  Maestro = 'MAESTRO',
   Discover = 'DISCOVER',
   DinersClub = 'DINERS_CLUB'
 }

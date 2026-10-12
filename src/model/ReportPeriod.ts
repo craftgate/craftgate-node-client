@@ -1,4 +1,5 @@
 enum ReportPeriod {
-  INSTANT = 'INSTANT'
+  INSTANT = 'INSTANT',
+  DAILY = 'DAILY'
 }
 export default ReportPeriod;

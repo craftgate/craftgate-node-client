@@ -37,7 +37,19 @@ enum ApmType {
   Papel = 'PAPEL',
   Paymob = 'PAYMOB',
   Albaraka = 'ALBARAKA',
-  Zip = 'ZIP'
+  Zip = 'ZIP',
+  Alipay = 'ALIPAY',
+  ApplePay = 'APPLEPAY',
+  CecabankBizum = 'CECABANK_BIZUM',
+  CompayBnpl = 'COMPAY_BNPL',
+  GooglePay = 'GOOGLEPAY',
+  HepsipayFinance = 'HEPSIPAY_FINANCE',
+  HepsipayShoppingLoan = 'HEPSIPAY_SHOPPING_LOAN',
+  HepsipayWallet = 'HEPSIPAY_WALLET',
+  IsbankIdeal = 'ISBANK_IDEAL',
+  KaracaFinans = 'KARACA_FINANS',
+  Payguru = 'PAYGURU',
+  PaylandsBizum = 'PAYLANDS_BIZUM'
 }
 
 export default ApmType;

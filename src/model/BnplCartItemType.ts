@@ -23,7 +23,11 @@ enum BnplCartItemType {
   HomeLiving = 'HOME_LIVING',
   AutomobileMotorcycle = 'AUTOMOBILE_MOTORCYCLE',
   MobilePhoneRefurbished = 'MOBILE_PHONE_REFURBISHED',
-  Other = 'OTHER'
+  Other = 'OTHER',
+  Jewelry = 'JEWELRY',
+  MobilePhoneBelow5000Try = 'MOBILE_PHONE_BELOW_5000_TRY',
+  MobilePhoneOver5000Try = 'MOBILE_PHONE_OVER_5000_TRY',
+  TabletWithCampaign = 'TABLET_WITH_CAMPAIGN'
 }
 
 export default BnplCartItemType;

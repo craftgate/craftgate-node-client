@@ -33,13 +33,20 @@ enum PaymentProvider {
   Paymob = 'PAYMOB',
   Bizum = 'BIZUM',
   PaylandsMbWay = 'PAYLANDS_MB_WAY',
-  PaycellDCB = 'PAYCELL_DCB',
   IWallet = 'IWALLET',
   Offline = 'OFFLINE',
   Setcard = 'SETCARD',
   BkmExpress = 'BKM_EXPRESS',
   Papel = 'PAPEL',
-  Albaraka = 'ALBARAKA'
+  Albaraka = 'ALBARAKA',
+  CecabankBizum = 'CECABANK_BIZUM',
+  Compay = 'COMPAY',
+  IsbankIdeal = 'ISBANK_IDEAL',
+  KaracaFinans = 'KARACA_FINANS',
+  Payguru = 'PAYGURU',
+  PaylandsBizum = 'PAYLANDS_BIZUM',
+  YkbWorldPayShoppingLoan = 'YKB_WORLD_PAY_SHOPPING_LOAN',
+  Zip = 'ZIP'
 }
 
 export default PaymentProvider;
