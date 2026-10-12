@@ -16,6 +16,7 @@ type FraudCheck = {
   ruleId: number;
   ruleName: string;
   ruleConditions: string;
+  isGlobalRule?: boolean;
   paymentId: number;
   paymentStatus: PaymentStatus;
 };
