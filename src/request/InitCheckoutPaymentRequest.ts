@@ -20,9 +20,12 @@ type InitCheckoutPaymentRequest = BaseRequest & {
   enabledPaymentMethods?: PaymentMethod[];
   masterpassGsmNumber?: string;
   masterpassUserId?: string;
+  bexGsmNumber?: string;
+  bexUserId?: string;
   conversationId?: string;
   externalId?: string;
   orderId?: string;
+  basketIdentifier?: string;
   cardUserKey?: string;
   callbackUrl: string;
   clientIp?: string;
@@ -31,7 +34,7 @@ type InitCheckoutPaymentRequest = BaseRequest & {
   allowDeleteStoredCard?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
-  depositPayments?: boolean;
+  depositPayment?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;
