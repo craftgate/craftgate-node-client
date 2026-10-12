@@ -7,7 +7,7 @@ type InitBnplPaymentResponse = {
   paymentId: number;
   redirectUrl: string;
   paymentStatus: PaymentStatus;
-  apmAdditionalAction: ApmAdditionalAction;
+  additionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
   additionalData?: Map<string, any>;
 };

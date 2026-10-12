@@ -34,7 +34,7 @@ type InitCheckoutPaymentRequest = BaseRequest & {
   allowDeleteStoredCard?: boolean;
   allowOnlyStoredCards?: boolean;
   allowOnlyCreditCard?: boolean;
-  depositPayments?: boolean;
+  depositPayment?: boolean;
   allowInstallmentOnlyCommercialCards?: boolean;
   forceThreeDS?: boolean;
   forceAuthForNonCreditCards?: boolean;

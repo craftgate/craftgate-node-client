@@ -5,7 +5,7 @@ import PaymentError from './dto/PaymentError';
 
 type BnplPaymentVerifyResponse = {
   paymentStatus: PaymentStatus;
-  apmAdditionalAction: ApmAdditionalAction;
+  additionalAction: ApmAdditionalAction;
   paymentError: PaymentError;
 };
 
