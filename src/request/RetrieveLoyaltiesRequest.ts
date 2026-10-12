@@ -1,3 +1,4 @@
+import BaseRequest from './BaseRequest';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 
 type ExplicitCardInfo = {
@@ -14,10 +15,11 @@ type StoredCardInfo = {
 
 type FraudCheckInfo = {
   clientIp?: string;
+  clientPort?: number;
   conversationId?: string;
   fraudParams?: FraudCheckParameters;
 };
 
-type RetrieveLoyaltiesRequest = ExplicitCardInfo | StoredCardInfo | FraudCheckInfo;
+type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | FraudCheckInfo);
 
 export default RetrieveLoyaltiesRequest;

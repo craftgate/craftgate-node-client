@@ -1,4 +1,6 @@
-type MealVoucherCardTokenizationCompleteRequest = {
+import BaseRequest from './BaseRequest';
+
+type MealVoucherCardTokenizationCompleteRequest = BaseRequest & {
   validationCode?: string;
 };
 

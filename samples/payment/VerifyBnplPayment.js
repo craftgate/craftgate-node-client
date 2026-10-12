@@ -6,6 +6,6 @@ const craftgate = new Craftgate.Client({
     baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.payment().verifyBnplPayment(1)
+craftgate.payment().verifyBnplPayment({paymentId: 1})
     .then(results => console.info('Verify bnpl payment response ', results))
     .catch(err => console.error('Failed to verify bnpl payment', err));

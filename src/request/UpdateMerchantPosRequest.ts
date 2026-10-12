@@ -2,7 +2,9 @@ import CardAssociation from '../model/CardAssociation';
 import PaymentAuthenticationType from '../model/PaymentAuthenticationType';
 import UpdateMerchantPosUser from '../model/UpdateMerchantPosUser';
 
-type UpdateMerchantPosRequest = {
+import BaseRequest from './BaseRequest';
+
+type UpdateMerchantPosRequest = BaseRequest & {
   name: string;
   hostname: string;
   clientId?: string;

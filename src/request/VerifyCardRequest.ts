@@ -1,14 +1,16 @@
 import CardVerificationAuthType from '../model/CardVerificationAuthType';
 import Currency from '../model/Currency';
 
+import BaseRequest from './BaseRequest';
 import VerifyCard from './dto/VerifyCard';
 
-type VerifyCardRequest = {
+type VerifyCardRequest = BaseRequest & {
   card: VerifyCard;
   paymentAuthenticationType: CardVerificationAuthType;
   verificationPrice: number;
   currency: Currency;
   clientIp?: string;
+  clientPort?: number;
   conversationId?: string;
   callbackUrl?: string;
 };

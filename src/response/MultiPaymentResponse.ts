@@ -6,7 +6,7 @@ type MultiPaymentResponse = {
   token: string;
   conversationId: string;
   externalId: string;
-  paidPrice: number;
+  price: number;
   remainingAmount: number;
   tokenExpireDate: Date;
   paymentIds: number[];

@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type CreateMemberWalletRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateMemberWalletRequest = BaseRequest & {
   negativeAmountLimit: number;
   currency: Currency;
 };

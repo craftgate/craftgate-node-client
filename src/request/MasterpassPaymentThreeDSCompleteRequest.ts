@@ -1,4 +1,6 @@
-type MasterpassPaymentThreeDSCompleteRequest = {
+import BaseRequest from './BaseRequest';
+
+type MasterpassPaymentThreeDSCompleteRequest = BaseRequest & {
   paymentId: number;
 };
 

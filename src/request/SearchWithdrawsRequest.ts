@@ -1,7 +1,9 @@
 import Currency from '../model/Currency';
 import TransactionPayoutStatus from '../model/TransactionPayoutStatus';
 
-type SearchWithdrawsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchWithdrawsRequest = BaseRequest & {
   memberId?: number;
   currency?: Currency;
   payoutStatus?: TransactionPayoutStatus;

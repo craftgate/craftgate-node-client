@@ -1,4 +1,6 @@
-type RefundWaitingPaymentRequest = {
+import BaseRequest from './BaseRequest';
+
+type RefundWaitingPaymentRequest = BaseRequest & {
   paymentId: number;
 };
 

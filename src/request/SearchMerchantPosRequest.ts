@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type SearchMerchantPosRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchMerchantPosRequest = BaseRequest & {
   name?: string;
   alias?: string;
   currency?: Currency;

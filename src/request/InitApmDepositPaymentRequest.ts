@@ -1,7 +1,9 @@
 import ApmType from '../model/ApmType';
 import Currency from '../model/Currency';
 
-type InitApmDepositPaymentRequest = {
+import BaseRequest from './BaseRequest';
+
+type InitApmDepositPaymentRequest = BaseRequest & {
   apmType: ApmType;
   merchantApmId: number;
   price: number;
@@ -15,6 +17,7 @@ type InitApmDepositPaymentRequest = {
   apmUserIdentity?: string;
   additionalParams?: Record<string, unknown>;
   clientIp?: string;
+  clientPort?: number;
 };
 
 export default InitApmDepositPaymentRequest;

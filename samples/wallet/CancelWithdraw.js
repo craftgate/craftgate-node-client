@@ -7,6 +7,6 @@ const craftgate = new Craftgate.Client({
 });
 
 // change withdraw id below with valid withdraw id
-craftgate.wallet().cancelWithdraw(1)
+craftgate.wallet().cancelWithdraw({withdrawId: 1})
   .then(result => console.info("Withdraw cancelled", result))
   .catch(err => console.error("Failed to cancel withdraw", err));

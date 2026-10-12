@@ -1,6 +1,8 @@
 import FraudOperation from '../model/FraudOperation';
 
-type AddCardFingerprintFraudValueListRequest = {
+import BaseRequest from './BaseRequest';
+
+type AddCardFingerprintFraudValueListRequest = BaseRequest & {
   label?: string;
   durationInSeconds?: number;
   operationId?: string;

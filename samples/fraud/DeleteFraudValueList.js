@@ -7,6 +7,6 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.fraud().deleteValueList("ipList")
+craftgate.fraud().deleteValueList({listName: "ipList"})
   .then(() => console.info('Fraud value list deleted'))
   .catch(err => console.error('Failed to delete fraud value list', err));

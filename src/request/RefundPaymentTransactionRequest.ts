@@ -1,6 +1,8 @@
 import RefundDestinationType from '../model/RefundDestinationType';
 
-type RefundPaymentTransactionRequest = {
+import BaseRequest from './BaseRequest';
+
+type RefundPaymentTransactionRequest = BaseRequest & {
   paymentTransactionId: number;
   conversationId?: string;
   refundPrice?: number;

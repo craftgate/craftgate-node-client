@@ -1,7 +1,9 @@
 import Currency from '../model/Currency';
 import RemittanceReasonType from '../model/RemittanceReasonType';
 
-type CreateRemittanceRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateRemittanceRequest = BaseRequest & {
   memberId: string;
   price: number;
   currency: Currency;

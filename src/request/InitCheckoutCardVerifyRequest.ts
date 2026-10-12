@@ -1,7 +1,9 @@
 import CardVerificationAuthType from '../model/CardVerificationAuthType';
 import Currency from '../model/Currency';
 
-type InitCheckoutCardVerifyRequest = {
+import BaseRequest from './BaseRequest';
+
+type InitCheckoutCardVerifyRequest = BaseRequest & {
   verificationPrice: number;
   currency: Currency;
   conversationId?: string;

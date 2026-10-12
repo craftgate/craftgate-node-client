@@ -1,4 +1,6 @@
-type ApplePayMerchantSessionCreateRequest = {
+import BaseRequest from './BaseRequest';
+
+type ApplePayMerchantSessionCreateRequest = BaseRequest & {
   merchantIdentifier: string;
   displayName: string;
   initiative: string;

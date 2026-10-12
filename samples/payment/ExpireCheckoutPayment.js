@@ -7,6 +7,6 @@ const craftgate = new Craftgate.Client({
 });
 
 // change checkout payment token below with a valid one
-craftgate.payment().expireCheckoutPayment('456d1297-908e-4bd6-a13b-4be31a6e47d5')
+craftgate.payment().expireCheckoutPayment({token: '456d1297-908e-4bd6-a13b-4be31a6e47d5'})
   .then(() => console.info('Checkout payment token expired'))
   .catch(err => console.error('Failed to retrieve checkout payment', err));

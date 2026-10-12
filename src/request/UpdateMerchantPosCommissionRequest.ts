@@ -1,6 +1,8 @@
 import UpdateMerchantPosCommission from '../model/UpdateMerchantPosCommission';
 
-type UpdateMerchantPosCommissionRequest = {
+import BaseRequest from './BaseRequest';
+
+type UpdateMerchantPosCommissionRequest = BaseRequest & {
   commissions: UpdateMerchantPosCommission[];
 };
 

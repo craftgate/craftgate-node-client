@@ -1,9 +1,10 @@
 import Currency from '../model/Currency';
 
+import BaseRequest from './BaseRequest';
 import {Card} from './dto/Card';
 import RoutingOptions from './dto/RoutingOptions';
 
-type CreateDepositPaymentRequest = {
+type CreateDepositPaymentRequest = BaseRequest & {
   buyerMemberId: number;
   price: number;
   currency: Currency;
@@ -11,6 +12,7 @@ type CreateDepositPaymentRequest = {
   callbackUrl?: string;
   posAlias?: string;
   clientIp?: string;
+  clientPort?: number;
   card: Card;
   routingOptions?: RoutingOptions;
 };

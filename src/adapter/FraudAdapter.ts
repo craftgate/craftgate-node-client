@@ -1,11 +1,13 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
-import FraudCheckStatus from '../model/FraudCheckStatus';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 import FraudValueType from '../model/FraudValueType';
 
 import AddCardFingerprintFraudValueListRequest from '../request/AddFraudValueListRequest';
+import DeleteValueListRequest from '../request/DeleteValueListRequest';
 import FraudValueListRequest from '../request/FraudValueListRequest';
+import RemoveValueFromValueListRequest from '../request/RemoveValueFromValueListRequest';
 import SearchFraudChecksRequest from '../request/SearchFraudChecksRequest';
 import SearchFraudRuleRequest from '../request/SearchFraudRuleRequest';
+import UpdateFraudCheckStatusRequest from '../request/UpdateFraudCheckStatusRequest';
 
 import FraudAllValueListsResponse from '../response/FraudAllValueListsResponse';
 import FraudCheckListResponse from '../response/FraudCheckListResponse';
@@ -27,8 +29,8 @@ export default class FraudAdapter extends BaseAdapter {
     return this._client.get('/fraud/v1/rules', request);
   }
 
-  async updateFraudCheckStatus(id: number, fraudCheckStatus: FraudCheckStatus): Promise<void> {
-    await this._client.put(`/fraud/v1/fraud-checks/${id}/check-status`, {checkStatus: fraudCheckStatus});
+  async updateFraudCheckStatus(request: UpdateFraudCheckStatusRequest): Promise<void> {
+    await this._client.put(`/fraud/v1/fraud-checks/${request.id}/check-status`, {checkStatus: request.checkStatus}, requestScopedConfig(request));
   }
 
   async retrieveAllValueLists(): Promise<FraudAllValueListsResponse> {
@@ -46,8 +48,8 @@ export default class FraudAdapter extends BaseAdapter {
     });
   }
 
-  async deleteValueList(listName: string): Promise<void> {
-    await this._client.delete(`/fraud/v1/value-lists/${listName}`);
+  async deleteValueList(request: DeleteValueListRequest): Promise<void> {
+    await this._client.delete(`/fraud/v1/value-lists/${request.listName}`, undefined, requestScopedConfig(request));
   }
 
   async addValueToValueList(request: FraudValueListRequest): Promise<void> {
@@ -58,7 +60,7 @@ export default class FraudAdapter extends BaseAdapter {
     await this._client.post(`/fraud/v1/value-lists/${listName}/card-fingerprints`, request);
   }
 
-  async removeValueFromValueList(listName: string, valueId: string): Promise<void> {
-    await this._client.delete(`/fraud/v1/value-lists/${listName}/values/${valueId}`);
+  async removeValueFromValueList(request: RemoveValueFromValueListRequest): Promise<void> {
+    await this._client.delete(`/fraud/v1/value-lists/${request.listName}/values/${request.valueId}`, undefined, requestScopedConfig(request));
   }
 }

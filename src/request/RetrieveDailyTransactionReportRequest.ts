@@ -1,6 +1,8 @@
 import ReportFileType from '../model/ReportFileType';
 
-type RetrieveDailyTransactionReportRequest = {
+import BaseRequest from './BaseRequest';
+
+type RetrieveDailyTransactionReportRequest = BaseRequest & {
   reportDate: string;
   fileType: ReportFileType;
 };

@@ -1,5 +1,6 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
+import CancelWithdrawRequest from '../request/CancelWithdrawRequest';
 import CreateMemberWalletRequest from '../request/CreateMemberWalletRequest';
 import CreateRemittanceRequest from '../request/CreateRemittanceRequest';
 import CreateWithdrawRequest from '../request/CreateWithdrawRequest';
@@ -77,8 +78,8 @@ export default class WalletAdapter extends BaseAdapter {
     return this._client.post('/wallet/v1/withdraws', request);
   }
 
-  async cancelWithdraw(withdrawId: number): Promise<WithdrawResponse> {
-    return this._client.post(`/wallet/v1/withdraws/${withdrawId}/cancel`);
+  async cancelWithdraw(request: CancelWithdrawRequest): Promise<WithdrawResponse> {
+    return this._client.post(`/wallet/v1/withdraws/${request.withdrawId}/cancel`, undefined, requestScopedConfig(request));
   }
 
   async retrieveWithdraw(withdrawId: number): Promise<WithdrawResponse> {

@@ -1,6 +1,8 @@
 import SettlementType from '../model/SettlementType';
 
-type SearchPayoutCompletedTransactionsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchPayoutCompletedTransactionsRequest = BaseRequest & {
   settlementFileId?: number;
   settlementType?: SettlementType;
   endDate: Date;

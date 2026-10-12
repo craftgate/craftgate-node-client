@@ -1,6 +1,8 @@
 import ApmType from '../model/ApmType';
 
-type InitBnplLimitInquiryRequest = {
+import BaseRequest from './BaseRequest';
+
+type InitBnplLimitInquiryRequest = BaseRequest & {
   apmType: ApmType;
   merchantApmId: number;
   additionalParams: {

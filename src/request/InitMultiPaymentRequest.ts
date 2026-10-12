@@ -1,23 +1,20 @@
 import Currency from '../model/Currency';
 import PaymentGroup from '../model/PaymentGroup';
 import PaymentMethod from '../model/PaymentMethod';
-import PaymentPhase from '../model/PaymentPhase';
-import PaymentSource from '../model/PaymentSource';
 
+import BaseRequest from './BaseRequest';
 import PaymentItem from './dto/PaymentItem';
 
-type InitMultiPaymentRequest = {
+type InitMultiPaymentRequest = BaseRequest & {
   price: number;
-  paidPrice: number;
   currency: Currency;
   paymentGroup: PaymentGroup;
-  paymentSource?: PaymentSource;
   conversationId?: string;
   externalId?: string;
   callbackUrl: string;
-  paymentPhase?: PaymentPhase;
   paymentChannel?: string;
   enabledPaymentMethods?: PaymentMethod[];
+  enabledInstallments: number[];
   cardUserKey?: string;
   buyerMemberId?: number;
   allowOnlyCreditCard?: boolean;
@@ -34,6 +31,7 @@ type InitMultiPaymentRequest = {
   ttl?: number;
   maximumSplitPaymentCount?: number;
   additionalParams?: Record<string, unknown>;
+  retry?: boolean;
 };
 
 export default InitMultiPaymentRequest;

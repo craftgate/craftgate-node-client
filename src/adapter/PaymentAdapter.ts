@@ -1,7 +1,8 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
+import ApproveBnplPaymentRequest from '../request/ApproveBnplPaymentRequest';
 import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
@@ -15,6 +16,7 @@ import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransf
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
 import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
+import ExpireCheckoutPaymentRequest from '../request/ExpireCheckoutPaymentRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
 import InitBnplLimitInquiryRequest from '../request/InitBnplLimitInquiryRequest';
@@ -30,12 +32,14 @@ import RefundPaymentRequest from '../request/RefundPaymentRequest';
 import RefundPaymentTransactionMarkAsRefundedRequest from '../request/RefundPaymentTransactionMarkAsRefundedRequest';
 import RefundPaymentTransactionRequest from '../request/RefundPaymentTransactionRequest';
 import RefundWaitingPaymentRequest from '../request/RefundWaitingPaymentRequest';
+import RetrieveCardFromIvrRequest from '../request/RetrieveCardFromIvrRequest';
 import RetrieveLoyaltiesRequest from '../request/RetrieveLoyaltiesRequest';
 import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest';
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
 import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
+import VerifyBnplPaymentRequest from '../request/VerifyBnplPaymentRequest';
 import VerifyCardRequest from '../request/VerifyCardRequest';
 
 import ApmDepositPaymentResponse from '../response/ApmDepositPaymentResponse';
@@ -55,6 +59,7 @@ import InitMultiPaymentResponse from '../response/InitMultipaymentPaymentRespons
 import InitPosApmPaymentResponse from '../response/InitPosApmPaymentResponse';
 import InitThreeDSPaymentResponse from '../response/InitThreeDSPaymentResponse';
 import InstantTransferBanksResponse from '../response/InstantTransferBanksResponse';
+import IVRCardTokenizationResponse from '../response/IVRCardTokenizationResponse';
 import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
@@ -111,8 +116,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.get(`/payment/v1/checkout-payments/${token}`);
   }
 
-  async expireCheckoutPayment(token: string): Promise<void> {
-    await this._client.delete(`/payment/v1/checkout-payments/${token}`);
+  async expireCheckoutPayment(request: ExpireCheckoutPaymentRequest): Promise<void> {
+    await this._client.delete(`/payment/v1/checkout-payments/${request.token}`, undefined, requestScopedConfig(request));
   }
 
   async createDepositPayment(request: CreateDepositPaymentRequest): Promise<DepositPaymentResponse> {
@@ -239,12 +244,12 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post(`/payment/v1/bnpl-payments/init`, request);
   }
 
-  async approveBnplPayment(paymentId: number): Promise<PaymentResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/approve`);
+  async approveBnplPayment(request: ApproveBnplPaymentRequest): Promise<PaymentResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/approve`, undefined, requestScopedConfig(request));
   }
 
-  async verifyBnplPayment(paymentId: number): Promise<BnplPaymentVerifyResponse> {
-    return this._client.post(`/payment/v1/bnpl-payments/${paymentId}/verify`);
+  async verifyBnplPayment(request: VerifyBnplPaymentRequest): Promise<BnplPaymentVerifyResponse> {
+    return this._client.post(`/payment/v1/bnpl-payments/${request.paymentId}/verify`, undefined, requestScopedConfig(request));
   }
 
   async bnplLimitInquiryInit(request: InitBnplLimitInquiryRequest): Promise<BnplLimitInquiryResponse> {
@@ -269,6 +274,10 @@ export default class PaymentAdapter extends BaseAdapter {
 
   async retrieveProviderCards(request: RetrieveProviderCardRequest): Promise<DataResponse<StoredCardResponse>> {
     return this._client.get('/payment/v1/cards/provider-card-mappings', request);
+  }
+
+  async retrieveCardFromIvr(request: RetrieveCardFromIvrRequest): Promise<IVRCardTokenizationResponse> {
+    return this._client.get('/payment/v1/ivr-cards', request);
   }
 
   async is3DSecureCallbackVerified(threeDSecureCallbackKey: string, params: Map<string, string>): Promise<boolean> {

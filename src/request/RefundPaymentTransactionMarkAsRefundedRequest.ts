@@ -1,4 +1,6 @@
-type RefundPaymentTransactionMarkAsRefundedRequest = {
+import BaseRequest from './BaseRequest';
+
+type RefundPaymentTransactionMarkAsRefundedRequest = BaseRequest & {
   paymentTransactionId: number;
   conversationId?: string;
   refundPrice: number;

@@ -1,7 +1,9 @@
 import Currency from '../model/Currency';
 import RefundStatus from '../model/RefundStatus';
 
-type SearchPaymentRefundsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchPaymentRefundsRequest = BaseRequest & {
   page?: number;
   size?: number;
   id?: number;

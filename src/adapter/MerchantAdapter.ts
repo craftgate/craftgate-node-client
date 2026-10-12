@@ -1,10 +1,11 @@
-import {ClientCreationOptions} from '../lib/HttpClient';
-import PosStatus from '../model/PosStatus';
+import {ClientCreationOptions, requestScopedConfig} from '../lib/HttpClient';
 
 import CreateMerchantPosRequest from '../request/CreateMerchantPosRequest';
+import DeleteMerchantPosRequest from '../request/DeleteMerchantPosRequest';
 import SearchMerchantPosRequest from '../request/SearchMerchantPosRequest';
 import UpdateMerchantPosCommissionRequest from '../request/UpdateMerchantPosCommissionRequest';
 import UpdateMerchantPosRequest from '../request/UpdateMerchantPosRequest';
+import UpdateMerchantPosStatusRequest from '../request/UpdateMerchantPosStatusRequest';
 
 import DataResponse from '../response/DataResponse';
 import MerchantPosCommissionResponse from '../response/MerchantPosCommissionResponse';
@@ -25,12 +26,12 @@ export default class MerchantAdapter extends BaseAdapter {
     return this._client.get(`/merchant/v1/merchant-poses/${id}`);
   }
 
-  async deleteMerchantPos(id: number): Promise<void> {
-    return this._client.delete(`/merchant/v1/merchant-poses/${id}`);
+  async deleteMerchantPos(request: DeleteMerchantPosRequest): Promise<void> {
+    return this._client.delete(`/merchant/v1/merchant-poses/${request.merchantPosId}`, undefined, requestScopedConfig(request));
   }
 
-  async updateMerchantPosStatus(id: number, status: PosStatus): Promise<void> {
-    return this._client.put(`/merchant/v1/merchant-poses/${id}/status/${status}`);
+  async updateMerchantPosStatus(request: UpdateMerchantPosStatusRequest): Promise<void> {
+    return this._client.put(`/merchant/v1/merchant-poses/${request.merchantPosId}/status/${request.posStatus}`, undefined, requestScopedConfig(request));
   }
 
   async updateMerchantPos(id: number, request: UpdateMerchantPosRequest): Promise<MerchantPosResponse> {

@@ -1,6 +1,8 @@
 import Currency from '../model/Currency';
 
-type SearchBankAccountTrackingRecordsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchBankAccountTrackingRecordsRequest = BaseRequest & {
   senderName?: string;
   senderIban?: string;
   description?: string;

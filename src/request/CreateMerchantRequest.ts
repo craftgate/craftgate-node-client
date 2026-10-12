@@ -1,4 +1,6 @@
-type CreateMerchantRequest = {
+import BaseRequest from './BaseRequest';
+
+type CreateMerchantRequest = BaseRequest & {
   name: string;
   legalCompanyTitle: string;
   email: string;

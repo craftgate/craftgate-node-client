@@ -3,12 +3,13 @@ import PaymentGroup from '../model/PaymentGroup';
 import PaymentMethod from '../model/PaymentMethod';
 import PaymentPhase from '../model/PaymentPhase';
 
+import BaseRequest from './BaseRequest';
 import CustomInstallment from './dto/CustomInstallment';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 import PaymentItem from './dto/PaymentItem';
 import RoutingOptions from './dto/RoutingOptions';
 
-type InitCheckoutPaymentRequest = {
+type InitCheckoutPaymentRequest = BaseRequest & {
   price: number;
   paidPrice: number;
   buyerMemberId?: number;
@@ -19,6 +20,8 @@ type InitCheckoutPaymentRequest = {
   enabledPaymentMethods?: PaymentMethod[];
   masterpassGsmNumber?: string;
   masterpassUserId?: string;
+  bexGsmNumber?: string;
+  bexUserId?: string;
   conversationId?: string;
   externalId?: string;
   orderId?: string;
@@ -43,6 +46,7 @@ type InitCheckoutPaymentRequest = {
   fraudParams?: FraudCheckParameters;
   additionalParams?: Record<string, unknown>;
   cardBrandInstallments?: Map<string, CustomInstallment[]>;
+  retry?: boolean;
 };
 
 export default InitCheckoutPaymentRequest;

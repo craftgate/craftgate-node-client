@@ -6,6 +6,9 @@ const craftgate = new Craftgate.Client({
   baseUrl: 'https://sandbox-api.craftgate.io'
 });
 
-craftgate.merchant().updateMerchantPosStatus(11, Craftgate.Model.PosStatus.Passive)
+craftgate.merchant().updateMerchantPosStatus({
+  merchantPosId: 11,
+  posStatus: Craftgate.Model.PosStatus.Passive
+})
   .then(result => console.info("Merchant pos status updated"))
   .catch(err => console.error("Failed to update merchant pos status", err));

@@ -1,7 +1,9 @@
 import Currency from '../model/Currency';
 import Installment from '../model/Installment';
 
-type SearchPaymentsRequest = {
+import BaseRequest from './BaseRequest';
+
+type SearchPaymentsRequest = BaseRequest & {
   page?: number;
   size?: number;
   paymentId?: number;
