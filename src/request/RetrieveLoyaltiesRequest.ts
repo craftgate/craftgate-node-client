@@ -1,3 +1,5 @@
+import LoyaltyType from '../model/LoyaltyType';
+
 import BaseRequest from './BaseRequest';
 import FraudCheckParameters from './dto/FraudCheckParameters';
 
@@ -6,11 +8,17 @@ type ExplicitCardInfo = {
   expireYear: string;
   expireMonth: string;
   cvc: string;
+  installment?: number;
+  loyaltyType?: LoyaltyType;
 };
 
 type StoredCardInfo = {
   cardUserKey: string;
   cardToken: string;
+};
+
+type SecureFieldsCardInfo = {
+  secureFieldsToken: string;
 };
 
 type FraudCheckInfo = {
@@ -20,6 +28,6 @@ type FraudCheckInfo = {
   fraudParams?: FraudCheckParameters;
 };
 
-type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | FraudCheckInfo);
+type RetrieveLoyaltiesRequest = BaseRequest & (ExplicitCardInfo | StoredCardInfo | SecureFieldsCardInfo | FraudCheckInfo);
 
 export default RetrieveLoyaltiesRequest;
