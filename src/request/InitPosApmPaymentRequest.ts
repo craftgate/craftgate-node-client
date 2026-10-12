@@ -22,6 +22,7 @@ type InitPosApmPaymentRequest = BaseRequest & {
   buyerMemberId?: number;
   bankOrderId?: string;
   clientIp?: string;
+  clientPort?: number;
   items: PaymentItem[];
   additionalParams?: Record<string, unknown>;
   installments: PosApmInstallment[];

@@ -8,6 +8,7 @@ enum ApmType {
   Tokenflex = 'TOKENFLEX',
   TokenflexGift = 'TOKENFLEX_GIFT',
   Setcard = 'SETCARD',
+  SetcardGift = 'SETCARD_GIFT',
   Metropol = 'METROPOL',
   PayPal = 'PAYPAL',
   Klarna = 'KLARNA',
