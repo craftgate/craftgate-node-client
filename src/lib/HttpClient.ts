@@ -5,6 +5,7 @@ import CraftgateError from '../CraftgateError';
 import BaseRequest from '../request/BaseRequest';
 import HeaderOptions from '../request/HeaderOptions';
 
+import {CLIENT_VERSION} from './clientVersion';
 import {calculateSignature, generateRandomString, HEADER_OPTIONS_KEY, omitRequestScopedOptions, serializeParams} from './utils';
 
 export type ClientOptions = {
@@ -112,7 +113,7 @@ export class HttpClient {
     config.headers[API_KEY_HEADER_NAME] = this._options.apiKey;
     config.headers[RANDOM_HEADER_NAME] = randomStr;
     config.headers[AUTH_VERSION_HEADER_NAME] = '1';
-    config.headers[CLIENT_VERSION_HEADER_NAME] = 'craftgate-node-client:1.0.70';
+    config.headers[CLIENT_VERSION_HEADER_NAME] = `craftgate-node-client:${CLIENT_VERSION}`;
     if (this._options.language) {
       config.headers[LANGUAGE_HEADER_NAME] = this._options.language;
     }

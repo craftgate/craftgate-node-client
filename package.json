@@ -1,6 +1,6 @@
 {
   "name": "@craftgate/craftgate",
-  "version": "1.0.70",
+  "version": "0.0.0-development",
   "description": "Craftgate API JavaScript Client",
   "main": "dist/index.js",
   "repository": {

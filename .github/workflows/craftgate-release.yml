@@ -27,13 +27,7 @@ jobs:
       - name: Set Version From Release Tag
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: |
-          VERSION="${RELEASE_TAG#v}"
-          if ! printf '%s' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-            echo "::error::Release tag '$RELEASE_TAG' must be in the form X.Y.Z or vX.Y.Z"
-            exit 1
-          fi
-          npm version --allow-same-version --no-git-tag-version "$VERSION"
+        run: .github/scripts/set-version.sh "$RELEASE_TAG"
 
       - name: Build the Library
         run: npm run build
