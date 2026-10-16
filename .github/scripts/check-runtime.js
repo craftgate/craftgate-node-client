@@ -1,12 +1,7 @@
+var http = require('http');
 var process = require('process');
 
 var Craftgate = require('@craftgate/craftgate');
-
-var craftgate = new Craftgate.Client({
-  apiKey: 'sandbox-YEhueLgomBjqsnvBlWVVuFsVhlvJlMHE',
-  secretKey: 'sandbox-tBdcdKVGmGupzfaWcULcwDLMoglZZvTz',
-  baseUrl: 'https://sandbox-api.craftgate.io'
-});
 
 function assert(expr, message) {
   if (!expr) {
@@ -37,17 +32,6 @@ function isConstructor(fn) {
   return fn && (typeof fn === 'function') && fn.prototype && (fn.prototype.constructor === fn);
 }
 
-function testSearch(callback) {
-  craftgate.onboarding()
-    .searchMembers({isBuyer: false, isSubMerchant: true})
-    .then(function (results) {
-      callback(null, {success: true, totalSize: results.totalSize});
-    })
-    .catch(function (err) {
-      callback(err);
-    });
-}
-
 assert(!!Craftgate, 'Craftgate must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.Client must be a constructor');
 
@@ -59,3 +43,25 @@ assert(Object.keys(Craftgate.Adapter).length > 0, 'Craftgate.Adapter must not be
 
 assert(!!Craftgate.CraftgateError, 'Craftgate.CraftgateError must not be false');
 assert(isConstructor(Craftgate.Client), 'Craftgate.CraftgateError must be a constructor');
+
+// Sends a request to a local server and checks the x-client-version header against the version CI packed the library with.
+function testClientVersionHeader(callback) {
+  var expected = 'craftgate-node-client:' + process.env.EXPECTED_CLIENT_VERSION;
+  var server = http.createServer(function (req, res) {
+    var actual = req.headers['x-client-version'];
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({data: {}}));
+    server.close();
+    callback(actual === expected ? null : new Error('Expected ' + expected + ' but was ' + actual), actual);
+  });
+  server.listen(0, '127.0.0.1', function () {
+    var client = new Craftgate.Client({
+      apiKey: 'api-key',
+      secretKey: 'secret-key',
+      baseUrl: 'http://127.0.0.1:' + server.address().port
+    });
+    client.installment().retrieveBinNumber('525864').catch(function () {});
+  });
+}
+
+assertAsync(testClientVersionHeader, 'x-client-version header must carry the packed version');

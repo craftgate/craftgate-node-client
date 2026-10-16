@@ -23,6 +23,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci --ignore-scripts
 
+      # Release dry run: the library is built, tested and packed the way the release workflow does it,
+      # with a fake "v" prefixed tag; the runtime checks verify the version in the x-client-version header.
+      - name: Set Version From Fake Release Tag
+        run: .github/scripts/set-version.sh v9.9.9
+
       - name: Build the Library
         run: npm run build
 
@@ -52,8 +57,9 @@ jobs:
     needs: build
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [ 4.x, 6.x, 8.x, 10.x, 12.x, 14.x, 16.x, 18.x, 20.x, 22.x, 24.x ]
+        node-version: [ 4.x, 6.x, 8.x, 10.x, 12.x, 14.x, 16.x, 18.x, 20.x, 22.x, 24.x, 26.x ]
 
     steps:
       - name: Use Node.js version ${{ matrix.node-version }}
@@ -82,6 +88,8 @@ jobs:
 
       - name: Execute Runtime Checks
         working-directory: /home/runner/work/craftgate-node-client/check-runtime/
+        env:
+          EXPECTED_CLIENT_VERSION: 9.9.9
         run: |
           ls -R
           FILENAME=$(ls *.tgz | tail -n 1)

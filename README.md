@@ -32,7 +32,7 @@ const craftgate = new Craftgate.Client({
 ...
 ```
 
-By default the Craftgate client connects to the production API servers at `https://api.craftgate.io`. For testing purposes, please use the sandbox URL `https://sandbox-api.craftgate.io` using the .
+By default the Craftgate client connects to the production API servers at `https://api.craftgate.io`. For testing purposes, please use the sandbox URL `https://sandbox-api.craftgate.io`.
 
 ```js
 const Craftgate = require('@craftgate/craftgate');
@@ -91,7 +91,7 @@ const CraftgateClient = require('@craftgate/craftgate/CraftgateClient').default;
 ```
 
 ## Examples
-Included in the project are a number of examples that cover almost all use-cases. Refer to [the `samples/` folder](./samples)] for more info.
+Included in the project are a number of examples that cover almost all use-cases. Refer to [the `samples/` folder](./samples) for more info.
 
 Aside from demonstrating different business use cases, we also added technically different variants of certain examples to reflect the diversity in technical stacks. These examples are located under the [samples/misc](./samples/misc) folder, and what they represent are indicated by filename suffixes listed below:
 
@@ -103,9 +103,9 @@ Aside from demonstrating different business use cases, we also added technically
 | `.js` | Node.js v6+ (ES6-style JavaScript code with direct CommonJS imports) (e.g. `let/const` keyword for variables, `require()` keyword for imports, lambda expressions) |
 
 ### Running the Examples
-If you've cloned this repo on your development machine and wish to run the examples directly, make sure to install the dependencies using `npm i` and build the library using `npm run build`. Once the library is built, you can run an example with the command `node <example path>` (e.g. `node samples/payment/RetrievePayment.js`).
+If you've cloned this repo on your development machine and wish to run the examples directly, make sure to install the dependencies using `npm i` and build the library using `npm run build`, then replace the `apiKey` and `secretKey` values in the example with your sandbox credentials. Once the library is built, you can run an example with the command `node <example path>` (e.g. `node samples/payment/RetrievePayment.js`).
 
-Keep in mind that the `node` interpreter cannot be used to execute TypeScript files, whereas the `ts-node` can. This interpreter does not ship with Node.js itself, so you'll either have to install it globally on your machine, or include it in your project as a dependency. This repository already includes it as a dev dependency, and exposes it as an NPM task with the name`ts-node`, so to run a TypeScript example you can simply execute the command `npm run ts-node <example path>` (e.g. `npm run ts-node samples/misc/CreatePayment.ts`).
+Keep in mind that the `node` interpreter cannot be used to execute TypeScript files, whereas the `ts-node` can. This interpreter does not ship with Node.js itself, so you'll either have to install it globally on your machine, or include it in your project as a dependency. This repository already includes it as a dev dependency, and exposes it as an NPM task with the name `ts-node`, so to run a TypeScript example you can simply execute the command `npm run ts-node <example path>` (e.g. `npm run ts-node samples/misc/CreatePayment.ts`).
 
 ### Credit Card Payment Use Case (ES5-Style)
 Let's quickly review an example where we implement a credit card payment scenario using an ES5-style approach
