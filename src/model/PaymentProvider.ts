@@ -10,7 +10,7 @@ enum PaymentProvider {
   Metropol = 'METROPOL',
   Tokenflex = 'TOKENFLEX',
   Kaspi = 'KASPI',
-  InstantTransfer = 'INSTANT_TRANSFER',
+  Compay = 'COMPAY',
   Tompay = 'TOMPAY',
   YkbWorldPay = 'YKB_WORLD_PAY',
   ApplePay = 'APPLEPAY',
