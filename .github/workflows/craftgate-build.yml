@@ -24,9 +24,12 @@ jobs:
         run: npm ci --ignore-scripts
 
       # Release dry run: the library is built, tested and packed the way the release workflow does it,
-      # with a fake "v" prefixed tag; the runtime checks verify the version in the x-client-version header.
-      - name: Set Version From Fake Release Tag
-        run: .github/scripts/set-version.sh v9.9.9
+      # with a fake "v" prefixed version; the runtime checks verify the version in the x-client-version header.
+      - name: Validate Fake Release Version
+        run: .github/scripts/prepare-release.sh v9.9.9
+
+      - name: Set Version
+        run: npm version --allow-same-version --no-git-tag-version "$VERSION"
 
       - name: Build the Library
         run: npm run build
