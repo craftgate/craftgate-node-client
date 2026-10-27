@@ -11,6 +11,6 @@ const request = {
   subMerchantMemberPrice: 5
 };
 
-craftgate.payment().updatePaymentTransaction(10, request)
+craftgate.settlement().updatePaymentTransaction(10, request)
   .then(results => console.info("Payment transaction updated successfully", results))
   .catch(err => console.error("Failed to update payment transaction", err));

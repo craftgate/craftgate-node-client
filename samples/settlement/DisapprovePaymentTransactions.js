@@ -7,10 +7,10 @@ const craftgate = new Craftgate.Client({
 });
 
 const request = {
-  paymentTransactionIds: [1, 2], // change it with valid payment transaction ids
+  paymentTransactionIds: [1, 2],
   isTransactional: true
 };
 
-craftgate.payment().disapprovePaymentTransactions(request)
+craftgate.settlement().disapprovePaymentTransactions(request)
   .then(results => console.info('Disapprove payment transactions response', results))
   .catch(err => console.error('Failed to disapprove payment transactions', err));
