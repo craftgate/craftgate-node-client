@@ -2,7 +2,7 @@ import SettlementType from '../model/SettlementType';
 
 import BaseRequest from './BaseRequest';
 
-type SearchPayoutCompletedTransactionsRequest = BaseRequest & {
+type SearchPayoutCompletedItemsRequest = BaseRequest & {
   settlementFileId?: number;
   settlementType?: SettlementType;
   endDate: Date;
@@ -11,4 +11,4 @@ type SearchPayoutCompletedTransactionsRequest = BaseRequest & {
   size?: number;
 };
 
-export default SearchPayoutCompletedTransactionsRequest;
+export default SearchPayoutCompletedItemsRequest;

@@ -43,17 +43,8 @@ test('should pay', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 3,
-            merchantPayoutAmount: 2.97,
             subMerchantMemberId: 1,
-            subMerchantMemberPrice: 27,
-            subMerchantMemberPayoutRate: 90,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 27
           },
           {
             id: 2,
@@ -66,17 +57,8 @@ test('should pay', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 5,
-            merchantPayoutAmount: 8.25,
             subMerchantMemberId: 2,
-            subMerchantMemberPrice: 42,
-            subMerchantMemberPayoutRate: 84,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 42
           }
         ]
       },
@@ -139,11 +121,8 @@ test('should pay', async t => {
   t.is(result.paymentTransactions[0].walletPrice, 0)
   t.is(result.paymentTransactions[0].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[0].merchantCommissionRateAmount, 3)
-  t.is(result.paymentTransactions[0].merchantPayoutAmount, 2.97)
   t.is(result.paymentTransactions[0].subMerchantMemberId, 1)
   t.is(result.paymentTransactions[0].subMerchantMemberPrice, 27)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutRate, 90)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutAmount, 29.7)
 
   t.is(result.paymentTransactions[1].id, 2)
   t.is(result.paymentTransactions[1].externalId, 'a5eb1ab1-2676-4c10-830d-cc204e0f2126')
@@ -155,11 +134,8 @@ test('should pay', async t => {
   t.is(result.paymentTransactions[1].walletPrice, 0)
   t.is(result.paymentTransactions[1].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[1].merchantCommissionRateAmount, 5)
-  t.is(result.paymentTransactions[1].merchantPayoutAmount, 8.25)
   t.is(result.paymentTransactions[1].subMerchantMemberId, 2)
   t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
 
 });
 
@@ -275,17 +251,8 @@ test('should retrieve payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 3,
-            merchantPayoutAmount: 2.97,
             subMerchantMemberId: 1,
-            subMerchantMemberPrice: 27,
-            subMerchantMemberPayoutRate: 90,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 27
           },
           {
             id: 2,
@@ -298,17 +265,8 @@ test('should retrieve payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 5,
-            merchantPayoutAmount: 8.25,
             subMerchantMemberId: 2,
-            subMerchantMemberPrice: 42,
-            subMerchantMemberPayoutRate: 84,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 42
           }
         ]
       },
@@ -342,11 +300,8 @@ test('should retrieve payment', async t => {
   t.is(result.paymentTransactions[0].walletPrice, 0)
   t.is(result.paymentTransactions[0].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[0].merchantCommissionRateAmount, 3)
-  t.is(result.paymentTransactions[0].merchantPayoutAmount, 2.97)
   t.is(result.paymentTransactions[0].subMerchantMemberId, 1)
   t.is(result.paymentTransactions[0].subMerchantMemberPrice, 27)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutRate, 90)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutAmount, 29.7)
 
   t.is(result.paymentTransactions[1].id, 2)
   t.is(result.paymentTransactions[1].externalId, 'a5eb1ab1-2676-4c10-830d-cc204e0f2126')
@@ -358,11 +313,8 @@ test('should retrieve payment', async t => {
   t.is(result.paymentTransactions[1].walletPrice, 0)
   t.is(result.paymentTransactions[1].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[1].merchantCommissionRateAmount, 5)
-  t.is(result.paymentTransactions[1].merchantPayoutAmount, 8.25)
   t.is(result.paymentTransactions[1].subMerchantMemberId, 2)
   t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
 });
 
 test('should retrieve checkout payment', async t => {
@@ -399,17 +351,8 @@ test('should retrieve checkout payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 3,
-            merchantPayoutAmount: 2.97,
             subMerchantMemberId: 1,
-            subMerchantMemberPrice: 27,
-            subMerchantMemberPayoutRate: 90,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 27
           },
           {
             id: 2,
@@ -422,17 +365,8 @@ test('should retrieve checkout payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 5,
-            merchantPayoutAmount: 8.25,
             subMerchantMemberId: 2,
-            subMerchantMemberPrice: 42,
-            subMerchantMemberPayoutRate: 84,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 42
           }
         ]
       },
@@ -466,11 +400,8 @@ test('should retrieve checkout payment', async t => {
   t.is(result.paymentTransactions[0].walletPrice, 0)
   t.is(result.paymentTransactions[0].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[0].merchantCommissionRateAmount, 3)
-  t.is(result.paymentTransactions[0].merchantPayoutAmount, 2.97)
   t.is(result.paymentTransactions[0].subMerchantMemberId, 1)
   t.is(result.paymentTransactions[0].subMerchantMemberPrice, 27)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutRate, 90)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutAmount, 29.7)
 
   t.is(result.paymentTransactions[1].id, 2)
   t.is(result.paymentTransactions[1].externalId, 'a5eb1ab1-2676-4c10-830d-cc204e0f2126')
@@ -482,79 +413,8 @@ test('should retrieve checkout payment', async t => {
   t.is(result.paymentTransactions[1].walletPrice, 0)
   t.is(result.paymentTransactions[1].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[1].merchantCommissionRateAmount, 5)
-  t.is(result.paymentTransactions[1].merchantPayoutAmount, 8.25)
   t.is(result.paymentTransactions[1].subMerchantMemberId, 2)
   t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
-});
-
-test('should approve payment transactions', async t => {
-  const scope = nock('http://localhost:8000')
-    .post('/payment/v1/payment-transactions/approve')
-    .reply(200, {
-      data: {
-        items: [
-          {
-            paymentTransactionId: 100,
-            approvalStatus: 'APPROVED',
-            failedReason: ''
-          },
-          {
-            paymentTransactionId: 101,
-            approvalStatus: 'FAILURE',
-            failedReason: 'already approved'
-          }
-        ]
-      }
-    });
-
-  const request = {
-    paymentTransactionIds: [100, 101],
-    isTransactional: false
-  };
-
-  const result = await paymentAdapter.approvePaymentTransactions(request)
-  t.is(result.items[0].paymentTransactionId, 100)
-  t.is(result.items[0].approvalStatus, 'APPROVED')
-  t.is(result.items[0].failedReason, '')
-  t.is(result.items[1].paymentTransactionId, 101)
-  t.is(result.items[1].approvalStatus, 'FAILURE')
-  t.is(result.items[1].failedReason, 'already approved')
-});
-
-test('should disapprove payment transactions', async t => {
-  const scope = nock('http://localhost:8000')
-    .post('/payment/v1/payment-transactions/disapprove')
-    .reply(200, {
-      data: {
-        items: [
-          {
-            paymentTransactionId: 100,
-            approvalStatus: 'APPROVED',
-            failedReason: ''
-          },
-          {
-            paymentTransactionId: 101,
-            approvalStatus: 'FAILURE',
-            failedReason: 'already disapproved'
-          }
-        ]
-      }
-    });
-
-  const request = {
-    paymentTransactionIds: [100, 101],
-    isTransactional: false
-  };
-
-  const result = await paymentAdapter.disapprovePaymentTransactions(request)
-  t.is(result.items[0].paymentTransactionId, 100)
-  t.is(result.items[0].approvalStatus, 'APPROVED')
-  t.is(result.items[0].failedReason, '')
-  t.is(result.items[1].paymentTransactionId, 101)
-  t.is(result.items[1].approvalStatus, 'FAILURE')
-  t.is(result.items[1].failedReason, 'already disapproved')
 });
 
 test('should init 3ds payment', async t => {
@@ -638,17 +498,8 @@ test('should complete 3ds payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 3,
-            merchantPayoutAmount: 2.97,
             subMerchantMemberId: 1,
-            subMerchantMemberPrice: 27,
-            subMerchantMemberPayoutRate: 90,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 27
           },
           {
             id: 2,
@@ -661,17 +512,8 @@ test('should complete 3ds payment', async t => {
             walletPrice: 0,
             merchantCommissionRate: 10,
             merchantCommissionRateAmount: 5,
-            merchantPayoutAmount: 8.25,
             subMerchantMemberId: 2,
-            subMerchantMemberPrice: 42,
-            subMerchantMemberPayoutRate: 84,
-            subMerchantMemberPayoutAmount: 29.7,
-            payout: {
-              paidPrice: 33,
-              currency: 'TRY',
-              merchantPayoutAmount: 2.97,
-              subMerchantMemberPayoutAmount: 29.7
-            }
+            subMerchantMemberPrice: 42
           }
         ]
       },
@@ -707,11 +549,8 @@ test('should complete 3ds payment', async t => {
   t.is(result.paymentTransactions[0].walletPrice, 0)
   t.is(result.paymentTransactions[0].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[0].merchantCommissionRateAmount, 3)
-  t.is(result.paymentTransactions[0].merchantPayoutAmount, 2.97)
   t.is(result.paymentTransactions[0].subMerchantMemberId, 1)
   t.is(result.paymentTransactions[0].subMerchantMemberPrice, 27)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutRate, 90)
-  t.is(result.paymentTransactions[0].subMerchantMemberPayoutAmount, 29.7)
 
   t.is(result.paymentTransactions[1].id, 2)
   t.is(result.paymentTransactions[1].externalId, 'a5eb1ab1-2676-4c10-830d-cc204e0f2126')
@@ -723,11 +562,8 @@ test('should complete 3ds payment', async t => {
   t.is(result.paymentTransactions[1].walletPrice, 0)
   t.is(result.paymentTransactions[1].merchantCommissionRate, 10)
   t.is(result.paymentTransactions[1].merchantCommissionRateAmount, 5)
-  t.is(result.paymentTransactions[1].merchantPayoutAmount, 8.25)
   t.is(result.paymentTransactions[1].subMerchantMemberId, 2)
   t.is(result.paymentTransactions[1].subMerchantMemberPrice, 42)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutRate, 84)
-  t.is(result.paymentTransactions[1].subMerchantMemberPayoutAmount, 29.7)
 });
 
 test('should init 3ds deposit payment', async t => {

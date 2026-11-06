@@ -3,7 +3,6 @@ import {calculateHash} from '../lib/utils';
 
 import ApplePayMerchantSessionCreateRequest from '../request/ApplePayMerchantSessionCreateRequest';
 import ApproveBnplPaymentRequest from '../request/ApproveBnplPaymentRequest';
-import ApprovePaymentTransactionsRequest from '../request/ApprovePaymentTransactionsRequest';
 import BnplPaymentOfferRequest from '../request/BnplPaymentOfferRequest';
 import CloneCardRequest from '../request/CloneCardRequest';
 import CompleteApmPaymentRequest from '../request/CompleteApmPaymentRequest';
@@ -15,7 +14,6 @@ import CreateDepositPaymentRequest from '../request/CreateDepositPaymentRequest'
 import CreateFundTransferDepositPaymentRequest from '../request/CreateFundTransferDepositPaymentRequest';
 import CreatePaymentRequest from '../request/CreatePaymentRequest';
 import DeleteStoredCardRequest from '../request/DeleteStoredCardRequest';
-import DisapprovePaymentTransactionsRequest from '../request/DisapprovePaymentTransactionsRequest';
 import ExpireCheckoutPaymentRequest from '../request/ExpireCheckoutPaymentRequest';
 import InitApmDepositPaymentRequest from '../request/InitApmDepositPaymentRequest';
 import InitApmPaymentRequest from '../request/InitApmPaymentRequest';
@@ -38,7 +36,6 @@ import RetrieveProviderCardRequest from '../request/RetrieveProviderCardRequest'
 import SearchStoredCardsRequest from '../request/SearchStoredCardsRequest';
 import StoreCardRequest from '../request/StoreCardRequest';
 import UpdateCardRequest from '../request/UpdateCardRequest';
-import UpdatePaymentTransactionRequest from '../request/UpdatePaymentTransactionRequest';
 import VerifyBnplPaymentRequest from '../request/VerifyBnplPaymentRequest';
 import VerifyCardRequest from '../request/VerifyCardRequest';
 
@@ -63,10 +60,8 @@ import IVRCardTokenizationResponse from '../response/IVRCardTokenizationResponse
 import MultiPaymentResponse from '../response/MultiPaymentResponse';
 import PaymentRefundResponse from '../response/PaymentRefundResponse';
 import PaymentResponse from '../response/PaymentResponse';
-import PaymentTransactionApprovalListResponse from '../response/PaymentTransactionApprovalListResponse';
 import PaymentTransactionRefundListResponse from '../response/PaymentTransactionRefundListResponse';
 import PaymentTransactionRefundResponse from '../response/PaymentTransactionRefundResponse';
-import PaymentTransactionResponse from '../response/PaymentTransactionResponse';
 import RetrieveCheckoutCardVerifyResponse from '../response/RetrieveCheckoutCardVerifyResponse';
 import RetrieveLoyaltiesResponse from '../response/RetrieveLoyaltiesResponse';
 import StoredCardResponse from '../response/StoredCardResponse';
@@ -216,20 +211,8 @@ export default class PaymentAdapter extends BaseAdapter {
     return this._client.post('/payment/v1/cards/verify', request);
   }
 
-  async approvePaymentTransactions(request: ApprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/approve', request);
-  }
-
-  async disapprovePaymentTransactions(request: DisapprovePaymentTransactionsRequest): Promise<PaymentTransactionApprovalListResponse> {
-    return this._client.post('/payment/v1/payment-transactions/disapprove', request);
-  }
-
   async retrieveLoyalties(request: RetrieveLoyaltiesRequest): Promise<RetrieveLoyaltiesResponse> {
     return this._client.post('/payment/v1/card-loyalties/retrieve', request);
-  }
-
-  async updatePaymentTransaction(paymentTransactionId: number, request: UpdatePaymentTransactionRequest): Promise<PaymentTransactionResponse> {
-    return this._client.put(`/payment/v1/payment-transactions/${paymentTransactionId}`, request);
   }
 
   async createApplePayMerchantSession(request: ApplePayMerchantSessionCreateRequest): Promise<any> {
