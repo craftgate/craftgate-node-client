@@ -25,6 +25,7 @@ type SearchPaymentsRequest = BaseRequest & {
   maxPaidPrice?: number;
   installment?: Installment;
   isThreeDS?: boolean;
+  isMaskedCardPayment?: boolean;
   minCreatedDate?: Date;
   maxCreatedDate?: Date;
 };
