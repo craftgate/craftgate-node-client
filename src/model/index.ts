@@ -32,6 +32,8 @@ import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
+import PayoutApprovalStatus from './PayoutApprovalStatus';
+import PayoutItemSubject from './PayoutItemSubject';
 import PosApmPaymentProvider from './PosApmPaymentProvider';
 import PosIntegrator from './PosIntegrator';
 import PosOperationType from './PosOperationType';
@@ -47,6 +49,7 @@ import ReportFileType from './ReportFileType';
 import ReportPeriod from './ReportPeriod';
 import ReportType from './ReportType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
+import SettlementRowItemSubject from './SettlementRowItemSubject';
 import SettlementSource from './SettlementSource';
 import SettlementType from './SettlementType';
 import Status from './Status';
@@ -87,6 +90,8 @@ export = {
   PaymentStatus,
   PaymentType,
   PaymentProvider,
+  PayoutApprovalStatus,
+  PayoutItemSubject,
   PosApmPaymentProvider,
   RefundDestinationType,
   RefundStatus,
@@ -94,6 +99,7 @@ export = {
   RemittanceReasonType,
   RemittanceType,
   SettlementEarningsDestination,
+  SettlementRowItemSubject,
   SettlementSource,
   SettlementType,
   Status,
