@@ -32,7 +32,6 @@ import PaymentRefundStatus from './PaymentRefundStatus';
 import PaymentSource from './PaymentSource';
 import PaymentStatus from './PaymentStatus';
 import PaymentType from './PaymentType';
-import PayoutAccountType from './PayoutAccountType';
 import PayoutApprovalStatus from './PayoutApprovalStatus';
 import PayoutItemSubject from './PayoutItemSubject';
 import PosApmPaymentProvider from './PosApmPaymentProvider';
@@ -91,7 +90,6 @@ export = {
   PaymentStatus,
   PaymentType,
   PaymentProvider,
-  PayoutAccountType,
   PayoutApprovalStatus,
   PayoutItemSubject,
   PosApmPaymentProvider,
