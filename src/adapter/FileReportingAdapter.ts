@@ -1,11 +1,13 @@
 import {ClientCreationOptions} from '../lib/HttpClient';
 
+import CreateReportFromTemplateRequest from '../request/CreateReportFromTemplateRequest';
 import CreateReportRequest from '../request/CreateReportRequest';
 import RetrieveDailyPaymentReportRequest from '../request/RetrieveDailyPaymentReportRequest';
 import RetrieveDailyTransactionReportRequest from '../request/RetrieveDailyTransactionReportRequest';
 import RetrieveReportRequest from '../request/RetrieveReportRequest';
 
 import ReportDemandResponse from '../response/ReportDemandResponse';
+import ReportFromTemplateResponse from '../response/ReportFromTemplateResponse';
 
 import BaseAdapter from './BaseAdapter';
 
@@ -24,6 +26,10 @@ export default class FileReportingAdapter extends BaseAdapter {
 
   async createReport(request: CreateReportRequest): Promise<ReportDemandResponse> {
     return this._client.post('/file-reporting/v1/report-demands', request);
+  }
+
+  async createReportFromTemplate(templateId: number, request: CreateReportFromTemplateRequest): Promise<ReportFromTemplateResponse> {
+    return this._client.post('/file-reporting/v1/report-templates/' + templateId + '/reports', request);
   }
 
   async retrieveReport(request: RetrieveReportRequest, reportId: number): Promise<ArrayBuffer> {

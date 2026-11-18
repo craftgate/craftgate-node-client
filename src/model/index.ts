@@ -45,6 +45,7 @@ import RemittanceReasonType from './RemittanceReasonType';
 import RemittanceType from './RemittanceType';
 import ReportFileType from './ReportFileType';
 import ReportPeriod from './ReportPeriod';
+import ReportState from './ReportState';
 import ReportType from './ReportType';
 import SettlementEarningsDestination from './SettlementEarningsDestination';
 import SettlementSource from './SettlementSource';
@@ -108,6 +109,7 @@ export = {
   RecordType,
   ReportType,
   ReportPeriod,
+  ReportState,
   BankAccountTrackingSource,
   PosStatus,
   PosIntegrator,
