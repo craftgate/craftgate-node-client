@@ -6,7 +6,7 @@ const Craftgate = require('../../dist');
 const fileReportingAdapter = new Craftgate.Client({
   apiKey: 'api-key',
   secretKey: 'secret-key',
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'https://sandbox-api.craftgate.io'
 }).fileReporting();
 
 const startDate = new Date(2025, 10, 19, 9, 15, 31, 622);
