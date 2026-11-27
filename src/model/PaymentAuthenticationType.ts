@@ -1,7 +1,6 @@
 enum PaymentAuthenticationType {
   ThreeDs = 'THREE_DS',
-  NonThreeDs = 'NON_THREE_DS',
-  BkmExpress = 'BKM_EXPRESS'
+  NonThreeDs = 'NON_THREE_DS'
 }
 
 export default PaymentAuthenticationType;
