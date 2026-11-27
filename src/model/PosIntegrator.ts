@@ -38,6 +38,7 @@ enum PosIntegrator {
   AKBANK_VPOS = 'AKBANK_VPOS',
   TAP = 'TAP',
   RUBIK = 'RUBIK',
+  SAGLAMPAY = 'SAGLAMPAY',
   BIN_PAY = 'BIN_PAY',
   TURKONAY = 'TURKONAY',
   ENPARA = 'ENPARA'

@@ -34,6 +34,7 @@ const request = {
   maxPaidPrice: 10,
   installment: 1,
   isThreeDS: false,
+  isMaskedCardPayment: false,
   minCreatedDate: createDate(-1, 0, 0, 0),
   maxCreatedDate: createDate(-1, 23, 59, 59)
 };

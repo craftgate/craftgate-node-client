@@ -32,6 +32,7 @@ type BasePaymentResponse = {
   paymentSource: PaymentSource;
   paymentChannel: string;
   isThreeDS: boolean;
+  isMaskedCardPayment: boolean;
   merchantCommissionRate: number;
   merchantCommissionRateAmount: number;
   bankCommissionRate: number;
