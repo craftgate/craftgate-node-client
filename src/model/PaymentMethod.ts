@@ -21,7 +21,24 @@ enum PaymentMethod {
   MultinetGift = 'MULTINET_GIFT',
   MultinetNeoGift = 'MULTINET_NEO_GIFT',
   Bizum = 'BIZUM',
-  PaycellDCB = 'PAYCELL_DCB'
+  PaycellDCB = 'PAYCELL_DCB',
+  Hepsipay = 'HEPSIPAY',
+  GarantiPay = 'GARANTI_PAY',
+  Juzdan = 'JUZDAN',
+  YkbWorldPay = 'YKB_WORLD_PAY',
+  YkbWorldPayShoppingLoan = 'YKB_WORLD_PAY_SHOPPING_LOAN',
+  Metropol = 'METROPOL',
+  Paymob = 'PAYMOB',
+  VodafoneDcb = 'VODAFONE_DCB',
+  Kaspi = 'KASPI',
+  PaylandsMbWay = 'PAYLANDS_MB_WAY',
+  Zip = 'ZIP',
+  KaracaFinans = 'KARACA_FINANS',
+  IWallet = 'IWALLET',
+  Papel = 'PAPEL',
+  BkmExpress = 'BKM_EXPRESS',
+  IsPay = 'ISPAY',
+  IsPayPosApm = 'ISPAY_POS_APM'
 }
 
 export default PaymentMethod;
